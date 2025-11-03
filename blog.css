@@ -65,7 +65,6 @@ body {
   color: #007bff;
 }
 
-/* Zoom animation */
 @keyframes zoomInOut {
   0% {
     transform: scale(1);
@@ -86,25 +85,125 @@ body {
   display: flex;
   align-items: center;
   gap: 25px;
+  position: relative;
 }
 
 .icon-link {
+  text-decoration: none;
+  color:#333;
+  font-size: 12px;
+  font-weight: 600;
   display: flex;
   align-items: center;
-  gap: 8px;
-  color: #002b5c;
-  font-size: 14px;
-  text-decoration: none;
+  gap: 6px;
+  transition: color 0.3s;
+}
+
+.icon-link:hover {
+  color: #33b2ff;
 }
 
 .icon-link i {
-  font-size: 24px;
-  color: #4cb2ff;
-  background: #eaf6ff;
-  border-radius: 50%;
-  padding: 8px;
+  font-size: 20px;
+  color: #33b2ff;
 }
 
+.count-badge {
+  background: #33b2ff;
+  color: #fff;
+  font-size: 11px;
+  border-radius: 50%;
+  padding: 3px 6px;
+  margin-left: 4px;
+}
+
+.icon-wrapper {
+  position: relative;
+}
+
+/* ===== Cart Dropdown ===== */
+.dropdown {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  padding: 10px;
+  z-index: 999;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.icon-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 30px;
+  left: -10px;
+  width: calc(100% + 20px);
+  height: 25px;
+  background: transparent;
+  z-index: 5;
+}
+
+/* Dropdown items */
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 6px;
+  border-bottom: 1px solid #eee;
+  justify-content: space-between;
+}
+
+.dropdown-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.dropdown-info {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+  overflow: hidden;
+}
+
+.dropdown-info .name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #222;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dropdown-info .price {
+  font-size: 13px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  color: #ff4d4d;
+  cursor: pointer;
+  font-size: 14px;
+  flex: 0 0 auto;
+  margin-left: 8px;
+  opacity: 0.95;
+}
+
+.dropdown-item:hover .remove-btn {
+  opacity: 1;
+}
+
+/* ===== Navbar ===== */
 .navbar {
   background: #002b5c;
   height: 55px;
@@ -132,6 +231,7 @@ body {
   font-weight: 500;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .nav-container li a {
@@ -145,11 +245,10 @@ body {
   color: #33b2ff;
 }
 
-/* 📞 Contact Info on the Left */
+/* 📞 Contact Info */
 .contact-info {
   font-weight: 600;
   background: linear-gradient(90deg, #33b2ff, #33b2ff);
-  font-weight: bold;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: flex;
@@ -163,7 +262,6 @@ body {
   font-size: 16px;
 }
 
-
 .nav-container li.right {
   font-weight: 500;
   display: flex;
@@ -176,13 +274,65 @@ body {
   color: #33b2ff;
 }
 
-/* 🔵 Optional highlight style (replaces .nav-all) */
+/* 🔵 Optional highlight style */
 .nav-highlight {
   background: #33b2ff;
   padding: 8px 16px;
   border-radius: 4px;
   font-weight: 600;
   white-space: nowrap;
+}
+
+/* ===== Home Dropdown ===== */
+.home-dropdown .home-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #1a90d8;
+  list-style: none;
+  margin: 0;
+  min-width: 83px;
+  z-index: 999;
+}
+
+.home-dropdown .home-dropdown-menu li a {
+  display: block;
+  color: #fff;
+  padding: 8px 15px;
+  font-weight: 500;
+}
+
+.home-dropdown .home-dropdown-menu li a:hover {
+  background: #33b2ff;
+}
+
+/* Arrow (always visible) */
+.home-dropdown .arrow {
+  margin-left: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #33b2ff;
+  transition: transform 0.3s ease;
+}
+
+/* Rotate arrow when active */
+.home-dropdown.active .arrow {
+  transform: rotate(180deg);
+}
+
+/* Desktop Hover Dropdown */
+@media (min-width: 769px) {
+  .home-dropdown:hover .home-dropdown-menu {
+    display: block;
+  }
+}
+
+/* Mobile Toggle Dropdown */
+@media (max-width: 768px) {
+  .home-dropdown .home-dropdown-menu {
+    position: relative;
+  }
 }
 
 .about-header {
@@ -247,135 +397,6 @@ body {
   }
 }
 
-.header-icons {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-  position: relative;
-}
-
-
-.icon-link {
-  text-decoration: none;
-  color: #333;
-  font-size: 12px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  transition: color 0.3s;
-}
-
-.icon-link:hover {
-  color: #33b2ff;
-}
-
-.icon-link i {
-  font-size: 20px;
-}
-
-.count-badge {
-  background: #33b2ff;
-  color: #fff;
-  font-size: 11px;
-  border-radius: 50%;
-  padding: 3px 6px;
-  margin-left: 4px;
-}
-
-.icon-wrapper {
-  position: relative;
-}
-
-/* Dropdown box */
-.dropdown {
-  position: absolute;
-  top: 50px;
-  right: 0;
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  width: 250px;
-  padding: 10px;
-  z-index: 999;
-  display: none;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-
-/* Expanded invisible hover zone — ensures smooth cursor travel */
-.icon-wrapper::before {
-  content: "";
-  position: absolute;
-  top: 30px; /* extends slightly under icon */
-  left: -10px;
-  width: calc(100% + 20px);
-  height: 25px; /* hover-safe bridge zone */
-  background: transparent;
-  z-index: 5;
-}
-
-
-
-
-/* Dropdown item layout */
-.dropdown-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 6px;
-  border-bottom: 1px solid #eee;
-  justify-content: space-between;
-}
-
-.dropdown-item img {
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
-  border-radius: 6px;
-  flex: 0 0 50px;
-}
-
-.dropdown-info {
-  flex: 1 1 auto;
-  min-width: 0;
-  text-align: left;
-  overflow: hidden;
-}
-
-.dropdown-info .name {
-  display: block;
-  font-size: 14px;
-  font-weight: 600;
-  color: #222;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.dropdown-info .price {
-  display: block;
-  font-size: 13px;
-  color: #666;
-  margin-top: 4px;
-}
-
-.remove-btn {
-  background: none;
-  border: none;
-  color: #ff4d4d;
-  cursor: pointer;
-  font-size: 14px;
-  flex: 0 0 auto;
-  margin-left: 8px;
-  opacity: 0.95;
-}
-
-.dropdown-item:hover .remove-btn {
-  opacity: 1;
-}
 
   .blog-section {
       text-align: center;

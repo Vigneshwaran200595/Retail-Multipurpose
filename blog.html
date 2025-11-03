@@ -65,30 +65,36 @@
 
   <!-- Navigation -->
   <nav class="navbar">
-    <ul class="nav-container">
-      <!-- 📞 Contact Number -->
-      <li class="contact-info">
-        <i class="fa-solid fa-phone"></i> +91 1234567890
-      </li>
+  <ul class="nav-container">
+    <!-- 📞 Contact Number -->
+    <li class="contact-info">
+      <i class="fa-solid fa-phone"></i> +91 1234567890
+    </li>
 
-      <!-- 🔗 Navigation Links -->
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="affiliate.html">Affiliate</a></li>
-      <li><a href="faq.html">FAQ</a></li>
-      <li><a href="#">Dashboard</a></li>
-      <li><a href="shop.html">Shop</a></li>
-      <li><a href="blog.html">Blog</a></li>
-      <li><a href="contact.html">Contact</a></li>
+    <!-- 🔗 Navigation Links -->
+    <li class="home-dropdown">
+      <a href="index.html">Home <span class="arrow">&#9662;</span></a>
+      <ul class="home-dropdown-menu">
+        <li><a href="404.html">Home 2</a></li>
+      </ul>
+    </li>
 
-      <!-- ⭐ Right Side Items -->
-       <li class="right">
-  <a href="track.html" class="track-link">
-    <i class="fa fa-truck"></i> Track My Order
-  </a>
-</li>
-    </ul>
-  </nav>
+    <li><a href="about.html">About</a></li>
+    <li><a href="affiliate.html">Affiliate</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="dashboard.html">Dashboard</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+
+    <!-- ⭐ Right Side -->
+    <li class="right">
+      <a href="track.html" class="track-link">
+        <i class="fa fa-truck"></i> Track My Order
+      </a>
+    </li>
+  </ul>
+</nav>
 
 <section class="about-header">
   <div class="about-content">
@@ -116,7 +122,8 @@
           </div>
           <h3>Top 10 Smart Gadgets That Are Changing Online Shopping</h3>
           <p>Discover the latest tech trends and smart gadgets that are transforming how customers shop online.</p>
-          <a href="#" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="404.html"
+ class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
 
@@ -132,7 +139,8 @@
           </div>
           <h3>How Digital Payments Are Shaping the Future of E-commerce</h3>
           <p>Learn how secure and fast digital payment systems are redefining convenience in the eCommerce world.</p>
-          <a href="#" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="404.html"
+ class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
 
@@ -148,7 +156,8 @@
           </div>
           <h3>Why Personalized Shopping Is the Next Big Thing in Retail</h3>
           <p>Understand how personalized shopping experiences increase engagement and customer loyalty.</p>
-          <a href="#" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="404.html"
+ class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
 
@@ -165,7 +174,8 @@
           </div>
           <h3>Fast Shipping: How Same-Day Delivery Boosts Customer Loyalty</h3>
           <p>See how express delivery services are becoming key in improving customer satisfaction and retention.</p>
-          <a href="#" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="404.html"
+ class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
 
@@ -181,7 +191,8 @@
           </div>
           <h3>How Great Customer Service Can Drive E-commerce Growth</h3>
           <p>Explore how efficient support teams turn first-time buyers into repeat customers and brand advocates.</p>
-          <a href="#" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="404.html"
+ class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
 
@@ -197,20 +208,25 @@
           </div>
           <h3>AI-Powered Inventory Management: The Future of Retail Efficiency</h3>
           <p>Discover how artificial intelligence is helping retailers predict demand and reduce operational costs.</p>
-          <a href="#" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="404.html"
+ class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
     </div>
   </section>
 
 
-  <section class="discount-section">
+<!-- Discount Coupon Section -->
+<section class="discount-section">
   <div class="discount-content">
     <h2>GET <span>20% OFF</span> DISCOUNT COUPON</h2>
     <p>by subscribe our newsletter</p>
+
     <div class="subscribe-box">
-      <input type="email" placeholder="Your Email Address">
-      <button><i class="fa-solid fa-paper-plane"></i> Subscribe</button>
+      <input type="email" id="emailInput" placeholder="Your Email Address">
+      <button onclick="subscribeNow()">
+        <i class="fa-solid fa-paper-plane"></i> Subscribe
+      </button>
     </div>
   </div>
 </section>
@@ -236,13 +252,20 @@
       <div class="footer-col">
         <h3>Quick Links</h3>
         <ul>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Delivery Info</a></li>
-          <li><a href="#">Contact Us</a></li>
-          <li><a href="#">Update News</a></li>
-          <li><a href="#">Our Testimonials</a></li>
-          <li><a href="#">Terms Of Service</a></li>
-          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="404.html">
+About Us</a></li>
+          <li><a href="404.html">
+Delivery Info</a></li>
+          <li><a href="404.html">
+Contact Us</a></li>
+          <li><a href="404.html">
+Update News</a></li>
+          <li><a href="404.html">
+Our Testimonials</a></li>
+          <li><a href="404.html">
+Terms Of Service</a></li>
+          <li><a href="404.html">
+Privacy Policy</a></li>
         </ul>
       </div>
 
@@ -250,13 +273,20 @@
       <div class="footer-col">
         <h3>Browse Category</h3>
         <ul>
-          <li><a href="#">Accessories</a></li>
-          <li><a href="#">Home & Garden</a></li>
-          <li><a href="#">Electronics</a></li>
-          <li><a href="#">Health & Beauty</a></li>
-          <li><a href="#">Grocery & Market</a></li>
-          <li><a href="#">Toy & Games</a></li>
-          <li><a href="#">Babies & Moms</a></li>
+          <li><a href="404.html">
+Accessories</a></li>
+          <li><a href="404.html">
+Home & Garden</a></li>
+          <li><a href="404.html">
+Electronics</a></li>
+          <li><a href="404.html">
+Health & Beauty</a></li>
+          <li><a href="404.html">
+Grocery & Market</a></li>
+          <li><a href="404.html">
+Toy & Games</a></li>
+          <li><a href="404.html">
+Babies & Moms</a></li>
         </ul>
       </div>
 
@@ -264,13 +294,20 @@
       <div class="footer-col">
         <h3>Support Center</h3>
         <ul>
-          <li><a href="#">FAQ's</a></li>
-          <li><a href="#">How To Buy</a></li>
-          <li><a href="#">Support Center</a></li>
-          <li><a href="#">Track Your Order</a></li>
-          <li><a href="#">Returns Policy</a></li>
-          <li><a href="#">Our Affiliates</a></li>
-          <li><a href="#">Sitemap</a></li>
+          <li><a href="404.html">
+FAQ's</a></li>
+          <li><a href="404.html">
+How To Buy</a></li>
+          <li><a href="404.html">
+Support Center</a></li>
+          <li><a href="404.html">
+Track Your Order</a></li>
+          <li><a href="404.html">
+Returns Policy</a></li>
+          <li><a href="404.html">
+Our Affiliates</a></li>
+          <li><a href="404.html">
+Sitemap</a></li>
         </ul>
       </div>
 
@@ -301,10 +338,14 @@
       <p>© Copyright 2025 <span>Stackly</span> All Rights Reserved.</p>
       <div class="footer-social">
         <p>Follow Us:</p>
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="404.html">
+<i class="fab fa-facebook-f"></i></a>
+        <a href="404.html">
+<i class="fab fa-twitter"></i></a>
+        <a href="404.html">
+<i class="fab fa-linkedin-in"></i></a>
+        <a href="404.html">
+<i class="fab fa-youtube"></i></a>
       </div>
     </div>
   </footer>
@@ -458,6 +499,44 @@ updateCartUI();
 </script>
 
 
+<script>
+function subscribeNow() {
+  const emailInput = document.getElementById('emailInput');
+  const email = emailInput.value.trim();
+
+  if (email === "") {
+    // show message inside input field
+    emailInput.value = "";
+    emailInput.placeholder = "⚠ Please fill the field";
+    emailInput.style.border = "2px solid red";
+    emailInput.style.color = "red";
+
+    setTimeout(() => {
+      // reset placeholder & color after 2 seconds
+      emailInput.placeholder = "Your Email Address";
+      emailInput.style.border = "2px solid #33b2ff";
+      emailInput.style.color = "#000";
+    }, 2000);
+  } else {
+    window.location.href = "404.html";
+  }
+}
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const homeDropdown = document.querySelector('.home-dropdown');
+  const arrow = homeDropdown?.querySelector('.arrow');
+  const menu = homeDropdown?.querySelector('.home-dropdown-menu');
+
+  if (arrow && menu) {
+    arrow.addEventListener('click', (e) => {
+      e.preventDefault();
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    });
+  }
+});
+</script>
 
 </body>
 </html>

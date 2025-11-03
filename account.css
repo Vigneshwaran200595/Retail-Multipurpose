@@ -1,0 +1,308 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Background Video */
+#bgVideo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+/* Optional smoke overlay for effect */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 30, 0.5);
+  z-index: -1;
+}
+
+/* Main Container */
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.container {
+  position: relative;
+  max-width: 850px;
+  width: 100%;
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  perspective: 2700px;
+  overflow: hidden;
+}
+
+/* 3D Flip */
+.container .cover {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 100%;
+  width: 50%;
+  z-index: 98;
+  transition: all 1s ease;
+  transform-origin: left;
+  transform-style: preserve-3d;
+}
+
+.container #flip:checked ~ .cover {
+  transform: rotateY(-180deg);
+}
+
+.container .cover .front,
+.container .cover .back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+}
+
+.cover .back {
+  transform: rotateY(180deg);
+}
+
+/* Cover Images */
+.container .cover img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0 10px 10px 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* Overlay and text on top of cover */
+.container .cover .text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2; /* Ensure text and logo are above the image */
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 91, 153, 0.55); /* slightly transparent blue overlay */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+}
+
+/* Logo Styling */
+.cover .text img.logo {
+  width: 200px;
+  height: 60px;
+  margin-left: 100px;
+  margin-top: 60px;
+  align-items: center;
+  object-fit: contain;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4)); /* make logo pop */
+}
+
+/* Text Styling */
+.cover .text .text-1 {
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #ffffff;
+  text-shadow: 0 3px 8px rgba(0,0,0,0.5);
+}
+
+.cover .text .text-2 {
+  font-size: 16px;
+  margin-top: 10px;
+  color: #e8f7ff;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+
+
+/* Forms */
+.container .forms {
+  height: 100%;
+  width: 100%;
+  background: #fff;
+}
+
+.container .form-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-content .login-form,
+.form-content .signup-form {
+  width: calc(100% / 2 - 25px);
+}
+
+.forms .form-content .title {
+  position: relative;
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.forms .form-content .title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  height: 3px;
+  width: 25px;
+  background: #33b2ff;
+}
+
+.forms .form-content .input-boxes {
+  margin-top: 10px;
+}
+
+.forms .form-content .input-box {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  margin: 10px 0;
+  position: relative;
+}
+
+.form-content .input-box input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  padding: 0 30px;
+  font-size: 16px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.form-content .input-box input:focus,
+.form-content .input-box input:valid {
+  border-color: #33b2ff;
+}
+
+.form-content .input-box i {
+  position: absolute;
+  color: #33b2ff;
+  font-size: 17px;
+}
+
+.forms .form-content .text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  text-align: right;
+}
+
+.forms .form-content .text a {
+  text-decoration: none;
+  color: #33b2ff;
+}
+
+.forms .form-content .text a:hover {
+  text-decoration: underline;
+}
+
+.forms .form-content .button {
+  margin-top: 35px;
+}
+
+.forms .form-content .button input {
+  color: #fff;
+  background: #33b2ff;
+  border-radius: 6px;
+  border: none;
+  height: 45px;
+  font-size: 17px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.forms .form-content .button input:hover {
+  background: #0095e9;
+}
+
+.forms .form-content label {
+  color: #33b2ff;
+  cursor: pointer;
+}
+
+.forms .form-content label:hover {
+  text-decoration: underline;
+}
+
+.container #flip {
+  display: none;
+}
+
+/* Responsive */
+@media (max-width: 730px) {
+  .container .cover {
+    display: none;
+  }
+  .form-content {
+    flex-direction: column;
+  }
+  .form-content .login-form,
+  .form-content .signup-form {
+    width: 100%;
+  }
+  .form-content .signup-form {
+    display: none;
+  }
+  .container #flip:checked ~ .forms .signup-form {
+    display: block;
+  }
+  .container #flip:checked ~ .forms .login-form {
+    display: none;
+  }
+}
+
+.forms .form-content .sign-up-text {
+  text-align: left;          /* Align text to the left */
+  margin-left: 50px;        /* Move slightly left */
+  display: block;
+}
+
+
+.home-btn {
+  text-align: center;
+  margin-top: 15px;
+}
+.home-btn a {
+  text-decoration: none;
+  color: #33b2ff;
+  font-weight: 600;
+  transition: 0.3s;
+}
+.home-btn a:hover {
+  color: #0077cc;
+}
+.home-btn i {
+  margin-right: 6px;
+}
+  

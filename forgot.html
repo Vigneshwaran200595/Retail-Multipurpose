@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>Forgot Password | Blue Theme</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    /* Background Video */
+    #bgVideo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+
+    /* Overlay for effect */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 30, 0.5);
+      z-index: -1;
+    }
+
+    /* Centered Forgot Password Form */
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f0f8ff;
+    }
+
+    .forgot-form {
+      background: #ffffff;
+      padding: 40px 35px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+    }
+
+    .forgot-form .title {
+      font-size: 26px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 25px;
+      position: relative;
+    }
+
+    .forgot-form .title::before {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 3px;
+      width: 50px;
+      background: #33b2ff;
+      border-radius: 5px;
+    }
+
+    .input-box {
+      position: relative;
+      width: 100%;
+      margin: 15px 0;
+    }
+
+    .input-box i {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      color: #33b2ff;
+      font-size: 18px;
+    }
+
+    .input-box input {
+      width: 100%;
+      height: 50px;
+      padding: 0 40px;
+      border: none;
+      border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+      outline: none;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .input-box input:focus {
+      border-color: #33b2ff;
+    }
+
+    .button input {
+      width: 100%;
+      height: 50px;
+      border: none;
+      border-radius: 6px;
+      background: #33b2ff;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .button input:hover {
+      background: #0095e9;
+    }
+
+    .text {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .text a {
+      color: #33b2ff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .text a:hover {
+      text-decoration: underline;
+      color: #0095e9;
+    }
+
+    /* Success message popup */
+    .success-message {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      padding: 25px 20px;
+      display: none;
+      width: 85%;
+    }
+
+    .success-message p {
+      font-size: 18px;
+      font-weight: 500;
+      color: #33b2ff;
+      margin-bottom: 10px;
+    }
+
+    .success-message i {
+      font-size: 40px;
+      color: #33b2ff;
+      margin-bottom: 10px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Background Video -->
+  <video autoplay muted loop id="bgVideo">
+    <source src="Videos/signin.mp4" type="video/mp4">
+  </video>
+
+  <div class="overlay"></div>
+
+  <!-- Forgot Password Form -->
+  <div class="forgot-form" id="forgotPasswordForm">
+    <div class="title">Forgot Password</div>
+    <form id="resetForm">
+      <div class="input-box">
+        <i class="fas fa-envelope"></i>
+        <input type="email" placeholder="Enter your registered email" required>
+      </div>
+      <div class="button input-box">
+        <input type="submit" value="Send Reset Link">
+      </div>
+      <div class="text">
+        <a href="account.html">← Back to Login</a>
+      </div>
+    </form>
+
+    <!-- Success Message -->
+    <div class="success-message" id="successMessage">
+      <i class="fas fa-check-circle"></i>
+      <p>Reset link sent to your email!</p>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('resetForm');
+    const successMessage = document.getElementById('successMessage');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // Stop page reload
+      successMessage.style.display = 'block'; // Show success message
+
+      // Hide form temporarily
+      form.style.opacity = '0.3';
+
+      // Optionally reset form
+      form.reset();
+
+      // Hide message after 3 seconds and restore form
+      setTimeout(() => {
+        successMessage.style.display = 'none';
+        form.style.opacity = '1';
+      }, 3000);
+    });
+  </script>
+
+</body>
+</html>
