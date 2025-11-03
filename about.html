@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stackly Retail/Multipurpose</title>
+  <link rel="stylesheet" href="about.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Top Header -->
+  <header class="header">
+    <div class="header-container">
+      
+      <!-- Logo -->
+      <div class="logo">
+        <img src="Images/logo.png" alt="logo">
+      </div>
+
+      <!-- Zoom In/Out Animation Text -->
+      <div class="animated-banner">
+        <div class="zoom-text">
+          <i class="fa-solid fa-truck-fast"></i> Above $100 Delivery Free
+        </div>
+      </div>
+
+      <!-- Right Icons -->
+       <div class="header-icons">
+  <a href="account.html" class="icon-link">
+    <i class="fa fa-user-circle"></i>
+    <span>Sign In<br>Account</span>
+  </a>
+
+  <!-- ❤️ Wishlist -->
+  <div class="icon-wrapper">
+    <a href="wishlist.html" class="icon-link wishlist">
+      <i class="fa fa-heart"></i>
+      <span>Wishlist<br>My Items</span>
+      <span id="wishlist-count" class="count-badge">0</span>
+    </a>
+    <div class="dropdown" id="wishlist-dropdown">
+      <p>No items in wishlist</p>
+    </div>
+  </div>
+
+  <!-- 🛒 Cart -->
+  <div class="icon-wrapper">
+    <a href="addtocart.html" class="icon-link cart">
+      <i class="fa fa-shopping-cart"></i>
+      <span id="cart-total">₹0.00<br>My Cart</span>
+      <span id="cart-count" class="count-badge">0</span>
+    </a>
+    <div class="dropdown" id="cart-dropdown">
+      <p>Your cart is empty</p>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </header>
+
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <ul class="nav-container">
+      <!-- 📞 Contact Number -->
+      <li class="contact-info">
+        <i class="fa-solid fa-phone"></i> +91 1234567890
+      </li>
+
+      <!-- 🔗 Navigation Links -->
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="affiliate.html">Affiliate</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="#">Dashboard</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+
+      <!-- ⭐ Right Side Items -->
+       <li class="right">
+  <a href="track.html" class="track-link">
+    <i class="fa fa-truck"></i> Track My Order
+  </a>
+</li>
+    </ul>
+  </nav>
+
+<section class="about-header">
+  <div class="about-content">
+    <h1>About Us</h1>
+    <p><i class="fas fa-home"></i> Home <span>››</span> About Us</p>
+  </div>
+</section>
+
+<section class="about-section">
+  <div class="about-wrapper">
+
+    <!-- Left Side Images -->
+    <div class="about-images">
+      <div class="img-top">
+        <img src="Images/about-2.jpg" alt="Shopping Friends">
+        <div class="experience-badge">
+          <i class="fas fa-cogs"></i>
+          <div>
+            <h3>30 Years Of</h3>
+            <p>Experience</p>
+          </div>
+        </div>
+      </div>
+      <div class="img-bottom">
+        <img src="Images/about-3.jpg" alt="Shopping Girl">
+      </div>
+    </div>
+
+    <!-- Right Side Content -->
+    <div class="about-content">
+      <h5>ABOUT US</h5>
+      <h2>World Largest Online <span>Shopping Marketplace</span> For You.</h2>
+      <p>
+        We are standard text ever since the when an unknown printer took a galley of type
+        and scrambled it to make type but the majority have suffered alteration in some form
+        by injected humour specimen book. It has survived not only five but also the leap
+        into electronic remaining essentially by injected humour unchanged.
+      </p>
+
+      <ul class="about-features">
+        <li><i class="fas fa-check-circle"></i> Streamlined Shipping Experience</li>
+        <li><i class="fas fa-check-circle"></i> Affordable Modern Design</li>
+        <li><i class="fas fa-check-circle"></i> Competitive Price & Easy To Shop</li>
+        <li><i class="fas fa-check-circle"></i> We Made Awesome Products</li>
+      </ul>
+
+      <a href="#" class="about-btn">Discover More <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<section class="stats-section">
+  <div class="stats-container">
+
+    <div class="stat-box">
+      <div class="icon"><i class="fas fa-shopping-cart"></i></div>
+      <h2><span class="counter" data-target="50">0</span>k</h2>
+      <p>Total Sales</p>
+    </div>
+
+    <div class="stat-box">
+      <div class="icon"><i class="fas fa-users"></i></div>
+      <h2><span class="counter" data-target="90">0</span>k</h2>
+      <p>Happy Clients</p>
+    </div>
+
+    <div class="stat-box">
+      <div class="icon"><i class="fas fa-user-tie"></i></div>
+      <h2><span class="counter" data-target="150">0</span>+</h2>
+      <p>Team Workers</p>
+    </div>
+
+    <div class="stat-box">
+      <div class="icon"><i class="fas fa-trophy"></i></div>
+      <h2><span class="counter" data-target="30">0</span>+</h2>
+      <p>Win Awards</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="testimonial-section">
+  <div class="testimonial-header">
+    <h5>TESTIMONIALS</h5>
+    <h2>What Our Client Say's <span>About Us</span></h2>
+  </div>
+
+  <!-- Swiper Container -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+
+      <!-- Testimonial 1 -->
+      <div class="swiper-slide testimonial-card">
+        <div class="testimonial-top">
+          <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="User 1">
+          <div>
+            <h4>Sylvia H Green</h4>
+            <p>Customer</p>
+          </div>
+        </div>
+        <p>
+          This is my favorite shopping site! The products are top quality, and delivery is always on time. 
+          I especially love how easy the checkout process is — smooth and quick every time.
+        </p>
+        <div class="testimonial-bottom">
+          <i class="fas fa-quote-right"></i>
+          <div class="stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="swiper-slide testimonial-card">
+        <div class="testimonial-top">
+          <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="User 2">
+          <div>
+            <h4>Gordo Novak</h4>
+            <p>Customer</p>
+          </div>
+        </div>
+        <p>
+          I’ve ordered multiple items from this store and never had an issue. 
+          The prices are great, and I always get updates about my shipment. Totally recommend for online shopping lovers!
+        </p>
+        <div class="testimonial-bottom">
+          <i class="fas fa-quote-right"></i>
+          <div class="stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="swiper-slide testimonial-card">
+        <div class="testimonial-top">
+          <img src="https://randomuser.me/api/portraits/women/23.jpg" alt="User 3">
+          <div>
+            <h4>Reid E Butt</h4>
+            <p>Customer</p>
+          </div>
+        </div>
+        <p>
+          I purchased a few electronic gadgets and was amazed by the packaging and delivery speed. 
+          Everything worked perfectly right out of the box — five-star experience!
+        </p>
+        <div class="testimonial-bottom">
+          <i class="fas fa-quote-right"></i>
+          <div class="stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 4 -->
+      <div class="swiper-slide testimonial-card">
+        <div class="testimonial-top">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User 4">
+          <div>
+            <h4>Parker Jimenez</h4>
+            <p>Customer</p>
+          </div>
+        </div>
+        <p>
+          The customer support team is so friendly and helpful. 
+          I had a small issue with my order, and they resolved it within minutes. 
+          Great service and trustworthy platform!
+        </p>
+        <div class="testimonial-bottom">
+          <i class="fas fa-quote-right"></i>
+          <div class="stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<section class="team-section">
+  <div class="container">
+    <h4 class="subtitle">OUR TEAM</h4>
+    <h2 class="title">Meet Our Expert <span>Team</span></h2>
+
+    <div class="team-container">
+      <!-- Team Member 1 -->
+      <div class="team-card">
+        <img src="Images/team1.jpg" alt="Chad Smith">
+        <h3>Chad Smith</h3>
+        <p class="role">Senior Manager</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-x-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <!-- Team Member 2 -->
+      <div class="team-card">
+        <img src="Images/team2.jpg" alt="Malissa Fie">
+        <h3>Malissa Fie</h3>
+        <p class="role">SEO Expert</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-x-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <!-- Team Member 3 -->
+      <div class="team-card">
+        <img src="Images/team3.jpg" alt="Arron Rodri">
+        <h3>Arron Rodri</h3>
+        <p class="role">CEO & Founder</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-x-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <!-- Team Member 4 -->
+      <div class="team-card">
+        <img src="Images/team4.jpg" alt="Tony Pinako">
+        <h3>Tony Pinako</h3>
+        <p class="role">Digital Marketer</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-x-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-container">
+      
+      <!-- Column 1: About -->
+      <div class="footer-col">
+        <img src="Images/logo.png" alt="Mocart Logo" class="footer-logo">
+        <p>
+          We are many variations of the passages available but the majoro have suffered alteration injected.
+        </p>
+        <ul class="footer-contact">
+          <li><i class="fa fa-phone"></i> +2 123 654 7898</li>
+          <li><i class="fa fa-map-marker"></i> Salem, Tamilnadu</li>
+          <li><i class="fa fa-envelope"></i> info@example.com</li>
+          <li><i class="fa fa-clock"></i> Mon-Fri (9.00AM - 8.00PM)</li>
+        </ul>
+      </div>
+
+      <!-- Column 2: Quick Links -->
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Delivery Info</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Update News</a></li>
+          <li><a href="#">Our Testimonials</a></li>
+          <li><a href="#">Terms Of Service</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Browse Category -->
+      <div class="footer-col">
+        <h3>Browse Category</h3>
+        <ul>
+          <li><a href="#">Accessories</a></li>
+          <li><a href="#">Home & Garden</a></li>
+          <li><a href="#">Electronics</a></li>
+          <li><a href="#">Health & Beauty</a></li>
+          <li><a href="#">Grocery & Market</a></li>
+          <li><a href="#">Toy & Games</a></li>
+          <li><a href="#">Babies & Moms</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Support Center -->
+      <div class="footer-col">
+        <h3>Support Center</h3>
+        <ul>
+          <li><a href="#">FAQ's</a></li>
+          <li><a href="#">How To Buy</a></li>
+          <li><a href="#">Support Center</a></li>
+          <li><a href="#">Track Your Order</a></li>
+          <li><a href="#">Returns Policy</a></li>
+          <li><a href="#">Our Affiliates</a></li>
+          <li><a href="#">Sitemap</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 5: Get Mobile App -->
+      <div class="footer-col app-section">
+        <h3>Get Mobile App</h3>
+        <p>Stackly App is now available on App Store & Google Play.</p>
+        <p>Download Our Mobile App</p>
+        <div class="app-buttons">
+          <img src="Images/googleplay.png" alt="Google Play">
+          <img src="Images/applestore.png" alt="App Store">
+        </div>
+        <p>We Accept:</p>
+        <div class="payment-icons">
+          <img src="Images/visa.png" alt="Visa">
+        </div>
+      </div>
+    </div>
+
+      <!-- Animated Delivery Truck -->
+  <div class="footer-truck">
+  <i class="fa-solid fa-truck-fast"></i>
+  <span class="truck-text">Fast Delivery</span>
+</div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>© Copyright 2025 <span>Stackly</span> All Rights Reserved.</p>
+      <div class="footer-social">
+        <p>Follow Us:</p>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </footer>
+
+<!-- Font Awesome -->
+<script src="https://kit.fontawesome.com/a2e0e6ad6b.js" crossorigin="anonymous"></script>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 4,
+    spaceBetween: 25,
+    loop: true,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    breakpoints: {
+      1200: { slidesPerView: 4 },
+      992: { slidesPerView: 3 },
+      768: { slidesPerView: 2 },
+      576: { slidesPerView: 1 },
+    },
+  });
+</script>
+
+<script>
+  const counters = document.querySelectorAll('.counter');
+  const speed = 150; // Lower = faster
+
+  const startCounting = () => {
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const increment = target / speed;
+
+        if (count < target) {
+          counter.innerText = Math.ceil(count + increment);
+          setTimeout(updateCount, 20);
+        } else {
+          counter.innerText = target;
+        }
+      };
+      updateCount();
+    });
+  };
+
+  // Trigger when visible on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        startCounting();
+        observer.disconnect();
+      }
+    });
+  });
+
+  observer.observe(document.querySelector('.stats-section'));
+</script>
+
+<script>
+// ====================== LOAD DATA ======================
+let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+// ====================== ELEMENT REFERENCES ======================
+const wishlistCountEl = document.getElementById("wishlist-count");
+const cartCountEl = document.getElementById("cart-count");
+const cartTotalEl = document.getElementById("cart-total");
+
+const wishlistDropdown = document.getElementById("wishlist-dropdown");
+const cartDropdown = document.getElementById("cart-dropdown");
+
+const wishlistWrapper = document.querySelector(".wishlist")?.closest(".icon-wrapper");
+const cartWrapper = document.querySelector(".cart")?.closest(".icon-wrapper");
+
+// ====================== DROPDOWN HOVER FIX ======================
+function setupDropdown(wrapper, dropdown) {
+  if (!wrapper || !dropdown) return;
+  let hideTimeout;
+
+  wrapper.addEventListener("mouseenter", () => {
+    clearTimeout(hideTimeout);
+    dropdown.style.display = "block";
+    dropdown.style.opacity = "1";
+  });
+
+  wrapper.addEventListener("mouseleave", () => {
+    hideTimeout = setTimeout(() => {
+      dropdown.style.opacity = "0";
+      dropdown.style.display = "none";
+    }, 250);
+  });
+
+  dropdown.addEventListener("mouseenter", () => {
+    clearTimeout(hideTimeout);
+    dropdown.style.display = "block";
+    dropdown.style.opacity = "1";
+  });
+
+  dropdown.addEventListener("mouseleave", () => {
+    hideTimeout = setTimeout(() => {
+      dropdown.style.opacity = "0";
+      dropdown.style.display = "none";
+    }, 250);
+  });
+}
+
+setupDropdown(wishlistWrapper, wishlistDropdown);
+setupDropdown(cartWrapper, cartDropdown);
+
+// ====================== UPDATE WISHLIST UI ======================
+function updateWishlistUI() {
+  if (wishlistCountEl) wishlistCountEl.textContent = wishlist.length;
+
+  if (wishlist.length === 0) {
+    wishlistDropdown.innerHTML = `<p style="text-align:center; color:#777; padding:10px;">No items in wishlist</p>`;
+    return;
+  }
+
+  wishlistDropdown.innerHTML = wishlist
+    .map(
+      (item) => `
+      <div class="dropdown-item">
+        <img src="${item.img}" alt="${item.name}">
+        <div class="dropdown-info">
+          <span class="name">${item.name}</span>
+          <span class="price">₹${item.price}</span>
+        </div>
+        <div class="dropdown-actions">
+          <button class="add-btn" onclick="addToCart(${item.id})" title="Add to Cart">
+            <i class="fa-solid fa-cart-plus"></i>
+          </button>
+          <button class="remove-btn" onclick="removeFromWishlist(${item.id})" title="Remove">&times;</button>
+        </div>
+      </div>`
+    )
+    .join("");
+}
+
+// ====================== UPDATE CART UI ======================
+function updateCartUI() {
+  const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+
+  if (cartCountEl) cartCountEl.textContent = cart.length;
+  if (cartTotalEl) cartTotalEl.innerHTML = `₹${subtotal.toFixed(2)}<br>My Cart`;
+
+  if (cart.length === 0) {
+    cartDropdown.innerHTML = `<p style="text-align:center; color:#777; padding:10px;">Your cart is empty</p>`;
+    return;
+  }
+
+  cartDropdown.innerHTML = cart
+    .map(
+      (item) => `
+      <div class="dropdown-item">
+        <img src="${item.img}" alt="${item.name}">
+        <div class="dropdown-info">
+          <span class="name">${item.name}</span>
+          <span class="price">₹${item.price} × ${item.qty}</span>
+        </div>
+        <button class="remove-btn" onclick="removeFromCart(${item.id})" title="Remove">&times;</button>
+      </div>`
+    )
+    .join("");
+}
+
+// ====================== ADD TO CART ======================
+function addToCart(id) {
+  const item =
+    wishlist.find((p) => p.id === id) ||
+    (typeof products !== "undefined" && products.find((p) => p.id === id));
+
+  if (!item) return;
+
+  const existing = cart.find((p) => p.id === id);
+  if (existing) {
+    existing.qty += 1;
+  } else {
+    cart.push({ ...item, qty: 1 });
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartUI();
+
+  // Optional alert or toast
+  alert(`${item.name} added to your cart!`);
+}
+
+// ====================== REMOVE FROM WISHLIST ======================
+function removeFromWishlist(id) {
+  wishlist = wishlist.filter((item) => item.id !== id);
+  localStorage.setItem("wishlist", JSON.stringify(wishlist));
+  updateWishlistUI();
+}
+
+// ====================== REMOVE FROM CART ======================
+function removeFromCart(id) {
+  cart = cart.filter((item) => item.id !== id);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartUI();
+}
+
+// ====================== INITIAL LOAD ======================
+updateWishlistUI();
+updateCartUI();
+</script>
+
+
+
+
+
+
+  </body>
+</html>
