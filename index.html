@@ -10,66 +10,64 @@
 </head>
 <body>
 
-  <!-- Top Header -->
-  <header class="header">
-    <div class="header-container">
-      
-      <!-- Logo -->
-      <div class="logo">
-        <img src="Images/logo.png" alt="logo">
-      </div>
+<header class="header">
+  <div class="header-container">
 
-      <!-- Zoom In/Out Animation Text -->
-      <div class="animated-banner">
-        <div class="zoom-text">
-          <i class="fa-solid fa-truck-fast"></i> Above $100 Delivery Free
+    <!-- Logo -->
+    <div class="logo">
+      <img src="Images/logo.png" alt="logo">
+    </div>
+
+    <!-- Zoom In/Out Animation Text -->
+    <div class="animated-banner">
+      <div class="zoom-text">
+        <i class="fa-solid fa-truck-fast"></i> Above $100 Delivery Free
+      </div>
+    </div>
+
+    <!-- Right Icons -->
+    <div class="header-icons">
+      <a href="account.html" class="icon-link">
+        <i class="fa fa-user-circle"></i>
+        <span>Sign In<br>Account</span>
+      </a>
+
+      <!-- ❤️ Wishlist -->
+      <div class="icon-wrapper">
+        <a href="wishlist.html" class="icon-link wishlist">
+          <i class="fa fa-heart"></i>
+          <span>Wishlist<br>My Items</span>
+          <span id="wishlist-count" class="count-badge">0</span>
+        </a>
+        <div class="dropdown" id="wishlist-dropdown">
+          <p>No items in wishlist</p>
         </div>
       </div>
 
-      <!-- Right Icons -->
-           <div class="header-icons">
-  <a href="account.html" class="icon-link">
-    <i class="fa fa-user-circle"></i>
-    <span>Sign In<br>Account</span>
-  </a>
-
-  <!-- ❤️ Wishlist -->
-  <div class="icon-wrapper">
-    <a href="wishlist.html" class="icon-link wishlist">
-      <i class="fa fa-heart"></i>
-      <span>Wishlist<br>My Items</span>
-      <span id="wishlist-count" class="count-badge">0</span>
-    </a>
-    <div class="dropdown" id="wishlist-dropdown">
-      <p>No items in wishlist</p>
+      <!-- 🛒 Cart -->
+      <div class="icon-wrapper">
+        <a href="addtocart.html" class="icon-link cart">
+          <i class="fa fa-shopping-cart"></i>
+          <span id="cart-total">₹0.00<br>My Cart</span>
+          <span id="cart-count" class="count-badge">0</span>
+        </a>
+        <div class="dropdown" id="cart-dropdown">
+          <p>Your cart is empty</p>
+        </div>
+      </div>
     </div>
+
+   
   </div>
+</header>
 
-  <!-- 🛒 Cart -->
-  <div class="icon-wrapper">
-    <a href="addtocart.html" class="icon-link cart">
-      <i class="fa fa-shopping-cart"></i>
-      <span id="cart-total">₹0.00<br>My Cart</span>
-      <span id="cart-count" class="count-badge">0</span>
-    </a>
-    <div class="dropdown" id="cart-dropdown">
-      <p>Your cart is empty</p>
-    </div>
-  </div>
-</div>
-
-    </div>
-  </header>
-
-  <!-- Navigation -->
+<!-- Navigation -->
 <nav class="navbar">
-  <ul class="nav-container">
-    <!-- 📞 Contact Number -->
+  <ul class="nav-container" id="nav-links">
     <li class="contact-info">
       <i class="fa-solid fa-phone"></i> +91 1234567890
     </li>
 
-    <!-- 🔗 Navigation Links -->
     <li class="home-dropdown">
       <a href="index.html">Home <span class="arrow">&#9662;</span></a>
       <ul class="home-dropdown-menu">
@@ -85,7 +83,6 @@
     <li><a href="blog.html">Blog</a></li>
     <li><a href="contact.html">Contact</a></li>
 
-    <!-- ⭐ Right Side -->
     <li class="right">
       <a href="track.html" class="track-link">
         <i class="fa fa-truck"></i> Track My Order
@@ -97,7 +94,7 @@
 
 <section class="hero">
   <video autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback" class="hero-video">
-  <source src="videos/background.mp4" type="video/mp4">
+  <source src="Videos/background.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
   <div class="hero-content">
