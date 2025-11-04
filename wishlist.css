@@ -1233,7 +1233,7 @@ body.dark-mode .wishlist-card .remove-btn:hover {
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 420px) {
 
    .dark-mode-toggle {
     right: 30px;  /* move to top-right corner */

@@ -289,7 +289,7 @@ body.dark-mode .dark-mode-toggle i {
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 420px) {
 
    .dark-mode-toggle {
     right: 30px;  /* move to top-right corner */

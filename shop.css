@@ -1622,7 +1622,7 @@ body.dark-mode select#sort option {
 .animate.bounceInLeft { animation: bounceInLeft 1.5s ease both; }
 .animate.bounceInRight{ animation: bounceInRight 1.5s ease both; }
 
-@media (max-width: 400px) {
+@media (max-width: 420px) {
 
    .dark-mode-toggle {
     right: 30px;  /* move to top-right corner */
