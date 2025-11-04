@@ -1954,3 +1954,19 @@ body, body.dark-mode * {
 .animate.bounceInDown { animation: bounceInDown 1.5s ease both; }
 .animate.bounceInLeft { animation: bounceInLeft 1.5s ease both; }
 .animate.bounceInRight{ animation: bounceInRight 1.5s ease both; }
+
+
+@media (max-width: 400px) {
+
+   .dark-mode-toggle {
+    right: 30px;  /* move to top-right corner */
+    top: 60px;
+    z-index: 9999;
+    position: absolute;
+  }
+
+  .dark-mode-toggle i {
+    font-size: 20px;
+  }
+  
+}

@@ -1250,3 +1250,19 @@ body.dark-mode .btn-back:hover {
     top: 3px;
   }
 }
+
+@media (max-width: 400px) {
+
+   .dark-mode-toggle {
+    right: 30px;  /* move to top-right corner */
+    top: 60px;
+    z-index: 9999;
+    position: absolute;
+  }
+
+  .dark-mode-toggle i {
+    font-size: 20px;
+  }
+  
+}
+

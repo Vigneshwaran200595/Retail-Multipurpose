@@ -277,7 +277,7 @@ body.dark-mode .dark-mode-toggle i {
 }
 
 
-@media (max-width: 768px) {
+@media (min-width: 400px) and (max-width: 768px) {
   .dark-mode-toggle {
     right: 100px;  /* move to top-right corner */
     top: 13px;
@@ -287,6 +287,21 @@ body.dark-mode .dark-mode-toggle i {
   .dark-mode-toggle i {
     font-size: 20px;
   }
+}
+
+@media (max-width: 400px) {
+
+   .dark-mode-toggle {
+    right: 30px;  /* move to top-right corner */
+    top: 60px;
+    z-index: 9999;
+    position: absolute;
+  }
+
+  .dark-mode-toggle i {
+    font-size: 20px;
+  }
+  
 }
 
 
@@ -925,7 +940,7 @@ body.dark-mode .hero .hero-video {
   .hero .btn {
     padding: 10px 20px;
     font-size: 14px;
-    margin-left: 80px;
+    margin-left: 60px;
   }
 
   .hero .image img {
