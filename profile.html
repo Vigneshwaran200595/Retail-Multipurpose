@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile | Blue Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+  <style>
+    /* --- Profile Page Styling --- */
+    .profile-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 85vh;
+      padding: 40px;
+    }
+
+    .profile-card {
+      background: rgba(255, 255, 255, 0.07);
+      border-radius: 16px;
+      padding: 40px;
+      width: 420px;
+      text-align: center;
+      color: #fff;
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
+      transition: 0.3s ease;
+    }
+
+    .profile-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 30px rgba(51, 178, 255, 0.3);
+    }
+
+    .profile-pic {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 4px solid #33b2ff;
+      margin-bottom: 15px;
+    }
+
+    .profile-card h2 {
+      margin: 8px 0 4px;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .role {
+      color: #33b2ff;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .profile-info {
+      text-align: left;
+      margin-top: 20px;
+    }
+
+    .profile-info p {
+      margin: 12px 0;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .profile-info i {
+      color: #33b2ff;
+      margin-right: 10px;
+    }
+
+    .edit-profile-btn {
+      background: #33b2ff;
+      border: none;
+      padding: 10px 20px;
+      color: white;
+      border-radius: 8px;
+      margin-top: 25px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .edit-profile-btn:hover {
+      background: #1a8ed6;
+    }
+
+    /* Editable Fields */
+    .edit-input {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      border-radius: 6px;
+      padding: 8px;
+      color: #fff;
+      font-size: 0.95rem;
+      margin-top: 4px;
+      outline: none;
+    }
+
+    .edit-actions {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .save-btn, .cancel-btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .save-btn {
+      background: #33b2ff;
+      color: #fff;
+    }
+
+    .cancel-btn {
+      background: #f44336;
+      color: #fff;
+    }
+
+    .save-btn:hover { background: #1a8ed6; }
+    .cancel-btn:hover { background: #d32f2f; }
+
+    @media (max-width: 768px) {
+  .profile-section {
+    flex-direction: column;
+    padding: 20px;
+    min-height: auto;
+  }
+
+  .profile-card {
+    width: 100%;
+    max-width: 320px;
+    padding: 25px;
+  }
+
+  .profile-pic {
+    width: 90px;
+    height: 90px;
+  }
+
+  .profile-card h2 {
+    font-size: 1.2rem;
+  }
+
+  .role {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+  }
+
+  .profile-info p {
+    font-size: 0.85rem;
+    margin: 8px 0;
+  }
+
+  .edit-profile-btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+
+  .edit-input {
+    font-size: 0.85rem;
+    padding: 6px;
+  }
+
+  .edit-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .save-btn, .cancel-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="logo">
+      <img src="Images/logo.png" alt="Dashboard Logo" />
+    </div>
+    <ul class="menu">
+      <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+      <li><a href="product1.html"><i class="fas fa-box"></i> Products</a></li>
+      <li><a href="orders.html"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+      <li><a href="customers.html"><i class="fas fa-users"></i> Customers</a></li>
+      <li><a href="reports.html"><i class="fas fa-chart-line"></i> Reports</a></li>
+      <li class="active"><a href="profile.html"><i class="fas fa-user-circle"></i> Profile</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <header>
+  <div class="header-icons">
+
+    <!-- Home Button -->
+    <div class="home-btn">
+      <a href="index.html" title="Go to Home">
+        <i class="fas fa-home"></i>
+      </a>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification-container">
+      <i class="fas fa-bell notification-icon"></i>
+      <span class="badge">3</span>
+
+      <div class="notification-dropdown" id="notificationDropdown">
+        <h4>Notifications</h4>
+        <ul id="notificationList">
+          <li>
+            <span>New order received #1245</span>
+            <button class="remove-btn">Remove</button>
+          </li>
+          <li>
+            <span>Product “Blue Headphones” is low on stock</span>
+            <button class="remove-btn">Remove</button>
+          </li>
+          <li>
+            <span>Payment of ₹1,500 received</span>
+            <button class="remove-btn">Remove</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Profile -->
+    <div class="user-profile">
+      <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Profile" />
+      <span>Pauline Seitz</span>
+    </div>
+  </div>
+</header>
+
+
+    <!-- Profile Section -->
+    <section class="profile-section">
+      <div class="profile-card" id="profileCard">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Profile Picture" class="profile-pic" />
+        <h2 id="profileName">Pauline Seitz</h2>
+        <p class="role" id="profileRole">Store Manager</p>
+
+        <div class="profile-info" id="profileInfo">
+          <p><i class="fas fa-envelope"></i> <span id="profileEmail">pauline@example.com</span></p>
+          <p><i class="fas fa-phone"></i> <span id="profilePhone">+91 98765 43210</span></p>
+          <p><i class="fas fa-map-marker-alt"></i> <span id="profileLocation">Chennai, India</span></p>
+        </div>
+
+        <button class="edit-profile-btn" id="editProfileBtn">
+          <i class="fas fa-edit"></i> Edit Profile
+        </button>
+      </div>
+    </section>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // --- Notification Dropdown ---
+    document.addEventListener("DOMContentLoaded", () => {
+      const notificationContainer = document.querySelector(".notification-container");
+      const dropdown = document.querySelector(".notification-dropdown");
+      const removeBtns = document.querySelectorAll(".remove-btn");
+
+      notificationContainer.addEventListener("click", (e) => {
+        e.stopPropagation();
+        dropdown.classList.toggle("active");
+      });
+
+      document.addEventListener("click", () => {
+        dropdown.classList.remove("active");
+      });
+
+      removeBtns.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          btn.parentElement.remove();
+        });
+      });
+    });
+
+    // --- Profile Edit Toggle ---
+    const editBtn = document.getElementById("editProfileBtn");
+    const profileCard = document.getElementById("profileCard");
+    let editing = false;
+
+    editBtn.addEventListener("click", () => {
+      if (!editing) {
+        editing = true;
+        editBtn.style.display = "none";
+
+        const infoDiv = document.getElementById("profileInfo");
+        const currentValues = {
+          name: document.getElementById("profileName").innerText,
+          role: document.getElementById("profileRole").innerText,
+          email: document.getElementById("profileEmail").innerText,
+          phone: document.getElementById("profilePhone").innerText,
+          location: document.getElementById("profileLocation").innerText,
+        };
+
+        infoDiv.innerHTML = `
+          <input class="edit-input" id="editName" value="${currentValues.name}" placeholder="Full Name">
+          <input class="edit-input" id="editRole" value="${currentValues.role}" placeholder="Role">
+          <input class="edit-input" id="editEmail" value="${currentValues.email}" placeholder="Email">
+          <input class="edit-input" id="editPhone" value="${currentValues.phone}" placeholder="Phone">
+          <input class="edit-input" id="editLocation" value="${currentValues.location}" placeholder="Location">
+          <div class="edit-actions">
+            <button class="save-btn" id="saveProfile">Save</button>
+            <button class="cancel-btn" id="cancelEdit">Cancel</button>
+          </div>
+        `;
+
+        document.getElementById("saveProfile").addEventListener("click", saveProfile);
+        document.getElementById("cancelEdit").addEventListener("click", cancelEdit);
+      }
+    });
+
+    function saveProfile() {
+      const name = document.getElementById("editName").value;
+      const role = document.getElementById("editRole").value;
+      const email = document.getElementById("editEmail").value;
+      const phone = document.getElementById("editPhone").value;
+      const location = document.getElementById("editLocation").value;
+
+      document.getElementById("profileName").innerText = name;
+      document.getElementById("profileRole").innerText = role;
+      document.getElementById("profileInfo").innerHTML = `
+        <p><i class="fas fa-envelope"></i> ${email}</p>
+        <p><i class="fas fa-phone"></i> ${phone}</p>
+        <p><i class="fas fa-map-marker-alt"></i> ${location}</p>
+      `;
+
+      localStorage.setItem("userProfile", JSON.stringify({ name, role, email, phone, location }));
+
+      editing = false;
+      editBtn.style.display = "inline-block";
+    }
+
+    function cancelEdit() {
+      location.reload();
+    }
+
+    // --- Load saved profile ---
+    const saved = JSON.parse(localStorage.getItem("userProfile"));
+    if (saved) {
+      document.getElementById("profileName").innerText = saved.name;
+      document.getElementById("profileRole").innerText = saved.role;
+      document.getElementById("profileEmail").innerText = saved.email;
+      document.getElementById("profilePhone").innerText = saved.phone;
+      document.getElementById("profileLocation").innerText = saved.location;
+    }
+  </script>
+</body>
+</html>

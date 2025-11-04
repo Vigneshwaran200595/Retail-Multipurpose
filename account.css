@@ -306,3 +306,112 @@ body {
   margin-right: 6px;
 }
   
+
+/* 📱 Responsive Design */
+@media (max-width: 768px) {
+  body {
+    padding: 20px;
+    background: rgba(0, 0, 30, 0.8);
+  }
+
+  .container {
+    max-width: 95%;
+    padding: 30px 20px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    border-radius: 12px;
+  }
+
+  /* Hide cover image section */
+  .container .cover {
+    display: none;
+  }
+
+  /* Stack login/signup forms */
+  .form-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-content .login-form,
+  .form-content .signup-form {
+    width: 100%;
+  }
+
+  /* Reduce title and input sizes */
+  .forms .form-content .title {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .form-content .input-box input {
+    font-size: 15px;
+    padding: 0 25px;
+  }
+
+  .form-content .input-box i {
+    font-size: 15px;
+  }
+
+  /* Adjust button spacing */
+  .forms .form-content .button {
+    margin-top: 25px;
+  }
+
+  .forms .form-content .button input {
+    height: 42px;
+    font-size: 15px;
+  }
+
+  /* Center links and text */
+  .forms .form-content .text {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .forms .form-content .sign-up-text {
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .home-btn {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .home-btn a {
+    font-size: 14px;
+  }
+}
+
+/* 📱 Extra Small Screens (below 480px) */
+@media (max-width: 480px) {
+  body {
+    padding: 15px;
+  }
+
+  .container {
+    padding: 25px 15px;
+  }
+
+  .forms .form-content .title {
+    font-size: 18px;
+  }
+
+  .form-content .input-box input {
+    font-size: 14px;
+    padding: 0 20px;
+  }
+
+  .forms .form-content .button input {
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .forms .form-content .text {
+    font-size: 13px;
+  }
+
+  .home-btn a {
+    font-size: 13px;
+  }
+}

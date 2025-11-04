@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stackly Retail/Multipurpose</title>
-  <link rel="stylesheet" href="contact.css" />
+  <link rel="stylesheet" href="shop.css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -12,7 +12,7 @@
 <body>
 
   <!-- Top Header -->
-  <header class="header">
+ <header class="header">
   <div class="header-container">
 
     <!-- Logo -->
@@ -103,78 +103,76 @@
 
 <section class="about-header">
   <div class="about-content">
-    <h1>Contact Us</h1>
-    <p><i class="fas fa-home"></i> Home <span>››</span> Contact</p>
-  </div>
-</section>  
-
-<section class="contact-section">
-  <div class="container">
-
-    <!-- LEFT SIDE (INFO BOXES) -->
-    <div class="left-side">
-      <div class="info-card" data-animate="bounceInLeft">
-        <i class="fa-solid fa-map-location-dot"></i>
-        <h4>Office Address</h4>
-        <p>Salem, Tamil Nadu, India</p>
-      </div>
-
-      <div class="info-card" data-animate="bounceInLeft">
-        <i class="fa-solid fa-phone-volume"></i>
-        <h4>Call Us</h4>
-        <p>+91 1234567890</p>
-      </div>
-
-      <div class="info-card" data-animate="bounceInLeft">
-        <i class="fa-solid fa-envelope"></i>
-        <h4>Email Us</h4>
-        <p>support@example.com</p>
-      </div>
-
-      <div class="info-card" data-animate="bounceInLeft">
-        <i class="fa-solid fa-clock"></i>
-        <h4>Open Time</h4>
-        <p>Mon - Sat (10AM - 05PM)<br>Sunday - <span class="closed">Closed</span></p>
-      </div>
-    </div>
-
-    <!-- RIGHT SIDE (FORM) -->
-    <div class="right-side" data-animate="bounceInRight">
-      <h2>Get In Touch</h2>
-      <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-
-      <form id="contactForm">
-  <div class="form-row">
-    <div class="form-group">
-      <input type="text" placeholder="Your Name" id="name">
-    </div>
-    <div class="form-group">
-      <input type="email" placeholder="Your Email" id="email">
-    </div>
-  </div>
-  <div class="form-group">
-    <input type="text" placeholder="Your Subject" id="subject">
-  </div>
-  <div class="form-group">
-    <textarea rows="6" placeholder="Write Your Message" id="message"></textarea>
-  </div>
-  <button type="submit"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
-</form>
-    </div>
-
+    <h1>Shop</h1>
+    <p><i class="fas fa-home"></i> Home <span>››</span> Shop</p>
   </div>
 </section>
 
-  <!-- Map Section -->
-  <section class="map" data-animate="bounceIn">
-    <iframe 
-      src="https://www.google.com/maps?q=Salem,+Tamil+Nadu,+India&output=embed" 
-      width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
-    </iframe>
+<main class="shop-container">
+  <!-- Sidebar Filters -->
+  <aside class="sidebar">
+    <div class="filter" data-animate="bounceInLeft">
+      <h3>Search</h3>
+      <input type="text" id="search" placeholder="Search products...">
+    </div>
+
+    <div class="filter" data-animate="bounceInLeft">
+      <h3>Category</h3>
+      <ul id="category-list">
+        <li data-category="all" class="active">All</li>
+        <li data-category="electronics">Electronics</li>
+        <li data-category="fashion">Fashion</li>
+        <li data-category="home">Home</li>
+      </ul>
+    </div>
+
+    <div class="filter" data-animate="bounceInLeft">
+      <h3>Brand</h3>
+      <label><input type="checkbox" value="Apple"> Apple</label><br>
+      <label><input type="checkbox" value="Samsung"> Samsung</label><br>
+      <label><input type="checkbox" value="Nike"> Nike</label><br>
+    </div>
+
+    <div class="filter" data-animate="bounceInLeft">
+      <h3>Price Range</h3>
+      <input type="range" id="price-range" min="0" max="2000" step="100">
+      <p>Up to ₹<span id="price-value">2000</span></p>
+    </div>
+
+    <div class="filter-section" data-animate="bounceInLeft">
+      <h4>Ratings</h4>
+      <ul class="rating-filter">
+        <li><label><input type="radio" name="rating" value="5"> ⭐⭐⭐⭐⭐ & up</label></li>
+        <li><label><input type="radio" name="rating" value="4"> ⭐⭐⭐⭐ & up</label></li>
+        <li><label><input type="radio" name="rating" value="3"> ⭐⭐⭐ & up</label></li>
+        <li><label><input type="radio" name="rating" value="2"> ⭐⭐ & up</label></li>
+        <li><label><input type="radio" name="rating" value="1"> ⭐ & up</label></li>
+        <li><label><input type="radio" name="rating" value="all" checked> All Ratings</label></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Product Section -->
+  <section class="products-section">
+    <div class="products-header" data-animate="bounceInUp">
+      <h2>Products</h2>
+      <select id="sort" data-animate="bounceInRight">
+        <option value="default">Sort by</option>
+        <option value="low-high">Price: Low to High</option>
+        <option value="high-low">Price: High to Low</option>
+      </select>
+    </div>
+
+    <!-- Product List -->
+    <div class="products-grid" id="product-list"></div>
+
+    <!-- Pagination -->
+    <div class="pagination" id="pagination"></div>
   </section>
+</main>
 
   <footer class="footer">
-    <div class="footer-container"data-animate="bounceIn">
+    <div class="footer-container" data-animate="bounceIn">
       
       <!-- Column 1: About -->
       <div class="footer-col">
@@ -292,189 +290,9 @@ Sitemap</a></li>
     </div>
   </footer>
 
-    <script>
-// ====================== LOAD DATA ======================
-let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// ====================== ELEMENT REFERENCES ======================
-const wishlistCountEl = document.getElementById("wishlist-count");
-const cartCountEl = document.getElementById("cart-count");
-const cartTotalEl = document.getElementById("cart-total");
-
-const wishlistDropdown = document.getElementById("wishlist-dropdown");
-const cartDropdown = document.getElementById("cart-dropdown");
-
-const wishlistWrapper = document.querySelector(".wishlist")?.closest(".icon-wrapper");
-const cartWrapper = document.querySelector(".cart")?.closest(".icon-wrapper");
-
-// ====================== DROPDOWN HOVER FIX ======================
-function setupDropdown(wrapper, dropdown) {
-  if (!wrapper || !dropdown) return;
-  let hideTimeout;
-
-  wrapper.addEventListener("mouseenter", () => {
-    clearTimeout(hideTimeout);
-    dropdown.style.display = "block";
-    dropdown.style.opacity = "1";
-  });
-
-  wrapper.addEventListener("mouseleave", () => {
-    hideTimeout = setTimeout(() => {
-      dropdown.style.opacity = "0";
-      dropdown.style.display = "none";
-    }, 250);
-  });
-
-  dropdown.addEventListener("mouseenter", () => {
-    clearTimeout(hideTimeout);
-    dropdown.style.display = "block";
-    dropdown.style.opacity = "1";
-  });
-
-  dropdown.addEventListener("mouseleave", () => {
-    hideTimeout = setTimeout(() => {
-      dropdown.style.opacity = "0";
-      dropdown.style.display = "none";
-    }, 250);
-  });
-}
-
-setupDropdown(wishlistWrapper, wishlistDropdown);
-setupDropdown(cartWrapper, cartDropdown);
-
-// ====================== UPDATE WISHLIST UI ======================
-function updateWishlistUI() {
-  if (wishlistCountEl) wishlistCountEl.textContent = wishlist.length;
-
-  if (wishlist.length === 0) {
-    wishlistDropdown.innerHTML = `<p style="text-align:center; color:#777; padding:10px;">No items in wishlist</p>`;
-    return;
-  }
-
-  wishlistDropdown.innerHTML = wishlist
-    .map(
-      (item) => `
-      <div class="dropdown-item">
-        <img src="${item.img}" alt="${item.name}">
-        <div class="dropdown-info">
-          <span class="name">${item.name}</span>
-          <span class="price">₹${item.price}</span>
-        </div>
-        <div class="dropdown-actions">
-          <button class="add-btn" onclick="addToCart(${item.id})" title="Add to Cart">
-            <i class="fa-solid fa-cart-plus"></i>
-          </button>
-          <button class="remove-btn" onclick="removeFromWishlist(${item.id})" title="Remove">&times;</button>
-        </div>
-      </div>`
-    )
-    .join("");
-}
-
-// ====================== UPDATE CART UI ======================
-function updateCartUI() {
-  const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
-
-  if (cartCountEl) cartCountEl.textContent = cart.length;
-  if (cartTotalEl) cartTotalEl.innerHTML = `₹${subtotal.toFixed(2)}<br>My Cart`;
-
-  if (cart.length === 0) {
-    cartDropdown.innerHTML = `<p style="text-align:center; color:#777; padding:10px;">Your cart is empty</p>`;
-    return;
-  }
-
-  cartDropdown.innerHTML = cart
-    .map(
-      (item) => `
-      <div class="dropdown-item">
-        <img src="${item.img}" alt="${item.name}">
-        <div class="dropdown-info">
-          <span class="name">${item.name}</span>
-          <span class="price">₹${item.price} × ${item.qty}</span>
-        </div>
-        <button class="remove-btn" onclick="removeFromCart(${item.id})" title="Remove">&times;</button>
-      </div>`
-    )
-    .join("");
-}
-
-// ====================== ADD TO CART ======================
-function addToCart(id) {
-  const item =
-    wishlist.find((p) => p.id === id) ||
-    (typeof products !== "undefined" && products.find((p) => p.id === id));
-
-  if (!item) return;
-
-  const existing = cart.find((p) => p.id === id);
-  if (existing) {
-    existing.qty += 1;
-  } else {
-    cart.push({ ...item, qty: 1 });
-  }
-
-  localStorage.setItem("cart", JSON.stringify(cart));
-  updateCartUI();
-
-  // Optional alert or toast
-  alert(`${item.name} added to your cart!`);
-}
-
-// ====================== REMOVE FROM WISHLIST ======================
-function removeFromWishlist(id) {
-  wishlist = wishlist.filter((item) => item.id !== id);
-  localStorage.setItem("wishlist", JSON.stringify(wishlist));
-  updateWishlistUI();
-}
-
-// ====================== REMOVE FROM CART ======================
-function removeFromCart(id) {
-  cart = cart.filter((item) => item.id !== id);
-  localStorage.setItem("cart", JSON.stringify(cart));
-  updateCartUI();
-}
-
-// ====================== INITIAL LOAD ======================
-updateWishlistUI();
-updateCartUI();
-</script>
-
-<script>
-document.getElementById("contactForm").addEventListener("submit", function(e){
-  e.preventDefault();
-
-  // Get input fields
-  const name = document.getElementById("name");
-  const email = document.getElementById("email");
-  const subject = document.getElementById("subject");
-  const message = document.getElementById("message");
-
-  let allFilled = true;
-  const fields = [name, email, subject, message];
-
-  fields.forEach(field => {
-    if (field.value.trim() === "") {
-      allFilled = false;
-      const originalPlaceholder = field.placeholder;
-      field.value = "";
-      field.placeholder = "Please fill the field";
-      field.style.border = "1px solid red";
-      field.style.color = "red";
-
-      setTimeout(() => {
-        field.placeholder = originalPlaceholder;
-        field.style.border = "";
-        field.style.color = "";
-      }, 2000);
-    }
-  });
-
-  if (allFilled) {
-    window.location.href = "404.html";
-  }
-});
-</script>
+  <script src="product.js"></script>
+  <script src="shop.js"></script>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -517,6 +335,88 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
+<script>
+// ====================== FIX WISHLIST ICONS FOR MOBILE ======================
+function fixWishlistIconsForMobile() {
+  if (window.innerWidth <= 768) {
+    // Hide desktop overlay hearts
+    document.querySelectorAll('.overlay').forEach(overlay => {
+      overlay.style.display = 'none';
+    });
+
+    // Loop each product card
+    document.querySelectorAll('.product-card').forEach(card => {
+      // Remove existing mobile icon to prevent duplication
+      const existing = card.querySelector('.wishlist-icon.mobile-fixed');
+      if (existing) existing.remove();
+
+      // Get product ID from onclick attribute
+      const productId = card.querySelector('.wishlist-icon')?.getAttribute('onclick')?.match(/\d+/)?.[0];
+      if (!productId) return;
+
+      // Create new mobile icon
+      const icon = document.createElement('i');
+      const isWishlisted = wishlist.some(item => item.id == productId);
+
+      icon.className = `${isWishlisted ? 'fa-solid' : 'fa-regular'} fa-heart wishlist-icon mobile-fixed`;
+      icon.style.position = 'absolute';
+      icon.style.top = '10px';
+      icon.style.right = '10px';
+      icon.style.fontSize = '22px';
+      icon.style.color = isWishlisted ? '#ff3b3b' : '#33b2ff';
+      icon.style.background = '#fff';
+      icon.style.borderRadius = '50%';
+      icon.style.padding = '6px';
+      icon.style.boxShadow = '0 0 6px rgba(0,0,0,0.15)';
+      icon.style.cursor = 'pointer';
+      icon.style.zIndex = '10';
+      icon.style.transition = 'transform 0.2s ease, color 0.2s ease';
+
+      // Click to toggle wishlist
+      icon.addEventListener('click', (e) => {
+        e.stopPropagation();
+
+        // Toggle in wishlist array
+        const id = parseInt(productId);
+        const product = products.find(p => p.id === id);
+        const index = wishlist.findIndex(item => item.id === id);
+
+        if (index === -1) {
+          wishlist.push(product);
+        } else {
+          wishlist.splice(index, 1);
+        }
+
+        // Save and refresh wishlist UI only (no product re-render)
+        localStorage.setItem("wishlist", JSON.stringify(wishlist));
+        updateWishlistUI();
+
+        // Toggle heart style instantly without hiding
+        icon.classList.toggle('fa-solid');
+        icon.classList.toggle('fa-regular');
+        icon.style.color = icon.classList.contains('fa-solid') ? '#ff3b3b' : '#33b2ff';
+        icon.style.transform = 'scale(1.1)';
+        setTimeout(() => icon.style.transform = 'scale(1)', 150);
+      });
+
+      card.appendChild(icon);
+    });
+  }
+}
+
+// Reapply mobile hearts after page load, resize, and product updates
+window.addEventListener('load', fixWishlistIconsForMobile);
+window.addEventListener('resize', fixWishlistIconsForMobile);
+
+// Hook into displayProducts() dynamically
+const originalDisplayProducts = displayProducts;
+displayProducts = function() {
+  originalDisplayProducts();
+  fixWishlistIconsForMobile();
+};
+
+</script>
+
 
 <script>
   const themeToggle = document.getElementById('theme-icon');
@@ -543,6 +443,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 </script>
 
+
 <script>
 // 🌟 Common Bounce Scroll Animation Script
 document.addEventListener("DOMContentLoaded", () => {
@@ -561,5 +462,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-  </body>
+</body>
 </html>
+

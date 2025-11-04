@@ -13,87 +13,93 @@
 
   <!-- Top Header -->
   <header class="header">
-    <div class="header-container">
-      
-      <!-- Logo -->
-      <div class="logo">
-        <img src="Images/logo.png" alt="logo">
-      </div>
+  <div class="header-container">
 
-      <!-- Zoom In/Out Animation Text -->
-      <div class="animated-banner">
-        <div class="zoom-text">
-          <i class="fa-solid fa-truck-fast"></i> Above $100 Delivery Free
+    <!-- Logo -->
+    <div class="logo">
+      <img src="Images/logo.png" alt="logo">
+    </div>
+
+    <!-- Zoom In/Out Animation Text -->
+    <div class="animated-banner">
+      <div class="zoom-text">
+        <i class="fa-solid fa-truck-fast"></i> Above $100 Delivery Free
+      </div>
+    </div>
+
+     <div class="dark-mode-toggle">
+  <i id="theme-icon" class="fas fa-moon"></i>
+</div>
+
+
+    <!-- Right Icons -->
+    <div class="header-icons">
+      <a href="account.html" class="icon-link">
+        <i class="fa fa-user-circle"></i>
+        <span>Sign In<br>Account</span>
+      </a>
+
+      <!-- ❤️ Wishlist -->
+      <div class="icon-wrapper">
+        <a href="wishlist.html" class="icon-link wishlist">
+          <i class="fa fa-heart"></i>
+          <span>Wishlist<br>My Items</span>
+          <span id="wishlist-count" class="count-badge">0</span>
+        </a>
+        <div class="dropdown" id="wishlist-dropdown">
+          <p>No items in wishlist</p>
         </div>
       </div>
 
-      <!-- Right Icons -->
-      <div class="header-icons">
-  <a href="account.html" class="icon-link">
-    <i class="fa fa-user-circle"></i>
-    <span>Sign In<br>Account</span>
-  </a>
-
-  <!-- ❤️ Wishlist -->
-  <div class="icon-wrapper">
-    <a href="wishlist.html" class="icon-link wishlist">
-      <i class="fa fa-heart"></i>
-      <span>Wishlist<br>My Items</span>
-      <span id="wishlist-count" class="count-badge">0</span>
-    </a>
-    <div class="dropdown" id="wishlist-dropdown">
-      <p>No items in wishlist</p>
+      <!-- 🛒 Cart -->
+      <div class="icon-wrapper">
+        <a href="addtocart.html" class="icon-link cart">
+          <i class="fa fa-shopping-cart"></i>
+          <span id="cart-total">₹0.00<br>My Cart</span>
+          <span id="cart-count" class="count-badge">0</span>
+        </a>
+        <div class="dropdown" id="cart-dropdown">
+          <p>Your cart is empty</p>
+        </div>
+      </div>
     </div>
+
+   
   </div>
+</header>
 
-  <!-- 🛒 Cart -->
-  <div class="icon-wrapper">
-    <a href="addtocart.html" class="icon-link cart">
-      <i class="fa fa-shopping-cart"></i>
-      <span id="cart-total">₹0.00<br>My Cart</span>
-      <span id="cart-count" class="count-badge">0</span>
-    </a>
-    <div class="dropdown" id="cart-dropdown">
-      <p>Your cart is empty</p>
+<!-- Navigation -->
+<nav class="navbar">
+      <div class="contact-info">
+        <i class="fa-solid fa-phone"></i> +91 1234567890
+      </div>
+
+      <!-- ☰ Hamburger -->
+    <div class="menu-toggle" id="menu-toggle">
+      <i class="fa fa-bars"></i>
     </div>
-  </div>
-</div>
+      <ul class="nav-container" id="nav-links">
+      <li class="home-dropdown">
+        <a href="index.html">Home <span class="arrow">&#9662;</span></a>
+        <ul class="home-dropdown-menu">
+          <li><a href="404.html">Home 2</a></li>
+        </ul>
+      </li>
 
-    </div>
-  </header>
+      <li><a href="about.html">About</a></li>
+      <li><a href="affiliate.html">Affiliate</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
 
-  <!-- Navigation -->
-  <nav class="navbar">
-  <ul class="nav-container">
-    <!-- 📞 Contact Number -->
-    <li class="contact-info">
-      <i class="fa-solid fa-phone"></i> +91 1234567890
-    </li>
+      <li class="right">
+        <a href="track.html"><i class="fa fa-truck"></i> Track My Order</a>
+      </li>
+    </ul>
+  </nav>
 
-    <!-- 🔗 Navigation Links -->
-    <li class="home-dropdown">
-      <a href="index.html">Home <span class="arrow">&#9662;</span></a>
-      <ul class="home-dropdown-menu">
-        <li><a href="404.html">Home 2</a></li>
-      </ul>
-    </li>
-
-    <li><a href="about.html">About</a></li>
-    <li><a href="affiliate.html">Affiliate</a></li>
-    <li><a href="faq.html">FAQ</a></li>
-    <li><a href="dashboard.html">Dashboard</a></li>
-    <li><a href="shop.html">Shop</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="contact.html">Contact</a></li>
-
-    <!-- ⭐ Right Side -->
-    <li class="right">
-      <a href="track.html" class="track-link">
-        <i class="fa fa-truck"></i> Track My Order
-      </a>
-    </li>
-  </ul>
-</nav>
 
 <section class="about-header">
   <div class="about-content">
@@ -104,11 +110,11 @@
 
 <section class="retail-loyalty">
   <div class="retail-container">
-    <div class="image-box">
+    <div class="image-box" data-animate="bounceInLeft">
       <div class="slant-bg"></div>
       <img src="Images/afflicate.jpg" alt="Retail Team">
     </div>
-    <div class="text-box">
+    <div class="text-box" data-animate="bounceInRight">
       <p class="sub-title">LOYALTY PROGRAM</p>
       <h2>Boost Your Savings With <span>Stackly</span></h2>
       <p class="desc">
@@ -117,7 +123,7 @@
         the more you earn.
       </p>
 
-      <div class="levels">
+      <div class="levels" data-animate="bounceInUp">
         <div class="level"><span>5%</span><p>Bronze</p></div>
         <div class="level"><span>10%</span><p>Silver</p></div>
         <div class="level"><span>20%</span><p>Gold</p></div>
@@ -130,7 +136,7 @@
 
 <section class="why-choose-section">
     <div class="why-top">
-      <div class="why-text">
+      <div class="why-text" data-animate="bounceInLeft">
         <h5>WHY CHOOSE US</h5>
         <h2>We Provide Premium Quality Products For You</h2>
         <p>
@@ -138,12 +144,12 @@
         From top-quality products to unbeatable deals, we make your shopping experience simple and enjoyable.
       </p>
       </div>
-      <div class="why-image">
+      <div class="why-image" data-animate="bounceInRight">
         <img src="Images/afflie.jpg" alt="Shopping Couple">
       </div>
     </div>
 
-    <div class="features">
+    <div class="features" data-animate="bounceIn">
       <div class="feature-box">
         <div class="feature-icon"><i class="fas fa-award"></i></div>
         <div class="feature-text">
@@ -170,7 +176,7 @@
     </div>
   </section>
 
-  <section class="referral-section">
+  <section class="referral-section" data-animate="bounceIn">
   <div class="referral-overlay"></div>
   
   <div class="referral-content">
@@ -189,7 +195,7 @@
 </section>
 
 <section class="affiliate-steps">
-  <div class="affiliate-header">
+  <div class="affiliate-header" data-animate="bounceInUp">
     <h5>HOW IT WORKS</h5>
     <h2>How Our Affiliate <span>Program</span> Works</h2>
     <p>
@@ -199,28 +205,28 @@
   </div>
 
   <div class="steps-container">
-    <div class="step-card">
+    <div class="step-card" data-animate="bounceIn">
       <div class="step-icon"><i class="fas fa-user-plus"></i></div>
       <div class="step-number">01</div>
       <h3>Join Program</h3>
       <p>It is a long established fact that a reader will be distracted.</p>
     </div>
 
-    <div class="step-card">
+    <div class="step-card" data-animate="bounceIn">
       <div class="step-icon"><i class="fas fa-bullhorn"></i></div>
       <div class="step-number">02</div>
       <h3>Promote Plan</h3>
       <p>It is a long established fact that a reader will be distracted.</p>
     </div>
 
-    <div class="step-card">
+    <div class="step-card" data-animate="bounceIn">
       <div class="step-icon"><i class="fas fa-hand-holding-usd"></i></div>
       <div class="step-number">03</div>
       <h3>Earn Many</h3>
       <p>It is a long established fact that a reader will be distracted.</p>
     </div>
 
-    <div class="step-card">
+    <div class="step-card" data-animate="bounceIn">
       <div class="step-icon"><i class="fas fa-money-check-alt"></i></div>
       <div class="step-number">04</div>
       <h3>Payout Money</h3>
@@ -230,7 +236,7 @@
 </section>
 
 <footer class="footer">
-    <div class="footer-container">
+    <div class="footer-container" data-animate="bounceIn">
       
       <!-- Column 1: About -->
       <div class="footer-col">
@@ -508,13 +514,83 @@ document.addEventListener('DOMContentLoaded', () => {
   const homeDropdown = document.querySelector('.home-dropdown');
   const arrow = homeDropdown?.querySelector('.arrow');
   const menu = homeDropdown?.querySelector('.home-dropdown-menu');
+  const toggleBtn = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("nav-links");
 
+  // ✅ Mobile menu toggle
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+    });
+  }
+
+  // ✅ Dropdown arrow toggle (does NOT block "Home" link)
   if (arrow && menu) {
-    arrow.addEventListener('click', (e) => {
+    arrow.addEventListener("click", (e) => {
       e.preventDefault();
+      e.stopPropagation(); // prevent Home link from triggering
       menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
     });
   }
+
+  // ✅ Clicking "Home" will navigate normally
+  const homeLink = homeDropdown.querySelector("a[href='index.html']");
+  if (homeLink) {
+    homeLink.addEventListener("click", () => {
+      menu.style.display = 'none'; // close menu when navigating
+    });
+  }
+
+  // ✅ Auto close dropdown when clicking outside (mobile or desktop)
+  document.addEventListener("click", (e) => {
+    if (!homeDropdown.contains(e.target)) {
+      menu.style.display = "none";
+    }
+  });
+});
+</script>
+
+
+<script>
+  const themeToggle = document.getElementById('theme-icon');
+  const body = document.body;
+
+  // Load theme from localStorage
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
+    body.classList.add('dark-mode');
+    themeToggle.classList.replace('fa-moon', 'fa-sun');
+  }
+
+  // Toggle theme
+  themeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+
+    if (body.classList.contains('dark-mode')) {
+      themeToggle.classList.replace('fa-moon', 'fa-sun');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      themeToggle.classList.replace('fa-sun', 'fa-moon');
+      localStorage.setItem('theme', 'light');
+    }
+  });
+</script>
+
+<script>
+// 🌟 Common Bounce Scroll Animation Script
+document.addEventListener("DOMContentLoaded", () => {
+  const elements = document.querySelectorAll("[data-animate]");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const anim = entry.target.dataset.animate;
+        entry.target.classList.add("animate", anim);
+      }
+    });
+  }, { threshold: 0.2 }); // triggers when 20% visible
+
+  elements.forEach((el) => observer.observe(el));
 });
 </script>
 

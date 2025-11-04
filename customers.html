@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customers | Blue Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+
+.edit-btn, .delete-btn {
+  background: transparent;       /* remove background */
+  border: 1px solid transparent; /* reset default button borders */
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.edit-btn i {
+  color: #33b2ff;                /* blue icon color */
+}
+
+.delete-btn i {
+  color: #f43f5e;                /* red icon color */
+}
+
+/* Hover effects for better feedback */
+.edit-btn:hover i {
+  color: #fff;
+}
+
+.delete-btn:hover i {
+  color: #fff;
+}
+
+.edit-btn:hover {
+  background: #33b2ff;
+}
+
+.delete-btn:hover {
+  background: #f43f5e;
+}
+
+    .chart-box {
+  height: 300px; /* smaller chart area */
+}
+
+    .add-btn {
+      background: #33b2ff;
+      color: white;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .save-btn, .cancel-btn {
+      border: none;
+      border-radius: 6px;
+      padding: 6px 10px;
+      cursor: pointer;
+      color: white;
+      margin-right: 5px;
+      font-size: 13px;
+    }
+    .save-btn { background: #22c55e; }
+    .cancel-btn { background: #f97316; }
+    .edit-btn, .delete-btn {
+      border: none;
+      border-radius: 6px;
+      padding: 6px 10px;
+      cursor: pointer;
+      font-size: 13px;
+      color: white;
+    }
+    .inline-form {
+      display: flex;
+      gap: 10px;
+      margin: 15px 0;
+      flex-wrap: wrap;
+    }
+    .inline-form input, .inline-form select {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      flex: 1;
+    }
+
+    
+  </style>
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="logo">
+      <img src="Images/logo.png" alt="Dashboard Logo">
+    </div>
+    <ul class="menu">
+      <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+      <li><a href="product1.html"><i class="fas fa-box"></i> Products</a></li>
+      <li><a href="orders.html"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+      <li class="active"><a href="customers.html"><i class="fas fa-users"></i> Customers</a></li>
+      <li><a href="reports.html"><i class="fas fa-chart-line"></i> Reports</a></li>
+      <li><a href="profile.html"><i class="fas fa-cog"></i> Profile</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <header>
+  <div class="header-icons">
+
+    <!-- Home Button -->
+    <div class="home-btn">
+      <a href="index.html" title="Go to Home">
+        <i class="fas fa-home"></i>
+      </a>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification-container">
+      <i class="fas fa-bell notification-icon"></i>
+      <span class="badge">3</span>
+
+      <div class="notification-dropdown" id="notificationDropdown">
+        <h4>Notifications</h4>
+        <ul id="notificationList">
+          <li>
+            <span>New order received #1245</span>
+            <button class="remove-btn">Remove</button>
+          </li>
+          <li>
+            <span>Product “Blue Headphones” is low on stock</span>
+            <button class="remove-btn">Remove</button>
+          </li>
+          <li>
+            <span>Payment of ₹1,500 received</span>
+            <button class="remove-btn">Remove</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Profile -->
+    <div class="user-profile">
+      <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Profile" />
+      <span>Pauline Seitz</span>
+    </div>
+  </div>
+</header>
+
+    <!-- Top Cards -->
+    <section class="cards">
+      <div class="card"><i class="fas fa-user-plus"></i><div class="card-info"><h3>320</h3><p>New Customers</p></div></div>
+      <div class="card"><i class="fas fa-users"></i><div class="card-info"><h3>6,200</h3><p>Total Customers</p></div></div>
+      <div class="card"><i class="fas fa-user-check"></i><div class="card-info"><h3>4,580</h3><p>Active Customers</p></div></div>
+      <div class="card"><i class="fas fa-user-clock"></i><div class="card-info"><h3>1,620</h3><p>Returning Customers</p></div></div>
+    </section>
+
+    <!-- Chart Section -->
+    <section class="charts">
+      <div class="chart-box" style="grid-column: span 2;">
+        <h4>Customer Growth Overview</h4>
+        <canvas id="customerChart"></canvas>
+      </div>
+    </section>
+
+    <!-- Customer Section -->
+    <section class="table-section">
+      <div class="table-header">
+        <h4>Customer Details</h4>
+        <button class="add-btn" id="addCustomerBtn"><i class="fas fa-user-plus"></i> Add Customer</button>
+      </div>
+
+      <!-- Inline Add Form -->
+      <div class="inline-form" id="addForm" style="display:none;">
+        <input type="text" id="name" placeholder="Name" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="text" id="location" placeholder="Location" required>
+        <select id="status">
+          <option value="Active">Active</option>
+          <option value="Pending">Pending</option>
+          <option value="Inactive">Inactive</option>
+        </select>
+        <button class="save-btn" id="saveCustomer">Save</button>
+        <button class="cancel-btn" id="cancelAdd">Cancel</button>
+      </div>
+
+      <table class="product-table">
+        <thead>
+          <tr>
+            <th>Customer ID</th>
+            <th>Profile</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Location</th>
+            <th>Joined Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="customerBody"></tbody>
+      </table>
+    </section>
+  </div>
+
+  <script>
+  // Chart Setup (updated)
+  const ctx = document.getElementById('customerChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+      datasets: [{
+        label: 'New Customers',
+        data: [120, 180, 260, 300, 420, 380, 500],
+        borderColor: '#33b2ff',
+        backgroundColor: 'rgba(51, 178, 255, 0.2)',
+        fill: true,
+        tension: 0.4,
+        pointRadius: 4,
+        pointBackgroundColor: '#33b2ff'
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false, // allows custom height
+      plugins: {
+        legend: {
+          display: false
+        },
+        tooltip: {
+          titleColor: '#fff',
+          bodyColor: '#fff'
+        }
+      },
+      scales: {
+        x: {
+          ticks: {
+            color: '#fff', // X-axis labels white
+            font: { size: 12 }
+          },
+          grid: {
+            color: 'rgba(255,255,255,0.1)' // light white grid
+          }
+        },
+        y: {
+          ticks: {
+            color: '#fff', // Y-axis labels white
+            font: { size: 12 }
+          },
+          grid: {
+            color: 'rgba(255,255,255,0.1)' // light white grid
+          }
+        }
+      }
+    }
+  });
+
+  // Reduce chart height using CSS directly
+  document.getElementById('customerChart').style.height = '220px'; // reduced size
+
+  // Customer Data
+  let customers = JSON.parse(localStorage.getItem("customers")) || [
+    { id: "C001", img: "https://i.pravatar.cc/60?img=11", name: "John Doe", email: "john@example.com", location: "New York", joined: "2024-02-14", status: "Active", editing: false },
+    { id: "C002", img: "https://i.pravatar.cc/60?img=22", name: "Sophia Turner", email: "sophia@example.com", location: "London", joined: "2024-06-20", status: "Pending", editing: false },
+    { id: "C003", img: "https://i.pravatar.cc/60?img=33", name: "Arjun Kumar", email: "arjun@example.com", location: "Chennai", joined: "2024-10-05", status: "Inactive", editing: false }
+  ];
+
+  const body = document.getElementById("customerBody");
+  const addBtn = document.getElementById("addCustomerBtn");
+  const addForm = document.getElementById("addForm");
+  const saveBtn = document.getElementById("saveCustomer");
+  const cancelBtn = document.getElementById("cancelAdd");
+
+  function saveLocal() {
+    localStorage.setItem("customers", JSON.stringify(customers));
+  }
+
+  function renderTable() {
+    body.innerHTML = "";
+    customers.forEach((c, i) => {
+      const row = document.createElement("tr");
+
+      if (c.editing) {
+        row.classList.add("edit-row");
+        row.innerHTML = `
+          <td>${c.id}</td>
+          <td><img src="${c.img}" width="50"></td>
+          <td><input type="text" id="editName${i}" value="${c.name}"></td>
+          <td><input type="email" id="editEmail${i}" value="${c.email}"></td>
+          <td><input type="text" id="editLoc${i}" value="${c.location}"></td>
+          <td>${c.joined}</td>
+          <td>
+            <select id="editStatus${i}">
+              <option ${c.status==="Active"?"selected":""}>Active</option>
+              <option ${c.status==="Pending"?"selected":""}>Pending</option>
+              <option ${c.status==="Inactive"?"selected":""}>Inactive</option>
+            </select>
+          </td>
+          <td>
+            <button class="save-btn" onclick="saveEdit(${i})">Save</button>
+            <button class="cancel-btn" onclick="cancelEdit(${i})">Cancel</button>
+          </td>`;
+      } else {
+        row.innerHTML = `
+          <td>#${c.id}</td>
+          <td><img src="${c.img}" width="50"></td>
+          <td>${c.name}</td>
+          <td>${c.email}</td>
+          <td>${c.location}</td>
+          <td>${c.joined}</td>
+          <td><span class="status ${c.status.toLowerCase()}">${c.status}</span></td>
+          <td>
+  <button class="edit-btn" onclick="editCustomer(${i})"><i class="fas fa-edit"></i></button>
+  <button class="delete-btn" onclick="deleteCustomer(${i})"><i class="fas fa-trash-alt"></i></button>
+</td>`;
+      }
+
+      body.appendChild(row);
+    });
+  }
+
+  addBtn.addEventListener("click", () => addForm.style.display = "flex");
+  cancelBtn.addEventListener("click", () => addForm.style.display = "none");
+
+  saveBtn.addEventListener("click", () => {
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const location = document.getElementById("location").value.trim();
+    const status = document.getElementById("status").value;
+    if (!name || !email || !location) return alert("Please fill all fields!");
+
+    const id = "C" + (customers.length + 1).toString().padStart(3, "0");
+    const joined = new Date().toISOString().split("T")[0];
+    const img = `https://i.pravatar.cc/60?img=${Math.floor(Math.random()*70)+1}`;
+
+    customers.push({ id, img, name, email, location, joined, status, editing: false });
+    saveLocal();
+    renderTable();
+    addForm.style.display = "none";
+    document.getElementById("name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("location").value = "";
+  });
+
+  function editCustomer(i) { customers[i].editing = true; renderTable(); }
+  function cancelEdit(i) { customers[i].editing = false; renderTable(); }
+
+  function saveEdit(i) {
+    const name = document.getElementById(`editName${i}`).value;
+    const email = document.getElementById(`editEmail${i}`).value;
+    const location = document.getElementById(`editLoc${i}`).value;
+    const status = document.getElementById(`editStatus${i}`).value;
+
+    customers[i] = { ...customers[i], name, email, location, status, editing: false };
+    saveLocal();
+    renderTable();
+  }
+
+  // ❌ Delete instantly (no popup)
+  function deleteCustomer(i) {
+    customers.splice(i, 1);
+    saveLocal();
+    renderTable();
+  }
+
+  renderTable();
+</script>
+
+
+<script>
+  // ✅ Notification Dropdown Toggle
+  document.addEventListener("DOMContentLoaded", () => {
+    const notificationContainer = document.querySelector(".notification-container");
+    const dropdown = document.querySelector(".notification-dropdown");
+    const removeBtns = document.querySelectorAll(".remove-btn");
+
+    // Toggle dropdown on bell click
+    notificationContainer.addEventListener("click", (e) => {
+      e.stopPropagation();
+      dropdown.classList.toggle("active");
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener("click", () => {
+      dropdown.classList.remove("active");
+    });
+
+    // Remove individual notification
+    removeBtns.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        btn.parentElement.remove();
+      });
+    });
+  });
+</script>
+</body>
+</html>

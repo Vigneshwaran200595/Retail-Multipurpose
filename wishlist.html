@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stackly Retail/Multipurpose</title>
-  <link rel="stylesheet" href="contact.css" />
+  <link rel="stylesheet" href="wishlist.css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -30,7 +30,6 @@
      <div class="dark-mode-toggle">
   <i id="theme-icon" class="fas fa-moon"></i>
 </div>
-
 
     <!-- Right Icons -->
     <div class="header-icons">
@@ -103,78 +102,19 @@
 
 <section class="about-header">
   <div class="about-content">
-    <h1>Contact Us</h1>
-    <p><i class="fas fa-home"></i> Home <span>››</span> Contact</p>
-  </div>
-</section>  
-
-<section class="contact-section">
-  <div class="container">
-
-    <!-- LEFT SIDE (INFO BOXES) -->
-    <div class="left-side">
-      <div class="info-card" data-animate="bounceInLeft">
-        <i class="fa-solid fa-map-location-dot"></i>
-        <h4>Office Address</h4>
-        <p>Salem, Tamil Nadu, India</p>
-      </div>
-
-      <div class="info-card" data-animate="bounceInLeft">
-        <i class="fa-solid fa-phone-volume"></i>
-        <h4>Call Us</h4>
-        <p>+91 1234567890</p>
-      </div>
-
-      <div class="info-card" data-animate="bounceInLeft">
-        <i class="fa-solid fa-envelope"></i>
-        <h4>Email Us</h4>
-        <p>support@example.com</p>
-      </div>
-
-      <div class="info-card" data-animate="bounceInLeft">
-        <i class="fa-solid fa-clock"></i>
-        <h4>Open Time</h4>
-        <p>Mon - Sat (10AM - 05PM)<br>Sunday - <span class="closed">Closed</span></p>
-      </div>
-    </div>
-
-    <!-- RIGHT SIDE (FORM) -->
-    <div class="right-side" data-animate="bounceInRight">
-      <h2>Get In Touch</h2>
-      <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-
-      <form id="contactForm">
-  <div class="form-row">
-    <div class="form-group">
-      <input type="text" placeholder="Your Name" id="name">
-    </div>
-    <div class="form-group">
-      <input type="email" placeholder="Your Email" id="email">
-    </div>
-  </div>
-  <div class="form-group">
-    <input type="text" placeholder="Your Subject" id="subject">
-  </div>
-  <div class="form-group">
-    <textarea rows="6" placeholder="Write Your Message" id="message"></textarea>
-  </div>
-  <button type="submit"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
-</form>
-    </div>
-
+    <h1>My Wishlist</h1>
+    <p><i class="fas fa-home"></i> Home <span>››</span> Wishlist</p>
   </div>
 </section>
 
-  <!-- Map Section -->
-  <section class="map" data-animate="bounceIn">
-    <iframe 
-      src="https://www.google.com/maps?q=Salem,+Tamil+Nadu,+India&output=embed" 
-      width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
-    </iframe>
-  </section>
+<section class="wishlist-page">
+  <h2>My Wishlist</h2>
+  <div class="wishlist-container" id="wishlist-container"></div>
+</section>
+
 
   <footer class="footer">
-    <div class="footer-container"data-animate="bounceIn">
+    <div class="footer-container">
       
       <!-- Column 1: About -->
       <div class="footer-col">
@@ -292,188 +232,178 @@ Sitemap</a></li>
     </div>
   </footer>
 
-    <script>
-// ====================== LOAD DATA ======================
-let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-// ====================== ELEMENT REFERENCES ======================
-const wishlistCountEl = document.getElementById("wishlist-count");
-const cartCountEl = document.getElementById("cart-count");
-const cartTotalEl = document.getElementById("cart-total");
-
-const wishlistDropdown = document.getElementById("wishlist-dropdown");
-const cartDropdown = document.getElementById("cart-dropdown");
-
-const wishlistWrapper = document.querySelector(".wishlist")?.closest(".icon-wrapper");
-const cartWrapper = document.querySelector(".cart")?.closest(".icon-wrapper");
-
-// ====================== DROPDOWN HOVER FIX ======================
-function setupDropdown(wrapper, dropdown) {
-  if (!wrapper || !dropdown) return;
-  let hideTimeout;
-
-  wrapper.addEventListener("mouseenter", () => {
-    clearTimeout(hideTimeout);
-    dropdown.style.display = "block";
-    dropdown.style.opacity = "1";
-  });
-
-  wrapper.addEventListener("mouseleave", () => {
-    hideTimeout = setTimeout(() => {
-      dropdown.style.opacity = "0";
-      dropdown.style.display = "none";
-    }, 250);
-  });
-
-  dropdown.addEventListener("mouseenter", () => {
-    clearTimeout(hideTimeout);
-    dropdown.style.display = "block";
-    dropdown.style.opacity = "1";
-  });
-
-  dropdown.addEventListener("mouseleave", () => {
-    hideTimeout = setTimeout(() => {
-      dropdown.style.opacity = "0";
-      dropdown.style.display = "none";
-    }, 250);
-  });
-}
-
-setupDropdown(wishlistWrapper, wishlistDropdown);
-setupDropdown(cartWrapper, cartDropdown);
-
-// ====================== UPDATE WISHLIST UI ======================
-function updateWishlistUI() {
-  if (wishlistCountEl) wishlistCountEl.textContent = wishlist.length;
-
-  if (wishlist.length === 0) {
-    wishlistDropdown.innerHTML = `<p style="text-align:center; color:#777; padding:10px;">No items in wishlist</p>`;
-    return;
-  }
-
-  wishlistDropdown.innerHTML = wishlist
-    .map(
-      (item) => `
-      <div class="dropdown-item">
-        <img src="${item.img}" alt="${item.name}">
-        <div class="dropdown-info">
-          <span class="name">${item.name}</span>
-          <span class="price">₹${item.price}</span>
-        </div>
-        <div class="dropdown-actions">
-          <button class="add-btn" onclick="addToCart(${item.id})" title="Add to Cart">
-            <i class="fa-solid fa-cart-plus"></i>
-          </button>
-          <button class="remove-btn" onclick="removeFromWishlist(${item.id})" title="Remove">&times;</button>
-        </div>
-      </div>`
-    )
-    .join("");
-}
-
-// ====================== UPDATE CART UI ======================
-function updateCartUI() {
-  const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
-
-  if (cartCountEl) cartCountEl.textContent = cart.length;
-  if (cartTotalEl) cartTotalEl.innerHTML = `₹${subtotal.toFixed(2)}<br>My Cart`;
-
-  if (cart.length === 0) {
-    cartDropdown.innerHTML = `<p style="text-align:center; color:#777; padding:10px;">Your cart is empty</p>`;
-    return;
-  }
-
-  cartDropdown.innerHTML = cart
-    .map(
-      (item) => `
-      <div class="dropdown-item">
-        <img src="${item.img}" alt="${item.name}">
-        <div class="dropdown-info">
-          <span class="name">${item.name}</span>
-          <span class="price">₹${item.price} × ${item.qty}</span>
-        </div>
-        <button class="remove-btn" onclick="removeFromCart(${item.id})" title="Remove">&times;</button>
-      </div>`
-    )
-    .join("");
-}
-
-// ====================== ADD TO CART ======================
-function addToCart(id) {
-  const item =
-    wishlist.find((p) => p.id === id) ||
-    (typeof products !== "undefined" && products.find((p) => p.id === id));
-
-  if (!item) return;
-
-  const existing = cart.find((p) => p.id === id);
-  if (existing) {
-    existing.qty += 1;
-  } else {
-    cart.push({ ...item, qty: 1 });
-  }
-
-  localStorage.setItem("cart", JSON.stringify(cart));
-  updateCartUI();
-
-  // Optional alert or toast
-  alert(`${item.name} added to your cart!`);
-}
-
-// ====================== REMOVE FROM WISHLIST ======================
-function removeFromWishlist(id) {
-  wishlist = wishlist.filter((item) => item.id !== id);
-  localStorage.setItem("wishlist", JSON.stringify(wishlist));
-  updateWishlistUI();
-}
-
-// ====================== REMOVE FROM CART ======================
-function removeFromCart(id) {
-  cart = cart.filter((item) => item.id !== id);
-  localStorage.setItem("cart", JSON.stringify(cart));
-  updateCartUI();
-}
-
-// ====================== INITIAL LOAD ======================
-updateWishlistUI();
-updateCartUI();
-</script>
 
 <script>
-document.getElementById("contactForm").addEventListener("submit", function(e){
-  e.preventDefault();
+  // --- Elements ---
+  const wishlistContainer = document.getElementById("wishlist-container");
+  const wishlistCountEl = document.getElementById("wishlist-count");
+  const wishlistDropdown = document.getElementById("wishlist-dropdown");
+  const cartCountEl = document.getElementById("cart-count");
+  const cartDropdown = document.getElementById("cart-dropdown");
+  const cartTotalEl = document.getElementById("cart-total");
 
-  // Get input fields
-  const name = document.getElementById("name");
-  const email = document.getElementById("email");
-  const subject = document.getElementById("subject");
-  const message = document.getElementById("message");
+  // --- Load from localStorage ---
+  let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-  let allFilled = true;
-  const fields = [name, email, subject, message];
+  // ====================== UPDATE WISHLIST UI ======================
+  function updateWishlistUI() {
+    wishlistCountEl.textContent = wishlist.length;
 
-  fields.forEach(field => {
-    if (field.value.trim() === "") {
-      allFilled = false;
-      const originalPlaceholder = field.placeholder;
-      field.value = "";
-      field.placeholder = "Please fill the field";
-      field.style.border = "1px solid red";
-      field.style.color = "red";
-
-      setTimeout(() => {
-        field.placeholder = originalPlaceholder;
-        field.style.border = "";
-        field.style.color = "";
-      }, 2000);
+    if (wishlist.length === 0) {
+      wishlistDropdown.innerHTML = `<p style="text-align:center; color:#777; padding:10px;">No items in wishlist</p>`;
+      return;
     }
-  });
 
-  if (allFilled) {
-    window.location.href = "404.html";
+    wishlistDropdown.innerHTML = wishlist
+      .map(
+        (item) => `
+        <div class="dropdown-item">
+          <img src="${item.img}" alt="${item.name}">
+          <div class="dropdown-info">
+            <span class="name">${item.name}</span>
+            <span class="price">₹${item.price}</span>
+          </div>
+          <button class="remove-btn" onclick="removeWishlistItem(${item.id})">&times;</button>
+        </div>`
+      )
+      .join("");
   }
-});
+
+  // ====================== UPDATE CART UI ======================
+  function updateCartUI() {
+    const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+    cartCountEl.textContent = cart.length;
+    cartTotalEl.innerHTML = `₹${subtotal.toFixed(2)}<br>My Cart`;
+
+    if (cart.length === 0) {
+      cartDropdown.innerHTML = `<p style="text-align:center; color:#777; padding:10px;">Your cart is empty</p>`;
+      return;
+    }
+
+    cartDropdown.innerHTML = cart
+      .map(
+        (item) => `
+        <div class="dropdown-item">
+          <img src="${item.img}" alt="${item.name}">
+          <div class="dropdown-info">
+            <span class="name">${item.name}</span>
+            <span class="price">₹${item.price} × ${item.qty}</span>
+          </div>
+          <button class="remove-btn" onclick="removeFromCart(${item.id})">&times;</button>
+        </div>`
+      )
+      .join("");
+  }
+
+  // ====================== RENDER WISHLIST PAGE ======================
+  function renderWishlist() {
+    if (wishlist.length === 0) {
+      wishlistContainer.innerHTML = `<p style="text-align:center;">Your wishlist is empty.</p>`;
+      return;
+    }
+
+    wishlistContainer.innerHTML = wishlist
+      .map(
+        (item) => `
+        <div class="wishlist-card">
+          <img src="${item.img}" alt="${item.name}">
+          <h4>${item.name}</h4>
+          <p class="price">₹${item.price}</p>
+          <div>
+            <button class="add-btn" onclick="addToCart(${item.id})">
+              <i class="fa fa-shopping-cart"></i> Add to Cart
+            </button>
+            <button class="remove-btn" onclick="removeWishlistItem(${item.id})">
+              <i class="fa fa-trash"></i> Remove
+            </button>
+          </div>
+        </div>`
+      )
+      .join("");
+  }
+
+  // ====================== ADD TO CART (Wishlist Intact) ======================
+  function addToCart(id) {
+    const item = wishlist.find((p) => p.id === id);
+    if (!item) return;
+
+    const existing = cart.find((p) => p.id === id);
+    if (existing) {
+      existing.qty += 1;
+    } else {
+      cart.push({ ...item, qty: 1 });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartUI();
+
+    // ✅ Smooth visual feedback
+    const addBtn = event.target.closest("button");
+    addBtn.textContent = "Added!";
+    addBtn.style.background = "#28a745";
+    setTimeout(() => {
+      addBtn.innerHTML = `<i class="fa fa-shopping-cart"></i> Add to Cart`;
+      addBtn.style.background = "#33b2ff";
+    }, 1000);
+  }
+
+  // ====================== REMOVE FROM WISHLIST ======================
+  function removeWishlistItem(id) {
+    wishlist = wishlist.filter((item) => item.id !== id);
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+    renderWishlist();
+    updateWishlistUI();
+  }
+
+  // ====================== REMOVE FROM CART ======================
+  function removeFromCart(id) {
+    cart = cart.filter((item) => item.id !== id);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartUI();
+  }
+
+  // ====================== DROPDOWN HOVER LOGIC ======================
+  function setupDropdown(wrapper, dropdown) {
+    let hideTimeout;
+
+    wrapper.addEventListener("mouseenter", () => {
+      clearTimeout(hideTimeout);
+      dropdown.style.display = "block";
+      dropdown.style.opacity = "1";
+    });
+
+    wrapper.addEventListener("mouseleave", () => {
+      hideTimeout = setTimeout(() => {
+        dropdown.style.opacity = "0";
+        dropdown.style.display = "none";
+      }, 250);
+    });
+
+    dropdown.addEventListener("mouseenter", () => {
+      clearTimeout(hideTimeout);
+      dropdown.style.display = "block";
+      dropdown.style.opacity = "1";
+    });
+
+    dropdown.addEventListener("mouseleave", () => {
+      hideTimeout = setTimeout(() => {
+        dropdown.style.opacity = "0";
+        dropdown.style.display = "none";
+      }, 250);
+    });
+  }
+
+  // --- Initialize dropdowns ---
+  const wishlistWrapper = document.querySelector(".wishlist").closest(".icon-wrapper");
+  const cartWrapper = document.querySelector(".cart").closest(".icon-wrapper");
+  setupDropdown(wishlistWrapper, wishlistDropdown);
+  setupDropdown(cartWrapper, cartDropdown);
+
+  // ====================== INIT ======================
+  renderWishlist();
+  updateWishlistUI();
+  updateCartUI();
 </script>
 
 <script>
@@ -543,23 +473,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 </script>
 
-<script>
-// 🌟 Common Bounce Scroll Animation Script
-document.addEventListener("DOMContentLoaded", () => {
-  const elements = document.querySelectorAll("[data-animate]");
+<script src="shop.js"></script>
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const anim = entry.target.dataset.animate;
-        entry.target.classList.add("animate", anim);
-      }
-    });
-  }, { threshold: 0.2 }); // triggers when 20% visible
-
-  elements.forEach((el) => observer.observe(el));
-});
-</script>
-
-  </body>
+</body>
 </html>
+

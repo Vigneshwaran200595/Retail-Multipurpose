@@ -17,13 +17,17 @@
     <div class="logo">
       <img src="Images/logo.png" alt="logo">
     </div>
-
     <!-- Zoom In/Out Animation Text -->
     <div class="animated-banner">
       <div class="zoom-text">
         <i class="fa-solid fa-truck-fast"></i> Above $100 Delivery Free
       </div>
     </div>
+
+       <div class="dark-mode-toggle">
+  <i id="theme-icon" class="fas fa-moon"></i>
+</div>
+
 
     <!-- Right Icons -->
     <div class="header-icons">
@@ -63,34 +67,35 @@
 
 <!-- Navigation -->
 <nav class="navbar">
-  <ul class="nav-container" id="nav-links">
-    <li class="contact-info">
-      <i class="fa-solid fa-phone"></i> +91 1234567890
-    </li>
+      <div class="contact-info">
+        <i class="fa-solid fa-phone"></i> +91 1234567890
+      </div>
 
-    <li class="home-dropdown">
-      <a href="index.html">Home <span class="arrow">&#9662;</span></a>
-      <ul class="home-dropdown-menu">
-        <li><a href="404.html">Home 2</a></li>
-      </ul>
-    </li>
+      <!-- ☰ Hamburger -->
+    <div class="menu-toggle" id="menu-toggle">
+      <i class="fa fa-bars"></i>
+    </div>
+      <ul class="nav-container" id="nav-links">
+      <li class="home-dropdown">
+        <a href="index.html">Home <span class="arrow">&#9662;</span></a>
+        <ul class="home-dropdown-menu">
+          <li><a href="404.html">Home 2</a></li>
+        </ul>
+      </li>
 
-    <li><a href="about.html">About</a></li>
-    <li><a href="affiliate.html">Affiliate</a></li>
-    <li><a href="faq.html">FAQ</a></li>
-    <li><a href="dashboard.html">Dashboard</a></li>
-    <li><a href="shop.html">Shop</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="contact.html">Contact</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="affiliate.html">Affiliate</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
 
-    <li class="right">
-      <a href="track.html" class="track-link">
-        <i class="fa fa-truck"></i> Track My Order
-      </a>
-    </li>
-  </ul>
-</nav>
-
+      <li class="right">
+        <a href="track.html"><i class="fa fa-truck"></i> Track My Order</a>
+      </li>
+    </ul>
+  </nav>
 
 <section class="hero">
   <video autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback" class="hero-video">
@@ -99,7 +104,7 @@
 </video>
   <div class="hero-content">
     <div class="slide active">
-      <div class="content">
+      <div class="content" data-animate="bounceInLeft">
         <span class="badge">START FROM $15.99</span>
         <h1>Explore The Trendy <br><span>Products</span> For You.</h1>
         <p>There are many variations of passages lorem ipsum available but the majority have suffered alteration in some form by injected humour.</p>
@@ -108,14 +113,14 @@
           <a href="404.html" class="btn btn-red">Learn More <i class="fa fa-arrow-right"></i></a>
         </div>
       </div>
-      <div class="image">
+      <div class="image" data-animate="bounceInRight">
         <img src="Images/smartwatch.png" alt="Smart Watch">
         <div class="price-tag">Price<br><span>$250</span></div>
       </div>
     </div>
 
     <div class="slide">
-      <div class="content">
+      <div class="content" data-animate="bounceInLeft">
         <span class="badge">LIMITED TIME DEAL</span>
         <h1>Get The Latest <br><span>Trendy Shoes</span> Today.</h1>
         <p>Find your perfect fit from our wide collection of stylish footwear for every occasion and comfort.</p>
@@ -124,14 +129,14 @@
           <a href="404.html" class="btn btn-red">Learn More <i class="fa fa-arrow-right"></i></a>
         </div>
       </div>
-      <div class="image">
+      <div class="image" data-animate="bounceInRight">
         <img src="Images/shoes.png" alt="Shoes">
         <div class="price-tag">Price<br><span>$199</span></div>
       </div>
     </div>
 
     <div class="slide">
-      <div class="content">
+      <div class="content" data-animate="bounceInLeft">
         <span class="badge">BEST SELLER</span>
         <h1>Experience The <br><span>Perfect Sound</span> Quality.</h1>
         <p>Upgrade your audio experience with premium-quality headphones crafted for music lovers.</p>
@@ -140,14 +145,14 @@
           <a href="404.html" class="btn btn-red">Learn More <i class="fa fa-arrow-right"></i></a>
         </div>
       </div>
-      <div class="image">
+      <div class="image" data-animate="bounceInRight">
         <img src="Images/headphone.png" alt="Headphones">
         <div class="price-tag">Price<br><span>$120</span></div>
       </div>
     </div>
 
     <div class="slide">
-      <div class="content">
+      <div class="content" data-animate="bounceInLeft">
         <span class="badge">NEW ARRIVAL</span>
         <h1>Bring Music To <br><span>Your Living Space</span>.</h1>
         <p>Powerful sound and stylish design. Perfect for your home entertainment experience.</p>
@@ -156,7 +161,7 @@
           <a href="404.html" class="btn btn-red">Learn More <i class="fa fa-arrow-right"></i></a>
         </div>
       </div>
-      <div class="image">
+      <div class="image" data-animate="bounceInRight">
         <img src="Images/speakers.png" alt="Speakers">
         <div class="price-tag">Price<br><span>$350</span></div>
       </div>
@@ -169,88 +174,88 @@
 
 
 <section class="category-section">
-    <h2 class="section-title">Our Category</h2>
+    <h2 class="section-title" data-animate="bounceInLeft">Our Category</h2>
 
     <div class="categories">
-  <a href="404.html" class="category-card">
+  <a href="404.html" class="category-card" data-animate="bounceIn">
     <div class="icon"><i class="fa-solid fa-shirt"></i></div>
     <h3>Accessories</h3>
     <p>30 Items</p>
   </a>
 
-  <a href="404.html" class="category-card">
+  <a href="404.html" class="category-card" data-animate="bounceIn">
     <div class="icon"><i class="fa-solid fa-tv"></i></div>
     <h3>Electronics</h3>
     <p>25 Items</p>
   </a>
 
-  <a href="404.html" class="category-card">
+  <a href="404.html" class="category-card" data-animate="bounceIn">
     <div class="icon"><i class="fa-solid fa-basket-shopping"></i></div>
     <h3>Grocery & Market</h3>
     <p>15 Items</p>
   </a>
 
-  <a href="404.html" class="category-card">
+  <a href="404.html" class="category-card" data-animate="bounceIn">
     <div class="icon"><i class="fa-solid fa-guitar"></i></div>
     <h3>Music & Audio</h3>
     <p>05 Items</p>
   </a>
 
-  <a href="404.html" class="category-card">
+  <a href="404.html" class="category-card" data-animate="bounceIn">
     <div class="icon"><i class="fa-solid fa-couch"></i></div>
     <h3>Furniture</h3>
     <p>30 Items</p>
   </a>
 
-  <a href="404.html" class="category-card">
+  <a href="404.html" class="category-card" data-animate="bounceIn">
     <div class="icon"><i class="fa-solid fa-puzzle-piece"></i></div>
     <h3>Toy & Games</h3>
     <p>12 Items</p>
   </a>
 
-  <a href="404.html" class="category-card">
+  <a href="404.html" class="category-card" data-animate="bounceIn">
     <div class="icon"><i class="fa-solid fa-gift"></i></div>
     <h3>Gifts</h3>
     <p>08 Items</p>
   </a>
 
-  <a href="404.html" class="category-card">
+  <a href="404.html" class="category-card" data-animate="bounceIn">
     <div class="icon"><i class="fa-solid fa-baby"></i></div>
     <h3>Babies & Moms</h3>
     <p>14 Items</p>
   </a>
 
-  <a href="404.html" class="category-card">
+  <a href="404.html" class="category-card" data-animate="bounceIn">
     <div class="icon"><i class="fa-solid fa-heart-pulse"></i></div>
     <h3>Health & Beauty</h3>
     <p>24 Items</p>
   </a>
 
-  <a href="404.html" class="category-card">
+  <a href="404.html" class="category-card" data-animate="bounceIn">
     <div class="icon"><i class="fa-solid fa-basketball-ball"></i></div>
     <h3>Sports & Outdoor</h3>
     <p>09 Items</p>
   </a>
 
-  <a href="404.html" class="category-card">
+  <a href="404.html" class="category-card" data-animate="bounceIn">
     <div class="icon"><i class="fa-solid fa-seedling"></i></div>
     <h3>Home & Garden</h3>
     <p>16 Items</p>
   </a>
 
-  <a href="404.html" class="category-card">
+  <a href="404.html" class="category-card" data-animate="bounceIn">
     <div class="icon"><i class="fa-solid fa-car"></i></div>
     <h3>Automotive</h3>
     <p>19 Items</p>
   </a>
 
-  <a href="404.html" class="category-card">
+  <a href="404.html" class="category-card" data-animate="bounceIn">
     <div class="icon"><i class="fa-solid fa-book-open"></i></div>
     <h3>Books & Stationery</h3>
     <p>11 Items</p>
   </a>
 
-  <a href="404.html" class="category-card">
+  <a href="404.html" class="category-card" data-animate="bounceIn">
     <div class="icon"><i class="fa-solid fa-utensils"></i></div>
     <h3>Kitchen & Dining</h3>
     <p>13 Items</p>
@@ -262,7 +267,7 @@
   <section class="sale-section">
     <div class="sale-cards">
 
-      <div class="sale-card sale1">
+      <div class="sale-card sale1" data-animate="bounceIn">
         <div class="sale-content">
           <span class="sale-label">TRAVEL SALE</span>
           <h3>Best Travel Sale Collections</h3>
@@ -270,7 +275,7 @@
         </div>
       </div>
 
-      <div class="sale-card sale2">
+      <div class="sale-card sale2" data-animate="bounceIn">
         <div class="sale-content">
           <span class="sale-label">HOT SALE</span>
           <h3>Headphone Sale Collections</h3>
@@ -278,7 +283,7 @@
         </div>
       </div>
 
-      <div class="sale-card sale3">
+      <div class="sale-card sale3" data-animate="bounceIn">
         <div class="sale-content">
           <span class="sale-label">SHOE SALE</span>
           <h3>Summer Shoe Sale<br>Up To <span style="color:#ff4d4d;">50% Off</span></h3>
@@ -290,11 +295,11 @@
   </section>
 
 <section class="trending-section">
-  <h2 class="section-title">Trending Items</h2>
+  <h2 class="section-title" data-animate="bounceInLeft">Trending Items</h2>
 
   <div class="product-grid">
     <!-- Product Card -->
-    <div class="product-card">
+    <div class="product-card" data-animate="bounceIn">
       <div class="badge1 new">NEW</div>
       <img src="Images/headphones.png" alt="Earbuds" />
       <h3>JPL Headphone</h3>
@@ -309,7 +314,7 @@
       </div>
     </div>
 
-    <div class="product-card">
+    <div class="product-card" data-animate="bounceIn">
       <div class="badge1 hot">HOT</div>
       <img src="Images/helmat.png" alt="Bike" />
       <h3>Bike Helmat</h3>
@@ -324,7 +329,7 @@
       </div>
     </div>
 
-    <div class="product-card">
+    <div class="product-card" data-animate="bounceIn">
       <div class="badge1 sale">10% OFF</div>
       <img src="Images/chair.png" alt="Chair" />
       <h3>Gaming Chair</h3>
@@ -339,7 +344,7 @@
       </div>
     </div>
 
-    <div class="product-card">
+    <div class="product-card" data-animate="bounceIn">
       <div class="badge1 stock">OUT OF STOCK</div>
       <img src="Images/dress.png" alt="Dress" />
       <h3>Casual Dress</h3>
@@ -356,7 +361,7 @@
   </div>
 </section>
 
-<section class="service-banner">
+<section class="service-banner" data-animate="bounceInUp">
   <div class="service-item">
     <div class="icon-box">
       <i class="fa fa-truck"></i>
@@ -406,12 +411,12 @@
 
 
 <section class="popular-items">
-  <div class="popular-header">
+  <div class="popular-header" data-animate="bounceInLeft">
     <h2>Popular Items</h2>
     <a href="shop.html" class="view-all">All Products <i class="fa fa-angle-double-right"></i></a>
   </div>
 
-  <div class="category-tabs">
+  <div class="category-tabs" data-animate="bounceInUp">
     <button class="active" data-category="electronics">Electronics</button>
     <button data-category="fashion">Fashion & Accessories</button>
     <button data-category="grocery">Grocery & Market</button>
@@ -421,14 +426,14 @@
   </div>
 
   <div class="popular-content">
-    <div class="promo-image">
+    <div class="promo-image" data-animate="bounceIn">
       <img src="Images/shopping.jpg" alt="Shopping Image">
     </div>
 
     <div class="products-grid">
       <!-- ELECTRONICS -->
       <div class="product-section active" id="electronics">
-        <div class="product-card">
+        <div class="product-card" data-animate="bounceIn">
           <div class="badge1 new">NEW</div>
           <img src="https://m.media-amazon.com/images/I/61MdyHSbxHL._SL1500_.jpg" alt="">
           <h4>Apple Blue Airpod</h4>
@@ -440,7 +445,7 @@
 </a></div>
         </div>
 
-        <div class="product-card">
+        <div class="product-card" data-animate="bounceIn">
           <div class="badge1 hot">HOT</div>
           <img src="https://m.media-amazon.com/images/I/61CGHv6kmWL._SL1500_.jpg" alt="">
           <h4>Sony Headphones</h4>
@@ -452,7 +457,7 @@
 </a></div>
         </div>
 
-        <div class="product-card">
+        <div class="product-card" data-animate="bounceIn">
           <div class="badge1 offer">10% OFF</div>
           <img src="https://m.media-amazon.com/images/I/61-r9zOKBCL._SL1500_.jpg" alt="">
           <h4>Apple iPhone 14</h4>
@@ -467,7 +472,7 @@
 
       <!-- FASHION -->
       <div class="product-section" id="fashion">
-        <div class="product-card">
+        <div class="product-card" data-animate="bounceIn">
           <div class="badge1 new">NEW</div>
           <img src="Images/fashion2.png" alt="">
           <h4>Men’s Leather Jacket</h4>
@@ -479,7 +484,7 @@
 </a></div>
         </div>
 
-        <div class="product-card">
+        <div class="product-card" data-animate="bounceIn">
           <div class="badge1 hot">HOT</div>
           <img src="Images/fashion1.png" alt="">
           <h4>Stylish Handbag</h4>
@@ -491,7 +496,7 @@
 </a></div>
         </div>
 
-        <div class="product-card">
+        <div class="product-card" data-animate="bounceIn">
           <div class="badge1 offer">15% OFF</div>
           <img src="Images/fashion3.png" alt="">
           <h4>Gown for Women</h4>
@@ -506,7 +511,7 @@
 
       <!-- GROCERY -->
       <div class="product-section" id="grocery">
-        <div class="product-card">
+        <div class="product-card" data-animate="bounceIn">
           <div class="badge1 new">NEW</div>
           <img src="Images/grocery1.png" alt="">
           <h4>Organic Rice 5kg</h4>
@@ -518,7 +523,7 @@
 </a></div>
         </div>
 
-        <div class="product-card">
+        <div class="product-card" data-animate="bounceIn">
           <div class="badge1 hot">HOT</div>
           <img src="Images/grocery2.png" alt="">
           <h4>Fresh Apple Pack</h4>
@@ -530,8 +535,8 @@
 </a></div>
         </div>
 
-        <div class="product-card">
-          <div class="badge1 offer">20% OFF</div>
+        <div class="product-card" data-animate="bounceIn">
+          <div class="badge1 offer" >20% OFF</div>
           <img src="Images/grocery3.png" alt="">
           <h4>Olive Oil 1L</h4>
           <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i></div>
@@ -545,7 +550,7 @@
 
       <!-- HOME & FURNITURE -->
       <div class="product-section" id="furniture">
-        <div class="product-card">
+        <div class="product-card" data-animate="bounceIn">
           <div class="badge1 new">NEW</div>
           <img src="Images/furniture2.png" alt="">
           <h4>Modern Table Lamp</h4>
@@ -557,7 +562,7 @@
 </a></div>
         </div>
 
-        <div class="product-card">
+        <div class="product-card" data-animate="bounceIn">
           <div class="badge1 hot">HOT</div>
           <img src="Images/furniture1.png" alt="">
           <h4>Wooden Chair Set</h4>
@@ -569,7 +574,7 @@
 </a></div>
         </div>
 
-        <div class="product-card">
+        <div class="product-card" data-animate="bounceIn">
           <div class="badge1 offer">10% OFF</div>
           <img src="Images/furniture3.png" alt="">
           <h4>Comfort Sofa Set</h4>
@@ -584,7 +589,7 @@
 
       <!-- GIFTS -->
       <div class="product-section" id="gifts">
-        <div class="product-card">
+        <div class="product-card" data-animate="bounceIn">
           <div class="badge1 new">NEW</div>
           <img src="Images/gift1.png" alt="">
           <h4>Flower Gift Box</h4>
@@ -596,7 +601,7 @@
 </a></div>
         </div>
 
-        <div class="product-card">
+        <div class="product-card" data-animate="bounceIn">
           <div class="badge1 hot">HOT</div>
           <img src="Images/gift2.png" alt="">
           <h4>Teddy & Chocolate Combo</h4>
@@ -608,7 +613,7 @@
 </a></div>
         </div>
 
-        <div class="product-card">
+        <div class="product-card" data-animate="bounceIn">
           <div class="badge1 offer">5% OFF</div>
           <img src="Images/gift3.png" alt="">
           <h4>Personalized Mug</h4>
@@ -623,7 +628,7 @@
 
       <!-- AUTOMOTIVE -->
       <div class="product-section" id="automotive">
-        <div class="product-card">
+        <div class="product-card" data-animate="bounceIn">
           <div class="badge1 new">NEW</div>
           <img src="Images/auto1.png" alt="">
           <h4>Car Cleaning Kit</h4>
@@ -635,7 +640,7 @@
 </a></div>
         </div>
 
-        <div class="product-card">
+        <div class="product-card" data-animate="bounceIn">
           <div class="badge1 hot">HOT</div>
           <img src="Images/auto2.png" alt="">
           <h4>Car Seat Cushion</h4>
@@ -647,7 +652,7 @@
 </a></div>
         </div>
 
-        <div class="product-card">
+        <div class="product-card" data-animate="bounceIn">
           <div class="badge1 offer">10% OFF</div>
           <img src="Images/auto3.png" alt="">
           <h4>Car LED Light</h4>
@@ -664,12 +669,12 @@
 </section>
 
 <section class="popular-brands">
-  <div class="brands-header">
+  <div class="brands-header" data-animate="bounceInLeft">
     <h2>Popular Brands</h2>
-    <a href="#" class="view-all">All Brands <i class="fa fa-angle-double-right"></i></a>
+    <a href="404.html" class="view-all">All Brands <i class="fa fa-angle-double-right"></i></a>
   </div>
 
-  <div class="brand-slider">
+  <div class="brand-slider" data-animate="bounceInUp">
     <div class="brand-track">
       <!-- Set of brands -->
       <div class="brand-card"><img src="Images/nike.png" alt="Nike"></div>
@@ -690,7 +695,7 @@
   </div>
 </section>
 
-<section class="mega-collections">
+<section class="mega-collections" data-animate="bounceIn">
   <div class="sale-content">
     <h4>mega collections</h4>
     <h1>HUGE SALE UP TO 40% OFF</h1>
@@ -703,7 +708,7 @@
 </section>
 
 <section class="three-column-products">
-  <div class="product-box">
+  <div class="product-box" data-animate="bounceInLeft">
     <h3>On sale</h3>
     <div class="underline"></div>
 
@@ -747,7 +752,7 @@
     </div>
   </div>
 
-  <div class="product-box">
+  <div class="product-box" data-animate="bounceInUp">
     <h3>Best Seller</h3>
     <div class="underline"></div>
 
@@ -791,7 +796,7 @@
     </div>
   </div>
 
-  <div class="product-box">
+  <div class="product-box" data-animate="bounceInRight">
     <h3>Top Rated</h3>
     <div class="underline"></div>
 
@@ -837,7 +842,7 @@
 </section>
 
 <section class="weekly-deal">
-  <div class="deal-container">
+  <div class="deal-container" data-animate="bounceIn">
     <div class="deal-content">
       <h5 class="deal-subtitle">WEEKLY DEAL</h5>
       <h2 class="deal-title">Best Deal For This Week</h2>
@@ -846,7 +851,7 @@
         in some form by injected humour, or randomised words which don't look even slightly believable.
       </p>
 
-      <div class="deal-timer">
+      <div class="deal-timer" data-animate="bounceIn">
         <div class="time-box">
           <h3 id="days">0</h3>
           <span>DAYS</span>
@@ -877,9 +882,9 @@
 </section>
 
 <section class="gallery-section">
-  <h2>Let's Check Our Photo <span>Gallery</span></h2>
+  <h2 data-animate="bounceInUp">Let's Check Our Photo <span>Gallery</span></h2>
 
-  <div class="gallery-grid">
+  <div class="gallery-grid" data-animate="bounceIn">
     <img src="Images/photo1.jpg" alt="Fashion Accessories">
     <img src="Images/photo2.jpg" alt="Clothing Store">
     <img src="Images/photo3.jpg" alt="Boutique Shop">
@@ -891,10 +896,10 @@
 
 
 <section class="feedback-section">
-  <h5 class="feedback-subtitle">TESTIMONIALS</h5>
-  <h2 class="feedback-title">What Our Client Say's <span>About Us</span></h2>
+  <h5 class="feedback-subtitle" data-animate="bounceInUp">TESTIMONIALS</h5>
+  <h2 class="feedback-title" data-animate="bounceInUp">What Our Client Say's <span>About Us</span></h2>
 
-  <div class="feedback-slider">
+  <div class="feedback-slider" data-animate="bounceIn">
     <div class="feedback-track">
 
       <div class="feedback-card">
@@ -1014,7 +1019,7 @@
 
 
 <!-- Discount Coupon Section -->
-<section class="discount-section">
+<section class="discount-section" data-animate="bounceIn">
   <div class="discount-content">
     <h2>GET <span>20% OFF</span> DISCOUNT COUPON</h2>
     <p>by subscribe our newsletter</p>
@@ -1029,7 +1034,7 @@
 </section>
 
 <!-- Instagram Section -->
-<section class="instagram-section">
+<section class="instagram-section" data-animate="bounceInUp">
   <h2>Instagram <span>@Stackly</span></h2>
   <div class="instagram-gallery">
     <div class="insta-item">
@@ -1053,7 +1058,7 @@
 
 
 <footer class="footer">
-    <div class="footer-container">
+    <div class="footer-container" data-animate="bounceIn">
       
       <!-- Column 1: About -->
       <div class="footer-col">
@@ -1170,6 +1175,31 @@ Sitemap</a></li>
       </div>
     </div>
   </footer>
+
+
+  <!-- Chatbot Floating Icon -->
+<!-- Chatbot Floating Button -->
+<div class="chatbot-container">
+  <div class="chatbot-icon" id="chatbot-toggle">
+    <img src="Images/chat-bot.png" alt="Chat" />
+  </div>
+
+  <!-- Chatbot Box -->
+  <div class="chatbot-box" id="chatbot-box">
+    <div class="chatbot-header">
+      <h4>Chat with Us</h4>
+      <button id="chatbot-close">&times;</button>
+    </div>
+    <div class="chatbot-body" id="chatbot-body">
+      <div class="bot-message">👋 Hi there! How can I help you today?</div>
+    </div>
+    <div class="chatbot-footer">
+      <input type="text" id="chatbot-input" placeholder="Type a message..." />
+      <button id="chatbot-send">Send</button>
+    </div>
+  </div>
+</div>
+
 
 
 
@@ -1418,18 +1448,151 @@ document.addEventListener('DOMContentLoaded', () => {
   const homeDropdown = document.querySelector('.home-dropdown');
   const arrow = homeDropdown?.querySelector('.arrow');
   const menu = homeDropdown?.querySelector('.home-dropdown-menu');
+  const toggleBtn = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("nav-links");
 
+  // ✅ Mobile menu toggle
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+    });
+  }
+
+  // ✅ Dropdown arrow toggle (does NOT block "Home" link)
   if (arrow && menu) {
-    arrow.addEventListener('click', (e) => {
+    arrow.addEventListener("click", (e) => {
       e.preventDefault();
+      e.stopPropagation(); // prevent Home link from triggering
       menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
     });
   }
+
+  // ✅ Clicking "Home" will navigate normally
+  const homeLink = homeDropdown.querySelector("a[href='index.html']");
+  if (homeLink) {
+    homeLink.addEventListener("click", () => {
+      menu.style.display = 'none'; // close menu when navigating
+    });
+  }
+
+  // ✅ Auto close dropdown when clicking outside (mobile or desktop)
+  document.addEventListener("click", (e) => {
+    if (!homeDropdown.contains(e.target)) {
+      menu.style.display = "none";
+    }
+  });
 });
 </script>
 
+<script>
+const chatbotToggle = document.getElementById("chatbot-toggle");
+const chatbotBox = document.getElementById("chatbot-box");
+const chatbotClose = document.getElementById("chatbot-close");
+const chatbotSend = document.getElementById("chatbot-send");
+const chatbotInput = document.getElementById("chatbot-input");
+const chatbotBody = document.getElementById("chatbot-body");
 
+chatbotToggle.addEventListener("click", () => {
+  chatbotBox.style.display = "flex";
+});
 
+chatbotClose.addEventListener("click", () => {
+  chatbotBox.style.display = "none";
+});
+
+chatbotSend.addEventListener("click", sendMessage);
+chatbotInput.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") sendMessage();
+});
+
+function sendMessage() {
+  const msg = chatbotInput.value.trim();
+  if (!msg) return;
+  
+  // User message
+  const userDiv = document.createElement("div");
+  userDiv.className = "user-message";
+  userDiv.textContent = msg;
+  chatbotBody.appendChild(userDiv);
+  chatbotInput.value = "";
+
+  // Scroll to bottom
+  chatbotBody.scrollTop = chatbotBody.scrollHeight;
+
+  // Simulated bot reply
+  setTimeout(() => {
+    const botDiv = document.createElement("div");
+    botDiv.className = "bot-message";
+    botDiv.textContent = getBotReply(msg);
+    chatbotBody.appendChild(botDiv);
+    chatbotBody.scrollTop = chatbotBody.scrollHeight;
+  }, 800);
+}
+
+function getBotReply(message) {
+  const msg = message.toLowerCase();
+  if (msg.includes("hello") || msg.includes("hi")) return "Hi! 👋 How can I assist you today?";
+  if (msg.includes("order")) return "You can track your order in the 'My Orders' section.";
+  if (msg.includes("product")) return "Please tell me which product you're looking for 😊";
+  return "I'm not sure I understand, but our team will get back to you soon!";
+}
+</script>
+
+<script>
+  const themeToggle = document.getElementById('theme-icon');
+  const body = document.body;
+
+  // Load theme from localStorage
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
+    body.classList.add('dark-mode');
+    themeToggle.classList.replace('fa-moon', 'fa-sun');
+  }
+
+  // Toggle theme
+  themeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+
+    if (body.classList.contains('dark-mode')) {
+      themeToggle.classList.replace('fa-moon', 'fa-sun');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      themeToggle.classList.replace('fa-sun', 'fa-moon');
+      localStorage.setItem('theme', 'light');
+    }
+  });
+</script>
+
+<script>
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+}, { threshold: 0.2 });
+
+sections.forEach(sec => observer.observe(sec));
+</script>
+
+<script>
+// 🌟 Common Bounce Scroll Animation Script
+document.addEventListener("DOMContentLoaded", () => {
+  const elements = document.querySelectorAll("[data-animate]");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const anim = entry.target.dataset.animate;
+        entry.target.classList.add("animate", anim);
+      }
+    });
+  }, { threshold: 0.2 }); // triggers when 20% visible
+
+  elements.forEach((el) => observer.observe(el));
+});
+</script>
 
  <script src="script.js"></script>  
 

@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stackly Retail/Multipurpose</title>
+  <link rel="stylesheet" href="checkout.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Top Header -->
+  <header class="header">
+  <div class="header-container">
+
+    <!-- Logo -->
+    <div class="logo">
+      <img src="Images/logo.png" alt="logo">
+    </div>
+
+    <!-- Zoom In/Out Animation Text -->
+    <div class="animated-banner">
+      <div class="zoom-text">
+        <i class="fa-solid fa-truck-fast"></i> Above $100 Delivery Free
+      </div>
+    </div>
+
+     <div class="dark-mode-toggle">
+  <i id="theme-icon" class="fas fa-moon"></i>
+</div>
+
+
+    <!-- Right Icons -->
+    <div class="header-icons">
+      <a href="account.html" class="icon-link">
+        <i class="fa fa-user-circle"></i>
+        <span>Sign In<br>Account</span>
+      </a>
+
+      <!-- ❤️ Wishlist -->
+      <div class="icon-wrapper">
+        <a href="wishlist.html" class="icon-link wishlist">
+          <i class="fa fa-heart"></i>
+          <span>Wishlist<br>My Items</span>
+          <span id="wishlist-count" class="count-badge">0</span>
+        </a>
+        <div class="dropdown" id="wishlist-dropdown">
+          <p>No items in wishlist</p>
+        </div>
+      </div>
+
+      <!-- 🛒 Cart -->
+      <div class="icon-wrapper">
+        <a href="addtocart.html" class="icon-link cart">
+          <i class="fa fa-shopping-cart"></i>
+          <span id="cart-total">₹0.00<br>My Cart</span>
+          <span id="cart-count" class="count-badge">0</span>
+        </a>
+        <div class="dropdown" id="cart-dropdown">
+          <p>Your cart is empty</p>
+        </div>
+      </div>
+    </div>
+
+   
+  </div>
+</header>
+
+<!-- Navigation -->
+<nav class="navbar">
+      <div class="contact-info">
+        <i class="fa-solid fa-phone"></i> +91 1234567890
+      </div>
+
+      <!-- ☰ Hamburger -->
+    <div class="menu-toggle" id="menu-toggle">
+      <i class="fa fa-bars"></i>
+    </div>
+      <ul class="nav-container" id="nav-links">
+      <li class="home-dropdown">
+        <a href="index.html">Home <span class="arrow">&#9662;</span></a>
+        <ul class="home-dropdown-menu">
+          <li><a href="404.html">Home 2</a></li>
+        </ul>
+      </li>
+
+      <li><a href="about.html">About</a></li>
+      <li><a href="affiliate.html">Affiliate</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+
+      <li class="right">
+        <a href="track.html"><i class="fa fa-truck"></i> Track My Order</a>
+      </li>
+    </ul>
+  </nav>
+
+
+
+<section class="about-header">
+  <div class="about-content">
+    <h1>Checkout</h1>
+    <p><i class="fas fa-home"></i> Home <span>››</span> Checkout</p>
+  </div>
+</section>
+
+<div class="checkout-container">
+    <!-- LEFT SIDE -->
+    <div class="checkout-left">
+      <div class="section-title">Your Billing Address</div>
+      <div class="form-row billing">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="text" placeholder="Address Line 1" required>
+        <input type="text" placeholder="Address Line 2" required>
+        <input type="text" placeholder="City" required>
+        <input type="text" placeholder="Postal Code" required>
+      </div>
+
+      <div class="section-title">Your Shipping Address</div>
+      <div class="same-address">
+        <input type="checkbox" id="sameAddress" onchange="copyBillingToShipping()">
+        <label for="sameAddress">Same as Billing Address</label>
+      </div>
+      <div class="form-row shipping">
+        <input type="text" placeholder="Full Name" required>
+        <input type="text" placeholder="Phone Number" required>
+        <input type="text" placeholder="Address Line 1" required>
+        <input type="text" placeholder="Address Line 2" required>
+        <input type="text" placeholder="City" required>
+        <input type="text" placeholder="Postal Code" required>
+      </div>
+
+      <div class="section-title">Your Payment Info</div>
+      <div class="payment-methods">
+        <div class="method active" data-type="card" onclick="selectMethod(this)">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa">
+          <p>Pay With Credit Card</p>
+        </div>
+        <div class="method" data-type="paypal" onclick="selectMethod(this)">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
+          <p>Pay With PayPal</p>
+        </div>
+        <div class="method" data-type="cod" onclick="selectMethod(this)">
+          <img src="https://cdn-icons-png.flaticon.com/512/7156/7156932.png" alt="COD">
+          <p>Cash On Delivery</p>
+        </div>
+      </div>
+
+      <!-- CARD DETAILS -->
+      <div class="form-row card-details">
+        <input type="text" placeholder="Card Holder Name" required>
+        <input type="text" placeholder="Card Number" required>
+        <input type="text" placeholder="Expire Date (MM/YY)" required>
+        <input type="text" placeholder="CCV" required>
+      </div>
+
+      <div id="error-message" class="error"></div>
+
+      <div class="checkout-buttons1">
+        <button class="prev-btn" onclick="window.location.href='addtocart.html'">← Previous</button>
+        <button class="pay-btn" onclick="validateForm()">Pay Now →</button>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE: CART SUMMARY -->
+    <div class="cart-summary">
+      <h3>Cart Summary</h3>
+      <div class="summary-row"><span>Sub Total:</span><span id="subTotal">$0.00</span></div>
+      <div class="summary-row"><span>Discount:</span><span>$5.00</span></div>
+      <div class="summary-row"><span>Shipping:</span><span>Free</span></div>
+      <div class="summary-row"><span>Taxes:</span><span>$25.00</span></div>
+      <div class="summary-row summary-total"><span>Total:</span><span id="grandTotal">$0.00</span></div>
+    </div>
+  </div>
+
+
+<footer class="footer">
+    <div class="footer-container">
+      
+      <!-- Column 1: About -->
+      <div class="footer-col">
+        <img src="Images/logo.png" alt="Mocart Logo" class="footer-logo">
+        <p>
+          We are many variations of the passages available but the majoro have suffered alteration injected.
+        </p>
+        <ul class="footer-contact">
+          <li><i class="fa fa-phone"></i> +2 123 654 7898</li>
+          <li><i class="fa fa-map-marker"></i> Salem, Tamilnadu</li>
+          <li><i class="fa fa-envelope"></i> info@example.com</li>
+          <li><i class="fa fa-clock"></i> Mon-Fri (9.00AM - 8.00PM)</li>
+        </ul>
+      </div>
+
+      <!-- Column 2: Quick Links -->
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Delivery Info</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Update News</a></li>
+          <li><a href="#">Our Testimonials</a></li>
+          <li><a href="#">Terms Of Service</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Browse Category -->
+      <div class="footer-col">
+        <h3>Browse Category</h3>
+        <ul>
+          <li><a href="#">Accessories</a></li>
+          <li><a href="#">Home & Garden</a></li>
+          <li><a href="#">Electronics</a></li>
+          <li><a href="#">Health & Beauty</a></li>
+          <li><a href="#">Grocery & Market</a></li>
+          <li><a href="#">Toy & Games</a></li>
+          <li><a href="#">Babies & Moms</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Support Center -->
+      <div class="footer-col">
+        <h3>Support Center</h3>
+        <ul>
+          <li><a href="#">FAQ's</a></li>
+          <li><a href="#">How To Buy</a></li>
+          <li><a href="#">Support Center</a></li>
+          <li><a href="#">Track Your Order</a></li>
+          <li><a href="#">Returns Policy</a></li>
+          <li><a href="#">Our Affiliates</a></li>
+          <li><a href="#">Sitemap</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 5: Get Mobile App -->
+      <div class="footer-col app-section">
+        <h3>Get Mobile App</h3>
+        <p>Stackly App is now available on App Store & Google Play.</p>
+        <p>Download Our Mobile App</p>
+        <div class="app-buttons">
+          <img src="Images/googleplay.png" alt="Google Play">
+          <img src="Images/applestore.png" alt="App Store">
+        </div>
+        <p>We Accept:</p>
+        <div class="payment-icons">
+          <img src="Images/visa.png" alt="Visa">
+        </div>
+      </div>
+    </div>
+
+      <!-- Animated Delivery Truck -->
+  <div class="footer-truck">
+  <i class="fa-solid fa-truck-fast"></i>
+  <span class="truck-text">Fast Delivery</span>
+</div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>© Copyright 2025 <span>Stackly</span> All Rights Reserved.</p>
+      <div class="footer-social">
+        <p>Follow Us:</p>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </footer>
+
+<script>
+function selectMethod(el) {
+  document.querySelectorAll('.method').forEach(m => m.classList.remove('active'));
+  el.classList.add('active');
+}
+</script>
+
+
+<script>
+function selectMethod(el) {
+  document.querySelectorAll('.method').forEach(m => m.classList.remove('active'));
+  el.classList.add('active');
+}
+
+// ====================== LOAD DATA ======================
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+// ====================== ELEMENTS ======================
+const subTotalEl = document.getElementById("subTotal");
+const grandTotalEl = document.getElementById("grandTotal");
+const cartCountEl = document.getElementById("cart-count");
+const wishlistCountEl = document.getElementById("wishlist-count");
+const cartDropdown = document.getElementById("cart-dropdown");
+const wishlistDropdown = document.getElementById("wishlist-dropdown");
+const cartTotalEl = document.getElementById("cart-total");
+
+// ====================== HEADER UPDATE ======================
+function updateCartHeaderUI() {
+  const count = cart.length;
+  if (cartCountEl) cartCountEl.textContent = count;
+
+  if (cart.length === 0) {
+    if (cartDropdown)
+      cartDropdown.innerHTML = `<p style="text-align:center; color:#777; padding:10px;">Your cart is empty</p>`;
+    if (cartTotalEl) cartTotalEl.innerHTML = `₹0.00<br>My Cart`;
+    return;
+  }
+
+  let total = 0;
+  if (cartDropdown)
+    cartDropdown.innerHTML = cart
+      .map((item) => {
+        total += item.price * item.qty;
+        return `
+          <div class="dropdown-item">
+            <img src="${item.img}" alt="${item.name}">
+            <div class="dropdown-info">
+              <span class="name">${item.name}</span>
+              <span class="price">₹${item.price}</span>
+            </div>
+            <button class="remove-btn" onclick="removeItem(${item.id})">&times;</button>
+          </div>`;
+      })
+      .join("");
+
+  if (cartTotalEl)
+    cartTotalEl.innerHTML = `₹${total.toLocaleString()}<br>My Cart`;
+}
+
+// ====================== UPDATE WISHLIST ======================
+function updateWishlistHeaderUI() {
+  if (wishlistCountEl) wishlistCountEl.textContent = wishlist.length;
+
+  if (wishlistDropdown) {
+    if (wishlist.length === 0) {
+      wishlistDropdown.innerHTML = `<p style="text-align:center; color:#777; padding:10px;">No items in wishlist</p>`;
+      return;
+    }
+    wishlistDropdown.innerHTML = wishlist
+      .map(
+        (item) => `
+        <div class="dropdown-item">
+          <img src="${item.img}" alt="${item.name}">
+          <div class="dropdown-info">
+            <span class="name">${item.name}</span>
+            <span class="price">₹${item.price}</span>
+          </div>
+          <button class="remove-btn" onclick="removeFromWishlist(${item.id})">&times;</button>
+        </div>`
+      )
+      .join("");
+  }
+}
+
+// ====================== UPDATE CHECKOUT TOTAL ======================
+function updateCheckoutTotals() {
+  if (!subTotalEl || !grandTotalEl) return;
+  if (cart.length === 0) {
+    subTotalEl.textContent = "₹0.00";
+    grandTotalEl.textContent = "₹0.00";
+    return;
+  }
+
+  let subTotal = cart.reduce((acc, item) => acc + item.price * item.qty, 0);
+  let discount = 5;
+  let tax = 25;
+  let grandTotal = subTotal - discount + tax;
+
+  subTotalEl.textContent = `₹${subTotal.toLocaleString()}`;
+  grandTotalEl.textContent = `₹${grandTotal.toLocaleString()}`;
+}
+
+// ====================== REMOVE FUNCTIONS ======================
+function removeItem(id) {
+  cart = cart.filter((p) => p.id !== id);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartHeaderUI();
+  updateCheckoutTotals();
+}
+
+function removeFromWishlist(id) {
+  wishlist = wishlist.filter((p) => p.id !== id);
+  localStorage.setItem("wishlist", JSON.stringify(wishlist));
+  updateWishlistHeaderUI();
+}
+
+// ====================== INIT ======================
+document.addEventListener("DOMContentLoaded", () => {
+  updateCartHeaderUI();
+  updateWishlistHeaderUI();
+  updateCheckoutTotals();
+});
+</script>
+
+
+<script>
+    // Select Payment Method
+    function selectMethod(selected) {
+      document.querySelectorAll('.method').forEach(m => m.classList.remove('active'));
+      selected.classList.add('active');
+
+      const type = selected.getAttribute('data-type');
+      const cardDetails = document.querySelector('.card-details');
+
+      if (type === 'cod') {
+        cardDetails.style.display = 'none';
+      } else {
+        cardDetails.style.display = 'grid';
+      }
+    }
+
+    // Copy Billing to Shipping
+    function copyBillingToShipping() {
+      const isChecked = document.getElementById('sameAddress').checked;
+      const billingInputs = document.querySelectorAll('.billing input');
+      const shippingInputs = document.querySelectorAll('.shipping input');
+
+      if (isChecked) {
+        for (let i = 0; i < shippingInputs.length; i++) {
+          shippingInputs[i].value = billingInputs[i]?.value || '';
+          shippingInputs[i].setAttribute('disabled', true);
+        }
+      } else {
+        shippingInputs.forEach(input => {
+          input.value = '';
+          input.removeAttribute('disabled');
+        });
+      }
+    }
+
+    // Validate Form
+    function validateForm() {
+      const activeMethod = document.querySelector('.method.active').getAttribute('data-type');
+      const allInputs = document.querySelectorAll('.checkout-left input');
+      const cardInputs = document.querySelectorAll('.card-details input');
+      let allValid = true;
+
+      allInputs.forEach(input => {
+        if (input.offsetParent !== null && !input.disabled && input.value.trim() === '') {
+          allValid = false;
+          input.style.borderColor = 'red';
+        } else {
+          input.style.borderColor = '#ddd';
+        }
+      });
+
+      if (activeMethod !== 'cod') {
+        cardInputs.forEach(input => {
+          if (input.value.trim() === '') {
+            allValid = false;
+            input.style.borderColor = 'red';
+          }
+        });
+      }
+
+      const errorMsg = document.getElementById('error-message');
+      if (!allValid) {
+        errorMsg.textContent = '⚠️ Please fill all required fields before proceeding.';
+      } else {
+        errorMsg.textContent = '';
+        window.location.href = 'payment.html';
+      }
+    }
+  </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const homeDropdown = document.querySelector('.home-dropdown');
+  const arrow = homeDropdown?.querySelector('.arrow');
+  const menu = homeDropdown?.querySelector('.home-dropdown-menu');
+  const toggleBtn = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("nav-links");
+
+  // ✅ Mobile menu toggle
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+    });
+  }
+
+  // ✅ Dropdown arrow toggle (does NOT block "Home" link)
+  if (arrow && menu) {
+    arrow.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation(); // prevent Home link from triggering
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    });
+  }
+
+  // ✅ Clicking "Home" will navigate normally
+  const homeLink = homeDropdown.querySelector("a[href='index.html']");
+  if (homeLink) {
+    homeLink.addEventListener("click", () => {
+      menu.style.display = 'none'; // close menu when navigating
+    });
+  }
+
+  // ✅ Auto close dropdown when clicking outside (mobile or desktop)
+  document.addEventListener("click", (e) => {
+    if (!homeDropdown.contains(e.target)) {
+      menu.style.display = "none";
+    }
+  });
+});
+</script>
+
+
+<script>
+  const themeToggle = document.getElementById('theme-icon');
+  const body = document.body;
+
+  // Load theme from localStorage
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
+    body.classList.add('dark-mode');
+    themeToggle.classList.replace('fa-moon', 'fa-sun');
+  }
+
+  // Toggle theme
+  themeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+
+    if (body.classList.contains('dark-mode')) {
+      themeToggle.classList.replace('fa-moon', 'fa-sun');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      themeToggle.classList.replace('fa-sun', 'fa-moon');
+      localStorage.setItem('theme', 'light');
+    }
+  });
+</script>
+
+
+</body>
+</html>
+

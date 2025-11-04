@@ -287,7 +287,6 @@ body.dark-mode .dark-mode-toggle i {
   }
 }
 
-
 /* ==========================
    📱 Mobile Responsive Styles (No Toggle)
    ========================== */
@@ -554,12 +553,12 @@ body.dark-mode .dark-mode-toggle i {
       margin-left: -200px;
       }
 
-      .home-dropdown.active .home-dropdown-menu {
-        display: block;
-      }
-
       .home-dropdown .home-dropdown-menu li a {
         background-color: #33b2ff;
+      }
+
+      .home-dropdown.active .home-dropdown-menu {
+        display: block;
       }
 
       /* Hide phone number duplicate */
@@ -578,6 +577,8 @@ body.dark-mode .dark-mode-toggle i {
         border-top: 1px solid rgba(255, 255, 255, 0.1);
       }
     }
+
+
 
 .about-header {
   background: url('Images/about_back.jpg') no-repeat center right/cover;
@@ -642,7 +643,6 @@ body.dark-mode .about-header p {
   color: #d0e3ff;
 }
 
-
 /* Responsive */
 @media (max-width: 768px) {
   .about-header {
@@ -662,391 +662,137 @@ body.dark-mode .about-header p {
 }
 
 
-  .blog-section {
-      text-align: center;
-      padding: 60px 40px;
-      background: #f9fbfd;
-    }
-
-    .blog-section span {
-      color: #33b2ff;
-      font-size: 14px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      font-weight: 500;
-    }
-
-    .blog-section h2 {
-      font-size: 28px;
-      color: #222;
-      font-weight: 600;
-      margin: 10px 0 40px;
-    }
-
-    .blog-section h2 span {
-      color: #33b2ff;
-    }
-
-    .blog-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
-      justify-content: center;
-    }
-
-    .blog-card {
-      background: #fff;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .blog-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-    }
-
-    .blog-image {
-      position: relative;
-    }
-
-    .blog-image img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-    }
-
-    .blog-date {
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-      background: #33b2ff;
-      color: #fff;
-      font-size: 13px;
-      padding: 6px 12px;
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .blog-content {
-      padding: 20px;
-      text-align: left;
-    }
-
-    .blog-meta {
-      display: flex;
-      align-items: center;
-      font-size: 13px;
-      color: #666;
-      gap: 15px;
-      margin-bottom: 10px;
-    }
-
-    .blog-meta i {
-      color: #33b2ff;
-    }
-
-    .blog-content h3 {
-      font-size: 17px;
-      color: #222;
-      margin-bottom: 10px;
-    }
-
-    .blog-content p {
-      color: #777;
-      font-size: 14px;
-      margin-bottom: 20px;
-      line-height: 1.5;
-    }
-
-    .read-more {
-      display: inline-block;
-      background: #33b2ff;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 25px;
-      font-size: 14px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: background 0.3s;
-    }
-
-    .read-more:hover {
-      background: #008ecc;
-    }
-
-
-    /* 🌙 Dark Mode for Blog Section */
-body.dark-mode .blog-section {
-  background: #121212;
-  color: #e0e0e0;
+.wishlist-page {
+  padding: 40px;
 }
 
-body.dark-mode .blog-section span {
-  color: #33b2ff;
+.wishlist-page h2 {
+  font-size: 24px;
+  font-weight: bold;
 }
 
-body.dark-mode .blog-section h2 {
-  color: #fff;
+.wishlist-container {
+  padding-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
 }
 
-body.dark-mode .blog-section h2 span {
-  color: #33b2ff;
-}
-
-body.dark-mode .blog-card {
-  background: #1e1e1e;
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05);
-}
-
-body.dark-mode .blog-card:hover {
-  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.08);
-}
-
-body.dark-mode .blog-date {
-  background: #33b2ff;
-  color: #fff;
-}
-
-body.dark-mode .blog-meta {
-  color: #bbb;
-}
-
-body.dark-mode .blog-meta i {
-  color: #33b2ff;
-}
-
-body.dark-mode .blog-content h3 {
-  color: #fff;
-}
-
-body.dark-mode .blog-content p {
-  color: #aaa;
-}
-
-body.dark-mode .read-more {
-  background: #33b2ff;
-  color: #fff;
-}
-
-body.dark-mode .read-more:hover {
-  background: #1a9ee0;
-}
-
-
-    /* 📱 Mobile Device Media Query */
-@media (max-width: 768px) {
-  .blog-section {
-    padding: 40px 20px;
-  }
-
-  .blog-section h2 {
-    font-size: 22px;
-    margin-bottom: 25px;
-  }
-
-  .blog-container {
-    grid-template-columns: 1fr; /* Stack one by one */
-    gap: 20px;
-  }
-
-  .blog-card {
-    border-radius: 12px;
-  }
-
-  .blog-image img {
-    height: 200px; /* Adjust image height */
-  }
-
-  .blog-content {
-    padding: 15px;
-  }
-
-  .blog-content h3 {
-    font-size: 16px;
-  }
-
-  .blog-content p {
-    font-size: 13px;
-    margin-bottom: 15px;
-  }
-
-  .blog-meta {
-    flex-wrap: wrap;
-    gap: 10px;
-    font-size: 12px;
-  }
-
-  .read-more {
-    padding: 8px 18px;
-    font-size: 13px;
-  }
-}
-
-/* 📱 Extra Small Devices (below 480px) */
-@media (max-width: 480px) {
-  .blog-section h2 {
-    font-size: 20px;
-  }
-
-  .blog-image img {
-    height: 180px;
-  }
-
-  .blog-content h3 {
-    font-size: 15px;
-  }
-
-  .blog-content p {
-    font-size: 12px;
-    line-height: 1.4;
-  }
-
-  .read-more {
-    padding: 8px 16px;
-    font-size: 12px;
-  }
-}
-
-    .discount-section {
-  background: url('Images/discount_shopping.jpg') center/cover no-repeat;
-  border-radius: 20px;
-  padding: 80px 20px;
-  margin: 60px auto;
-  max-width: 1000px;
-  color: #fff;
-  text-align: center;
-  position: relative;
-}
-
-.discount-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: 20px;
-}
-
-.discount-content {
-  position: relative;
-  z-index: 1;
-}
-
-.discount-section h2 {
-  font-size: 28px;
-  font-weight: 700;
-}
-
-.discount-section h2 span {
-  color: #33b2ff;
-}
-
-.discount-section p {
-  margin: 10px 0 20px;
-  font-size: 16px;
-  opacity: 0.9;
-}
-
-.subscribe-box {
-  display: inline-flex;
+.wishlist-card {
   background: #fff;
-  border-radius: 50px;
-  overflow: hidden;
-  max-width: 450px;
-  width: 100%;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  text-align: center;
+  padding: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.subscribe-box input {
-  flex: 1;
-  border: none;
-  padding: 14px 20px;
-  font-size: 15px;
-  outline: none;
+.wishlist-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ✅ Image - fixed size, centered, and fully visible */
+.wishlist-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;      /* shows full image */
+  object-position: center;  /* centers image */
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+  background: #f9f9f9;      /* subtle background behind transparent images */
+}
+
+.wishlist-card h4 {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 600;
   color: #333;
 }
 
-.subscribe-box button {
-  background: #33b2ff;
-  border: none;
-  color: #fff;
-  padding: 0 20px;
+.wishlist-card .price {
+  color: #555;
   font-size: 15px;
+  margin-top: 5px;
+}
+
+.wishlist-card button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: 0.3s;
+  color: #fff;
+  font-size: 14px;
+  margin: 5px;
+  transition: 0.3s ease;
 }
 
-.subscribe-box button:hover {
-  background: #0d1b4c;
+/* ✅ Add to Cart button */
+.wishlist-card .add-btn {
+  background: #33b2ff;
+}
+.wishlist-card .add-btn:hover {
+  background: #0094e0;
 }
 
-/* 📱 Mobile Responsive Discount Section */
-@media (max-width: 768px) {
-  .discount-section {
-    padding: 60px 15px;
-    margin: 40px 15px;
-    border-radius: 15px;
-    max-width: 100%;
-    background-position: center;
-  }
-
-  .discount-section h2 {
-    font-size: 22px;
-    line-height: 1.4;
-  }
-
-  .discount-section p {
-    font-size: 14px;
-    margin: 8px 0 18px;
-  }
-
-  .subscribe-box {
-    flex-direction: column; /* Stack input and button */
-    border-radius: 12px;
-    max-width: 100%;
-    overflow: visible;
-  }
-
-  .subscribe-box input {
-    width: 100%;
-    padding: 12px 15px;
-    border-radius: 12px 12px 0 0;
-    font-size: 14px;
-  }
-
-  .subscribe-box button {
-    width: 100%;
-    justify-content: center;
-    padding: 12px 15px;
-    border-radius: 0 0 12px 12px;
-    font-size: 14px;
-  }
+/* ✅ Remove button */
+.wishlist-card .remove-btn {
+  background: #ff4d4d;
+}
+.wishlist-card .remove-btn:hover {
+  background: #d63c4c;
 }
 
-/* 📱 Extra Small Screens (below 480px) */
-@media (max-width: 480px) {
-  .discount-section {
-    padding: 50px 10px;
-  }
+/* 🌙 Manual Dark Mode (Toggle using body.dark-mode) */
+body.dark-mode {
+  background-color: #0d1117;
+  color: #e6edf3;
+}
 
-  .discount-section h2 {
-    font-size: 20px;
-  }
+body.dark-mode .wishlist-page h2 {
+  color: #f0f6fc;
+}
 
-  .discount-section p {
-    font-size: 13px;
-  }
+body.dark-mode .wishlist-card {
+  background: #161b22;
+  border: 1px solid #30363d;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
 
-  .subscribe-box input,
-  .subscribe-box button {
-    font-size: 13px;
-    padding: 10px;
-  }
+body.dark-mode .wishlist-card:hover {
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode .wishlist-card h4 {
+  color: #e6edf3;
+}
+
+body.dark-mode .wishlist-card .price {
+  color: #c9d1d9;
+}
+
+body.dark-mode .wishlist-card img {
+  background: #1c2128;
+}
+
+/* Buttons remain bright for contrast */
+body.dark-mode .wishlist-card .add-btn {
+  background: #33b2ff;
+  color: #fff;
+}
+
+body.dark-mode .wishlist-card .add-btn:hover {
+  background: #0094e0;
+}
+
+body.dark-mode .wishlist-card .remove-btn {
+  background: #ff4d4d;
+  color: #fff;
+}
+
+body.dark-mode .wishlist-card .remove-btn:hover {
+  background: #d63c4c;
 }
 
 
@@ -1486,57 +1232,3 @@ body.dark-mode .read-more:hover {
     top: 3px;
   }
 }
-
-
-/* Default hidden before scroll */
-[data-animate] {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease-out;
-}
-
-/* When visible */
-[data-animate].animate {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* 🔹 Bounce Animations */
-@keyframes bounceIn {
-  0% { opacity: 0; transform: scale(0.3); }
-  50% { opacity: 1; transform: scale(1.05); }
-  70% { transform: scale(0.9); }
-  100% { transform: scale(1); }
-}
-@keyframes bounceInUp {
-  0% { opacity: 0; transform: translateY(100px); }
-  60% { opacity: 1; transform: translateY(-20px); }
-  80% { transform: translateY(10px); }
-  100% { transform: translateY(0); }
-}
-@keyframes bounceInDown {
-  0% { opacity: 0; transform: translateY(-100px); }
-  60% { opacity: 1; transform: translateY(20px); }
-  80% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
-}
-@keyframes bounceInLeft {
-  0% { opacity: 0; transform: translateX(-120px); }
-  60% { opacity: 1; transform: translateX(25px); }
-  80% { transform: translateX(-10px); }
-  100% { transform: translateX(0); }
-}
-@keyframes bounceInRight {
-  0% { opacity: 0; transform: translateX(120px); }
-  60% { opacity: 1; transform: translateX(-25px); }
-  80% { transform: translateX(10px); }
-  100% { transform: translateX(0); }
-}
-
-/* Animation class applied dynamically */
-.animate.bounceIn     { animation: bounceIn 1.5s ease both; }
-.animate.bounceInUp   { animation: bounceInUp 1.5s ease both; }
-.animate.bounceInDown { animation: bounceInDown 1.5s ease both; }
-.animate.bounceInLeft { animation: bounceInLeft 1.5s ease both; }
-.animate.bounceInRight{ animation: bounceInRight 1.5s ease both; }
-

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stackly Retail/Multipurpose</title>
-  <link rel="stylesheet" href="faq.css" />
+  <link rel="stylesheet" href="payment.css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -101,131 +101,29 @@
   </nav>
 
 
+
 <section class="about-header">
   <div class="about-content">
-    <h1>FAQ</h1>
-    <p><i class="fas fa-home"></i> Home <span>››</span> FAQ</p>
+    <h1>Order Placed</h1>
+    <p><i class="fas fa-home"></i> Home <span>››</span> Order Placed</p>
   </div>
 </section>
 
-  <section class="faq-section">
-    <div class="faq-container">
-      <!-- Sidebar -->
-      <div class="faq-sidebar" data-animate="bounceInLeft">
-        <h3>Most Popular Questions</h3>
-        <ul>
-          <li>Managing Account</li>
-          <li>Working With Dashboard</li>
-          <li>Available Payment Methods</li>
-          <li>Delivery Information</li>
-          <li>Order Tracking Instructions</li>
-          <li>Refund Policy</li>
-          <li>Offers And Discounts</li>
-          <li>Affiliate Program</li>
-          <li>Service Terms & Conditions</li>
-        </ul>
-      </div>
-
-      <!-- FAQ Content -->
-      <div class="faq-content">
-
-        <div class="faq-item active" data-animate="bounceIn">
-          <div class="faq-question">
-            <i class="fa-regular fa-circle-question"></i>
-            <h4>Do I Need An Account To Place An Order ?</h4>
-            <i class="fa-solid fa-chevron-up"></i>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer">
-            <p>
-              No, you don’t necessarily need an account to place an order. You can checkout as a guest.
-              However, creating an account allows you to track your orders and enjoy faster checkouts
-              for future purchases.
-            </p>
-          </div>
-        </div>
-
-        <div class="faq-item" data-animate="bounceIn">
-          <div class="faq-question">
-            <i class="fa-regular fa-circle-question"></i>
-            <h4>What Payment Methods Do You Accept ?</h4>
-            <i class="fa-solid fa-chevron-up"></i>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer">
-            <p>
-              We accept all major credit and debit cards, PayPal, UPI, and net banking. Cash on Delivery
-              (COD) is also available for select locations.
-            </p>
-          </div>
-        </div>
-
-        <div class="faq-item" data-animate="bounceIn">
-          <div class="faq-question">
-            <i class="fa-regular fa-circle-question"></i>
-            <h4>How Long Will Delivery Take ?</h4>
-            <i class="fa-solid fa-chevron-up"></i>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer">
-            <p>
-              Delivery usually takes 3–5 business days depending on your location. Remote areas may take
-              up to 7 days. You’ll receive a tracking link once your order is shipped.
-            </p>
-          </div>
-        </div>
-
-        <div class="faq-item" data-animate="bounceIn">
-          <div class="faq-question">
-            <i class="fa-regular fa-circle-question"></i>
-            <h4>Do You Have Discounts For Returning Customers ?</h4>
-            <i class="fa-solid fa-chevron-up"></i>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer">
-            <p>
-              Yes! Returning customers receive special discount coupons and access to exclusive offers.
-              Subscribe to our newsletter to never miss any deals.
-            </p>
-          </div>
-        </div>
-
-        <div class="faq-item" data-animate="bounceIn">
-          <div class="faq-question">
-            <i class="fa-regular fa-circle-question"></i>
-            <h4>How Can I Track My Order ?</h4>
-            <i class="fa-solid fa-chevron-up"></i>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer">
-            <p>
-              You can track your order by logging into your account and visiting the “My Orders” section.
-              A tracking link will be available as soon as your item ships.
-            </p>
-          </div>
-        </div>
-
-        <div class="faq-item" data-animate="bounceIn">
-          <div class="faq-question">
-            <i class="fa-regular fa-circle-question"></i>
-            <h4>What Are The Product Refund Conditions ?</h4>
-            <i class="fa-solid fa-chevron-up"></i>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer" data-animate="bounceIn">
-            <p>
-              Refunds are applicable for unused products returned in original packaging within 7 days
-              of delivery. Once inspected and approved, refunds are credited within 5–7 business days.
-            </p>
-          </div>
-        </div>
-
-      </div>
+ <div class="order-success">
+    <div class="icon">
+      <i class="fa-solid fa-check"></i>
     </div>
-  </section>
+    <h2>Thank You For Your Order!</h2>
+    <p>
+      Your order has been placed successfully and will be processed as soon as possible.<br>
+      Make sure you make note of your order number below.
+    </p>
+    <p class="order-id">Order ID: <span id="order-id"></span></p>
+    <a href="shop.html" class="back-btn">Go Back Shopping →</a>
+  </div>
 
-  <footer class="footer">
-    <div class="footer-container" data-animate="bounceIn">
+    <footer class="footer">
+    <div class="footer-container">
       
       <!-- Column 1: About -->
       <div class="footer-col">
@@ -245,20 +143,13 @@
       <div class="footer-col">
         <h3>Quick Links</h3>
         <ul>
-          <li><a href="404.html">
-About Us</a></li>
-          <li><a href="404.html">
-Delivery Info</a></li>
-          <li><a href="404.html">
-Contact Us</a></li>
-          <li><a href="404.html">
-Update News</a></li>
-          <li><a href="404.html">
-Our Testimonials</a></li>
-          <li><a href="404.html">
-Terms Of Service</a></li>
-          <li><a href="404.html">
-Privacy Policy</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Delivery Info</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Update News</a></li>
+          <li><a href="#">Our Testimonials</a></li>
+          <li><a href="#">Terms Of Service</a></li>
+          <li><a href="#">Privacy Policy</a></li>
         </ul>
       </div>
 
@@ -266,20 +157,13 @@ Privacy Policy</a></li>
       <div class="footer-col">
         <h3>Browse Category</h3>
         <ul>
-          <li><a href="404.html">
-Accessories</a></li>
-          <li><a href="404.html">
-Home & Garden</a></li>
-          <li><a href="404.html">
-Electronics</a></li>
-          <li><a href="404.html">
-Health & Beauty</a></li>
-          <li><a href="404.html">
-Grocery & Market</a></li>
-          <li><a href="404.html">
-Toy & Games</a></li>
-          <li><a href="404.html">
-Babies & Moms</a></li>
+          <li><a href="#">Accessories</a></li>
+          <li><a href="#">Home & Garden</a></li>
+          <li><a href="#">Electronics</a></li>
+          <li><a href="#">Health & Beauty</a></li>
+          <li><a href="#">Grocery & Market</a></li>
+          <li><a href="#">Toy & Games</a></li>
+          <li><a href="#">Babies & Moms</a></li>
         </ul>
       </div>
 
@@ -287,20 +171,13 @@ Babies & Moms</a></li>
       <div class="footer-col">
         <h3>Support Center</h3>
         <ul>
-          <li><a href="404.html">
-FAQ's</a></li>
-          <li><a href="404.html">
-How To Buy</a></li>
-          <li><a href="404.html">
-Support Center</a></li>
-          <li><a href="404.html">
-Track Your Order</a></li>
-          <li><a href="404.html">
-Returns Policy</a></li>
-          <li><a href="404.html">
-Our Affiliates</a></li>
-          <li><a href="404.html">
-Sitemap</a></li>
+          <li><a href="#">FAQ's</a></li>
+          <li><a href="#">How To Buy</a></li>
+          <li><a href="#">Support Center</a></li>
+          <li><a href="#">Track Your Order</a></li>
+          <li><a href="#">Returns Policy</a></li>
+          <li><a href="#">Our Affiliates</a></li>
+          <li><a href="#">Sitemap</a></li>
         </ul>
       </div>
 
@@ -331,33 +208,32 @@ Sitemap</a></li>
       <p>© Copyright 2025 <span>Stackly</span> All Rights Reserved.</p>
       <div class="footer-social">
         <p>Follow Us:</p>
-        <a href="404.html">
-<i class="fab fa-facebook-f"></i></a>
-        <a href="404.html">
-<i class="fab fa-twitter"></i></a>
-        <a href="404.html">
-<i class="fab fa-linkedin-in"></i></a>
-        <a href="404.html">
-<i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
       </div>
     </div>
   </footer>
 
-  <script>
-    const faqItems = document.querySelectorAll('.faq-item');
 
-    faqItems.forEach(item => {
-      const question = item.querySelector('.faq-question');
-      question.addEventListener('click', () => {
-        // Close all others
-        faqItems.forEach(i => {
-          if (i !== item) i.classList.remove('active');
-        });
-        // Toggle current one
-        item.classList.toggle('active');
-      });
-    });
-  </script>
+<script>
+  // Generate order ID
+  const orderId = "ORD" + Math.floor(Math.random() * 1000000);
+
+  // Save order ID to localStorage
+  localStorage.setItem("latestOrder", orderId);
+
+  // Display order ID on the page
+  document.addEventListener("DOMContentLoaded", function() {
+    const orderIdEl = document.getElementById("order-id");
+    if (orderIdEl) {
+      orderIdEl.textContent = orderId;
+    }
+  });
+</script>
+
+
 
 <script>
 // ====================== LOAD DATA ======================
@@ -548,7 +424,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-
 <script>
   const themeToggle = document.getElementById('theme-icon');
   const body = document.body;
@@ -574,23 +449,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 </script>
 
-<script>
-// 🌟 Common Bounce Scroll Animation Script
-document.addEventListener("DOMContentLoaded", () => {
-  const elements = document.querySelectorAll("[data-animate]");
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const anim = entry.target.dataset.animate;
-        entry.target.classList.add("animate", anim);
-      }
-    });
-  }, { threshold: 0.2 }); // triggers when 20% visible
-
-  elements.forEach((el) => observer.observe(el));
-});
-</script>
 
 </body>
 </html>

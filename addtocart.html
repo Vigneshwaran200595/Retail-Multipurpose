@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stackly Retail/Multipurpose</title>
-  <link rel="stylesheet" href="faq.css" />
+  <link rel="stylesheet" href="addtocart.css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -103,129 +103,54 @@
 
 <section class="about-header">
   <div class="about-content">
-    <h1>FAQ</h1>
-    <p><i class="fas fa-home"></i> Home <span>››</span> FAQ</p>
+    <h1>Shop Cart</h1>
+    <p><i class="fas fa-home"></i> Home <span>››</span> My Cart</p>
   </div>
 </section>
 
-  <section class="faq-section">
-    <div class="faq-container">
-      <!-- Sidebar -->
-      <div class="faq-sidebar" data-animate="bounceInLeft">
-        <h3>Most Popular Questions</h3>
-        <ul>
-          <li>Managing Account</li>
-          <li>Working With Dashboard</li>
-          <li>Available Payment Methods</li>
-          <li>Delivery Information</li>
-          <li>Order Tracking Instructions</li>
-          <li>Refund Policy</li>
-          <li>Offers And Discounts</li>
-          <li>Affiliate Program</li>
-          <li>Service Terms & Conditions</li>
-        </ul>
-      </div>
+<div class="cart-container">
+    <!-- LEFT: Cart Table -->
+    <div class="cart-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Sub Total</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="cart-items">
+          <!-- JS will inject cart rows -->
+        </tbody>
+      </table>
 
-      <!-- FAQ Content -->
-      <div class="faq-content">
-
-        <div class="faq-item active" data-animate="bounceIn">
-          <div class="faq-question">
-            <i class="fa-regular fa-circle-question"></i>
-            <h4>Do I Need An Account To Place An Order ?</h4>
-            <i class="fa-solid fa-chevron-up"></i>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer">
-            <p>
-              No, you don’t necessarily need an account to place an order. You can checkout as a guest.
-              However, creating an account allows you to track your orders and enjoy faster checkouts
-              for future purchases.
-            </p>
-          </div>
-        </div>
-
-        <div class="faq-item" data-animate="bounceIn">
-          <div class="faq-question">
-            <i class="fa-regular fa-circle-question"></i>
-            <h4>What Payment Methods Do You Accept ?</h4>
-            <i class="fa-solid fa-chevron-up"></i>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer">
-            <p>
-              We accept all major credit and debit cards, PayPal, UPI, and net banking. Cash on Delivery
-              (COD) is also available for select locations.
-            </p>
-          </div>
-        </div>
-
-        <div class="faq-item" data-animate="bounceIn">
-          <div class="faq-question">
-            <i class="fa-regular fa-circle-question"></i>
-            <h4>How Long Will Delivery Take ?</h4>
-            <i class="fa-solid fa-chevron-up"></i>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer">
-            <p>
-              Delivery usually takes 3–5 business days depending on your location. Remote areas may take
-              up to 7 days. You’ll receive a tracking link once your order is shipped.
-            </p>
-          </div>
-        </div>
-
-        <div class="faq-item" data-animate="bounceIn">
-          <div class="faq-question">
-            <i class="fa-regular fa-circle-question"></i>
-            <h4>Do You Have Discounts For Returning Customers ?</h4>
-            <i class="fa-solid fa-chevron-up"></i>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer">
-            <p>
-              Yes! Returning customers receive special discount coupons and access to exclusive offers.
-              Subscribe to our newsletter to never miss any deals.
-            </p>
-          </div>
-        </div>
-
-        <div class="faq-item" data-animate="bounceIn">
-          <div class="faq-question">
-            <i class="fa-regular fa-circle-question"></i>
-            <h4>How Can I Track My Order ?</h4>
-            <i class="fa-solid fa-chevron-up"></i>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer">
-            <p>
-              You can track your order by logging into your account and visiting the “My Orders” section.
-              A tracking link will be available as soon as your item ships.
-            </p>
-          </div>
-        </div>
-
-        <div class="faq-item" data-animate="bounceIn">
-          <div class="faq-question">
-            <i class="fa-regular fa-circle-question"></i>
-            <h4>What Are The Product Refund Conditions ?</h4>
-            <i class="fa-solid fa-chevron-up"></i>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer" data-animate="bounceIn">
-            <p>
-              Refunds are applicable for unused products returned in original packaging within 7 days
-              of delivery. Once inspected and approved, refunds are credited within 5–7 business days.
-            </p>
-          </div>
-        </div>
-
+      <div class="cart-actions">
+        <a href="shop.html">
+  <button class="continue-btn">
+    <i class="fa fa-arrow-left"></i> Continue Shopping
+  </button>
+  </a>
       </div>
     </div>
-  </section>
 
-  <footer class="footer">
-    <div class="footer-container" data-animate="bounceIn">
+    <!-- RIGHT: Cart Summary -->
+    <div class="cart-summary">
+      <h3>Cart Summary</h3>
+      <div class="summary-row"><span>Sub Total:</span><span id="subTotal">$0.00</span></div>
+      <div class="summary-row"><span>Discount:</span><span>$5.00</span></div>
+      <div class="summary-row"><span>Shipping:</span><span>Free</span></div>
+      <div class="summary-row"><span>Taxes:</span><span>$25.00</span></div>
+      <div class="summary-row summary-total"><span>Total:</span><span id="grandTotal">$0.00</span></div>
+      <a href="checkout.html" class="checkout-btn">Checkout Now →</a>
+    </div>
+  </div>
+
+
+    <footer class="footer">
+    <div class="footer-container">
       
       <!-- Column 1: About -->
       <div class="footer-col">
@@ -343,75 +268,53 @@ Sitemap</a></li>
     </div>
   </footer>
 
-  <script>
-    const faqItems = document.querySelectorAll('.faq-item');
-
-    faqItems.forEach(item => {
-      const question = item.querySelector('.faq-question');
-      question.addEventListener('click', () => {
-        // Close all others
-        faqItems.forEach(i => {
-          if (i !== item) i.classList.remove('active');
-        });
-        // Toggle current one
-        item.classList.toggle('active');
-      });
-    });
-  </script>
-
 <script>
 // ====================== LOAD DATA ======================
-let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
 
-// ====================== ELEMENT REFERENCES ======================
-const wishlistCountEl = document.getElementById("wishlist-count");
+// ====================== ELEMENTS ======================
+const cartContainer = document.getElementById("cart-items");
+const subTotalEl = document.getElementById("subTotal");
+const grandTotalEl = document.getElementById("grandTotal");
 const cartCountEl = document.getElementById("cart-count");
+const wishlistCountEl = document.getElementById("wishlist-count");
+const cartDropdown = document.getElementById("cart-dropdown");
+const wishlistDropdown = document.getElementById("wishlist-dropdown");
 const cartTotalEl = document.getElementById("cart-total");
 
-const wishlistDropdown = document.getElementById("wishlist-dropdown");
-const cartDropdown = document.getElementById("cart-dropdown");
+// ====================== UPDATE HEADER UI ======================
+function updateCartHeaderUI() {
+  const count = cart.length;
+  if (cartCountEl) cartCountEl.textContent = count;
 
-const wishlistWrapper = document.querySelector(".wishlist")?.closest(".icon-wrapper");
-const cartWrapper = document.querySelector(".cart")?.closest(".icon-wrapper");
+  if (cart.length === 0) {
+    cartDropdown.innerHTML = `<p style="text-align:center; color:#777; padding:10px;">Your cart is empty</p>`;
+    if (cartTotalEl) cartTotalEl.innerHTML = `₹0.00<br>My Cart`;
+    return;
+  }
 
-// ====================== DROPDOWN HOVER FIX ======================
-function setupDropdown(wrapper, dropdown) {
-  if (!wrapper || !dropdown) return;
-  let hideTimeout;
+  let total = 0;
+  cartDropdown.innerHTML = cart
+    .map((item) => {
+      total += item.price * item.qty;
+      return `
+        <div class="dropdown-item">
+          <img src="${item.img}" alt="${item.name}">
+          <div class="dropdown-info">
+            <span class="name">${item.name}</span>
+            <span class="price">₹${item.price}</span>
+          </div>
+          <button class="remove-btn" onclick="removeItem(${item.id})">&times;</button>
+        </div>`;
+    })
+    .join("");
 
-  wrapper.addEventListener("mouseenter", () => {
-    clearTimeout(hideTimeout);
-    dropdown.style.display = "block";
-    dropdown.style.opacity = "1";
-  });
-
-  wrapper.addEventListener("mouseleave", () => {
-    hideTimeout = setTimeout(() => {
-      dropdown.style.opacity = "0";
-      dropdown.style.display = "none";
-    }, 250);
-  });
-
-  dropdown.addEventListener("mouseenter", () => {
-    clearTimeout(hideTimeout);
-    dropdown.style.display = "block";
-    dropdown.style.opacity = "1";
-  });
-
-  dropdown.addEventListener("mouseleave", () => {
-    hideTimeout = setTimeout(() => {
-      dropdown.style.opacity = "0";
-      dropdown.style.display = "none";
-    }, 250);
-  });
+  if (cartTotalEl)
+    cartTotalEl.innerHTML = `₹${total.toLocaleString()}<br>My Cart`;
 }
 
-setupDropdown(wishlistWrapper, wishlistDropdown);
-setupDropdown(cartWrapper, cartDropdown);
-
-// ====================== UPDATE WISHLIST UI ======================
-function updateWishlistUI() {
+function updateWishlistHeaderUI() {
   if (wishlistCountEl) wishlistCountEl.textContent = wishlist.length;
 
   if (wishlist.length === 0) {
@@ -428,84 +331,160 @@ function updateWishlistUI() {
           <span class="name">${item.name}</span>
           <span class="price">₹${item.price}</span>
         </div>
-        <div class="dropdown-actions">
-          <button class="add-btn" onclick="addToCart(${item.id})" title="Add to Cart">
-            <i class="fa-solid fa-cart-plus"></i>
-          </button>
-          <button class="remove-btn" onclick="removeFromWishlist(${item.id})" title="Remove">&times;</button>
-        </div>
+        <button class="remove-btn" onclick="removeFromWishlist(${item.id})">&times;</button>
       </div>`
     )
     .join("");
 }
 
-// ====================== UPDATE CART UI ======================
-function updateCartUI() {
-  const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
-
-  if (cartCountEl) cartCountEl.textContent = cart.length;
-  if (cartTotalEl) cartTotalEl.innerHTML = `₹${subtotal.toFixed(2)}<br>My Cart`;
+// ====================== CART FUNCTIONS ======================
+function renderCart() {
+  if (!cartContainer) return;
 
   if (cart.length === 0) {
-    cartDropdown.innerHTML = `<p style="text-align:center; color:#777; padding:10px;">Your cart is empty</p>`;
+    cartContainer.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:30px;">Your cart is empty</td></tr>`;
+    subTotalEl.textContent = "₹0.00";
+    grandTotalEl.textContent = "₹0.00";
+    updateCartHeaderUI();
     return;
   }
 
-  cartDropdown.innerHTML = cart
-    .map(
-      (item) => `
-      <div class="dropdown-item">
-        <img src="${item.img}" alt="${item.name}">
-        <div class="dropdown-info">
-          <span class="name">${item.name}</span>
-          <span class="price">₹${item.price} × ${item.qty}</span>
-        </div>
-        <button class="remove-btn" onclick="removeFromCart(${item.id})" title="Remove">&times;</button>
-      </div>`
-    )
+  let subTotal = 0;
+  cartContainer.innerHTML = cart
+    .map((item) => {
+      const itemTotal = item.price * item.qty;
+      subTotal += itemTotal;
+      return `
+        <tr>
+          <td><img src="${item.img}" alt="${item.name}"></td>
+          <td>
+            <div class="product-name">${item.name}</div>
+            <div class="product-sub">Type: ${
+              item.category || "Headphone"
+            }<br>Color: Blue</div>
+          </td>
+          <td class="price">₹${item.price.toLocaleString()}</td>
+          <td>
+            <div class="qty-controls">
+              <button onclick="updateQty(${item.id}, 'dec')">−</button>
+              <span>${item.qty}</span>
+              <button onclick="updateQty(${item.id}, 'inc')">+</button>
+            </div>
+          </td>
+          <td>₹${itemTotal.toLocaleString()}</td>
+          <td><button class="remove-btn" onclick="removeItem(${item.id})">&times;</button></td>
+        </tr>`;
+    })
     .join("");
+
+  subTotalEl.textContent = `₹${subTotal.toLocaleString()}`;
+  const total = subTotal - 5 + 25;
+  grandTotalEl.textContent = `₹${total.toLocaleString()}`;
+  updateCartHeaderUI();
 }
 
-// ====================== ADD TO CART ======================
-function addToCart(id) {
-  const item =
-    wishlist.find((p) => p.id === id) ||
-    (typeof products !== "undefined" && products.find((p) => p.id === id));
-
-  if (!item) return;
-
-  const existing = cart.find((p) => p.id === id);
-  if (existing) {
-    existing.qty += 1;
-  } else {
-    cart.push({ ...item, qty: 1 });
-  }
-
+function updateQty(id, type) {
+  const product = cart.find((p) => p.id === id);
+  if (!product) return;
+  if (type === "inc") product.qty++;
+  else if (type === "dec" && product.qty > 1) product.qty--;
   localStorage.setItem("cart", JSON.stringify(cart));
-  updateCartUI();
-
-  // Optional alert or toast
-  alert(`${item.name} added to your cart!`);
+  renderCart();
 }
 
-// ====================== REMOVE FROM WISHLIST ======================
-function removeFromWishlist(id) {
-  wishlist = wishlist.filter((item) => item.id !== id);
+function removeItem(id) {
+  cart = cart.filter((p) => p.id !== id);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderCart();
+}
+
+// ====================== WISHLIST FUNCTIONS ======================
+function addToWishlist(product) {
+  const exists = wishlist.find((p) => p.id === product.id);
+  if (!exists) wishlist.push(product);
   localStorage.setItem("wishlist", JSON.stringify(wishlist));
-  updateWishlistUI();
+  updateWishlistHeaderUI();
 }
 
-// ====================== REMOVE FROM CART ======================
-function removeFromCart(id) {
-  cart = cart.filter((item) => item.id !== id);
-  localStorage.setItem("cart", JSON.stringify(cart));
-  updateCartUI();
+function removeFromWishlist(id) {
+  wishlist = wishlist.filter((p) => p.id !== id);
+  localStorage.setItem("wishlist", JSON.stringify(wishlist));
+  updateWishlistHeaderUI();
 }
 
-// ====================== INITIAL LOAD ======================
-updateWishlistUI();
-updateCartUI();
+// ====================== DROPDOWN HOVER LOGIC ======================
+function setupDropdown(wrapperSelector, dropdownEl) {
+  const wrapper = document.querySelector(wrapperSelector);
+  if (!wrapper || !dropdownEl) return;
+
+  let hideTimeout;
+
+  wrapper.addEventListener("mouseenter", () => {
+    clearTimeout(hideTimeout);
+    dropdownEl.style.display = "block";
+    dropdownEl.style.opacity = "1";
+  });
+
+  wrapper.addEventListener("mouseleave", () => {
+    hideTimeout = setTimeout(() => {
+      dropdownEl.style.opacity = "0";
+      dropdownEl.style.display = "none";
+    }, 250);
+  });
+
+  dropdownEl.addEventListener("mouseenter", () => {
+    clearTimeout(hideTimeout);
+    dropdownEl.style.display = "block";
+    dropdownEl.style.opacity = "1";
+  });
+
+  dropdownEl.addEventListener("mouseleave", () => {
+    hideTimeout = setTimeout(() => {
+      dropdownEl.style.opacity = "0";
+      dropdownEl.style.display = "none";
+    }, 250);
+  });
+}
+
+// ====================== SHOP PAGE ADD-TO-CART HOVER ======================
+function setupAddToCartHover() {
+  const addButtons = document.querySelectorAll(".add-to-cart");
+  if (!addButtons.length || !cartDropdown) return;
+
+  addButtons.forEach((btn) => {
+    btn.addEventListener("mouseenter", () => {
+      cartDropdown.style.display = "block";
+      cartDropdown.style.opacity = "1";
+    });
+    btn.addEventListener("mouseleave", () => {
+      setTimeout(() => {
+        cartDropdown.style.opacity = "0";
+        cartDropdown.style.display = "none";
+      }, 250);
+    });
+  });
+
+  cartDropdown.addEventListener("mouseenter", () => {
+    cartDropdown.style.display = "block";
+    cartDropdown.style.opacity = "1";
+  });
+  cartDropdown.addEventListener("mouseleave", () => {
+    cartDropdown.style.opacity = "0";
+    setTimeout(() => (cartDropdown.style.display = "none"), 250);
+  });
+}
+
+// ====================== INIT DROPDOWN + DATA ======================
+document.addEventListener("DOMContentLoaded", () => {
+  setupDropdown(".icon-wrapper .wishlist", wishlistDropdown);
+  setupDropdown(".icon-wrapper .cart", cartDropdown);
+  setupAddToCartHover();
+  renderCart();
+  updateCartHeaderUI();
+  updateWishlistHeaderUI();
+});
 </script>
+
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -548,7 +527,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-
 <script>
   const themeToggle = document.getElementById('theme-icon');
   const body = document.body;
@@ -574,23 +552,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 </script>
 
-<script>
-// 🌟 Common Bounce Scroll Animation Script
-document.addEventListener("DOMContentLoaded", () => {
-  const elements = document.querySelectorAll("[data-animate]");
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const anim = entry.target.dataset.animate;
-        entry.target.classList.add("animate", anim);
-      }
-    });
-  }, { threshold: 0.2 }); // triggers when 20% visible
-
-  elements.forEach((el) => observer.observe(el));
-});
-</script>
+<script src="shop.js"></script>
 
 </body>
 </html>

@@ -81,3 +81,50 @@ body {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+
+/* 📱 Mobile Responsive Design (Keep Horizontal Layout) */
+@media (max-width: 768px) {
+
+  body {
+    padding: 20px;
+    height: auto;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .title {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+  }
+
+  .error-code {
+    font-size: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-direction: row; /* ✅ Keep horizontal */
+  }
+
+  .gear {
+    font-size: 5rem;
+  }
+
+  .message {
+    font-size: 1rem;
+    margin-top: 15px;
+    padding: 0 10px;
+  }
+
+  .home-btn {
+    padding: 10px 25px;
+    font-size: 0.9rem;
+    margin-top: 20px;
+  }
+}

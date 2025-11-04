@@ -12,89 +12,94 @@
 <body>
 
   <!-- Top Header -->
-  <header class="header">
-    <div class="header-container">
-      
-      <!-- Logo -->
-      <div class="logo">
-        <img src="Images/logo.png" alt="logo">
-      </div>
+<header class="header">
+  <div class="header-container">
 
-      <!-- Zoom In/Out Animation Text -->
-      <div class="animated-banner">
-        <div class="zoom-text">
-          <i class="fa-solid fa-truck-fast"></i> Above $100 Delivery Free
+    <!-- Logo -->
+    <div class="logo">
+      <img src="Images/logo.png" alt="logo">
+    </div>
+
+    <!-- Zoom In/Out Animation Text -->
+    <div class="animated-banner">
+      <div class="zoom-text">
+        <i class="fa-solid fa-truck-fast"></i> Above $100 Delivery Free
+      </div>
+    </div>
+
+     <div class="dark-mode-toggle">
+  <i id="theme-icon" class="fas fa-moon"></i>
+</div>
+
+
+    <!-- Right Icons -->
+    <div class="header-icons">
+      <a href="account.html" class="icon-link">
+        <i class="fa fa-user-circle"></i>
+        <span>Sign In<br>Account</span>
+      </a>
+
+      <!-- ❤️ Wishlist -->
+      <div class="icon-wrapper">
+        <a href="wishlist.html" class="icon-link wishlist">
+          <i class="fa fa-heart"></i>
+          <span>Wishlist<br>My Items</span>
+          <span id="wishlist-count" class="count-badge">0</span>
+        </a>
+        <div class="dropdown" id="wishlist-dropdown">
+          <p>No items in wishlist</p>
         </div>
       </div>
 
-      <!-- Right Icons -->
-       <div class="header-icons">
-  <a href="account.html" class="icon-link">
-    <i class="fa fa-user-circle"></i>
-    <span>Sign In<br>Account</span>
-  </a>
-
-  <!-- ❤️ Wishlist -->
-  <div class="icon-wrapper">
-    <a href="wishlist.html" class="icon-link wishlist">
-      <i class="fa fa-heart"></i>
-      <span>Wishlist<br>My Items</span>
-      <span id="wishlist-count" class="count-badge">0</span>
-    </a>
-    <div class="dropdown" id="wishlist-dropdown">
-      <p>No items in wishlist</p>
+      <!-- 🛒 Cart -->
+      <div class="icon-wrapper">
+        <a href="addtocart.html" class="icon-link cart">
+          <i class="fa fa-shopping-cart"></i>
+          <span id="cart-total">₹0.00<br>My Cart</span>
+          <span id="cart-count" class="count-badge">0</span>
+        </a>
+        <div class="dropdown" id="cart-dropdown">
+          <p>Your cart is empty</p>
+        </div>
+      </div>
     </div>
+
+   
   </div>
+</header>
 
-  <!-- 🛒 Cart -->
-  <div class="icon-wrapper">
-    <a href="addtocart.html" class="icon-link cart">
-      <i class="fa fa-shopping-cart"></i>
-      <span id="cart-total">₹0.00<br>My Cart</span>
-      <span id="cart-count" class="count-badge">0</span>
-    </a>
-    <div class="dropdown" id="cart-dropdown">
-      <p>Your cart is empty</p>
+<!-- Navigation -->
+<nav class="navbar">
+      <div class="contact-info">
+        <i class="fa-solid fa-phone"></i> +91 1234567890
+      </div>
+
+      <!-- ☰ Hamburger -->
+    <div class="menu-toggle" id="menu-toggle">
+      <i class="fa fa-bars"></i>
     </div>
-  </div>
-</div>
+      <ul class="nav-container" id="nav-links">
+      <li class="home-dropdown">
+        <a href="index.html">Home <span class="arrow">&#9662;</span></a>
+        <ul class="home-dropdown-menu">
+          <li><a href="404.html">Home 2</a></li>
+        </ul>
+      </li>
 
-    </div>
-  </header>
+      <li><a href="about.html">About</a></li>
+      <li><a href="affiliate.html">Affiliate</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
 
+      <li class="right">
+        <a href="track.html"><i class="fa fa-truck"></i> Track My Order</a>
+      </li>
+    </ul>
+  </nav>
 
-  <!-- Navigation -->
-  <nav class="navbar">
-  <ul class="nav-container">
-    <!-- 📞 Contact Number -->
-    <li class="contact-info">
-      <i class="fa-solid fa-phone"></i> +91 1234567890
-    </li>
-
-    <!-- 🔗 Navigation Links -->
-    <li class="home-dropdown">
-      <a href="index.html">Home <span class="arrow">&#9662;</span></a>
-      <ul class="home-dropdown-menu">
-        <li><a href="404.html">Home 2</a></li>
-      </ul>
-    </li>
-
-    <li><a href="about.html">About</a></li>
-    <li><a href="affiliate.html">Affiliate</a></li>
-    <li><a href="faq.html">FAQ</a></li>
-    <li><a href="dashboard.html">Dashboard</a></li>
-    <li><a href="shop.html">Shop</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="contact.html">Contact</a></li>
-
-    <!-- ⭐ Right Side -->
-    <li class="right">
-      <a href="track.html" class="track-link">
-        <i class="fa fa-truck"></i> Track My Order
-      </a>
-    </li>
-  </ul>
-</nav>
 
 <section class="about-header">
   <div class="about-content">
@@ -108,9 +113,9 @@
 
     <!-- Left Side Images -->
     <div class="about-images">
-      <div class="img-top">
+      <div class="img-top" data-animate="bounceInLeft">
         <img src="Images/about-2.jpg" alt="Shopping Friends">
-        <div class="experience-badge">
+        <div class="experience-badge" data-animate="bounceIn">
           <i class="fas fa-cogs"></i>
           <div>
             <h3>30 Years Of</h3>
@@ -118,13 +123,13 @@
           </div>
         </div>
       </div>
-      <div class="img-bottom">
+      <div class="img-bottom" data-animate="bounceInUp">
         <img src="Images/about-3.jpg" alt="Shopping Girl">
       </div>
     </div>
 
     <!-- Right Side Content -->
-    <div class="about-content">
+    <div class="about-content" data-animate="bounceInRight">
       <h5>ABOUT US</h5>
       <h2>World Largest Online <span>Shopping Marketplace</span> For You.</h2>
       <p>
@@ -147,7 +152,7 @@
   </div>
 </section>
 
-<section class="stats-section">
+<section class="stats-section" data-animate="bounceIn">
   <div class="stats-container">
 
     <div class="stat-box">
@@ -178,7 +183,7 @@
 </section>
 
 <section class="testimonial-section">
-  <div class="testimonial-header">
+  <div class="testimonial-header" data-animate="bounceInUp">
     <h5>TESTIMONIALS</h5>
     <h2>What Our Client Say's <span>About Us</span></h2>
   </div>
@@ -188,7 +193,7 @@
     <div class="swiper-wrapper">
 
       <!-- Testimonial 1 -->
-      <div class="swiper-slide testimonial-card">
+      <div class="swiper-slide testimonial-card" data-animate="bounceIn">
         <div class="testimonial-top">
           <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="User 1">
           <div>
@@ -209,7 +214,7 @@
       </div>
 
       <!-- Testimonial 2 -->
-      <div class="swiper-slide testimonial-card">
+      <div class="swiper-slide testimonial-card" data-animate="bounceIn">
         <div class="testimonial-top">
           <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="User 2">
           <div>
@@ -230,7 +235,7 @@
       </div>
 
       <!-- Testimonial 3 -->
-      <div class="swiper-slide testimonial-card">
+      <div class="swiper-slide testimonial-card" data-animate="bounceIn">
         <div class="testimonial-top">
           <img src="https://randomuser.me/api/portraits/women/23.jpg" alt="User 3">
           <div>
@@ -251,7 +256,7 @@
       </div>
 
       <!-- Testimonial 4 -->
-      <div class="swiper-slide testimonial-card">
+      <div class="swiper-slide testimonial-card" data-animate="bounceIn">
         <div class="testimonial-top">
           <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User 4">
           <div>
@@ -280,12 +285,12 @@
 
 <section class="team-section">
   <div class="container">
-    <h4 class="subtitle">OUR TEAM</h4>
-    <h2 class="title">Meet Our Expert <span>Team</span></h2>
+    <h4 class="subtitle" data-animate="bounceInUp">OUR TEAM</h4>
+    <h2 class="title" data-animate="bounceInUp">Meet Our Expert <span>Team</span></h2>
 
     <div class="team-container">
       <!-- Team Member 1 -->
-      <div class="team-card">
+      <div class="team-card" data-animate="bounceIn">
         <img src="Images/team1.jpg" alt="Chad Smith">
         <h3>Chad Smith</h3>
         <p class="role">Senior Manager</p>
@@ -302,7 +307,7 @@
       </div>
 
       <!-- Team Member 2 -->
-      <div class="team-card">
+      <div class="team-card" data-animate="bounceIn">
         <img src="Images/team2.jpg" alt="Malissa Fie">
         <h3>Malissa Fie</h3>
         <p class="role">SEO Expert</p>
@@ -319,7 +324,7 @@
       </div>
 
       <!-- Team Member 3 -->
-      <div class="team-card">
+      <div class="team-card" data-animate="bounceIn">
         <img src="Images/team3.jpg" alt="Arron Rodri">
         <h3>Arron Rodri</h3>
         <p class="role">CEO & Founder</p>
@@ -336,7 +341,7 @@
       </div>
 
       <!-- Team Member 4 -->
-      <div class="team-card">
+      <div class="team-card" data-animate="bounceIn">
         <img src="Images/team4.jpg" alt="Tony Pinako">
         <h3>Tony Pinako</h3>
         <p class="role">Digital Marketer</p>
@@ -356,7 +361,7 @@
 </section>
 
 <footer class="footer">
-    <div class="footer-container">
+    <div class="footer-container" data-animate="bounceIn">
       
       <!-- Column 1: About -->
       <div class="footer-col">
@@ -693,17 +698,84 @@ document.addEventListener('DOMContentLoaded', () => {
   const homeDropdown = document.querySelector('.home-dropdown');
   const arrow = homeDropdown?.querySelector('.arrow');
   const menu = homeDropdown?.querySelector('.home-dropdown-menu');
+  const toggleBtn = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("nav-links");
 
+  // ✅ Mobile menu toggle
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+    });
+  }
+
+  // ✅ Dropdown arrow toggle (does NOT block "Home" link)
   if (arrow && menu) {
-    arrow.addEventListener('click', (e) => {
+    arrow.addEventListener("click", (e) => {
       e.preventDefault();
+      e.stopPropagation(); // prevent Home link from triggering
       menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
     });
   }
+
+  // ✅ Clicking "Home" will navigate normally
+  const homeLink = homeDropdown.querySelector("a[href='index.html']");
+  if (homeLink) {
+    homeLink.addEventListener("click", () => {
+      menu.style.display = 'none'; // close menu when navigating
+    });
+  }
+
+  // ✅ Auto close dropdown when clicking outside (mobile or desktop)
+  document.addEventListener("click", (e) => {
+    if (!homeDropdown.contains(e.target)) {
+      menu.style.display = "none";
+    }
+  });
 });
 </script>
 
+<script>
+  const themeToggle = document.getElementById('theme-icon');
+  const body = document.body;
 
+  // Load theme from localStorage
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
+    body.classList.add('dark-mode');
+    themeToggle.classList.replace('fa-moon', 'fa-sun');
+  }
+
+  // Toggle theme
+  themeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+
+    if (body.classList.contains('dark-mode')) {
+      themeToggle.classList.replace('fa-moon', 'fa-sun');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      themeToggle.classList.replace('fa-sun', 'fa-moon');
+      localStorage.setItem('theme', 'light');
+    }
+  });
+</script>
+
+<script>
+// 🌟 Common Bounce Scroll Animation Script
+document.addEventListener("DOMContentLoaded", () => {
+  const elements = document.querySelectorAll("[data-animate]");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const anim = entry.target.dataset.animate;
+        entry.target.classList.add("animate", anim);
+      }
+    });
+  }, { threshold: 0.2 }); // triggers when 20% visible
+
+  elements.forEach((el) => observer.observe(el));
+});
+</script>
 
   </body>
 </html>

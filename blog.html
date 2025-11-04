@@ -13,88 +13,93 @@
 
   <!-- Top Header -->
   <header class="header">
-    <div class="header-container">
-      
-      <!-- Logo -->
-      <div class="logo">
-        <img src="Images/logo.png" alt="logo">
-      </div>
+  <div class="header-container">
 
-      <!-- Zoom In/Out Animation Text -->
-      <div class="animated-banner">
-        <div class="zoom-text">
-          <i class="fa-solid fa-truck-fast"></i> Above $100 Delivery Free
+    <!-- Logo -->
+    <div class="logo">
+      <img src="Images/logo.png" alt="logo">
+    </div>
+
+    <!-- Zoom In/Out Animation Text -->
+    <div class="animated-banner">
+      <div class="zoom-text">
+        <i class="fa-solid fa-truck-fast"></i> Above $100 Delivery Free
+      </div>
+    </div>
+
+     <div class="dark-mode-toggle">
+  <i id="theme-icon" class="fas fa-moon"></i>
+</div>
+
+
+    <!-- Right Icons -->
+    <div class="header-icons">
+      <a href="account.html" class="icon-link">
+        <i class="fa fa-user-circle"></i>
+        <span>Sign In<br>Account</span>
+      </a>
+
+      <!-- ❤️ Wishlist -->
+      <div class="icon-wrapper">
+        <a href="wishlist.html" class="icon-link wishlist">
+          <i class="fa fa-heart"></i>
+          <span>Wishlist<br>My Items</span>
+          <span id="wishlist-count" class="count-badge">0</span>
+        </a>
+        <div class="dropdown" id="wishlist-dropdown">
+          <p>No items in wishlist</p>
         </div>
       </div>
 
-      <!-- Right Icons -->
-     <div class="header-icons">
-  <a href="account.html" class="icon-link">
-    <i class="fa fa-user-circle"></i>
-    <span>Sign In<br>Account</span>
-  </a>
-
-  <!-- ❤️ Wishlist -->
-  <div class="icon-wrapper">
-    <a href="wishlist.html" class="icon-link wishlist">
-      <i class="fa fa-heart"></i>
-      <span>Wishlist<br>My Items</span>
-      <span id="wishlist-count" class="count-badge">0</span>
-    </a>
-    <div class="dropdown" id="wishlist-dropdown">
-      <p>No items in wishlist</p>
+      <!-- 🛒 Cart -->
+      <div class="icon-wrapper">
+        <a href="addtocart.html" class="icon-link cart">
+          <i class="fa fa-shopping-cart"></i>
+          <span id="cart-total">₹0.00<br>My Cart</span>
+          <span id="cart-count" class="count-badge">0</span>
+        </a>
+        <div class="dropdown" id="cart-dropdown">
+          <p>Your cart is empty</p>
+        </div>
+      </div>
     </div>
+
+   
   </div>
+</header>
 
-  <!-- 🛒 Cart -->
-  <div class="icon-wrapper">
-    <a href="addtocart.html" class="icon-link cart">
-      <i class="fa fa-shopping-cart"></i>
-      <span id="cart-total">₹0.00<br>My Cart</span>
-      <span id="cart-count" class="count-badge">0</span>
-    </a>
-    <div class="dropdown" id="cart-dropdown">
-      <p>Your cart is empty</p>
+<!-- Navigation -->
+<nav class="navbar">
+      <div class="contact-info">
+        <i class="fa-solid fa-phone"></i> +91 1234567890
+      </div>
+
+      <!-- ☰ Hamburger -->
+    <div class="menu-toggle" id="menu-toggle">
+      <i class="fa fa-bars"></i>
     </div>
-  </div>
-</div>
+      <ul class="nav-container" id="nav-links">
+      <li class="home-dropdown">
+        <a href="index.html">Home <span class="arrow">&#9662;</span></a>
+        <ul class="home-dropdown-menu">
+          <li><a href="404.html">Home 2</a></li>
+        </ul>
+      </li>
 
-    </div>
-  </header>
+      <li><a href="about.html">About</a></li>
+      <li><a href="affiliate.html">Affiliate</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
 
+      <li class="right">
+        <a href="track.html"><i class="fa fa-truck"></i> Track My Order</a>
+      </li>
+    </ul>
+  </nav>
 
-  <!-- Navigation -->
-  <nav class="navbar">
-  <ul class="nav-container">
-    <!-- 📞 Contact Number -->
-    <li class="contact-info">
-      <i class="fa-solid fa-phone"></i> +91 1234567890
-    </li>
-
-    <!-- 🔗 Navigation Links -->
-    <li class="home-dropdown">
-      <a href="index.html">Home <span class="arrow">&#9662;</span></a>
-      <ul class="home-dropdown-menu">
-        <li><a href="404.html">Home 2</a></li>
-      </ul>
-    </li>
-
-    <li><a href="about.html">About</a></li>
-    <li><a href="affiliate.html">Affiliate</a></li>
-    <li><a href="faq.html">FAQ</a></li>
-    <li><a href="dashboard.html">Dashboard</a></li>
-    <li><a href="shop.html">Shop</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="contact.html">Contact</a></li>
-
-    <!-- ⭐ Right Side -->
-    <li class="right">
-      <a href="track.html" class="track-link">
-        <i class="fa fa-truck"></i> Track My Order
-      </a>
-    </li>
-  </ul>
-</nav>
 
 <section class="about-header">
   <div class="about-content">
@@ -110,7 +115,7 @@
 
     <div class="blog-container">
       <!-- Row 1 -->
-      <div class="blog-card">
+      <div class="blog-card" data-animate="bounceIn">
         <div class="blog-image">
           <img src="https://img.freepik.com/free-photo/young-woman-shopping-electronics-store_23-2149300092.jpg" alt="Ecommerce News">
           <div class="blog-date"><i class="fa-regular fa-calendar"></i> Aug 12, 2025</div>
@@ -127,7 +132,7 @@
         </div>
       </div>
 
-      <div class="blog-card">
+      <div class="blog-card" data-animate="bounceIn">
         <div class="blog-image">
           <img src="https://img.freepik.com/free-photo/customer-paying-with-credit-card-shop_23-2148748431.jpg" alt="Ecommerce Payment">
           <div class="blog-date"><i class="fa-regular fa-calendar"></i> Aug 15, 2025</div>
@@ -144,7 +149,7 @@
         </div>
       </div>
 
-      <div class="blog-card">
+      <div class="blog-card" data-animate="bounceIn">
         <div class="blog-image">
           <img src="https://img.freepik.com/free-photo/happy-woman-online-shopping-with-laptop_23-2149012027.jpg" alt="Ecommerce Trends">
           <div class="blog-date"><i class="fa-regular fa-calendar"></i> Aug 18, 2025</div>
@@ -162,7 +167,7 @@
       </div>
 
       <!-- Row 2 -->
-      <div class="blog-card">
+      <div class="blog-card" data-animate="bounceIn">
         <div class="blog-image">
           <img src="https://img.freepik.com/free-photo/young-man-checking-parcel-order_23-2148899397.jpg" alt="Delivery Updates">
           <div class="blog-date"><i class="fa-regular fa-calendar"></i> Aug 20, 2025</div>
@@ -179,7 +184,7 @@
         </div>
       </div>
 
-      <div class="blog-card">
+      <div class="blog-card" data-animate="bounceIn">
         <div class="blog-image">
           <img src="https://img.freepik.com/free-photo/customer-service-representative-office_23-2148738922.jpg" alt="Customer Support">
           <div class="blog-date"><i class="fa-regular fa-calendar"></i> Aug 24, 2025</div>
@@ -196,7 +201,7 @@
         </div>
       </div>
 
-      <div class="blog-card">
+      <div class="blog-card" data-animate="bounceIn">
         <div class="blog-image">
           <img src="https://img.freepik.com/free-photo/warehouse-manager-checking-inventory-with-tablet_23-2148829005.jpg" alt="Inventory Management">
           <div class="blog-date"><i class="fa-regular fa-calendar"></i> Aug 28, 2025</div>
@@ -217,7 +222,7 @@
 
 
 <!-- Discount Coupon Section -->
-<section class="discount-section">
+<section class="discount-section" data-animate="bounceIn">
   <div class="discount-content">
     <h2>GET <span>20% OFF</span> DISCOUNT COUPON</h2>
     <p>by subscribe our newsletter</p>
@@ -232,7 +237,7 @@
 </section>
 
   <footer class="footer">
-    <div class="footer-container">
+    <div class="footer-container" data-animate="bounceIn">
       
       <!-- Column 1: About -->
       <div class="footer-col">
@@ -528,15 +533,86 @@ document.addEventListener('DOMContentLoaded', () => {
   const homeDropdown = document.querySelector('.home-dropdown');
   const arrow = homeDropdown?.querySelector('.arrow');
   const menu = homeDropdown?.querySelector('.home-dropdown-menu');
+  const toggleBtn = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("nav-links");
 
+  // ✅ Mobile menu toggle
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+    });
+  }
+
+  // ✅ Dropdown arrow toggle (does NOT block "Home" link)
   if (arrow && menu) {
-    arrow.addEventListener('click', (e) => {
+    arrow.addEventListener("click", (e) => {
       e.preventDefault();
+      e.stopPropagation(); // prevent Home link from triggering
       menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
     });
   }
+
+  // ✅ Clicking "Home" will navigate normally
+  const homeLink = homeDropdown.querySelector("a[href='index.html']");
+  if (homeLink) {
+    homeLink.addEventListener("click", () => {
+      menu.style.display = 'none'; // close menu when navigating
+    });
+  }
+
+  // ✅ Auto close dropdown when clicking outside (mobile or desktop)
+  document.addEventListener("click", (e) => {
+    if (!homeDropdown.contains(e.target)) {
+      menu.style.display = "none";
+    }
+  });
 });
 </script>
+
+<script>
+  const themeToggle = document.getElementById('theme-icon');
+  const body = document.body;
+
+  // Load theme from localStorage
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
+    body.classList.add('dark-mode');
+    themeToggle.classList.replace('fa-moon', 'fa-sun');
+  }
+
+  // Toggle theme
+  themeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+
+    if (body.classList.contains('dark-mode')) {
+      themeToggle.classList.replace('fa-moon', 'fa-sun');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      themeToggle.classList.replace('fa-sun', 'fa-moon');
+      localStorage.setItem('theme', 'light');
+    }
+  });
+</script>
+
+
+<script>
+// 🌟 Common Bounce Scroll Animation Script
+document.addEventListener("DOMContentLoaded", () => {
+  const elements = document.querySelectorAll("[data-animate]");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const anim = entry.target.dataset.animate;
+        entry.target.classList.add("animate", anim);
+      }
+    });
+  }, { threshold: 0.2 }); // triggers when 20% visible
+
+  elements.forEach((el) => observer.observe(el));
+});
+</script>
+
 
 </body>
 </html>

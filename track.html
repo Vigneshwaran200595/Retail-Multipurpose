@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stackly Retail/Multipurpose</title>
-  <link rel="stylesheet" href="faq.css" />
+  <link rel="stylesheet" href="track.css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -103,129 +103,30 @@
 
 <section class="about-header">
   <div class="about-content">
-    <h1>FAQ</h1>
-    <p><i class="fas fa-home"></i> Home <span>››</span> FAQ</p>
+    <h1>Track My Order</h1>
+    <p><i class="fas fa-home"></i> Home <span>››</span> Track My Order</p>
   </div>
 </section>
 
-  <section class="faq-section">
-    <div class="faq-container">
-      <!-- Sidebar -->
-      <div class="faq-sidebar" data-animate="bounceInLeft">
-        <h3>Most Popular Questions</h3>
-        <ul>
-          <li>Managing Account</li>
-          <li>Working With Dashboard</li>
-          <li>Available Payment Methods</li>
-          <li>Delivery Information</li>
-          <li>Order Tracking Instructions</li>
-          <li>Refund Policy</li>
-          <li>Offers And Discounts</li>
-          <li>Affiliate Program</li>
-          <li>Service Terms & Conditions</li>
-        </ul>
-      </div>
+<div class="track-container">
+    <h2>Track My Order</h2>
+    <hr style="border: 0; border-top: 1px solid #eee; margin-bottom: 20px;">
 
-      <!-- FAQ Content -->
-      <div class="faq-content">
+    <div class="order-info" id="order-details"></div>
 
-        <div class="faq-item active" data-animate="bounceIn">
-          <div class="faq-question">
-            <i class="fa-regular fa-circle-question"></i>
-            <h4>Do I Need An Account To Place An Order ?</h4>
-            <i class="fa-solid fa-chevron-up"></i>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer">
-            <p>
-              No, you don’t necessarily need an account to place an order. You can checkout as a guest.
-              However, creating an account allows you to track your orders and enjoy faster checkouts
-              for future purchases.
-            </p>
-          </div>
-        </div>
-
-        <div class="faq-item" data-animate="bounceIn">
-          <div class="faq-question">
-            <i class="fa-regular fa-circle-question"></i>
-            <h4>What Payment Methods Do You Accept ?</h4>
-            <i class="fa-solid fa-chevron-up"></i>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer">
-            <p>
-              We accept all major credit and debit cards, PayPal, UPI, and net banking. Cash on Delivery
-              (COD) is also available for select locations.
-            </p>
-          </div>
-        </div>
-
-        <div class="faq-item" data-animate="bounceIn">
-          <div class="faq-question">
-            <i class="fa-regular fa-circle-question"></i>
-            <h4>How Long Will Delivery Take ?</h4>
-            <i class="fa-solid fa-chevron-up"></i>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer">
-            <p>
-              Delivery usually takes 3–5 business days depending on your location. Remote areas may take
-              up to 7 days. You’ll receive a tracking link once your order is shipped.
-            </p>
-          </div>
-        </div>
-
-        <div class="faq-item" data-animate="bounceIn">
-          <div class="faq-question">
-            <i class="fa-regular fa-circle-question"></i>
-            <h4>Do You Have Discounts For Returning Customers ?</h4>
-            <i class="fa-solid fa-chevron-up"></i>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer">
-            <p>
-              Yes! Returning customers receive special discount coupons and access to exclusive offers.
-              Subscribe to our newsletter to never miss any deals.
-            </p>
-          </div>
-        </div>
-
-        <div class="faq-item" data-animate="bounceIn">
-          <div class="faq-question">
-            <i class="fa-regular fa-circle-question"></i>
-            <h4>How Can I Track My Order ?</h4>
-            <i class="fa-solid fa-chevron-up"></i>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer">
-            <p>
-              You can track your order by logging into your account and visiting the “My Orders” section.
-              A tracking link will be available as soon as your item ships.
-            </p>
-          </div>
-        </div>
-
-        <div class="faq-item" data-animate="bounceIn">
-          <div class="faq-question">
-            <i class="fa-regular fa-circle-question"></i>
-            <h4>What Are The Product Refund Conditions ?</h4>
-            <i class="fa-solid fa-chevron-up"></i>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer" data-animate="bounceIn">
-            <p>
-              Refunds are applicable for unused products returned in original packaging within 7 days
-              of delivery. Once inspected and approved, refunds are credited within 5–7 business days.
-            </p>
-          </div>
-        </div>
-
-      </div>
+    <div class="timeline" id="timeline">
+      <div class="step active"><i class="fa fa-cart-shopping"></i><p>Confirmed Order</p></div>
+      <div class="step"><i class="fa fa-cog"></i><p>Processing Order</p></div>
+      <div class="step"><i class="fa fa-check-circle"></i><p>Quality Check</p></div>
+      <div class="step"><i class="fa fa-truck"></i><p>Product Dispatched</p></div>
+      <div class="step"><i class="fa fa-home"></i><p>Product Delivered</p></div>
     </div>
-  </section>
 
+    <p class="no-order" id="no-order" style="display:none;">No recent order found.</p>
+    <a href="index.html" class="btn-back">Continue Shopping</a>
+  </div>
   <footer class="footer">
-    <div class="footer-container" data-animate="bounceIn">
+    <div class="footer-container">
       
       <!-- Column 1: About -->
       <div class="footer-col">
@@ -343,21 +244,6 @@ Sitemap</a></li>
     </div>
   </footer>
 
-  <script>
-    const faqItems = document.querySelectorAll('.faq-item');
-
-    faqItems.forEach(item => {
-      const question = item.querySelector('.faq-question');
-      question.addEventListener('click', () => {
-        // Close all others
-        faqItems.forEach(i => {
-          if (i !== item) i.classList.remove('active');
-        });
-        // Toggle current one
-        item.classList.toggle('active');
-      });
-    });
-  </script>
 
 <script>
 // ====================== LOAD DATA ======================
@@ -507,6 +393,25 @@ updateWishlistUI();
 updateCartUI();
 </script>
 
+
+  <script>
+    // Get order ID from localStorage
+    const orderId = localStorage.getItem("latestOrder");
+    const orderDetails = document.getElementById("order-details");
+    const timeline = document.getElementById("timeline");
+    const noOrder = document.getElementById("no-order");
+
+    if (orderId) {
+      orderDetails.innerHTML = `<strong>Tracking Order Number:</strong> #${orderId}`;
+      timeline.style.display = "flex";
+      noOrder.style.display = "none";
+    } else {
+      orderDetails.innerHTML = "";
+      timeline.style.display = "none";
+      noOrder.style.display = "block";
+    }
+  </script>
+
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const homeDropdown = document.querySelector('.home-dropdown');
@@ -548,7 +453,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-
 <script>
   const themeToggle = document.getElementById('theme-icon');
   const body = document.body;
@@ -574,23 +478,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 </script>
 
-<script>
-// 🌟 Common Bounce Scroll Animation Script
-document.addEventListener("DOMContentLoaded", () => {
-  const elements = document.querySelectorAll("[data-animate]");
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const anim = entry.target.dataset.animate;
-        entry.target.classList.add("animate", anim);
-      }
-    });
-  }, { threshold: 0.2 }); // triggers when 20% visible
-
-  elements.forEach((el) => observer.observe(el));
-});
-</script>
 
 </body>
 </html>

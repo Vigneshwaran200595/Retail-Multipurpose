@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reports - Blue Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="logo">
+      <img src="Images/logo.png" alt="Dashboard Logo">
+    </div>
+    <ul class="menu">
+      <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+      <li><a href="product1.html"><i class="fas fa-box"></i> Products</a></li>
+      <li><a href="orders.html"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+      <li><a href="customers.html"><i class="fas fa-users"></i> Customers</a></li>
+      <li class="active"><a href="reports.html"><i class="fas fa-chart-line"></i> Reports</a></li>
+      <li><a href="profile.html"><i class="fas fa-cog"></i> Profile</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <header>
+  <div class="header-icons">
+
+    <!-- Home Button -->
+    <div class="home-btn">
+      <a href="index.html" title="Go to Home">
+        <i class="fas fa-home"></i>
+      </a>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification-container">
+      <i class="fas fa-bell notification-icon"></i>
+      <span class="badge">3</span>
+
+      <div class="notification-dropdown" id="notificationDropdown">
+        <h4>Notifications</h4>
+        <ul id="notificationList">
+          <li>
+            <span>New order received #1245</span>
+            <button class="remove-btn">Remove</button>
+          </li>
+          <li>
+            <span>Product “Blue Headphones” is low on stock</span>
+            <button class="remove-btn">Remove</button>
+          </li>
+          <li>
+            <span>Payment of ₹1,500 received</span>
+            <button class="remove-btn">Remove</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Profile -->
+    <div class="user-profile">
+      <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Profile" />
+      <span>Pauline Seitz</span>
+    </div>
+  </div>
+</header>
+
+    <!-- Report Summary Cards -->
+    <section class="cards">
+      <div class="card">
+        <i class="fas fa-chart-line"></i>
+        <div class="card-info">
+          <h3>$12,430</h3>
+          <p>Total Sales</p>
+        </div>
+      </div>
+      <div class="card">
+        <i class="fas fa-wallet"></i>
+        <div class="card-info">
+          <h3>$8,965</h3>
+          <p>Total Revenue</p>
+        </div>
+      </div>
+      <div class="card">
+        <i class="fas fa-percentage"></i>
+        <div class="card-info">
+          <h3>28%</h3>
+          <p>Profit Margin</p>
+        </div>
+      </div>
+      <div class="card">
+        <i class="fas fa-arrow-up"></i>
+        <div class="card-info">
+          <h3>+14%</h3>
+          <p>Growth Rate</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Charts Section -->
+    <section class="charts">
+      <div class="chart-box">
+        <h4>Sales Overview</h4>
+        <canvas id="salesOverviewChart"></canvas>
+      </div>
+
+      <div class="chart-box">
+        <h4>Customer Growth</h4>
+        <canvas id="customerGrowthChart"></canvas>
+      </div>
+    </section>
+
+    <!-- Top Performing Products -->
+    <section class="table-section">
+      <h4>Top Performing Products</h4>
+      <table class="product-table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Category</th>
+            <th>Units Sold</th>
+            <th>Revenue</th>
+            <th>Profit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Wireless Earbuds</td>
+            <td>Accessories</td>
+            <td>620</td>
+            <td>$12,400</td>
+            <td>$3,200</td>
+          </tr>
+          <tr>
+            <td>Smartwatch Pro</td>
+            <td>Wearables</td>
+            <td>480</td>
+            <td>$10,560</td>
+            <td>$2,870</td>
+          </tr>
+          <tr>
+            <td>Gaming Laptop</td>
+            <td>Electronics</td>
+            <td>210</td>
+            <td>$42,000</td>
+            <td>$9,850</td>
+          </tr>
+          <tr>
+            <td>Bluetooth Speaker</td>
+            <td>Audio</td>
+            <td>530</td>
+            <td>$9,540</td>
+            <td>$2,400</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <script>
+  // ✅ Notification Dropdown Toggle
+  document.addEventListener("DOMContentLoaded", () => {
+    const notificationContainer = document.querySelector(".notification-container");
+    const dropdown = document.querySelector(".notification-dropdown");
+    const removeBtns = document.querySelectorAll(".remove-btn");
+
+    // Toggle dropdown on bell click
+    notificationContainer.addEventListener("click", (e) => {
+      e.stopPropagation();
+      dropdown.classList.toggle("active");
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener("click", () => {
+      dropdown.classList.remove("active");
+    });
+
+    // Remove individual notification
+    removeBtns.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        btn.parentElement.remove();
+      });
+    });
+  });
+</script>
+
+  <script>
+    // Sales Overview Chart
+    const salesCtx = document.getElementById("salesOverviewChart").getContext("2d");
+    new Chart(salesCtx, {
+      type: "line",
+      data: {
+        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+        datasets: [{
+          label: "Sales ($)",
+          data: [1200, 1900, 1500, 2300, 2800, 3300, 4000],
+          borderColor: "#33b2ff",
+          backgroundColor: "rgba(51, 178, 255, 0.2)",
+          fill: true,
+          tension: 0.4,
+        }]
+      },
+      options: {
+        plugins: { legend: { labels: { color: "white" } } },
+        scales: {
+          x: { ticks: { color: "white" } },
+          y: { ticks: { color: "white" } }
+        }
+      }
+    });
+
+    // Customer Growth Chart
+    const customerCtx = document.getElementById("customerGrowthChart").getContext("2d");
+    new Chart(customerCtx, {
+      type: "bar",
+      data: {
+        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+        datasets: [{
+          label: "New Customers",
+          data: [50, 80, 120, 150, 200, 180, 250],
+          backgroundColor: "#33b2ff",
+          borderRadius: 6,
+        }]
+      },
+      options: {
+        plugins: { legend: { labels: { color: "white" } } },
+        scales: {
+          x: { ticks: { color: "white" } },
+          y: { ticks: { color: "white" } }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
