@@ -275,17 +275,47 @@ body.dark-mode .dark-mode-toggle i {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 420px) {
   .dark-mode-toggle {
-    right: 100px;  /* move to top-right corner */
-    top: 13px;
     position: absolute;
+    top: 60px;
+    right: 25px;
+    z-index: 9999;
   }
 
   .dark-mode-toggle i {
     font-size: 20px;
   }
 }
+
+/* ✅ 2. Medium Devices (421px–600px) */
+@media (min-width: 421px) and (max-width: 600px) {
+  .dark-mode-toggle {
+    position: absolute;
+    top: 12px;       /* slightly higher */
+    right: 100px;     /* more centered for medium phones */
+    z-index: 999;
+  }
+
+  .dark-mode-toggle i {
+    font-size: 21px;
+  }
+}
+
+/* ✅ 3. Tablets (601px–768px) */
+@media (min-width: 601px) and (max-width: 768px) {
+  .dark-mode-toggle {
+    position: absolute;
+    top: 20px;       /* closer to header */
+    right: 120px;    /* pushed a bit left */
+    z-index: 999;
+  }
+
+  .dark-mode-toggle i {
+    font-size: 22px;
+  }
+}
+
 
 
 /* ==========================
@@ -384,6 +414,7 @@ body.dark-mode .dark-mode-toggle i {
     padding: 8px 15px;
   }
 }
+
 
 
 /* ===== Navbar ===== */
@@ -1622,17 +1653,3 @@ body.dark-mode select#sort option {
 .animate.bounceInLeft { animation: bounceInLeft 1.5s ease both; }
 .animate.bounceInRight{ animation: bounceInRight 1.5s ease both; }
 
-@media (max-width: 420px) {
-
-   .dark-mode-toggle {
-    right: 30px;  /* move to top-right corner */
-    top: 60px;
-    z-index: 9999;
-    position: absolute;
-  }
-
-  .dark-mode-toggle i {
-    font-size: 20px;
-  }
-  
-}

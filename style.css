@@ -276,33 +276,47 @@ body.dark-mode .dark-mode-toggle i {
   color: #08c8fd;
 }
 
-
-@media (min-width: 400px) and (max-width: 768px) {
-  .dark-mode-toggle {
-    right: 100px;  /* move to top-right corner */
-    top: 13px;
-    position: absolute;
-  }
-
-  .dark-mode-toggle i {
-    font-size: 20px;
-  }
-}
-
 @media (max-width: 420px) {
-
-   .dark-mode-toggle {
-    right: 30px;  /* move to top-right corner */
-    top: 60px;
-    z-index: 9999;
+  .dark-mode-toggle {
     position: absolute;
+    top: 60px;
+    right: 25px;
+    z-index: 9999;
   }
 
   .dark-mode-toggle i {
     font-size: 20px;
   }
-  
 }
+
+/* ✅ 2. Medium Devices (421px–600px) */
+@media (min-width: 421px) and (max-width: 600px) {
+  .dark-mode-toggle {
+    position: absolute;
+    top: 12px;       /* slightly higher */
+    right: 100px;     /* more centered for medium phones */
+    z-index: 999;
+  }
+
+  .dark-mode-toggle i {
+    font-size: 21px;
+  }
+}
+
+/* ✅ 3. Tablets (601px–768px) */
+@media (min-width: 601px) and (max-width: 768px) {
+  .dark-mode-toggle {
+    position: absolute;
+    top: 20px;       /* closer to header */
+    right: 120px;    /* pushed a bit left */
+    z-index: 999;
+  }
+
+  .dark-mode-toggle i {
+    font-size: 22px;
+  }
+}
+
 
 
 /* ==========================
@@ -788,59 +802,6 @@ body.dark-mode .hero .hero-video {
 }
 
 
-/* ========================================
-   📱 Responsive Design for Hero Section
-   ======================================== */
-
-/* 🔹 Tablets and small laptops (max-width: 1024px) */
-@media (max-width: 1024px) {
-  .hero {
-    height: auto;
-    padding: 60px 20px;
-  }
-
-  .hero .hero-content {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .hero .content {
-    padding-right: 0;
-    margin-bottom: 30px;
-  }
-
-  .hero .image img {
-    width: 500px;
-  }
-
-  .hero h1, .hero h2 {
-    font-size: 38px;
-  }
-
-  .hero p {
-    max-width: 90%;
-    margin: 10px auto 25px;
-  }
-
-  .hero .price-tag {
-    width: 90px;
-    height: 90px;
-    top: 15%;
-    right: 30px;
-  }
-
-  .hero .price-tag span {
-    font-size: 18px;
-  }
-
-  .hero .nav-btn {
-    width: 40px;
-    height: 40px;
-    font-size: 16px;
-  }
-}
-
 /* 🔹 Mobile Devices (max-width: 768px) */
 @media (max-width: 768px) {
   .hero {
@@ -885,15 +846,20 @@ body.dark-mode .hero .hero-video {
     max-width: 95%;
   }
 
+  /* ✅ Center buttons on mobile */
   .hero .buttons {
+    display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 10px;
-    margin-left: 25px;
+    margin: 0 auto;
   }
 
   .hero .btn {
     width: 180px;
     text-align: center;
+    margin: 0; /* remove side margins */
   }
 
   .hero .price-tag {
@@ -937,10 +903,22 @@ body.dark-mode .hero .hero-video {
     font-size: 13px;
   }
 
+  /* ✅ Center buttons on very small screens */
+  .hero .buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 0 auto;
+  }
+
   .hero .btn {
     padding: 10px 20px;
     font-size: 14px;
-    margin-left: 60px;
+    width: 170px;
+    margin: 0;
+    text-align: center;
   }
 
   .hero .image img {
@@ -2717,6 +2695,7 @@ body.dark-mode .deal-watermark {
 }
 
 /* Small Tablets & Large Phones (max-width: 768px) */
+/* Tablets and below (max-width: 768px) */
 @media (max-width: 768px) {
   .deal-container {
     flex-direction: column;
@@ -2733,14 +2712,19 @@ body.dark-mode .deal-watermark {
     order: 2;
   }
 
+  /* ✅ Center image properly */
   .deal-image {
     order: 1;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 25px;
+    width: 100%;
   }
 
   .deal-image img {
     max-width: 70%;
+    height: auto;
   }
 
   .deal-title {
@@ -2833,9 +2817,14 @@ body.dark-mode .deal-watermark {
     font-size: 13px;
   }
 
+  /* ✅ Keep image centered */
+  .deal-image {
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
   .deal-image img {
     max-width: 75%;
-    margin-left: 50px;
   }
 
   .discount-badge {
@@ -2876,6 +2865,7 @@ body.dark-mode .deal-watermark {
     font-size: 14px;
   }
 }
+
 
 /* ===== Photo Gallery Section ===== */
 .gallery-section {
