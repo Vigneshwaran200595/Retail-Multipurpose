@@ -758,6 +758,7 @@ body {
     justify-content: center;
     gap: 10px;
     z-index: 1;
+    margin-top: -100px;
     padding: 20px 5px;
   }
 
@@ -768,12 +769,10 @@ body {
   .hero-content h1 {
     font-size: 20px;
     margin-left: -80px;
-    margin-top: -450px; /* you might want to adjust this */
   }
 
   .hero-content .sub-heading {
     font-size: 12px;
-    margin-top: -200px; /* adjust if needed */
   }
 
   .hero-image {
