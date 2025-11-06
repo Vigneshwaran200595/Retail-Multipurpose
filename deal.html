@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trendy Lifestyle</title>
+  <link rel="stylesheet" href="deal.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <section class="hero-section">
+
+    <!-- Header -->
+    <header class="header">
+  <div class="container header-container">
+    <div class="logo">
+      <img src="Images/logo.png" alt="Logo">
+    </div>
+
+     <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+      <nav class="nav">
+  <ul>
+    <li class="home-dropdown">
+  <a href="saas.html">Home</a> <!-- Main link -->
+  <span class="dropdown-toggle"><i class="fa fa-caret-down"></i></span> <!-- Arrow toggles dropdown -->
+  <ul class="dropdown-menu">
+    <li><a href="index.html">Home 1</a></li>
+  </ul>
+</li>
+    <li><a href="shop1.html">Shop</a></li>
+    <li><a href="deal.html">Deals</a></li>
+    <li><a href="features.html">Features</a></li>
+    <li><a href="contact1.html">Contact</a></li>
+  </ul>
+</nav>
+
+
+
+    <!-- ✅ Header Icons with Dropdowns -->
+<div class="icons">
+  <!-- User Icon -->
+  <div class="icon-item user-icon">
+    <a href="account.html">
+      <i class="fa-solid fa-user"></i>
+    </a>
+  </div>
+
+  <!-- Wishlist Icon -->
+  <div class="icon-item wishlist-icon">
+    <i class="fa-solid fa-heart"></i>
+    <span id="wishlistCount" class="badge-icon">0</span>
+    <div class="dropdown-panel" id="wishlistDropdown">
+      <h4>Wishlist</h4>
+      <ul id="wishlistItems"></ul>
+      <p id="emptyWishlist" class="empty-text">No items in wishlist</p>
+    </div>
+  </div>
+
+  <!-- Cart Icon -->
+   <!-- Cart Icon -->
+ <div class="icon-item cart-icon">
+  <i class="fa-solid fa-cart-shopping"></i>
+  <span id="cartCount" class="badge-icon">0</span>
+  <div class="dropdown-panel" id="cartDropdown">
+    <h4>Cart</h4>
+    <ul id="cartItems"></ul>
+    <p id="emptyCart" class="empty-text">No items in cart</p>
+    <!-- ✅ Checkout button -->
+    <div id="cartCheckout" style="display:none; text-align:center; margin-top:10px;">
+      <p>Total: $<span id="cartTotal">0</span></p>
+      <button id="checkoutBtn">Checkout</button>
+    </div>
+  </div>
+</div>
+  </div>
+</header>
+
+
+
+    <!-- ✅ Hero Content -->
+    <div class="container hero-container">
+      <div class="hero-content">
+        <h1>Deals</h1>
+        <p class="sub-heading">Home / <span>Deals</span></p>
+      </div>
+    </div>
+  </section>
+
+ <section class="deals-wrapper">
+    <!-- Deal of the Day -->
+    <div class="deal-container deal-day">
+      <div class="deal-content">
+        <h5 class="deal-subtitle">DEAL OF THE DAY</h5>
+        <h2 class="deal-title">Grab the Hottest Offer Today</h2>
+        <p class="deal-desc">Enjoy limited-time discounts on our best-selling products. Hurry before the clock runs out!</p>
+
+        <div class="deal-timer" id="day-timer">
+          <div class="time-box"><h3 id="day-days">0</h3><span>DAYS</span></div>
+          <div class="time-box"><h3 id="day-hours">0</h3><span>HOURS</span></div>
+          <div class="time-box"><h3 id="day-minutes">0</h3><span>MINUTES</span></div>
+          <div class="time-box"><h3 id="day-seconds">0</h3><span>SECONDS</span></div>
+        </div>
+
+        <a href="shop1.html" class="shop-btn">Shop Now →</a>
+      </div>
+
+      <div class="deal-image">
+        <span class="discount-badge">20% OFF</span>
+        <img src="Images1/deal1.png" alt="Deal">
+        <h1 class="deal-watermark">DAY</h1>
+      </div>
+    </div>
+
+    <!-- Weekly Deal -->
+    <div class="deal-container deal-week">
+      <div class="deal-content">
+        <h5 class="deal-subtitle">WEEKLY DEAL</h5>
+        <h2 class="deal-title">Best Deal for This Week</h2>
+        <p class="deal-desc">Each week, new offers await! Discover amazing prices on your favorite items.</p>
+
+        <div class="deal-timer" id="week-timer">
+          <div class="time-box"><h3 id="week-days">0</h3><span>DAYS</span></div>
+          <div class="time-box"><h3 id="week-hours">0</h3><span>HOURS</span></div>
+          <div class="time-box"><h3 id="week-minutes">0</h3><span>MINUTES</span></div>
+          <div class="time-box"><h3 id="week-seconds">0</h3><span>SECONDS</span></div>
+        </div>
+
+        <a href="shop1.html" class="shop-btn">Shop Now →</a>
+      </div>
+
+      <div class="deal-image">
+        <span class="discount-badge">35% OFF</span>
+        <img src="Images1/deal2.png" alt="Deal">
+        <h1 class="deal-watermark">WEEK</h1>
+      </div>
+    </div>
+
+    <!-- Monthly Deal -->
+    <div class="deal-container deal-month">
+      <div class="deal-content">
+        <h5 class="deal-subtitle">MONTHLY DEAL</h5>
+        <h2 class="deal-title">Special Offers Every Month</h2>
+        <p class="deal-desc">Don’t miss out on our exclusive monthly discounts and seasonal favorites!</p>
+
+        <div class="deal-timer" id="month-timer">
+          <div class="time-box"><h3 id="month-days">0</h3><span>DAYS</span></div>
+          <div class="time-box"><h3 id="month-hours">0</h3><span>HOURS</span></div>
+          <div class="time-box"><h3 id="month-minutes">0</h3><span>MINUTES</span></div>
+          <div class="time-box"><h3 id="month-seconds">0</h3><span>SECONDS</span></div>
+        </div>
+
+        <a href="shop1.html" class="shop-btn">Shop Now →</a>
+      </div>
+
+      <div class="deal-image">
+        <span class="discount-badge">50% OFF</span>
+        <img src="Images1/deal3.png" alt="Deal">
+        <h1 class="deal-watermark">MONTH</h1>
+      </div>
+    </div>
+  </section>
+
+
+<footer class="footer-section">
+  <div class="footer-overlay">
+    <div class="footer-container">
+      <!-- Column 1: Logo & Contact -->
+      <div class="footer-col">
+        <div class="footer-logo">
+          <img src="Images/logo.png" alt="Company Logo" />
+        </div>
+        <ul class="contact-info">
+          <li><i class="fa-solid fa-location-dot"></i> Salem, Tamilnadu</li>
+          <li><i class="fa-regular fa-envelope"></i> contact@company.com</li>
+          <li><i class="fa-solid fa-phone"></i> +91 1234567890</li>
+        </ul>
+        <div class="social-icons">
+  <a href="404_1.html"><i class="fa-brands fa-facebook-f"></i></a>
+  <a href="404_1.html"><i class="fa-brands fa-twitter"></i></a>
+  <a href="404_1.html"><i class="fa-brands fa-instagram"></i></a>
+  <a href="404_1.html"><i class="fa-brands fa-linkedin-in"></i></a>
+  <a href="404_1.html"><i class="fa-brands fa-pinterest-p"></i></a>
+</div>
+
+      </div>
+
+      <!-- Column 2: Categories -->
+      <div class="footer-col">
+        <h3>Categories</h3>
+        <ul>
+          <li><a href="404_1.html">Men</a></li>
+    <li><a href="404_1.html">Women</a></li>
+    <li><a href="404_1.html">Accessories</a></li>
+    <li><a href="404_1.html">Shoes</a></li>
+    <li><a href="404_1.html">Denim</a></li>
+    <li><a href="404_1.html">Dress</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Information -->
+      <div class="footer-col">
+        <h3>Information</h3>
+        <ul>
+          <li><a href="404_1.html">About Us</a></li>
+    <li><a href="404_1.html">Contact Us</a></li>
+    <li><a href="404_1.html">Terms & Conditions</a></li>
+    <li><a href="404_1.html">Returns & Exchanges</a></li>
+    <li><a href="404_1.html">Shipping & Delivery</a></li> 
+        </ul>
+      </div>
+
+      <!-- Column 4: Useful Links -->
+      <div class="footer-col">
+        <h3>Useful Links</h3>
+        <ul>
+              <li><a href="404_1.html">Store Location</a></li>
+    <li><a href="404_1.html">Latest News</a></li>
+    <li><a href="404_1.html">My Account</a></li>
+    <li><a href="404_1.html">Size Guide</a></li>
+    <li><a href="404_1.html">FAQs</a></li>
+    <li><a href="404_1.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 5: Newsletter -->
+      <div class="footer-col newsletter">
+        <h3>Newsletter Signup</h3>
+        <p>Subscribe to our newsletter and get 10% off your first purchase</p>
+<div class="newsletter-form">
+  <input type="email" id="newsletter-email" placeholder="Your email address" />
+  <button id="subscribe-btn">Subscribe</button>
+</div>
+
+<script>
+  const subscribeBtn = document.getElementById("subscribe-btn");
+  const emailInput = document.getElementById("newsletter-email");
+
+  subscribeBtn.addEventListener("click", function(e) {
+    e.preventDefault(); // Prevent form submission
+
+    if(emailInput.value.trim() === "") {
+      // Show error inside input
+      emailInput.value = "";
+      emailInput.placeholder = "Please fill the field!";
+      emailInput.style.color = "#ff038a"; // Error color
+      emailInput.focus();
+    } else {
+      // Reset color and go to 404 page
+      emailInput.style.color = "#000";
+      window.location.href = "404_1.html";
+    }
+  });
+
+  // When user starts typing, restore normal placeholder and color
+  emailInput.addEventListener("input", function() {
+    emailInput.style.color = "#000";
+    emailInput.placeholder = "Your email address";
+  });
+</script>
+
+        <div class="payment-icons">
+          <img src="Images/visa.png" alt="PayPal" />
+          <img src="Images1/card2.png" alt="Visa" />
+          <img src="Images1/card3.png" alt="Amex" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>
+        Copyright © 2025 <span>Stackly</span> all rights reserved.
+      </p>
+      <div class="footer-menu">
+        <p>Powered by <span>Stackly</span> </p>
+    </div>
+  </div>
+</footer>
+
+
+
+<script>
+    // Countdown Function
+    function startCountdown(targetDate, ids) {
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        if (distance <= 0) {
+          document.getElementById(ids.days).innerText = "00";
+          document.getElementById(ids.hours).innerText = "00";
+          document.getElementById(ids.minutes).innerText = "00";
+          document.getElementById(ids.seconds).innerText = "00";
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById(ids.days).innerText = days;
+        document.getElementById(ids.hours).innerText = hours;
+        document.getElementById(ids.minutes).innerText = minutes;
+        document.getElementById(ids.seconds).innerText = seconds;
+      }
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    }
+
+    // Start Countdown for Each Deal
+    const now = new Date();
+    startCountdown(new Date(now.getTime() + 86400000), { days: "day-days", hours: "day-hours", minutes: "day-minutes", seconds: "day-seconds" }); // 1 day
+    startCountdown(new Date(now.getTime() + 7 * 86400000), { days: "week-days", hours: "week-hours", minutes: "week-minutes", seconds: "week-seconds" }); // 7 days
+    startCountdown(new Date(now.getTime() + 30 * 86400000), { days: "month-days", hours: "month-hours", minutes: "month-minutes", seconds: "month-seconds" }); // 30 days
+  </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const homeDropdown = document.querySelector('.home-dropdown');
+  const arrow = homeDropdown?.querySelector('.dropdown-toggle i'); // your arrow icon
+  const menu = homeDropdown?.querySelector('.dropdown-menu');
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.querySelector('.nav ul');
+
+  // ✅ Mobile hamburger toggle
+  if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('show');
+    });
+  }
+
+  // ✅ Dropdown arrow toggle (does NOT block "Home" link)
+  if (arrow && menu) {
+    arrow.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation(); // prevent click from bubbling
+      if (menu.style.display === 'block') {
+        menu.style.display = 'none';
+        arrow.classList.remove('open'); // rotate arrow back
+      } else {
+        menu.style.display = 'block';
+        arrow.classList.add('open'); // rotate arrow
+      }
+    });
+  }
+
+  // ✅ Clicking "Home" link navigates normally
+  const homeLink = homeDropdown.querySelector("a[href='saas.html']");
+  if (homeLink) {
+    homeLink.addEventListener("click", () => {
+      menu.style.display = 'none'; // close dropdown when navigating
+      arrow.classList.remove('open');
+    });
+  }
+
+  // ✅ Auto close dropdown when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!homeDropdown.contains(e.target)) {
+      menu.style.display = "none";
+      arrow.classList.remove('open');
+    }
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const wishlistIcon = document.querySelector(".wishlist-icon");
+  const cartIcon = document.querySelector(".cart-icon");
+
+  const wishlistDropdown = document.getElementById("wishlistDropdown");
+  const cartDropdown = document.getElementById("cartDropdown");
+
+  // ✅ Toggle function
+  function toggleDropdown(icon, dropdown) {
+    icon.addEventListener("click", (e) => {
+      e.stopPropagation(); // prevent closing immediately
+      // toggle own dropdown
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+      // hide the other dropdown
+      if (dropdown === wishlistDropdown) cartDropdown.style.display = "none";
+      if (dropdown === cartDropdown) wishlistDropdown.style.display = "none";
+    });
+  }
+
+  toggleDropdown(wishlistIcon, wishlistDropdown);
+  toggleDropdown(cartIcon, cartDropdown);
+
+  // ✅ Close dropdown if click outside
+  document.addEventListener("click", () => {
+    wishlistDropdown.style.display = "none";
+    cartDropdown.style.display = "none";
+  });
+});
+
+</script>
+
+
+<script>
+// ---------- Wishlist & Cart Functionality ----------
+
+// DOM references
+const wishlistItems = document.getElementById("wishlistItems");
+const cartItems = document.getElementById("cartItems");
+const wishlistCount = document.getElementById("wishlistCount");
+const cartCount = document.getElementById("cartCount");
+const emptyWishlist = document.getElementById("emptyWishlist");
+const emptyCart = document.getElementById("emptyCart");
+
+let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+// ---------- Wishlist UI ----------
+function updateWishlistUI() {
+  wishlistItems.innerHTML = "";
+  if (!wishlist.length) {
+    emptyWishlist.style.display = "block";
+  } else {
+    emptyWishlist.style.display = "none";
+    wishlist.forEach((item) => {
+      const li = document.createElement("li");
+      li.innerHTML = `
+        <img src="${item.img}" alt="${item.name}">
+        <p>${item.name}</p>
+        <i class="fa fa-trash" style="color:#ff4757;cursor:pointer"></i>
+      `;
+      li.querySelector(".fa-trash").addEventListener("click", () => removeFromWishlist(item.id));
+      wishlistItems.appendChild(li);
+    });
+  }
+  wishlistCount.textContent = wishlist.length;
+}
+
+// ---------- Cart UI ----------
+function updateCartUI() {
+  cartItems.innerHTML = "";
+  let total = 0;
+
+  if (!cart.length) {
+    emptyCart.style.display = "block";
+    document.getElementById("cartCheckout").style.display = "none";
+  } else {
+    emptyCart.style.display = "none";
+    document.getElementById("cartCheckout").style.display = "block";
+
+    cart.forEach((item) => {
+      total += item.price;
+
+      const li = document.createElement("li");
+      li.innerHTML = `
+        <img src="${item.img}" alt="${item.name}" style="width:50px; height:50px; object-fit:cover; margin-right:10px;">
+        <div class="cart-item-info" style="display:inline-block; vertical-align:top;">
+          <p style="margin:0;">${item.name}</p>
+          <p style="margin:0;">$${item.price}</p>
+        </div>
+        <i class="fa fa-trash" style="color:#ff4757;cursor:pointer; float:right; margin-top:10px;"></i>
+      `;
+      li.querySelector(".fa-trash").addEventListener("click", () => removeFromCart(item.id));
+      cartItems.appendChild(li);
+    });
+  }
+
+  cartCount.textContent = cart.length;
+  document.getElementById("cartTotal").textContent = total.toFixed(2);
+}
+
+// ---------- Remove Items ----------
+function removeFromWishlist(id) {
+  wishlist = wishlist.filter((item) => item.id !== id);
+  saveData();
+  updateWishlistUI();
+}
+
+function removeFromCart(id) {
+  cart = cart.filter((item) => item.id !== id);
+  saveData();
+  updateCartUI();
+}
+
+// ---------- LocalStorage ----------
+function saveData() {
+  localStorage.setItem("wishlist", JSON.stringify(wishlist));
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+// ---------- Initialize ----------
+updateWishlistUI();
+updateCartUI();
+
+// ✅ Checkout button click
+document.getElementById("checkoutBtn").addEventListener("click", () => {
+  if(cart.length === 0){
+    alert("Your cart is empty!");
+    return;
+  }
+  window.location.href = "checkout1.html"; 
+});
+</script>
+
+
+<script>
+// ---------- Dropdown Hover Flicker Fix ----------
+document.querySelectorAll(".icon-item").forEach((icon) => {
+  const dropdown = icon.querySelector(".dropdown-panel");
+  if (!dropdown) return;
+
+  let enterTimeout, leaveTimeout;
+
+  // Show dropdown on hover
+  icon.addEventListener("mouseenter", () => {
+    clearTimeout(leaveTimeout); // Cancel hide
+    enterTimeout = setTimeout(() => {
+      dropdown.style.display = "block";
+    }, 50); // small delay to prevent accidental flicker
+  });
+
+  // Hide dropdown when mouse leaves
+  icon.addEventListener("mouseleave", () => {
+    clearTimeout(enterTimeout); // Cancel show
+    leaveTimeout = setTimeout(() => {
+      dropdown.style.display = "none";
+    }, 200); // small delay to avoid flicker
+  });
+
+  // Keep dropdown visible if mouse moves over it
+  dropdown.addEventListener("mouseenter", () => {
+    clearTimeout(leaveTimeout);
+  });
+
+  dropdown.addEventListener("mouseleave", () => {
+    leaveTimeout = setTimeout(() => {
+      dropdown.style.display = "none";
+    }, 200);
+  });
+});
+</script>
+
+
+  </body>
+</html>

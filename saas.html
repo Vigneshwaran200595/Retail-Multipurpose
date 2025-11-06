@@ -14,28 +14,72 @@
   
   <!-- Header -->
   <header class="header">
-    <div class="container header-container">
-      <div class="logo">
-        <img src="Images/logo.png" alt="Logo">
-      </div>
+  <div class="container header-container">
+    <div class="logo">
+      <img src="Images/logo.png" alt="Logo">
+    </div>
+
+
+      <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
 
       <nav class="nav">
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Shop</a></li>
-          <li><a href="#">Deals</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </nav>
+  <ul>
+    <li class="home-dropdown">
+  <a href="saas.html">Home</a> <!-- Main link -->
+  <span class="dropdown-toggle"><i class="fa fa-caret-down"></i></span> <!-- Arrow toggles dropdown -->
+  <ul class="dropdown-menu">
+    <li><a href="index.html">Home 1</a></li>
+  </ul>
+</li>
+    <li><a href="shop1.html">Shop</a></li>
+    <li><a href="deal.html">Deals</a></li>
+    <li><a href="features.html">Features</a></li>
+    <li><a href="contact1.html">Contact</a></li>
+  </ul>
+</nav>
 
-      <div class="icons">
-        <i class="fa-solid fa-user"></i>
-        <i class="fa-solid fa-heart"></i>
-        <i class="fa-solid fa-cart-shopping"></i>
-      </div>
+    <!-- ✅ Header Icons with Dropdowns -->
+<div class="icons">
+  <!-- User Icon -->
+  <div class="icon-item user-icon">
+    <a href="account.html">
+      <i class="fa-solid fa-user"></i>
+    </a>
+  </div>
+
+  <!-- Wishlist Icon -->
+  <div class="icon-item wishlist-icon">
+    <i class="fa-solid fa-heart"></i>
+    <span id="wishlistCount" class="badge-icon">0</span>
+    <div class="dropdown-panel" id="wishlistDropdown">
+      <h4>Wishlist</h4>
+      <ul id="wishlistItems"></ul>
+      <p id="emptyWishlist" class="empty-text">No items in wishlist</p>
     </div>
-  </header>
+  </div>
+
+  <!-- Cart Icon -->
+ <div class="icon-item cart-icon">
+  <i class="fa-solid fa-cart-shopping"></i>
+  <span id="cartCount" class="badge-icon">0</span>
+  <div class="dropdown-panel" id="cartDropdown">
+    <h4>Cart</h4>
+    <ul id="cartItems"></ul>
+    <p id="emptyCart" class="empty-text">No items in cart</p>
+    <!-- ✅ Checkout button -->
+    <div id="cartCheckout" style="display:none; text-align:center; margin-top:10px;">
+      <p>Total: $<span id="cartTotal">0</span></p>
+      <button id="checkoutBtn">Checkout</button>
+    </div>
+  </div>
+</div>
+  </div>
+</header>
+
 
   <!-- ✅ Hero Section (side-by-side layout) -->
   <div class="container hero-container">
@@ -43,9 +87,9 @@
     <!-- Left Content -->
     <div class="hero-content">
   <h1 class="animated-text">
-  <span>Explore Trendy Finds for Every Occasion</span>
-  <span>Upgrade Your Everyday Lifestyle with Style</span>
-  <span>Your Trusted Retail Shop for Quality and Value</span>
+  <span>Explore Trendy Finds</span>
+  <span>Upgrade Your Everyday Style</span>
+  <span>Your Trusted Retail Shop</span>
 </h1>
 <p class="sub-heading">Your trusted <span>Retail Shop</span> for fashion, home, and accessories</p>
 
@@ -58,8 +102,8 @@
   <p class="price">Start From <span>$15.99</span></p>
 
   <div class="hero-buttons">
-    <a href="#" class="btn primary-btn">Shop Now</a>
-    <a href="#" class="btn secondary-btn">Learn More</a>
+    <a href="shop1.html" class="btn primary-btn">Shop Now</a>
+    <a href="404_1.html" class="btn secondary-btn">Learn More</a>
   </div>
 </div>
 
@@ -87,7 +131,7 @@
 <section class="categories-section">
   <div class="categories-header">
     <h2>Popular Categories</h2>
-    <a href="#" class="view-all">View All Category</a>
+    <a href="404_1.html" class="view-all">View All Category</a>
   </div>
 
   <div class="categories-wrapper">
@@ -185,7 +229,7 @@
     <div class="featured-content">
       <h3>Smart TV’s</h3>
       <p>From <span>$99.99</span></p>
-      <a href="#" class="shop-btn">Shop Now</a>
+      <a href="shop1.html" class="shop-btn">Shop Now</a>
     </div>
     <div class="featured-image">
       <img src="Images1/tv.png" alt="Smart TV">
@@ -196,7 +240,7 @@
     <div class="featured-content">
       <h3>Kitchen Kits</h3>
       <p>From <span>$50 Only</span></p>
-      <a href="#" class="shop-btn">Shop Now</a>
+      <a href="shop1.html" class="shop-btn">Shop Now</a>
     </div>
     <div class="featured-image">
       <img src="Images1/fridge.png" alt="Kitchen Kits">
@@ -207,7 +251,7 @@
     <div class="featured-content">
       <h3>Smart Devices</h3>
       <p>From <span>$499.99</span></p>
-      <a href="#" class="shop-btn">Shop Now</a>
+      <a href="shop1.html" class="shop-btn">Shop Now</a>
     </div>
     <div class="featured-image">
       <img src="Images1/tablet.png" alt="Smart Device">
@@ -345,7 +389,7 @@
       <span class="banner-category">MUSIC</span>
       <h2>Bluetooth Speaker</h2>
       <p>Starting From <strong>$99.99</strong></p>
-      <a href="#" class="shop-btn">Shop now</a>
+      <a href="shop1.html" class="shop-btn">Shop now</a>
       <img src="Images1/speaker.png" class="banner-img float-animate">
     </div>
 
@@ -394,7 +438,7 @@
       <span class="banner-category">LAPTOP</span>
       <h2>Windows Laptop</h2>
       <p>Starting From <strong>$999.99</strong></p>
-      <a href="#" class="shop-btn">Shop now</a>
+      <a href="shop1.html" class="shop-btn">Shop now</a>
       <img src="Images1/laptop.png" class="banner-img float-animate">
     </div>
 
@@ -438,6 +482,211 @@
 </div>
 
 
+<section class="brands-section">
+  <div class="brands-header">
+    <h2>Shop by Brands</h2>
+    <a href="404_1.html" class="view-all">View All Brands</a>
+  </div>
+
+  <div class="brands-grid">
+    <div class="brand-item"><img src="Images1/realme.png" alt="realme"></div>
+    <div class="brand-item"><img src="Images1/nvidia.png" alt="nvidia"></div>
+    <div class="brand-item"><img src="Images1/oneplus.png" alt="oneplus"></div>
+    <div class="brand-item"><img src="Images1/microsoft.png" alt="microsoft"></div>
+    <div class="brand-item"><img src="Images1/sony.png" alt="sony"></div>
+    <div class="brand-item"><img src="Images1/xiaomi.png" alt="xiaomi"></div>
+    <div class="brand-item"><img src="Images1/hitachi.png" alt="hitachi"></div>
+    <div class="brand-item"><img src="Images1/huawei.png" alt="huawei"></div>
+    <div class="brand-item"><img src="Images1/nokia.png" alt="nokia"></div>
+    <div class="brand-item"><img src="Images1/verizon.png" alt="verizon"></div>
+    <div class="brand-item"><img src="Images1/bohler.png" alt="bohler"></div>
+    <div a class="brand-item"><img src="Images1/lenovo.png" alt="lenovo"></div>
+  </div>
+</section>
+
+<section class="hero-banner">
+  <div class="hero-content">
+    <span class="hero-tag">TRENDING</span>
+    <h1>Get the Virtual Experience</h1>
+    <p>Starting From <strong>$83.99</strong></p>
+    <a href="shop1.html" class="hero-btn">Shop Now</a>
+  </div>
+</section>
+
+
+<section class="latest-news">
+  <div class="news-header">
+    <h2>Latest News</h2>
+    <a href="404_1.html">View All News</a>
+  </div>
+
+  <div class="news-grid">
+    <!-- News Item 1 -->
+    <div class="news-card">
+      <img src="Images1/blog1.jpg" alt="VR Experience" />
+      <div class="news-meta">
+        <span class="tag virtual">Virtual</span>
+        <span class="author">By Alex Beniwal</span>
+      </div>
+      <h3>Feel like you’re actually experiencing the action in real life with the VR</h3>
+    </div>
+
+    <!-- News Item 2 -->
+    <div class="news-card">
+      <img src="Images1/blog2.jpg" alt="Smartphone Assistant" />
+      <div class="news-meta">
+        <span class="tag mobile">Mobile</span>
+        <span class="author">By Haris Gulati</span>
+      </div>
+      <h3>Smartphones have largely replaced personal digital assistant</h3>
+    </div>
+
+    <!-- News Item 3 -->
+    <div class="news-card">
+      <img src="Images1/blog3.jpg" alt="OLED VR" />
+      <div class="news-meta">
+        <span class="tag virtual">Virtual</span>
+        <span class="author">By Alex Hels</span>
+      </div>
+      <h3>It sports crisp, transparent visuals and uses a 5.7-inch 1080p OLED</h3>
+    </div>
+
+    <!-- News Item 4 -->
+    <div class="news-card">
+      <img src="Images1/blog4.jpg" alt="Wireless Communication" />
+      <div class="news-meta">
+        <span class="tag wireless">Wireless</span>
+        <span class="author">By Mical Von</span>
+      </div>
+      <h3>Wireless communications is the transmission of voice and data</h3>
+    </div>
+  </div>
+</section>
+
+
+<footer class="footer-section">
+  <div class="footer-overlay">
+    <div class="footer-container">
+      <!-- Column 1: Logo & Contact -->
+      <div class="footer-col">
+        <div class="footer-logo">
+          <img src="Images/logo.png" alt="Company Logo" />
+        </div>
+        <ul class="contact-info">
+          <li><i class="fa-solid fa-location-dot"></i> Salem, Tamilnadu</li>
+          <li><i class="fa-regular fa-envelope"></i> contact@company.com</li>
+          <li><i class="fa-solid fa-phone"></i> +91 1234567890</li>
+        </ul>
+        <div class="social-icons">
+  <a href="404_1.html"><i class="fa-brands fa-facebook-f"></i></a>
+  <a href="404_1.html"><i class="fa-brands fa-twitter"></i></a>
+  <a href="404_1.html"><i class="fa-brands fa-instagram"></i></a>
+  <a href="404_1.html"><i class="fa-brands fa-linkedin-in"></i></a>
+  <a href="404_1.html"><i class="fa-brands fa-pinterest-p"></i></a>
+</div>
+
+      </div>
+
+      <!-- Column 2: Categories -->
+      <div class="footer-col">
+        <h3>Categories</h3>
+        <ul>
+          <li><a href="404_1.html">Men</a></li>
+    <li><a href="404_1.html">Women</a></li>
+    <li><a href="404_1.html">Accessories</a></li>
+    <li><a href="404_1.html">Shoes</a></li>
+    <li><a href="404_1.html">Denim</a></li>
+    <li><a href="404_1.html">Dress</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Information -->
+      <div class="footer-col">
+        <h3>Information</h3>
+        <ul>
+          <li><a href="404_1.html">About Us</a></li>
+    <li><a href="404_1.html">Contact Us</a></li>
+    <li><a href="404_1.html">Terms & Conditions</a></li>
+    <li><a href="404_1.html">Returns & Exchanges</a></li>
+    <li><a href="404_1.html">Shipping & Delivery</a></li> 
+        </ul>
+      </div>
+
+      <!-- Column 4: Useful Links -->
+      <div class="footer-col">
+        <h3>Useful Links</h3>
+        <ul>
+              <li><a href="404_1.html">Store Location</a></li>
+    <li><a href="404_1.html">Latest News</a></li>
+    <li><a href="404_1.html">My Account</a></li>
+    <li><a href="404_1.html">Size Guide</a></li>
+    <li><a href="404_1.html">FAQs</a></li>
+    <li><a href="404_1.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 5: Newsletter -->
+      <div class="footer-col newsletter">
+        <h3>Newsletter Signup</h3>
+        <p>Subscribe to our newsletter and get 10% off your first purchase</p>
+<div class="newsletter-form">
+  <input type="email" id="newsletter-email" placeholder="Your email address" />
+  <button id="subscribe-btn">Subscribe</button>
+</div>
+
+<script>
+  const subscribeBtn = document.getElementById("subscribe-btn");
+  const emailInput = document.getElementById("newsletter-email");
+
+  subscribeBtn.addEventListener("click", function(e) {
+    e.preventDefault(); // Prevent form submission
+
+    if(emailInput.value.trim() === "") {
+      // Show error inside input
+      emailInput.value = "";
+      emailInput.placeholder = "Please fill the field!";
+      emailInput.style.color = "#ff038a"; // Error color
+      emailInput.focus();
+    } else {
+      // Reset color and go to 404 page
+      emailInput.style.color = "#000";
+      window.location.href = "404_1.html";
+    }
+  });
+
+  // When user starts typing, restore normal placeholder and color
+  emailInput.addEventListener("input", function() {
+    emailInput.style.color = "#000";
+    emailInput.placeholder = "Your email address";
+  });
+</script>
+
+        <div class="payment-icons">
+          <img src="Images/visa.png" alt="PayPal" />
+          <img src="Images1/card2.png" alt="Visa" />
+          <img src="Images1/card3.png" alt="Amex" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>
+        Copyright © 2025 <span>Stackly</span> all rights reserved.
+      </p>
+      <div class="footer-menu">
+        <p>Powered by <span>Stackly</span> </p>
+    </div>
+  </div>
+</footer>
+
+<!-- Font Awesome for icons -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
+
+
   <!-- JS for Auto Slide -->
   <script>
     const slides = document.querySelectorAll('.slide');
@@ -470,6 +719,227 @@ function continuousScroll() {
 
 continuousScroll();
 </script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const homeDropdown = document.querySelector('.home-dropdown');
+  const arrow = homeDropdown?.querySelector('.dropdown-toggle i'); // your arrow icon
+  const menu = homeDropdown?.querySelector('.dropdown-menu');
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.querySelector('.nav ul');
+
+  // ✅ Mobile hamburger toggle
+  if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('show');
+    });
+  }
+
+  // ✅ Dropdown arrow toggle (does NOT block "Home" link)
+  if (arrow && menu) {
+    arrow.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation(); // prevent click from bubbling
+      if (menu.style.display === 'block') {
+        menu.style.display = 'none';
+        arrow.classList.remove('open'); // rotate arrow back
+      } else {
+        menu.style.display = 'block';
+        arrow.classList.add('open'); // rotate arrow
+      }
+    });
+  }
+
+  // ✅ Clicking "Home" link navigates normally
+  const homeLink = homeDropdown.querySelector("a[href='saas.html']");
+  if (homeLink) {
+    homeLink.addEventListener("click", () => {
+      menu.style.display = 'none'; // close dropdown when navigating
+      arrow.classList.remove('open');
+    });
+  }
+
+  // ✅ Auto close dropdown when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!homeDropdown.contains(e.target)) {
+      menu.style.display = "none";
+      arrow.classList.remove('open');
+    }
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const wishlistIcon = document.querySelector(".wishlist-icon");
+  const cartIcon = document.querySelector(".cart-icon");
+
+  const wishlistDropdown = document.getElementById("wishlistDropdown");
+  const cartDropdown = document.getElementById("cartDropdown");
+
+  // ✅ Toggle function
+  function toggleDropdown(icon, dropdown) {
+    icon.addEventListener("click", (e) => {
+      e.stopPropagation(); // prevent closing immediately
+      // toggle own dropdown
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+      // hide the other dropdown
+      if (dropdown === wishlistDropdown) cartDropdown.style.display = "none";
+      if (dropdown === cartDropdown) wishlistDropdown.style.display = "none";
+    });
+  }
+
+  toggleDropdown(wishlistIcon, wishlistDropdown);
+  toggleDropdown(cartIcon, cartDropdown);
+
+  // ✅ Close dropdown if click outside
+  document.addEventListener("click", () => {
+    wishlistDropdown.style.display = "none";
+    cartDropdown.style.display = "none";
+  });
+});
+
+</script>
+
+<script>
+// ---------- Wishlist & Cart Functionality ----------
+
+// DOM references
+const wishlistItems = document.getElementById("wishlistItems");
+const cartItems = document.getElementById("cartItems");
+const wishlistCount = document.getElementById("wishlistCount");
+const cartCount = document.getElementById("cartCount");
+const emptyWishlist = document.getElementById("emptyWishlist");
+const emptyCart = document.getElementById("emptyCart");
+
+let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+// ---------- Wishlist UI ----------
+function updateWishlistUI() {
+  wishlistItems.innerHTML = "";
+  if (!wishlist.length) {
+    emptyWishlist.style.display = "block";
+  } else {
+    emptyWishlist.style.display = "none";
+    wishlist.forEach((item) => {
+      const li = document.createElement("li");
+      li.innerHTML = `
+        <img src="${item.img}" alt="${item.name}">
+        <p>${item.name}</p>
+        <i class="fa fa-trash" style="color:#ff4757;cursor:pointer"></i>
+      `;
+      li.querySelector(".fa-trash").addEventListener("click", () => removeFromWishlist(item.id));
+      wishlistItems.appendChild(li);
+    });
+  }
+  wishlistCount.textContent = wishlist.length;
+}
+
+// ---------- Cart UI ----------
+function updateCartUI() {
+  cartItems.innerHTML = "";
+  let total = 0;
+
+  if (!cart.length) {
+    emptyCart.style.display = "block";
+    document.getElementById("cartCheckout").style.display = "none";
+  } else {
+    emptyCart.style.display = "none";
+    document.getElementById("cartCheckout").style.display = "block";
+
+    cart.forEach((item) => {
+      total += item.price;
+
+      const li = document.createElement("li");
+      li.innerHTML = `
+        <img src="${item.img}" alt="${item.name}" style="width:50px; height:50px; object-fit:cover; margin-right:10px;">
+        <div class="cart-item-info" style="display:inline-block; vertical-align:top;">
+          <p style="margin:0;">${item.name}</p>
+          <p style="margin:0;">$${item.price}</p>
+        </div>
+        <i class="fa fa-trash" style="color:#ff4757;cursor:pointer; float:right; margin-top:10px;"></i>
+      `;
+      li.querySelector(".fa-trash").addEventListener("click", () => removeFromCart(item.id));
+      cartItems.appendChild(li);
+    });
+  }
+
+  cartCount.textContent = cart.length;
+  document.getElementById("cartTotal").textContent = total.toFixed(2);
+}
+
+// ---------- Remove Items ----------
+function removeFromWishlist(id) {
+  wishlist = wishlist.filter((item) => item.id !== id);
+  saveData();
+  updateWishlistUI();
+}
+
+function removeFromCart(id) {
+  cart = cart.filter((item) => item.id !== id);
+  saveData();
+  updateCartUI();
+}
+
+// ---------- LocalStorage ----------
+function saveData() {
+  localStorage.setItem("wishlist", JSON.stringify(wishlist));
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+// ---------- Initialize ----------
+updateWishlistUI();
+updateCartUI();
+
+// ✅ Checkout button click
+document.getElementById("checkoutBtn").addEventListener("click", () => {
+  if(cart.length === 0){
+    alert("Your cart is empty!");
+    return;
+  }
+  window.location.href = "checkout1.html"; 
+});
+</script>
+
+<script>
+// ---------- Dropdown Hover Flicker Fix ----------
+document.querySelectorAll(".icon-item").forEach((icon) => {
+  const dropdown = icon.querySelector(".dropdown-panel");
+  if (!dropdown) return;
+
+  let enterTimeout, leaveTimeout;
+
+  // Show dropdown on hover
+  icon.addEventListener("mouseenter", () => {
+    clearTimeout(leaveTimeout); // Cancel hide
+    enterTimeout = setTimeout(() => {
+      dropdown.style.display = "block";
+    }, 50); // small delay to prevent accidental flicker
+  });
+
+  // Hide dropdown when mouse leaves
+  icon.addEventListener("mouseleave", () => {
+    clearTimeout(enterTimeout); // Cancel show
+    leaveTimeout = setTimeout(() => {
+      dropdown.style.display = "none";
+    }, 200); // small delay to avoid flicker
+  });
+
+  // Keep dropdown visible if mouse moves over it
+  dropdown.addEventListener("mouseenter", () => {
+    clearTimeout(leaveTimeout);
+  });
+
+  dropdown.addEventListener("mouseleave", () => {
+    leaveTimeout = setTimeout(() => {
+      dropdown.style.display = "none";
+    }, 200);
+  });
+});
+</script>
+
+<script src="shop1.js"></script>
 
 </body>
 </html>

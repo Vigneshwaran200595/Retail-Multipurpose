@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trendy Lifestyle</title>
+  <link rel="stylesheet" href="shop1.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- ✅ Combined Header + Hero Section -->
+  <section class="hero-section">
+
+    <!-- Header -->
+    <header class="header">
+  <div class="container header-container">
+    <div class="logo">
+      <img src="Images/logo.png" alt="Logo">
+    </div>
+
+     <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+      <nav class="nav">
+  <ul>
+    <li class="home-dropdown">
+  <a href="saas.html">Home</a> <!-- Main link -->
+  <span class="dropdown-toggle"><i class="fa fa-caret-down"></i></span> <!-- Arrow toggles dropdown -->
+  <ul class="dropdown-menu">
+    <li><a href="index.html">Home 1</a></li>
+  </ul>
+</li>
+    <li><a href="shop1.html">Shop</a></li>
+    <li><a href="deal.html">Deals</a></li>
+    <li><a href="features.html">Features</a></li>
+    <li><a href="contact1.html">Contact</a></li>
+  </ul>
+</nav>
+
+
+
+    <!-- ✅ Header Icons with Dropdowns -->
+<div class="icons">
+  <!-- User Icon -->
+  <div class="icon-item user-icon">
+    <a href="account.html">
+      <i class="fa-solid fa-user"></i>
+    </a>
+  </div>
+
+  <!-- Wishlist Icon -->
+  <div class="icon-item wishlist-icon">
+    <i class="fa-solid fa-heart"></i>
+    <span id="wishlistCount" class="badge-icon">0</span>
+    <div class="dropdown-panel" id="wishlistDropdown">
+      <h4>Wishlist</h4>
+      <ul id="wishlistItems"></ul>
+      <p id="emptyWishlist" class="empty-text">No items in wishlist</p>
+    </div>
+  </div>
+
+  <!-- Cart Icon -->
+ <div class="icon-item cart-icon">
+  <i class="fa-solid fa-cart-shopping"></i>
+  <span id="cartCount" class="badge-icon">0</span>
+  <div class="dropdown-panel" id="cartDropdown">
+    <h4>Cart</h4>
+    <ul id="cartItems"></ul>
+    <p id="emptyCart" class="empty-text">No items in cart</p>
+    <!-- ✅ Checkout button -->
+    <div id="cartCheckout" style="display:none; text-align:center; margin-top:10px;">
+      <p>Total: $<span id="cartTotal">0</span></p>
+      <button id="checkoutBtn">Checkout</button>
+    </div>
+  </div>
+</div>
+  </div>
+</header>
+
+
+
+    <!-- ✅ Hero Content -->
+    <div class="container hero-container">
+      <div class="hero-content">
+        <h1>Shop</h1>
+        <p class="sub-heading">Home / <span>Shop</span></p>
+      </div>
+    </div>
+  </section>
+
+ <div class="container1">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search products..." />
+      </div>
+
+      <div class="filter-group">
+        <h4>Filter by Price</h4>
+        <input type="range" id="priceRange" min="10" max="2000" value="2000">
+        <p>Max Price: $<span id="priceValue">2000</span></p>
+      </div>
+
+      <div class="filter-group">
+        <h4>Select Brand</h4>
+        <label><input type="checkbox" class="brandFilter" value="Apple"> Apple</label>
+        <label><input type="checkbox" class="brandFilter" value="Sony"> Sony</label>
+        <label><input type="checkbox" class="brandFilter" value="LG"> LG</label>
+        <label><input type="checkbox" class="brandFilter" value="Samsung"> Samsung</label>
+        <label><input type="checkbox" class="brandFilter" value="Asus"> Asus</label>
+      </div>
+
+      <div class="filter-group">
+        <h4>Categories</h4>
+        <label><input type="checkbox" class="catFilter" value="Mobile"> Mobile</label>
+        <label><input type="checkbox" class="catFilter" value="Laptop"> Laptop</label>
+        <label><input type="checkbox" class="catFilter" value="Camera"> Camera</label>
+        <label><input type="checkbox" class="catFilter" value="Accessories"> Accessories</label>
+        <label><input type="checkbox" class="catFilter" value="Gaming"> Gaming</label>
+        <label><input type="checkbox" class="catFilter" value="Home"> Home</label>
+      </div>
+
+      <div class="filter-group">
+  <h4>Filter by Rating</h4>
+  <label><input type="radio" name="ratingFilter" class="ratingFilter" value="all" checked> All Ratings</label>
+  <label><input type="radio" name="ratingFilter" class="ratingFilter" value="4"> 4★ & above</label>
+  <label><input type="radio" name="ratingFilter" class="ratingFilter" value="3"> 3★ & above</label>
+  <label><input type="radio" name="ratingFilter" class="ratingFilter" value="2"> 2★ & above</label>
+</div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="product-area">
+      <div class="top-bar">
+        <div class="results-info">
+          Showing <span id="showCount">1–12</span> of <span id="totalResults">36</span> results
+        </div>
+        <div class="sort">
+          <label for="sortSelect">Sort:</label>
+          <select id="sortSelect">
+            <option value="popular">Most Popular</option>
+            <option value="low">Price: Low to High</option>
+            <option value="high">Price: High to Low</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="productContainer" class="product-grid"></div>
+
+      <div class="pagination" id="pagination"></div>
+    </main>
+  </div>
+
+<footer class="footer-section">
+  <div class="footer-overlay">
+    <div class="footer-container">
+      <!-- Column 1: Logo & Contact -->
+      <div class="footer-col">
+        <div class="footer-logo">
+          <img src="Images/logo.png" alt="Company Logo" />
+        </div>
+        <ul class="contact-info">
+          <li><i class="fa-solid fa-location-dot"></i> Salem, Tamilnadu</li>
+          <li><i class="fa-regular fa-envelope"></i> contact@company.com</li>
+          <li><i class="fa-solid fa-phone"></i> +91 1234567890</li>
+        </ul>
+        <div class="social-icons">
+  <a href="404_1.html"><i class="fa-brands fa-facebook-f"></i></a>
+  <a href="404_1.html"><i class="fa-brands fa-twitter"></i></a>
+  <a href="404_1.html"><i class="fa-brands fa-instagram"></i></a>
+  <a href="404_1.html"><i class="fa-brands fa-linkedin-in"></i></a>
+  <a href="404_1.html"><i class="fa-brands fa-pinterest-p"></i></a>
+</div>
+
+      </div>
+
+      <!-- Column 2: Categories -->
+      <div class="footer-col">
+        <h3>Categories</h3>
+        <ul>
+          <li><a href="404_1.html">Men</a></li>
+    <li><a href="404_1.html">Women</a></li>
+    <li><a href="404_1.html">Accessories</a></li>
+    <li><a href="404_1.html">Shoes</a></li>
+    <li><a href="404_1.html">Denim</a></li>
+    <li><a href="404_1.html">Dress</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Information -->
+      <div class="footer-col">
+        <h3>Information</h3>
+        <ul>
+          <li><a href="404_1.html">About Us</a></li>
+    <li><a href="404_1.html">Contact Us</a></li>
+    <li><a href="404_1.html">Terms & Conditions</a></li>
+    <li><a href="404_1.html">Returns & Exchanges</a></li>
+    <li><a href="404_1.html">Shipping & Delivery</a></li> 
+        </ul>
+      </div>
+
+      <!-- Column 4: Useful Links -->
+      <div class="footer-col">
+        <h3>Useful Links</h3>
+        <ul>
+              <li><a href="404_1.html">Store Location</a></li>
+    <li><a href="404_1.html">Latest News</a></li>
+    <li><a href="404_1.html">My Account</a></li>
+    <li><a href="404_1.html">Size Guide</a></li>
+    <li><a href="404_1.html">FAQs</a></li>
+    <li><a href="404_1.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 5: Newsletter -->
+      <div class="footer-col newsletter">
+        <h3>Newsletter Signup</h3>
+        <p>Subscribe to our newsletter and get 10% off your first purchase</p>
+<div class="newsletter-form">
+  <input type="email" id="newsletter-email" placeholder="Your email address" />
+  <button id="subscribe-btn">Subscribe</button>
+</div>
+
+<script>
+  const subscribeBtn = document.getElementById("subscribe-btn");
+  const emailInput = document.getElementById("newsletter-email");
+
+  subscribeBtn.addEventListener("click", function(e) {
+    e.preventDefault(); // Prevent form submission
+
+    if(emailInput.value.trim() === "") {
+      // Show error inside input
+      emailInput.value = "";
+      emailInput.placeholder = "Please fill the field!";
+      emailInput.style.color = "#ff038a"; // Error color
+      emailInput.focus();
+    } else {
+      // Reset color and go to 404 page
+      emailInput.style.color = "#000";
+      window.location.href = "404_1.html";
+    }
+  });
+
+  // When user starts typing, restore normal placeholder and color
+  emailInput.addEventListener("input", function() {
+    emailInput.style.color = "#000";
+    emailInput.placeholder = "Your email address";
+  });
+</script>
+
+        <div class="payment-icons">
+          <img src="Images/visa.png" alt="PayPal" />
+          <img src="Images1/card2.png" alt="Visa" />
+          <img src="Images1/card3.png" alt="Amex" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>
+        Copyright © 2025 <span>Stackly</span> all rights reserved.
+      </p>
+      <div class="footer-menu">
+        <p>Powered by <span>Stackly</span> </p>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const homeDropdown = document.querySelector('.home-dropdown');
+  const arrow = homeDropdown?.querySelector('.dropdown-toggle i'); // your arrow icon
+  const menu = homeDropdown?.querySelector('.dropdown-menu');
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.querySelector('.nav ul');
+
+  // ✅ Mobile hamburger toggle
+  if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('show');
+    });
+  }
+
+  // ✅ Dropdown arrow toggle (does NOT block "Home" link)
+  if (arrow && menu) {
+    arrow.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation(); // prevent click from bubbling
+      if (menu.style.display === 'block') {
+        menu.style.display = 'none';
+        arrow.classList.remove('open'); // rotate arrow back
+      } else {
+        menu.style.display = 'block';
+        arrow.classList.add('open'); // rotate arrow
+      }
+    });
+  }
+
+  // ✅ Clicking "Home" link navigates normally
+  const homeLink = homeDropdown.querySelector("a[href='saas.html']");
+  if (homeLink) {
+    homeLink.addEventListener("click", () => {
+      menu.style.display = 'none'; // close dropdown when navigating
+      arrow.classList.remove('open');
+    });
+  }
+
+  // ✅ Auto close dropdown when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!homeDropdown.contains(e.target)) {
+      menu.style.display = "none";
+      arrow.classList.remove('open');
+    }
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const wishlistIcon = document.querySelector(".wishlist-icon");
+  const cartIcon = document.querySelector(".cart-icon");
+
+  const wishlistDropdown = document.getElementById("wishlistDropdown");
+  const cartDropdown = document.getElementById("cartDropdown");
+
+  // ✅ Toggle function
+  function toggleDropdown(icon, dropdown) {
+    icon.addEventListener("click", (e) => {
+      e.stopPropagation(); // prevent closing immediately
+      // toggle own dropdown
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+      // hide the other dropdown
+      if (dropdown === wishlistDropdown) cartDropdown.style.display = "none";
+      if (dropdown === cartDropdown) wishlistDropdown.style.display = "none";
+    });
+  }
+
+  toggleDropdown(wishlistIcon, wishlistDropdown);
+  toggleDropdown(cartIcon, cartDropdown);
+
+  // ✅ Close dropdown if click outside
+  document.addEventListener("click", () => {
+    wishlistDropdown.style.display = "none";
+    cartDropdown.style.display = "none";
+  });
+});
+
+</script>
+
+  <script src="shop1.js"></script>
+
+  </body>
+</html>

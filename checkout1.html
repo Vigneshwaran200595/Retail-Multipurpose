@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Trendy Lifestyle</title>
+  <link rel="stylesheet" href="shop1.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: #222;
+
+}
+
+.hero-section {
+  background: url("Images1/background.jpg") no-repeat center center/cover;
+  color: #fff;
+   min-height: 60vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 0;
+}
+
+/* ✅ HEADER */
+.header {
+  width: 100%;
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.logo img {
+  width: 150px;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  z-index: 1000;
+}
+
+.nav ul li {
+  position: relative; /* Needed for dropdown positioning */
+}
+
+.nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav ul li a:hover {
+  color: #ff038a;
+}
+
+/* Home Dropdown */
+/* Home Dropdown */
+.home-dropdown .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%; 
+  left: 0;
+  background: #fff;
+  min-width: 120px; /* Reduced width */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  z-index: 1000;
+  font-size: 14px; /* Smaller font */
+}
+
+.home-dropdown .dropdown-menu li a {
+  color: #333;
+  padding: 6px 10px; /* Reduced padding */
+  display: block;
+  font-weight: 400;
+  transition: background 0.3s;
+}
+
+.home-dropdown .dropdown-menu li a:hover {
+  background: #ff038a;
+  color: #fff;
+}
+
+.home-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Optional caret icon styling */
+.home-dropdown > a .fa-caret-down {
+  margin-left: 5px;
+  font-size: 0.7em;
+}
+
+/* ===== Wishlist & Cart Dropdown ===== */
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 30px; /* slightly more space between icons */
+  position: relative;
+}
+
+.icon-item i {
+  font-size: 16px; /* compact size */
+}
+
+
+
+.icon-item {
+  position: relative;
+  cursor: pointer;
+}
+
+.icon-item i {
+  font-size: 20px;
+  color: #fff;
+  transition: color 0.3s;
+}
+
+.icon-item i:hover {
+  color: #ff038a;
+}
+
+.badge-icon {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background: #ff038a;
+  color: #fff;
+  font-size: 11px;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 2px 5px;
+}
+
+.dropdown-panel {
+  position: absolute;
+  top: 28px;
+  right: 0;
+  width: 250px;
+  background: #fff;
+  color: #111;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  padding: 12px;
+  display: none;
+  z-index: 10;
+}
+
+.dropdown-panel h4 {
+  font-size: 15px;
+  margin: 0 0 8px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+  color: #111;
+}
+
+.dropdown-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.dropdown-panel li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.dropdown-panel li img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.dropdown-panel li p {
+  font-size: 13px;
+  margin: 0;
+  flex: 1;
+}
+
+.empty-text {
+  text-align: center;
+  color: #777;
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+.icon-item:hover .dropdown-panel {
+  display: block;
+}
+
+/* Smooth hover transition */
+.icon-item i {
+  transition: color 0.3s, transform 0.3s;
+}
+.icon-item:hover i {
+  color: #ff038a;
+  transform: scale(1.1);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+}
+
+.dropdown-toggle {
+  margin-left: 5px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.dropdown-toggle.open i {
+  transform: rotate(180deg);
+  transition: transform 0.3s;
+}
+
+.dropdown-menu {
+  display: none;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+
+/* ================== Responsive Header ================== */
+
+/* Tablet & smaller laptops (<= 992px) */
+@media (max-width: 992px) {
+  .hero-content h1 { font-size: 40px; }
+  .hero-content .sub-heading { font-size: 16px; }
+  .icons { gap: 20px; }
+
+  /* Nav adjustments */
+  .nav ul { gap: 20px; }
+}
+
+/* Mobile devices (<= 768px) */
+@media (max-width: 768px) {
+  /* Show hamburger */
+  .hamburger { display: flex; }
+
+  /* Keep header horizontal */
+  .header-container {
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
+
+  /* Logo + Hamburger + Icons in one line */
+  .logo { order: 1; }
+  .hamburger { order: 2; }
+  .icons { order: 3; }
+
+  /* Mobile nav menu */
+  .nav ul {
+    position: absolute;
+    top: 60px;
+    right: -100%;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.95);
+    width: 220px;
+    border-radius: 8px;
+    padding: 10px 0;
+    gap: 0;
+    transition: right 0.3s ease-in-out;
+    z-index: 9999;
+  }
+  .nav ul.show { right: 10px; }
+  .nav ul li { padding: 10px 15px; }
+  .nav ul li a { font-size: 14px; color: #fff; }
+
+  /* Home dropdown on mobile */
+  .home-dropdown .dropdown-menu {
+    position: relative;
+    top: 0;
+    left: 0;
+    background: #222;
+    border-radius: 0;
+    min-width: 100%;
+    display: none;
+    flex-direction: column;
+    padding: 5px 0;
+  }
+  .home-dropdown .dropdown-menu.show { display: flex; }
+  .home-dropdown .dropdown-menu li a {
+    color: #fff;
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+
+  .home-dropdown > a .fa-caret-down {
+    color: #fff;
+    margin-left: 5px;
+    font-size: 0.8em;
+  }
+
+  /* Hero content */
+  .hero-content { max-width: 70%; text-align: center; }
+  .hero-content h1 { font-size: 32px; }
+  .hero-content .sub-heading { font-size: 15px; }
+
+  /* Icons dropdown fixed to screen */
+  .dropdown-panel {
+    right: 0 !important;
+    left: auto;
+    width: 200px;
+  }
+}
+
+/* Small mobile devices (<= 576px) */
+@media (max-width: 576px) {
+  .hero-content { max-width: 80%; }
+  .hero-content h1 { font-size: 28px; }
+  .hero-content .sub-heading { font-size: 14px; }
+
+  .nav ul { width: 200px; top: 60px; right: -100%; }
+  .nav ul.show { right: 5px; }
+
+  .home-dropdown .dropdown-menu li a { font-size: 13px; padding: 7px 12px; }
+
+  .icons { gap: 12px; }
+  .hamburger span { width: 22px; height: 2.5px; }
+
+  /* Icon dropdown */
+  .dropdown-panel { width: 180px; }
+}
+
+/* Extra small / very small devices (<= 425px) */
+@media (max-width: 425px) {
+  .hero-content { max-width: 90%; }
+  .hero-content h1 { font-size: 24px; }
+  .hero-content .sub-heading { font-size: 13px; }
+
+  .nav ul { width: 180px; top: 55px; right: -100%; }
+  .nav ul.show { right: 5px; }
+
+  .home-dropdown .dropdown-menu li a { font-size: 12px; padding: 6px 10px; }
+
+  .hamburger span { width: 20px; height: 2.5px; }
+  .icons { gap: 10px; }
+
+  /* Icon dropdown adjustments */
+  .dropdown-panel { width: 160px; }
+}
+
+/* ================== Fix dropdowns inside viewport ================== */
+.dropdown-panel {
+  max-width: 90vw; /* prevent overflow */
+}
+
+
+/* --- HERO CONTENT --- */
+.hero-container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.hero-content .sub-heading {
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+  text-align: center;
+}
+
+.hero-content .sub-heading span {
+  color: #ff038a;
+  font-weight: 600;
+}
+
+#cartItems li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#cartCheckout button {
+  padding: 5px 15px;
+  background-color: #ff038a;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#cartCheckout button:hover {
+  background-color: #e60070;
+}
+
+
+
+    h1 {
+      width: 100%;
+      text-align: center;
+      margin: 40px 0 20px 0;
+      color: #333;
+    }
+
+    .container1 {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .checkout-grid {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .cart-items, .checkout-form {
+      flex: 1;
+      min-width: 320px;
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .cart-items h2, .checkout-form h2 {
+      margin-top: 0;
+      color: #ff038a;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .cart-items ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .cart-items li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+ .cart-items img {
+  width: 100px;       /* Fixed width for all images */
+  height: 100px;      /* Fixed height for all images */
+  object-fit: cover;  /* Fill container and crop overflow if needed */
+  border-radius: 8px; /* Optional rounded corners */
+  margin-right: 15px;
+}
+
+
+    .item-info {
+      flex: 1;
+      padding-right: 10px;
+    }
+
+    .item-info p {
+      margin: 0;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .cart-total {
+      font-weight: bold;
+      font-size: 18px;
+      margin-top: 20px;
+      text-align: right;
+      color: #222;
+    }
+
+    /* Form Inputs */
+    .checkout-form input,
+    .checkout-form textarea,
+    .checkout-form button {
+      width: 100%;
+      padding: 12px 15px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    .checkout-form button {
+      background-color: #ff038a;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .checkout-form button:hover {
+      background-color: #e60070;
+    }
+
+    .success-message {
+      display: none;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 15px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .success-message.success {
+      background-color: #d4edda;
+      border: 1px solid #c3e6cb;
+      color: #155724;
+    }
+
+    .success-message.error {
+      background-color: #f8d7da;
+      border: 1px solid #f5c6cb;
+      color: #721c24;
+    }
+
+    @media (max-width: 900px) {
+      .checkout-grid {
+        flex-direction: column;
+      }
+    }
+
+    .footer-section {
+  background-image: url("Images1/background.jpg"); /* Replace with your footer background */
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  color: #444;
+  font-family: "Inter", sans-serif;
+}
+
+.footer-overlay {
+   background: rgba(0, 0, 0, 0.7); 
+  padding: 60px 80px 10px; /* reduced bottom padding */
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr 1.3fr;
+  gap: 40px;
+  margin-bottom: 20px;
+}
+
+/* Logo Image */
+.footer-logo img {
+  width: 150px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* Contact Info */
+.contact-info li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  color: #666;
+  font-size: 14px;
+}
+
+.contact-info i {
+  color: #fdfdfd;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social-icons i {
+  font-size: 16px;
+  color: #f9f7f7;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.social-icons i:hover {
+  color: #ff038a;
+}
+
+/* Headings */
+.footer-col h3 {
+  font-weight: 700;
+  color: #f7f0f0;
+  margin-bottom: 20px;
+}
+
+.footer-col ul {
+  list-style: none;
+  text-decoration: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  color: #bcbaba;
+  margin-bottom: 10px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.footer-col ul li a {
+  text-decoration: none;  /* Remove underline */
+  color: #bcbaba;         /* Match your li color */
+  transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: #fef7f7;         /* Hover color */
+}
+
+
+.footer-col ul li:hover {
+  color: #fef7f7;
+}
+
+/* Newsletter */
+.newsletter p {
+  color: #bcbaba;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.newsletter-form {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 40px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 320px;
+}
+
+.newsletter-form input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  font-size: 14px;
+}
+
+.newsletter-form button {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.newsletter-form button:hover {
+  background: #333;
+}
+
+.payment-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.payment-icons img {
+  height: 24px;
+  opacity: 0.6;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+.footer-bottom span {
+  color: #ff038a;
+  font-weight: 600;
+}
+
+.footer-menu a {
+  text-decoration: none;
+  color: #555;
+  margin-left: 25px;
+  transition: color 0.3s;
+}
+
+.footer-menu a:hover {
+  color: #000;
+}
+
+
+/* Tablets & smaller laptops (<= 992px) */
+@media (max-width: 992px) {
+  .footer-overlay {
+    padding: 50px 40px 10px;
+    text-align: center; /* Center all content */
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    justify-items: center; /* Center grid items */
+  }
+
+  .footer-logo img {
+    width: 140px; /* Slightly larger */
+    margin: 0 auto;
+  }
+
+  .footer-col h3 {
+    font-size: 18px;
+  }
+
+  .footer-col ul li,
+  .contact-info li,
+  .newsletter p {
+    font-size: 14px;
+  }
+
+  .newsletter-form {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .newsletter-form input,
+  .newsletter-form button {
+    font-size: 14px;
+  }
+
+  .payment-icons {
+    justify-content: center; /* Center icons */
+  }
+
+  .payment-icons img {
+    height: 22px;
+  }
+}
+
+/* Mobile devices (<= 768px) */
+@media (max-width: 768px) {
+  .footer-overlay {
+    padding: 45px 20px 10px;
+    text-align: center;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    justify-items: center;
+  }
+
+  .footer-logo img {
+    width: 130px;
+  }
+
+  .footer-col h3 {
+    font-size: 17px;
+  }
+
+  .footer-col ul li,
+  .contact-info li,
+  .newsletter p {
+    font-size: 13px;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .newsletter-form input,
+  .newsletter-form button {
+    width: 100%;
+    padding: 12px;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+
+  .payment-icons img {
+    height: 20px;
+  }
+}
+
+/* Small mobile devices (<= 576px) */
+@media (max-width: 576px) {
+  .footer-overlay {
+    padding: 35px 15px 10px;
+    text-align: center;
+  }
+
+  .footer-logo img {
+    width: 120px;
+  }
+
+  .footer-col h3 {
+    font-size: 16px;
+  }
+
+  .footer-col ul li,
+  .contact-info li,
+  .newsletter p {
+    font-size: 14px; /* Slightly larger for readability */
+  }
+
+  .newsletter-form input,
+  .newsletter-form button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 10px;
+    font-size: 13px;
+    text-align: center;
+  }
+
+  .footer-menu a {
+    margin: 0 10px;
+  }
+
+  .payment-icons img {
+    height: 18px;
+  }
+}
+
+/* Extra small devices (<= 400px) */
+@media (max-width: 400px) {
+  .footer-overlay {
+    padding: 30px 10px 10px;
+    text-align: center;
+  }
+
+  .footer-logo img {
+    width: 110px;
+  }
+
+  .footer-col h3 {
+    font-size: 15px;
+  }
+
+  .footer-col ul li,
+  .contact-info li,
+  .newsletter p {
+    font-size: 13px; /* Larger for small devices */
+  }
+
+  .newsletter-form input,
+  .newsletter-form button {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .footer-bottom {
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .payment-icons img {
+    height: 16px;
+  }
+}
+  </style>
+</head>
+<body>
+
+    <section class="hero-section">
+
+    <!-- Header -->
+    <header class="header">
+  <div class="container header-container">
+    <div class="logo">
+      <img src="Images/logo.png" alt="Logo">
+    </div>
+
+     <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+      <nav class="nav">
+  <ul>
+    <li class="home-dropdown">
+  <a href="saas.html">Home</a> <!-- Main link -->
+  <span class="dropdown-toggle"><i class="fa fa-caret-down"></i></span> <!-- Arrow toggles dropdown -->
+  <ul class="dropdown-menu">
+    <li><a href="index.html">Home 1</a></li>
+  </ul>
+</li>
+    <li><a href="shop1.html">Shop</a></li>
+    <li><a href="deal.html">Deals</a></li>
+    <li><a href="features.html">Features</a></li>
+    <li><a href="contact1.html">Contact</a></li>
+  </ul>
+</nav>
+
+
+
+    <!-- ✅ Header Icons with Dropdowns -->
+<div class="icons">
+  <!-- User Icon -->
+  <div class="icon-item user-icon">
+    <a href="account.html">
+      <i class="fa-solid fa-user"></i>
+    </a>
+  </div>
+
+  <!-- Wishlist Icon -->
+  <div class="icon-item wishlist-icon">
+    <i class="fa-solid fa-heart"></i>
+    <span id="wishlistCount" class="badge-icon">0</span>
+    <div class="dropdown-panel" id="wishlistDropdown">
+      <h4>Wishlist</h4>
+      <ul id="wishlistItems"></ul>
+      <p id="emptyWishlist" class="empty-text">No items in wishlist</p>
+    </div>
+  </div>
+
+  <!-- Cart Icon -->
+   <!-- Cart Icon -->
+ <div class="icon-item cart-icon">
+  <i class="fa-solid fa-cart-shopping"></i>
+  <span id="cartCount" class="badge-icon">0</span>
+  <div class="dropdown-panel" id="cartDropdown">
+    <h4>Cart</h4>
+    <ul id="cartItems"></ul>
+    <p id="emptyCart" class="empty-text">No items in cart</p>
+    <!-- ✅ Checkout button -->
+    <div id="cartCheckout" style="display:none; text-align:center; margin-top:10px;">
+      <p>Total: $<span id="cartTotal">0</span></p>
+      <button id="checkoutBtn">Checkout</button>
+    </div>
+  </div>
+</div>
+  </div>
+</header>
+
+
+
+    <!-- ✅ Hero Content -->
+    <div class="container hero-container">
+      <div class="hero-content">
+        <h1>Checkout</h1>
+        <p class="sub-heading">Home / <span>Checkout</span></p>
+      </div>
+    </div>
+  </section>
+
+
+  <h1>Checkout</h1>
+
+  <div class="container1 checkout-grid">
+    
+    <!-- Cart Summary -->
+    <div class="cart-items">
+      <h2>Your Cart</h2>
+      <ul id="checkoutCart"></ul>
+      <p class="cart-total">Total: $<span id="checkoutTotal">0</span></p>
+    </div>
+
+    <!-- Billing Form -->
+    <div class="checkout-form">
+      <h2>Billing Details</h2>
+      <input type="text" id="name" placeholder="Full Name" required>
+      <input type="email" id="email" placeholder="Email Address" required>
+      <textarea id="address" rows="4" placeholder="Shipping Address" required></textarea>
+      <input type="text" id="phone" placeholder="Phone Number" required>
+      <button id="placeOrderBtn">Place Order</button>
+
+      <div class="success-message" id="successMessage"></div>
+    </div>
+
+  </div>
+
+  <footer class="footer-section">
+  <div class="footer-overlay">
+    <div class="footer-container">
+      <!-- Column 1: Logo & Contact -->
+      <div class="footer-col">
+        <div class="footer-logo">
+          <img src="Images/logo.png" alt="Company Logo" />
+        </div>
+        <ul class="contact-info">
+          <li><i class="fa-solid fa-location-dot"></i> Salem, Tamilnadu</li>
+          <li><i class="fa-regular fa-envelope"></i> contact@company.com</li>
+          <li><i class="fa-solid fa-phone"></i> +91 1234567890</li>
+        </ul>
+        <div class="social-icons">
+  <a href="404_1.html"><i class="fa-brands fa-facebook-f"></i></a>
+  <a href="404_1.html"><i class="fa-brands fa-twitter"></i></a>
+  <a href="404_1.html"><i class="fa-brands fa-instagram"></i></a>
+  <a href="404_1.html"><i class="fa-brands fa-linkedin-in"></i></a>
+  <a href="404_1.html"><i class="fa-brands fa-pinterest-p"></i></a>
+</div>
+
+      </div>
+
+      <!-- Column 2: Categories -->
+      <div class="footer-col">
+        <h3>Categories</h3>
+        <ul>
+          <li><a href="404_1.html">Men</a></li>
+    <li><a href="404_1.html">Women</a></li>
+    <li><a href="404_1.html">Accessories</a></li>
+    <li><a href="404_1.html">Shoes</a></li>
+    <li><a href="404_1.html">Denim</a></li>
+    <li><a href="404_1.html">Dress</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Information -->
+      <div class="footer-col">
+        <h3>Information</h3>
+        <ul>
+          <li><a href="404_1.html">About Us</a></li>
+    <li><a href="404_1.html">Contact Us</a></li>
+    <li><a href="404_1.html">Terms & Conditions</a></li>
+    <li><a href="404_1.html">Returns & Exchanges</a></li>
+    <li><a href="404_1.html">Shipping & Delivery</a></li> 
+        </ul>
+      </div>
+
+      <!-- Column 4: Useful Links -->
+      <div class="footer-col">
+        <h3>Useful Links</h3>
+        <ul>
+              <li><a href="404_1.html">Store Location</a></li>
+    <li><a href="404_1.html">Latest News</a></li>
+    <li><a href="404_1.html">My Account</a></li>
+    <li><a href="404_1.html">Size Guide</a></li>
+    <li><a href="404_1.html">FAQs</a></li>
+    <li><a href="404_1.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 5: Newsletter -->
+      <div class="footer-col newsletter">
+        <h3>Newsletter Signup</h3>
+        <p>Subscribe to our newsletter and get 10% off your first purchase</p>
+<div class="newsletter-form">
+  <input type="email" id="newsletter-email" placeholder="Your email address" />
+  <button id="subscribe-btn">Subscribe</button>
+</div>
+
+<script>
+  const subscribeBtn = document.getElementById("subscribe-btn");
+  const emailInput = document.getElementById("newsletter-email");
+
+  subscribeBtn.addEventListener("click", function(e) {
+    e.preventDefault(); // Prevent form submission
+
+    if(emailInput.value.trim() === "") {
+      // Show error inside input
+      emailInput.value = "";
+      emailInput.placeholder = "Please fill the field!";
+      emailInput.style.color = "#ff038a"; // Error color
+      emailInput.focus();
+    } else {
+      // Reset color and go to 404 page
+      emailInput.style.color = "#000";
+      window.location.href = "404_1.html";
+    }
+  });
+
+  // When user starts typing, restore normal placeholder and color
+  emailInput.addEventListener("input", function() {
+    emailInput.style.color = "#000";
+    emailInput.placeholder = "Your email address";
+  });
+</script>
+
+        <div class="payment-icons">
+          <img src="Images/visa.png" alt="PayPal" />
+          <img src="Images1/card2.png" alt="Visa" />
+          <img src="Images1/card3.png" alt="Amex" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>
+        Copyright © 2025 <span>Stackly</span> all rights reserved.
+      </p>
+      <div class="footer-menu">
+        <p>Powered by <span>Stackly</span> </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  // -------------------- Data --------------------
+  let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  // -------------------- DOM Elements --------------------
+  const wishlistItems = document.getElementById("wishlistItems");
+  const cartItems = document.getElementById("cartItems");
+  const wishlistCount = document.getElementById("wishlistCount");
+  const cartCount = document.getElementById("cartCount");
+  const emptyWishlist = document.getElementById("emptyWishlist");
+  const emptyCart = document.getElementById("emptyCart");
+  const checkoutCart = document.getElementById("checkoutCart");
+  const checkoutTotal = document.getElementById("checkoutTotal");
+  const successMessage = document.getElementById("successMessage");
+  const placeOrderBtn = document.getElementById("placeOrderBtn");
+  const checkoutBtn = document.getElementById("checkoutBtn");
+
+  // -------------------- Wishlist UI --------------------
+  function updateWishlistUI() {
+    if(!wishlistItems || !wishlistCount) return;
+    wishlistItems.innerHTML = "";
+    if (!wishlist.length) {
+      emptyWishlist && (emptyWishlist.style.display = "block");
+    } else {
+      emptyWishlist && (emptyWishlist.style.display = "none");
+      wishlist.forEach(item => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+          <img src="${item.img}" alt="${item.name}">
+          <p>${item.name}</p>
+          <i class="fa fa-trash" style="color:#ff4757;cursor:pointer"></i>
+        `;
+        li.querySelector(".fa-trash").addEventListener("click", () => removeFromWishlist(item.id));
+        wishlistItems.appendChild(li);
+      });
+    }
+    wishlistCount.textContent = wishlist.length;
+  }
+
+  // -------------------- Cart UI --------------------
+  function updateCartUI() {
+    if(!cartItems || !cartCount) return;
+    cartItems.innerHTML = "";
+    let total = 0;
+
+    if (!cart.length) {
+      emptyCart && (emptyCart.style.display = "block");
+      document.getElementById("cartCheckout") && (document.getElementById("cartCheckout").style.display = "none");
+    } else {
+      emptyCart && (emptyCart.style.display = "none");
+      document.getElementById("cartCheckout") && (document.getElementById("cartCheckout").style.display = "block");
+      cart.forEach(item => {
+        total += item.price;
+        const li = document.createElement("li");
+        li.innerHTML = `
+          <img src="${item.img}" alt="${item.name}" style="width:50px;height:50px;object-fit:cover;margin-right:10px;">
+          <div style="display:inline-block; vertical-align:top;">
+            <p style="margin:0;">${item.name}</p>
+            <p style="margin:0;">$${item.price}</p>
+          </div>
+          <i class="fa fa-trash" style="color:#ff4757;cursor:pointer; float:right; margin-top:10px;"></i>
+        `;
+        li.querySelector(".fa-trash").addEventListener("click", () => removeFromCart(item.id));
+        cartItems.appendChild(li);
+      });
+    }
+
+    cartCount.textContent = cart.length;
+    document.getElementById("cartTotal") && (document.getElementById("cartTotal").textContent = total.toFixed(2));
+
+    // Checkout page display
+    if(checkoutCart && checkoutTotal){
+      checkoutCart.innerHTML = "";
+      let checkoutTotalAmount = 0;
+      if(cart.length === 0){
+        checkoutCart.innerHTML = "<p>Your cart is empty.</p>";
+      } else {
+        cart.forEach(item => {
+          checkoutTotalAmount += item.price;
+          const li = document.createElement("li");
+          li.innerHTML = `
+            <img src="${item.img}" alt="${item.name}">
+            <div class="item-info">
+              <p>${item.name}</p>
+              <p>$${item.price.toFixed(2)}</p>
+            </div>
+          `;
+          checkoutCart.appendChild(li);
+        });
+      }
+      checkoutTotal.textContent = checkoutTotalAmount.toFixed(2);
+    }
+  }
+
+  // -------------------- Remove Functions --------------------
+  function removeFromWishlist(id) {
+    wishlist = wishlist.filter(item => item.id !== id);
+    saveData();
+    updateWishlistUI();
+  }
+
+  function removeFromCart(id) {
+    cart = cart.filter(item => item.id !== id);
+    saveData();
+    updateCartUI();
+  }
+
+  function saveData() {
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }
+
+  // -------------------- Place Order --------------------
+  function generateOrderID() {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    let orderId = '';
+    for(let i = 0; i < 8; i++){
+      orderId += chars.charAt(Math.floor(Math.random()*chars.length));
+    }
+    return orderId;
+  }
+
+  placeOrderBtn?.addEventListener("click", () => {
+    const name = document.getElementById("name")?.value.trim();
+    const email = document.getElementById("email")?.value.trim();
+    const address = document.getElementById("address")?.value.trim();
+    const phone = document.getElementById("phone")?.value.trim();
+
+    if(!name || !email || !address || !phone){
+      successMessage && (successMessage.className = "success-message error");
+      successMessage && (successMessage.textContent = "Please fill in all fields!");
+      successMessage && (successMessage.style.display = "block");
+      return;
+    }
+
+    const orderId = generateOrderID();
+    const totalAmount = cart.reduce((sum,item)=>sum+item.price,0);
+
+    successMessage && (successMessage.className = "success-message success");
+    successMessage && (successMessage.innerHTML = `
+      Thank you, <strong>${name}</strong>!<br>
+      Your order <strong>#${orderId}</strong> of <strong>$${totalAmount.toFixed(2)}</strong> has been placed successfully.
+    `);
+    successMessage && (successMessage.style.display = "block");
+
+    cart = [];
+    localStorage.removeItem("cart");
+    updateCartUI();
+
+    // Reset form
+    document.getElementById("name") && (document.getElementById("name").value = "");
+    document.getElementById("email") && (document.getElementById("email").value = "");
+    document.getElementById("address") && (document.getElementById("address").value = "");
+    document.getElementById("phone") && (document.getElementById("phone").value = "");
+  });
+
+  // -------------------- Checkout Button --------------------
+  checkoutBtn?.addEventListener("click", () => {
+    if(cart.length === 0){
+      alert("Your cart is empty!");
+      return;
+    }
+    window.location.href = "checkout1.html";
+  });
+
+  // -------------------- Dropdowns --------------------
+  const homeDropdown = document.querySelector(".home-dropdown");
+  const arrow = homeDropdown?.querySelector(".dropdown-toggle i");
+  const menu = homeDropdown?.querySelector(".dropdown-menu");
+  const hamburger = document.querySelector(".hamburger");
+  const navMenu = document.querySelector(".nav ul");
+
+  // Hamburger toggle
+  hamburger?.addEventListener("click", ()=>navMenu?.classList.toggle("show"));
+
+  // Home dropdown
+  arrow?.addEventListener("click", (e)=>{
+    e.preventDefault(); e.stopPropagation();
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+    arrow.classList.toggle("open");
+  });
+  homeDropdown?.querySelector("a[href='saas.html']")?.addEventListener("click", ()=>{
+    menu.style.display = "none"; arrow.classList.remove("open");
+  });
+  document.addEventListener("click",(e)=>{
+    if(!homeDropdown?.contains(e.target)){
+      menu && (menu.style.display="none");
+      arrow?.classList.remove("open");
+    }
+  });
+
+  // Wishlist & Cart dropdown
+  const wishlistIcon = document.querySelector(".wishlist-icon");
+  const cartIcon = document.querySelector(".cart-icon");
+  const wishlistDropdown = document.getElementById("wishlistDropdown");
+  const cartDropdown = document.getElementById("cartDropdown");
+
+  function toggleDropdown(icon,dropdown){
+    icon?.addEventListener("click",(e)=>{
+      e.stopPropagation();
+      if(!dropdown) return;
+      dropdown.style.display = dropdown.style.display==="block"?"none":"block";
+      if(dropdown===wishlistDropdown) cartDropdown && (cartDropdown.style.display="none");
+      if(dropdown===cartDropdown) wishlistDropdown && (wishlistDropdown.style.display="none");
+    });
+  }
+
+  toggleDropdown(wishlistIcon,wishlistDropdown);
+  toggleDropdown(cartIcon,cartDropdown);
+  document.addEventListener("click",()=>{ wishlistDropdown && (wishlistDropdown.style.display="none"); cartDropdown && (cartDropdown.style.display="none"); });
+
+  // -------------------- Initialize --------------------
+  updateWishlistUI();
+  updateCartUI();
+
+});
+</script>
+
+
+
+</body>
+</html>
