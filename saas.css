@@ -750,6 +750,48 @@ body {
   }
 }
 
+/* Extra small devices (<= 430px) */
+@media (max-width: 430px) {
+  .hero-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    z-index: 1;
+    padding: 20px 5px;
+  }
+
+  .hero-features {
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 20px;
+    margin-left: -80px;
+    margin-top: -600px; /* you might want to adjust this */
+  }
+
+  .hero-content .sub-heading {
+    font-size: 12px;
+    margin-top: -250px; /* adjust if needed */
+  }
+
+  .hero-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .delivery-badge {
+    bottom: 5px;
+    right: 5px;
+  }
+
+  .hero-section {
+    min-height: 100vh; /* taller hero */
+  }
+}
+
+
 .categories-section {
   width: 90%;
   margin: 60px auto;
