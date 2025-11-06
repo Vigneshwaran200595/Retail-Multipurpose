@@ -770,7 +770,7 @@ body {
 
   .hero-content h1 {
     font-size: 20px;
-    margin-left: -80px;
+    margin-left: -50px;
   }
 
   .hero-content .sub-heading {
@@ -2604,3 +2604,55 @@ body {
 #cartCheckout button:hover {
   background-color: #e60070;
 }
+
+/* Default hidden before scroll */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+/* When visible */
+[data-animate].animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 🔹 Bounce Animations */
+@keyframes bounceIn {
+  0% { opacity: 0; transform: scale(0.3); }
+  50% { opacity: 1; transform: scale(1.05); }
+  70% { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+@keyframes bounceInUp {
+  0% { opacity: 0; transform: translateY(100px); }
+  60% { opacity: 1; transform: translateY(-20px); }
+  80% { transform: translateY(10px); }
+  100% { transform: translateY(0); }
+}
+@keyframes bounceInDown {
+  0% { opacity: 0; transform: translateY(-100px); }
+  60% { opacity: 1; transform: translateY(20px); }
+  80% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+@keyframes bounceInLeft {
+  0% { opacity: 0; transform: translateX(-120px); }
+  60% { opacity: 1; transform: translateX(25px); }
+  80% { transform: translateX(-10px); }
+  100% { transform: translateX(0); }
+}
+@keyframes bounceInRight {
+  0% { opacity: 0; transform: translateX(120px); }
+  60% { opacity: 1; transform: translateX(-25px); }
+  80% { transform: translateX(10px); }
+  100% { transform: translateX(0); }
+}
+
+/* Animation class applied dynamically */
+.animate.bounceIn     { animation: bounceIn 1.5s ease both; }
+.animate.bounceInUp   { animation: bounceInUp 1.5s ease both; }
+.animate.bounceInDown { animation: bounceInDown 1.5s ease both; }
+.animate.bounceInLeft { animation: bounceInLeft 1.5s ease both; }
+.animate.bounceInRight{ animation: bounceInRight 1.5s ease both; }
