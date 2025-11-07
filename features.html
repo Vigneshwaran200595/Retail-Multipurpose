@@ -16,7 +16,7 @@
     <header class="header">
   <div class="container header-container">
     <div class="logo">
-      <img src="Images/logo.png" alt="Logo">
+      <img src="Images/logo.webp" alt="Logo">
     </div>
 
      <div class="hamburger">
@@ -47,7 +47,7 @@
 <div class="icons">
   <!-- User Icon -->
   <div class="icon-item user-icon">
-    <a href="account.html">
+    <a href="account1.html">
       <i class="fa-solid fa-user"></i>
     </a>
   </div>
@@ -96,7 +96,7 @@
 
   <!-- 🌟 Retail Shop Features Section -->
   <section class="features-section">
-    <div class="features-header">
+    <div class="features-header" data-animate="bounceInUp">
       <h2><span>Our</span> Retail Shop Features</h2>
       <p>Discover the powerful features that make shopping with us a seamless and stylish experience.</p>
     </div>
@@ -104,7 +104,7 @@
     <div class="features-grid">
 
       <!-- Feature 1 -->
-      <div class="feature-box">
+      <div class="feature-box" data-animate="bounceIn">
         <div class="feature-icon">
           <i class="fa-solid fa-truck-fast"></i>
         </div>
@@ -113,7 +113,7 @@
       </div>
 
       <!-- Feature 2 -->
-      <div class="feature-box">
+      <div class="feature-box" data-animate="bounceIn">
         <div class="feature-icon">
           <i class="fa-solid fa-credit-card"></i>
         </div>
@@ -122,7 +122,7 @@
       </div>
 
       <!-- Feature 3 -->
-      <div class="feature-box">
+      <div class="feature-box" data-animate="bounceIn">
         <div class="feature-icon">
           <i class="fa-solid fa-rotate-right"></i>
         </div>
@@ -131,7 +131,7 @@
       </div>
 
       <!-- Feature 4 -->
-      <div class="feature-box">
+      <div class="feature-box" data-animate="bounceIn">
         <div class="feature-icon">
           <i class="fa-solid fa-headset"></i>
         </div>
@@ -147,12 +147,12 @@
     <div class="retail-container">
 
       <!-- Left Image -->
-      <div class="retail-image">
-        <img src="Images1/feature.jpg" alt="Retail Features">
+      <div class="retail-image" data-animate="bounceInLeft">
+        <img src="Images1/feature.webp" alt="Retail Features">
       </div>
 
       <!-- Right Content -->
-      <div class="retail-content">
+      <div class="retail-content" data-animate="bounceInRight">
         <h2><span>Modern</span> Retail Features</h2>
         <p>
           Discover a seamless retail experience designed with smart technology, 
@@ -193,13 +193,13 @@
 
 
   <!-- ✅ Footer Section -->
-<footer class="footer-section">
+<footer class="footer-section" data-animate="bounceIn">
   <div class="footer-overlay">
     <div class="footer-container">
       <!-- Column 1: Logo & Contact -->
       <div class="footer-col">
         <div class="footer-logo">
-          <img src="Images/logo.png" alt="Company Logo" />
+          <img src="Images/logo.webp" alt="Company Logo" />
         </div>
         <ul class="contact-info">
           <li><i class="fa-solid fa-location-dot"></i> Salem, Tamilnadu</li>
@@ -291,9 +291,9 @@
 </script>
 
         <div class="payment-icons">
-          <img src="Images/visa.png" alt="PayPal" />
-          <img src="Images1/card2.png" alt="Visa" />
-          <img src="Images1/card3.png" alt="Amex" />
+          <img src="Images/visa.webp" alt="PayPal" />
+          <img src="Images1/card2.webp" alt="Visa" />
+          <img src="Images1/card3.webp" alt="Amex" />
         </div>
       </div>
     </div>
@@ -392,7 +392,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 <script>
-// ---------- Wishlist & Cart Functionality ----------
+// ---------- Wishlist1 & Cart1 Functionality ----------
 
 // DOM references
 const wishlistItems = document.getElementById("wishlistItems");
@@ -402,43 +402,43 @@ const cartCount = document.getElementById("cartCount");
 const emptyWishlist = document.getElementById("emptyWishlist");
 const emptyCart = document.getElementById("emptyCart");
 
-let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let wishlist1 = JSON.parse(localStorage.getItem("wishlist1")) || [];
+let cart1 = JSON.parse(localStorage.getItem("cart1")) || [];
 
-// ---------- Wishlist UI ----------
-function updateWishlistUI() {
+// ---------- Wishlist1 UI ----------
+function updateWishlistUI1() {
   wishlistItems.innerHTML = "";
-  if (!wishlist.length) {
+  if (!wishlist1.length) {
     emptyWishlist.style.display = "block";
   } else {
     emptyWishlist.style.display = "none";
-    wishlist.forEach((item) => {
+    wishlist1.forEach((item) => {
       const li = document.createElement("li");
       li.innerHTML = `
         <img src="${item.img}" alt="${item.name}">
         <p>${item.name}</p>
         <i class="fa fa-trash" style="color:#ff4757;cursor:pointer"></i>
       `;
-      li.querySelector(".fa-trash").addEventListener("click", () => removeFromWishlist(item.id));
+      li.querySelector(".fa-trash").addEventListener("click", () => removeFromWishlist1(item.id));
       wishlistItems.appendChild(li);
     });
   }
-  wishlistCount.textContent = wishlist.length;
+  wishlistCount.textContent = wishlist1.length;
 }
 
-// ---------- Cart UI ----------
-function updateCartUI() {
+// ---------- Cart1 UI ----------
+function updateCartUI1() {
   cartItems.innerHTML = "";
   let total = 0;
 
-  if (!cart.length) {
+  if (!cart1.length) {
     emptyCart.style.display = "block";
     document.getElementById("cartCheckout").style.display = "none";
   } else {
     emptyCart.style.display = "none";
     document.getElementById("cartCheckout").style.display = "block";
 
-    cart.forEach((item) => {
+    cart1.forEach((item) => {
       total += item.price;
 
       const li = document.createElement("li");
@@ -450,41 +450,41 @@ function updateCartUI() {
         </div>
         <i class="fa fa-trash" style="color:#ff4757;cursor:pointer; float:right; margin-top:10px;"></i>
       `;
-      li.querySelector(".fa-trash").addEventListener("click", () => removeFromCart(item.id));
+      li.querySelector(".fa-trash").addEventListener("click", () => removeFromCart1(item.id));
       cartItems.appendChild(li);
     });
   }
 
-  cartCount.textContent = cart.length;
+  cartCount.textContent = cart1.length;
   document.getElementById("cartTotal").textContent = total.toFixed(2);
 }
 
 // ---------- Remove Items ----------
-function removeFromWishlist(id) {
-  wishlist = wishlist.filter((item) => item.id !== id);
-  saveData();
-  updateWishlistUI();
+function removeFromWishlist1(id) {
+  wishlist1 = wishlist1.filter((item) => item.id !== id);
+  saveData1();
+  updateWishlistUI1();
 }
 
-function removeFromCart(id) {
-  cart = cart.filter((item) => item.id !== id);
-  saveData();
-  updateCartUI();
+function removeFromCart1(id) {
+  cart1 = cart1.filter((item) => item.id !== id);
+  saveData1();
+  updateCartUI1();
 }
 
 // ---------- LocalStorage ----------
-function saveData() {
-  localStorage.setItem("wishlist", JSON.stringify(wishlist));
-  localStorage.setItem("cart", JSON.stringify(cart));
+function saveData1() {
+  localStorage.setItem("wishlist1", JSON.stringify(wishlist1));
+  localStorage.setItem("cart1", JSON.stringify(cart1));
 }
 
 // ---------- Initialize ----------
-updateWishlistUI();
-updateCartUI();
+updateWishlistUI1();
+updateCartUI1();
 
 // ✅ Checkout button click
 document.getElementById("checkoutBtn").addEventListener("click", () => {
-  if(cart.length === 0){
+  if(cart1.length === 0){
     alert("Your cart is empty!");
     return;
   }
@@ -530,6 +530,23 @@ document.querySelectorAll(".icon-item").forEach((icon) => {
 });
 </script>
 
+<script>
+// 🌟 Common Bounce Scroll Animation Script
+document.addEventListener("DOMContentLoaded", () => {
+  const elements = document.querySelectorAll("[data-animate]");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const anim = entry.target.dataset.animate;
+        entry.target.classList.add("animate", anim);
+      }
+    });
+  }, { threshold: 0.2 }); // triggers when 20% visible
+
+  elements.forEach((el) => observer.observe(el));
+});
+</script>
 
 </body>
 </html>

@@ -16,7 +16,7 @@
     <header class="header">
   <div class="container header-container">
     <div class="logo">
-      <img src="Images/logo.png" alt="Logo">
+      <img src="Images/logo.webp" alt="Logo">
     </div>
 
      <div class="hamburger">
@@ -47,7 +47,7 @@
 <div class="icons">
   <!-- User Icon -->
   <div class="icon-item user-icon">
-    <a href="account.html">
+    <a href="account1.html">
       <i class="fa-solid fa-user"></i>
     </a>
   </div>
@@ -95,17 +95,17 @@
  <div class="container1">
     <!-- Sidebar -->
     <aside class="sidebar">
-      <div class="search-box">
+      <div class="search-box" data-animate="bounceInLeft">
         <input type="text" id="searchInput" placeholder="Search products..." />
       </div>
 
-      <div class="filter-group">
+      <div class="filter-group" data-animate="bounceInLeft">
         <h4>Filter by Price</h4>
         <input type="range" id="priceRange" min="10" max="2000" value="2000">
         <p>Max Price: $<span id="priceValue">2000</span></p>
       </div>
 
-      <div class="filter-group">
+      <div class="filter-group" data-animate="bounceInLeft">
         <h4>Select Brand</h4>
         <label><input type="checkbox" class="brandFilter" value="Apple"> Apple</label>
         <label><input type="checkbox" class="brandFilter" value="Sony"> Sony</label>
@@ -114,7 +114,7 @@
         <label><input type="checkbox" class="brandFilter" value="Asus"> Asus</label>
       </div>
 
-      <div class="filter-group">
+      <div class="filter-group" data-animate="bounceInLeft">
         <h4>Categories</h4>
         <label><input type="checkbox" class="catFilter" value="Mobile"> Mobile</label>
         <label><input type="checkbox" class="catFilter" value="Laptop"> Laptop</label>
@@ -124,7 +124,7 @@
         <label><input type="checkbox" class="catFilter" value="Home"> Home</label>
       </div>
 
-      <div class="filter-group">
+      <div class="filter-group" data-animate="bounceInLeft">
   <h4>Filter by Rating</h4>
   <label><input type="radio" name="ratingFilter" class="ratingFilter" value="all" checked> All Ratings</label>
   <label><input type="radio" name="ratingFilter" class="ratingFilter" value="4"> 4★ & above</label>
@@ -135,7 +135,7 @@
 
     <!-- Main Content -->
     <main class="product-area">
-      <div class="top-bar">
+      <div class="top-bar" data-animate="bounceInUp">
         <div class="results-info">
           Showing <span id="showCount">1–12</span> of <span id="totalResults">36</span> results
         </div>
@@ -149,19 +149,19 @@
         </div>
       </div>
 
-      <div id="productContainer" class="product-grid"></div>
+      <div id="productContainer" class="product-grid" data-animate="bounceIn"></div>
 
       <div class="pagination" id="pagination"></div>
     </main>
   </div>
 
-<footer class="footer-section">
+<footer class="footer-section" data-animate="bounceIn">
   <div class="footer-overlay">
     <div class="footer-container">
       <!-- Column 1: Logo & Contact -->
       <div class="footer-col">
         <div class="footer-logo">
-          <img src="Images/logo.png" alt="Company Logo" />
+          <img src="Images/logo.webp" alt="Company Logo" />
         </div>
         <ul class="contact-info">
           <li><i class="fa-solid fa-location-dot"></i> Salem, Tamilnadu</li>
@@ -253,9 +253,9 @@
 </script>
 
         <div class="payment-icons">
-          <img src="Images/visa.png" alt="PayPal" />
-          <img src="Images1/card2.png" alt="Visa" />
-          <img src="Images1/card3.png" alt="Amex" />
+          <img src="Images/visa.webp" alt="PayPal" />
+          <img src="Images1/card2.webp" alt="Visa" />
+          <img src="Images1/card3.webp" alt="Amex" />
         </div>
       </div>
     </div>
@@ -275,83 +275,92 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const homeDropdown = document.querySelector('.home-dropdown');
-  const arrow = homeDropdown?.querySelector('.dropdown-toggle i'); // your arrow icon
+  const arrow = homeDropdown?.querySelector('.dropdown-toggle i'); // arrow icon
   const menu = homeDropdown?.querySelector('.dropdown-menu');
   const hamburger = document.querySelector('.hamburger');
   const navMenu = document.querySelector('.nav ul');
 
-  // ✅ Mobile hamburger toggle
+  // ===== Mobile Hamburger Toggle =====
   if (hamburger && navMenu) {
     hamburger.addEventListener('click', () => {
       navMenu.classList.toggle('show');
     });
   }
 
-  // ✅ Dropdown arrow toggle (does NOT block "Home" link)
-  if (arrow && menu) {
+  // ===== Mobile Dropdown Toggle =====
+  const isMobile = window.innerWidth < 768; // adjust breakpoint for mobile
+  if (arrow && menu && isMobile) {
     arrow.addEventListener('click', (e) => {
       e.preventDefault();
-      e.stopPropagation(); // prevent click from bubbling
-      if (menu.style.display === 'block') {
-        menu.style.display = 'none';
-        arrow.classList.remove('open'); // rotate arrow back
-      } else {
-        menu.style.display = 'block';
-        arrow.classList.add('open'); // rotate arrow
+      e.stopPropagation();
+      menu.classList.toggle('open');  // toggle mobile dropdown class
+      arrow.classList.toggle('open'); // rotate arrow
+    });
+
+    // Clicking "Home" link closes mobile dropdown
+    const homeLink = homeDropdown.querySelector("a[href='saas.html']");
+    if (homeLink) {
+      homeLink.addEventListener("click", () => {
+        menu.classList.remove('open');
+        arrow.classList.remove('open');
+      });
+    }
+
+    // Clicking outside closes dropdown
+    document.addEventListener("click", (e) => {
+      if (!homeDropdown.contains(e.target)) {
+        menu.classList.remove('open');
+        arrow.classList.remove('open');
       }
     });
   }
 
-  // ✅ Clicking "Home" link navigates normally
-  const homeLink = homeDropdown.querySelector("a[href='saas.html']");
-  if (homeLink) {
-    homeLink.addEventListener("click", () => {
-      menu.style.display = 'none'; // close dropdown when navigating
-      arrow.classList.remove('open');
-    });
-  }
-
-  // ✅ Auto close dropdown when clicking outside
-  document.addEventListener("click", (e) => {
-    if (!homeDropdown.contains(e.target)) {
-      menu.style.display = "none";
-      arrow.classList.remove('open');
-    }
-  });
-});
-
-
-document.addEventListener("DOMContentLoaded", () => {
+  // ===== Wishlist & Cart Dropdown =====
   const wishlistIcon = document.querySelector(".wishlist-icon");
   const cartIcon = document.querySelector(".cart-icon");
-
   const wishlistDropdown = document.getElementById("wishlistDropdown");
   const cartDropdown = document.getElementById("cartDropdown");
 
-  // ✅ Toggle function
   function toggleDropdown(icon, dropdown) {
+    if (!icon || !dropdown) return;
     icon.addEventListener("click", (e) => {
-      e.stopPropagation(); // prevent closing immediately
-      // toggle own dropdown
-      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-      // hide the other dropdown
-      if (dropdown === wishlistDropdown) cartDropdown.style.display = "none";
-      if (dropdown === cartDropdown) wishlistDropdown.style.display = "none";
+      e.stopPropagation();
+      dropdown.classList.toggle("open");
+      // Close the other dropdown
+      if (dropdown === wishlistDropdown) cartDropdown.classList.remove("open");
+      if (dropdown === cartDropdown) wishlistDropdown.classList.remove("open");
     });
   }
 
   toggleDropdown(wishlistIcon, wishlistDropdown);
   toggleDropdown(cartIcon, cartDropdown);
 
-  // ✅ Close dropdown if click outside
+  // Close wishlist/cart if click outside
   document.addEventListener("click", () => {
-    wishlistDropdown.style.display = "none";
-    cartDropdown.style.display = "none";
+    wishlistDropdown.classList.remove("open");
+    cartDropdown.classList.remove("open");
   });
 });
-
 </script>
 
+
+<script>
+// 🌟 Common Bounce Scroll Animation Script
+document.addEventListener("DOMContentLoaded", () => {
+  const elements = document.querySelectorAll("[data-animate]");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const anim = entry.target.dataset.animate;
+        entry.target.classList.add("animate", anim);
+      }
+    });
+  }, { threshold: 0.2 }); // triggers when 20% visible
+
+  elements.forEach((el) => observer.observe(el));
+});
+</script>
   <script src="shop1.js"></script>
 
   </body>

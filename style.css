@@ -14,7 +14,7 @@ body {
 /* ====== Header ====== */
 
 .header {
-  background: url('Images/background.jpg') center/cover no-repeat;
+  background: url('Images/background.webp') center/cover no-repeat;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   padding: 12px 40px;
   position: relative;
@@ -1200,15 +1200,15 @@ body.dark-mode .category-card:hover::before {
 
     /* Card Backgrounds */
     .sale1 {
-      background-image: url("Images/travel.jpg");
+      background-image: url("Images/travel.webp");
     }
 
     .sale2 {
-      background-image: url("Images/headphone.jpg");
+      background-image: url("Images/headphone.webp");
     }
 
     .sale3 {
-      background-image: url("Images/shoe1.jpg");
+      background-image: url("Images/shoe1.webp");
     }
 
     /* Optional Gradient Overlay */
@@ -2086,7 +2086,7 @@ body.dark-mode .brands-header .view-all:hover {
   width: 100%;
   height: 300px;
   border-radius: 16px;
-  background: url('Images/collection.jpg')
+  background: url('Images/collection.webp')
               no-repeat center/cover;
   display: flex;
   justify-content: center;
@@ -2971,7 +2971,7 @@ body.dark-mode .gallery-grid img:hover {
 
 
 .feedback-section {
-  background: url('Images/testmonial.jpg') no-repeat center center / cover;
+  background: url('Images/testmonial.webp') no-repeat center center / cover;
   padding: 80px 40px;
   text-align: center;
   overflow: hidden;
@@ -3206,7 +3206,7 @@ body.dark-mode .overlay i {
 
 /* Discount Section */
 .discount-section {
-  background: url('Images/discount_shopping.jpg') center/cover no-repeat;
+  background: url('Images/discount_shopping.webp') center/cover no-repeat;
   border-radius: 20px;
   padding: 80px 20px;
   margin: 60px auto;
@@ -3424,7 +3424,7 @@ body.dark-mode .overlay i {
 
 .footer {
   position: relative;
-  background: url('Images/footer.png') no-repeat center/cover;
+  background: url('Images/footer.webp') no-repeat center/cover;
   color: #fff;
   font-family: 'Poppins', sans-serif;
   padding: 60px 80px 25px;

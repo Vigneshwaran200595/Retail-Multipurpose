@@ -20,7 +20,7 @@ body {
 }
 
 .hero-section {
-  background: url("Images1/background.jpg") no-repeat center center/cover;
+  background: url("Images1/background.webp") no-repeat center center/cover;
   color: #fff;
    min-height: 60vh;
   width: 100%;
@@ -580,7 +580,7 @@ body {
     }
 
     .footer-section {
-  background-image: url("Images1/background.jpg"); /* Replace with your footer background */
+  background-image: url("Images1/background.webp"); /* Replace with your footer background */
   background-size: cover;
   background-position: center;
   overflow: hidden;
@@ -751,6 +751,31 @@ body {
 .footer-menu a:hover {
   color: #000;
 }
+
+/* Desktop: hover dropdown */
+@media (min-width: 768px) {
+  .home-dropdown:hover .dropdown-menu {
+    display: block;
+  }
+}
+
+/* Mobile: toggle dropdown */
+.home-dropdown .dropdown-menu.open {
+  display: block !important;
+}
+
+/* Arrow rotation on mobile */
+.home-dropdown .dropdown-toggle i.open {
+  transform: rotate(180deg);
+  transition: transform 0.3s;
+}
+
+/* Wishlist & Cart dropdown */
+#wishlistDropdown.open,
+#cartDropdown.open {
+  display: block !important;
+}
+
 
 
 /* Tablets & smaller laptops (<= 992px) */
@@ -935,7 +960,7 @@ body {
     <header class="header">
   <div class="container header-container">
     <div class="logo">
-      <img src="Images/logo.png" alt="Logo">
+      <img src="Images/logo.webp" alt="Logo">
     </div>
 
      <div class="hamburger">
@@ -966,7 +991,7 @@ body {
 <div class="icons">
   <!-- User Icon -->
   <div class="icon-item user-icon">
-    <a href="account.html">
+    <a href="account1.html">
       <i class="fa-solid fa-user"></i>
     </a>
   </div>
@@ -1044,7 +1069,7 @@ body {
       <!-- Column 1: Logo & Contact -->
       <div class="footer-col">
         <div class="footer-logo">
-          <img src="Images/logo.png" alt="Company Logo" />
+          <img src="Images/logo.webp" alt="Company Logo" />
         </div>
         <ul class="contact-info">
           <li><i class="fa-solid fa-location-dot"></i> Salem, Tamilnadu</li>
@@ -1136,9 +1161,9 @@ body {
 </script>
 
         <div class="payment-icons">
-          <img src="Images/visa.png" alt="PayPal" />
-          <img src="Images1/card2.png" alt="Visa" />
-          <img src="Images1/card3.png" alt="Amex" />
+          <img src="Images/visa.webp" alt="PayPal" />
+          <img src="Images1/card2.webp" alt="Visa" />
+          <img src="Images1/card3.webp" alt="Amex" />
         </div>
       </div>
     </div>
@@ -1158,8 +1183,8 @@ body {
 document.addEventListener("DOMContentLoaded", () => {
 
   // -------------------- Data --------------------
-  let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let wishlist1 = JSON.parse(localStorage.getItem("wishlist1")) || [];
+  let cart1 = JSON.parse(localStorage.getItem("cart1")) || [];
 
   // -------------------- DOM Elements --------------------
   const wishlistItems = document.getElementById("wishlistItems");
@@ -1174,41 +1199,41 @@ document.addEventListener("DOMContentLoaded", () => {
   const placeOrderBtn = document.getElementById("placeOrderBtn");
   const checkoutBtn = document.getElementById("checkoutBtn");
 
-  // -------------------- Wishlist UI --------------------
-  function updateWishlistUI() {
+  // -------------------- Wishlist1 UI --------------------
+  function updateWishlistUI1() {
     if(!wishlistItems || !wishlistCount) return;
     wishlistItems.innerHTML = "";
-    if (!wishlist.length) {
+    if (!wishlist1.length) {
       emptyWishlist && (emptyWishlist.style.display = "block");
     } else {
       emptyWishlist && (emptyWishlist.style.display = "none");
-      wishlist.forEach(item => {
+      wishlist1.forEach(item => {
         const li = document.createElement("li");
         li.innerHTML = `
           <img src="${item.img}" alt="${item.name}">
           <p>${item.name}</p>
           <i class="fa fa-trash" style="color:#ff4757;cursor:pointer"></i>
         `;
-        li.querySelector(".fa-trash").addEventListener("click", () => removeFromWishlist(item.id));
+        li.querySelector(".fa-trash").addEventListener("click", () => removeFromWishlist1(item.id));
         wishlistItems.appendChild(li);
       });
     }
-    wishlistCount.textContent = wishlist.length;
+    wishlistCount.textContent = wishlist1.length;
   }
 
-  // -------------------- Cart UI --------------------
-  function updateCartUI() {
+  // -------------------- Cart1 UI --------------------
+  function updateCartUI1() {
     if(!cartItems || !cartCount) return;
     cartItems.innerHTML = "";
     let total = 0;
 
-    if (!cart.length) {
+    if (!cart1.length) {
       emptyCart && (emptyCart.style.display = "block");
       document.getElementById("cartCheckout") && (document.getElementById("cartCheckout").style.display = "none");
     } else {
       emptyCart && (emptyCart.style.display = "none");
       document.getElementById("cartCheckout") && (document.getElementById("cartCheckout").style.display = "block");
-      cart.forEach(item => {
+      cart1.forEach(item => {
         total += item.price;
         const li = document.createElement("li");
         li.innerHTML = `
@@ -1219,22 +1244,22 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
           <i class="fa fa-trash" style="color:#ff4757;cursor:pointer; float:right; margin-top:10px;"></i>
         `;
-        li.querySelector(".fa-trash").addEventListener("click", () => removeFromCart(item.id));
+        li.querySelector(".fa-trash").addEventListener("click", () => removeFromCart1(item.id));
         cartItems.appendChild(li);
       });
     }
 
-    cartCount.textContent = cart.length;
+    cartCount.textContent = cart1.length;
     document.getElementById("cartTotal") && (document.getElementById("cartTotal").textContent = total.toFixed(2));
 
     // Checkout page display
     if(checkoutCart && checkoutTotal){
       checkoutCart.innerHTML = "";
       let checkoutTotalAmount = 0;
-      if(cart.length === 0){
+      if(cart1.length === 0){
         checkoutCart.innerHTML = "<p>Your cart is empty.</p>";
       } else {
-        cart.forEach(item => {
+        cart1.forEach(item => {
           checkoutTotalAmount += item.price;
           const li = document.createElement("li");
           li.innerHTML = `
@@ -1252,21 +1277,21 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // -------------------- Remove Functions --------------------
-  function removeFromWishlist(id) {
-    wishlist = wishlist.filter(item => item.id !== id);
-    saveData();
-    updateWishlistUI();
+  function removeFromWishlist1(id) {
+    wishlist1 = wishlist1.filter(item => item.id !== id);
+    saveData1();
+    updateWishlistUI1();
   }
 
-  function removeFromCart(id) {
-    cart = cart.filter(item => item.id !== id);
-    saveData();
-    updateCartUI();
+  function removeFromCart1(id) {
+    cart1 = cart1.filter(item => item.id !== id);
+    saveData1();
+    updateCartUI1();
   }
 
-  function saveData() {
-    localStorage.setItem("wishlist", JSON.stringify(wishlist));
-    localStorage.setItem("cart", JSON.stringify(cart));
+  function saveData1() {
+    localStorage.setItem("wishlist1", JSON.stringify(wishlist1));
+    localStorage.setItem("cart1", JSON.stringify(cart1));
   }
 
   // -------------------- Place Order --------------------
@@ -1293,7 +1318,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const orderId = generateOrderID();
-    const totalAmount = cart.reduce((sum,item)=>sum+item.price,0);
+    const totalAmount = cart1.reduce((sum,item)=>sum+item.price,0);
 
     successMessage && (successMessage.className = "success-message success");
     successMessage && (successMessage.innerHTML = `
@@ -1302,9 +1327,9 @@ document.addEventListener("DOMContentLoaded", () => {
     `);
     successMessage && (successMessage.style.display = "block");
 
-    cart = [];
-    localStorage.removeItem("cart");
-    updateCartUI();
+    cart1 = [];
+    localStorage.removeItem("cart1");
+    updateCartUI1();
 
     // Reset form
     document.getElementById("name") && (document.getElementById("name").value = "");
@@ -1315,7 +1340,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // -------------------- Checkout Button --------------------
   checkoutBtn?.addEventListener("click", () => {
-    if(cart.length === 0){
+    if(cart1.length === 0){
       alert("Your cart is empty!");
       return;
     }
@@ -1323,54 +1348,69 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // -------------------- Dropdowns --------------------
-  const homeDropdown = document.querySelector(".home-dropdown");
-  const arrow = homeDropdown?.querySelector(".dropdown-toggle i");
-  const menu = homeDropdown?.querySelector(".dropdown-menu");
-  const hamburger = document.querySelector(".hamburger");
-  const navMenu = document.querySelector(".nav ul");
+  const homeDropdown = document.querySelector('.home-dropdown');
+  const arrow = homeDropdown?.querySelector('.dropdown-toggle i'); // arrow icon
+  const menu = homeDropdown?.querySelector('.dropdown-menu');
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.querySelector('.nav ul');
 
-  // Hamburger toggle
-  hamburger?.addEventListener("click", ()=>navMenu?.classList.toggle("show"));
+  if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('show');
+    });
+  }
 
-  // Home dropdown
-  arrow?.addEventListener("click", (e)=>{
-    e.preventDefault(); e.stopPropagation();
-    menu.style.display = menu.style.display === "block" ? "none" : "block";
-    arrow.classList.toggle("open");
-  });
-  homeDropdown?.querySelector("a[href='saas.html']")?.addEventListener("click", ()=>{
-    menu.style.display = "none"; arrow.classList.remove("open");
-  });
-  document.addEventListener("click",(e)=>{
-    if(!homeDropdown?.contains(e.target)){
-      menu && (menu.style.display="none");
-      arrow?.classList.remove("open");
+  const isMobile = window.innerWidth < 768;
+  if (arrow && menu && isMobile) {
+    arrow.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      menu.classList.toggle('open');
+      arrow.classList.toggle('open');
+    });
+
+    const homeLink = homeDropdown.querySelector("a[href='saas.html']");
+    if (homeLink) {
+      homeLink.addEventListener("click", () => {
+        menu.classList.remove('open');
+        arrow.classList.remove('open');
+      });
     }
-  });
 
-  // Wishlist & Cart dropdown
+    document.addEventListener("click", (e) => {
+      if (!homeDropdown.contains(e.target)) {
+        menu.classList.remove('open');
+        arrow.classList.remove('open');
+      }
+    });
+  }
+
   const wishlistIcon = document.querySelector(".wishlist-icon");
   const cartIcon = document.querySelector(".cart-icon");
   const wishlistDropdown = document.getElementById("wishlistDropdown");
   const cartDropdown = document.getElementById("cartDropdown");
 
-  function toggleDropdown(icon,dropdown){
-    icon?.addEventListener("click",(e)=>{
+  function toggleDropdown(icon, dropdown) {
+    if (!icon || !dropdown) return;
+    icon.addEventListener("click", (e) => {
       e.stopPropagation();
-      if(!dropdown) return;
-      dropdown.style.display = dropdown.style.display==="block"?"none":"block";
-      if(dropdown===wishlistDropdown) cartDropdown && (cartDropdown.style.display="none");
-      if(dropdown===cartDropdown) wishlistDropdown && (wishlistDropdown.style.display="none");
+      dropdown.classList.toggle("open");
+      if (dropdown === wishlistDropdown) cartDropdown.classList.remove("open");
+      if (dropdown === cartDropdown) wishlistDropdown.classList.remove("open");
     });
   }
 
-  toggleDropdown(wishlistIcon,wishlistDropdown);
-  toggleDropdown(cartIcon,cartDropdown);
-  document.addEventListener("click",()=>{ wishlistDropdown && (wishlistDropdown.style.display="none"); cartDropdown && (cartDropdown.style.display="none"); });
+  toggleDropdown(wishlistIcon, wishlistDropdown);
+  toggleDropdown(cartIcon, cartDropdown);
+
+  document.addEventListener("click", () => {
+    wishlistDropdown.classList.remove("open");
+    cartDropdown.classList.remove("open");
+  });
 
   // -------------------- Initialize --------------------
-  updateWishlistUI();
-  updateCartUI();
+  updateWishlistUI1();
+  updateCartUI1();
 
 });
 </script>

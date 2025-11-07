@@ -15,7 +15,7 @@
     <header class="header">
   <div class="container header-container">
     <div class="logo">
-      <img src="Images/logo.png" alt="Logo">
+      <img src="Images/logo.webp" alt="Logo">
     </div>
 
      <div class="hamburger">
@@ -46,7 +46,7 @@
 <div class="icons">
   <!-- User Icon -->
   <div class="icon-item user-icon">
-    <a href="account.html">
+    <a href="account1.html">
       <i class="fa-solid fa-user"></i>
     </a>
   </div>
@@ -100,7 +100,7 @@
         <h2 class="deal-title">Grab the Hottest Offer Today</h2>
         <p class="deal-desc">Enjoy limited-time discounts on our best-selling products. Hurry before the clock runs out!</p>
 
-        <div class="deal-timer" id="day-timer">
+        <div class="deal-timer" id="day-timer" data-animate="bounceInUp">
           <div class="time-box"><h3 id="day-days">0</h3><span>DAYS</span></div>
           <div class="time-box"><h3 id="day-hours">0</h3><span>HOURS</span></div>
           <div class="time-box"><h3 id="day-minutes">0</h3><span>MINUTES</span></div>
@@ -110,21 +110,21 @@
         <a href="shop1.html" class="shop-btn">Shop Now →</a>
       </div>
 
-      <div class="deal-image">
+      <div class="deal-image" data-animate="bounceInRight">
         <span class="discount-badge">20% OFF</span>
-        <img src="Images1/deal1.png" alt="Deal">
+        <img src="Images1/deal1.webp" alt="Deal">
         <h1 class="deal-watermark">DAY</h1>
       </div>
     </div>
 
     <!-- Weekly Deal -->
-    <div class="deal-container deal-week">
+    <div class="deal-container deal-week" data-animate="bounceInLeft">
       <div class="deal-content">
         <h5 class="deal-subtitle">WEEKLY DEAL</h5>
         <h2 class="deal-title">Best Deal for This Week</h2>
         <p class="deal-desc">Each week, new offers await! Discover amazing prices on your favorite items.</p>
 
-        <div class="deal-timer" id="week-timer">
+        <div class="deal-timer" id="week-timer" data-animate="bounceInUp">
           <div class="time-box"><h3 id="week-days">0</h3><span>DAYS</span></div>
           <div class="time-box"><h3 id="week-hours">0</h3><span>HOURS</span></div>
           <div class="time-box"><h3 id="week-minutes">0</h3><span>MINUTES</span></div>
@@ -134,21 +134,21 @@
         <a href="shop1.html" class="shop-btn">Shop Now →</a>
       </div>
 
-      <div class="deal-image">
+      <div class="deal-image" data-animate="bounceInRight">
         <span class="discount-badge">35% OFF</span>
-        <img src="Images1/deal2.png" alt="Deal">
+        <img src="Images1/deal2.webp" alt="Deal">
         <h1 class="deal-watermark">WEEK</h1>
       </div>
     </div>
 
     <!-- Monthly Deal -->
     <div class="deal-container deal-month">
-      <div class="deal-content">
+      <div class="deal-content" data-animate="bounceInLeft">
         <h5 class="deal-subtitle">MONTHLY DEAL</h5>
         <h2 class="deal-title">Special Offers Every Month</h2>
         <p class="deal-desc">Don’t miss out on our exclusive monthly discounts and seasonal favorites!</p>
 
-        <div class="deal-timer" id="month-timer">
+        <div class="deal-timer" id="month-timer" data-animate="bounceInUp">
           <div class="time-box"><h3 id="month-days">0</h3><span>DAYS</span></div>
           <div class="time-box"><h3 id="month-hours">0</h3><span>HOURS</span></div>
           <div class="time-box"><h3 id="month-minutes">0</h3><span>MINUTES</span></div>
@@ -158,22 +158,22 @@
         <a href="shop1.html" class="shop-btn">Shop Now →</a>
       </div>
 
-      <div class="deal-image">
+      <div class="deal-image" data-animate="bounceInRight">
         <span class="discount-badge">50% OFF</span>
-        <img src="Images1/deal3.png" alt="Deal">
+        <img src="Images1/deal3.webp" alt="Deal">
         <h1 class="deal-watermark">MONTH</h1>
       </div>
     </div>
   </section>
 
 
-<footer class="footer-section">
+<footer class="footer-section" data-animate="bounceIn">
   <div class="footer-overlay">
     <div class="footer-container">
       <!-- Column 1: Logo & Contact -->
       <div class="footer-col">
         <div class="footer-logo">
-          <img src="Images/logo.png" alt="Company Logo" />
+          <img src="Images/logo.webp" alt="Company Logo" />
         </div>
         <ul class="contact-info">
           <li><i class="fa-solid fa-location-dot"></i> Salem, Tamilnadu</li>
@@ -265,9 +265,9 @@
 </script>
 
         <div class="payment-icons">
-          <img src="Images/visa.png" alt="PayPal" />
-          <img src="Images1/card2.png" alt="Visa" />
-          <img src="Images1/card3.png" alt="Amex" />
+          <img src="Images/visa.webp" alt="PayPal" />
+          <img src="Images1/card2.webp" alt="Visa" />
+          <img src="Images1/card3.webp" alt="Amex" />
         </div>
       </div>
     </div>
@@ -324,86 +324,77 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const homeDropdown = document.querySelector('.home-dropdown');
-  const arrow = homeDropdown?.querySelector('.dropdown-toggle i'); // your arrow icon
+  const arrow = homeDropdown?.querySelector('.dropdown-toggle i'); // arrow icon
   const menu = homeDropdown?.querySelector('.dropdown-menu');
   const hamburger = document.querySelector('.hamburger');
   const navMenu = document.querySelector('.nav ul');
 
-  // ✅ Mobile hamburger toggle
+  // ===== Mobile Hamburger Toggle =====
   if (hamburger && navMenu) {
     hamburger.addEventListener('click', () => {
       navMenu.classList.toggle('show');
     });
   }
 
-  // ✅ Dropdown arrow toggle (does NOT block "Home" link)
-  if (arrow && menu) {
+  // ===== Mobile Dropdown Toggle =====
+  const isMobile = window.innerWidth < 768; // adjust breakpoint for mobile
+  if (arrow && menu && isMobile) {
     arrow.addEventListener('click', (e) => {
       e.preventDefault();
-      e.stopPropagation(); // prevent click from bubbling
-      if (menu.style.display === 'block') {
-        menu.style.display = 'none';
-        arrow.classList.remove('open'); // rotate arrow back
-      } else {
-        menu.style.display = 'block';
-        arrow.classList.add('open'); // rotate arrow
+      e.stopPropagation();
+      menu.classList.toggle('open');  // toggle mobile dropdown class
+      arrow.classList.toggle('open'); // rotate arrow
+    });
+
+    // Clicking "Home" link closes mobile dropdown
+    const homeLink = homeDropdown.querySelector("a[href='saas.html']");
+    if (homeLink) {
+      homeLink.addEventListener("click", () => {
+        menu.classList.remove('open');
+        arrow.classList.remove('open');
+      });
+    }
+
+    // Clicking outside closes dropdown
+    document.addEventListener("click", (e) => {
+      if (!homeDropdown.contains(e.target)) {
+        menu.classList.remove('open');
+        arrow.classList.remove('open');
       }
     });
   }
 
-  // ✅ Clicking "Home" link navigates normally
-  const homeLink = homeDropdown.querySelector("a[href='saas.html']");
-  if (homeLink) {
-    homeLink.addEventListener("click", () => {
-      menu.style.display = 'none'; // close dropdown when navigating
-      arrow.classList.remove('open');
-    });
-  }
-
-  // ✅ Auto close dropdown when clicking outside
-  document.addEventListener("click", (e) => {
-    if (!homeDropdown.contains(e.target)) {
-      menu.style.display = "none";
-      arrow.classList.remove('open');
-    }
-  });
-});
-
-
-document.addEventListener("DOMContentLoaded", () => {
+  // ===== Wishlist & Cart Dropdown =====
   const wishlistIcon = document.querySelector(".wishlist-icon");
   const cartIcon = document.querySelector(".cart-icon");
-
   const wishlistDropdown = document.getElementById("wishlistDropdown");
   const cartDropdown = document.getElementById("cartDropdown");
 
-  // ✅ Toggle function
   function toggleDropdown(icon, dropdown) {
+    if (!icon || !dropdown) return;
     icon.addEventListener("click", (e) => {
-      e.stopPropagation(); // prevent closing immediately
-      // toggle own dropdown
-      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-      // hide the other dropdown
-      if (dropdown === wishlistDropdown) cartDropdown.style.display = "none";
-      if (dropdown === cartDropdown) wishlistDropdown.style.display = "none";
+      e.stopPropagation();
+      dropdown.classList.toggle("open");
+      // Close the other dropdown
+      if (dropdown === wishlistDropdown) cartDropdown.classList.remove("open");
+      if (dropdown === cartDropdown) wishlistDropdown.classList.remove("open");
     });
   }
 
   toggleDropdown(wishlistIcon, wishlistDropdown);
   toggleDropdown(cartIcon, cartDropdown);
 
-  // ✅ Close dropdown if click outside
+  // Close wishlist/cart if click outside
   document.addEventListener("click", () => {
-    wishlistDropdown.style.display = "none";
-    cartDropdown.style.display = "none";
+    wishlistDropdown.classList.remove("open");
+    cartDropdown.classList.remove("open");
   });
 });
-
 </script>
 
 
 <script>
-// ---------- Wishlist & Cart Functionality ----------
+// ---------- Wishlist1 & Cart1 Functionality ----------
 
 // DOM references
 const wishlistItems = document.getElementById("wishlistItems");
@@ -413,43 +404,43 @@ const cartCount = document.getElementById("cartCount");
 const emptyWishlist = document.getElementById("emptyWishlist");
 const emptyCart = document.getElementById("emptyCart");
 
-let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let wishlist1 = JSON.parse(localStorage.getItem("wishlist1")) || [];
+let cart1 = JSON.parse(localStorage.getItem("cart1")) || [];
 
-// ---------- Wishlist UI ----------
-function updateWishlistUI() {
+// ---------- Wishlist1 UI ----------
+function updateWishlistUI1() {
   wishlistItems.innerHTML = "";
-  if (!wishlist.length) {
+  if (!wishlist1.length) {
     emptyWishlist.style.display = "block";
   } else {
     emptyWishlist.style.display = "none";
-    wishlist.forEach((item) => {
+    wishlist1.forEach((item) => {
       const li = document.createElement("li");
       li.innerHTML = `
         <img src="${item.img}" alt="${item.name}">
         <p>${item.name}</p>
         <i class="fa fa-trash" style="color:#ff4757;cursor:pointer"></i>
       `;
-      li.querySelector(".fa-trash").addEventListener("click", () => removeFromWishlist(item.id));
+      li.querySelector(".fa-trash").addEventListener("click", () => removeFromWishlist1(item.id));
       wishlistItems.appendChild(li);
     });
   }
-  wishlistCount.textContent = wishlist.length;
+  wishlistCount.textContent = wishlist1.length;
 }
 
-// ---------- Cart UI ----------
-function updateCartUI() {
+// ---------- Cart1 UI ----------
+function updateCartUI1() {
   cartItems.innerHTML = "";
   let total = 0;
 
-  if (!cart.length) {
+  if (!cart1.length) {
     emptyCart.style.display = "block";
     document.getElementById("cartCheckout").style.display = "none";
   } else {
     emptyCart.style.display = "none";
     document.getElementById("cartCheckout").style.display = "block";
 
-    cart.forEach((item) => {
+    cart1.forEach((item) => {
       total += item.price;
 
       const li = document.createElement("li");
@@ -461,41 +452,41 @@ function updateCartUI() {
         </div>
         <i class="fa fa-trash" style="color:#ff4757;cursor:pointer; float:right; margin-top:10px;"></i>
       `;
-      li.querySelector(".fa-trash").addEventListener("click", () => removeFromCart(item.id));
+      li.querySelector(".fa-trash").addEventListener("click", () => removeFromCart1(item.id));
       cartItems.appendChild(li);
     });
   }
 
-  cartCount.textContent = cart.length;
+  cartCount.textContent = cart1.length;
   document.getElementById("cartTotal").textContent = total.toFixed(2);
 }
 
 // ---------- Remove Items ----------
-function removeFromWishlist(id) {
-  wishlist = wishlist.filter((item) => item.id !== id);
-  saveData();
-  updateWishlistUI();
+function removeFromWishlist1(id) {
+  wishlist1 = wishlist1.filter((item) => item.id !== id);
+  saveData1();
+  updateWishlistUI1();
 }
 
-function removeFromCart(id) {
-  cart = cart.filter((item) => item.id !== id);
-  saveData();
-  updateCartUI();
+function removeFromCart1(id) {
+  cart1 = cart1.filter((item) => item.id !== id);
+  saveData1();
+  updateCartUI1();
 }
 
 // ---------- LocalStorage ----------
-function saveData() {
-  localStorage.setItem("wishlist", JSON.stringify(wishlist));
-  localStorage.setItem("cart", JSON.stringify(cart));
+function saveData1() {
+  localStorage.setItem("wishlist1", JSON.stringify(wishlist1));
+  localStorage.setItem("cart1", JSON.stringify(cart1));
 }
 
 // ---------- Initialize ----------
-updateWishlistUI();
-updateCartUI();
+updateWishlistUI1();
+updateCartUI1();
 
 // ✅ Checkout button click
 document.getElementById("checkoutBtn").addEventListener("click", () => {
-  if(cart.length === 0){
+  if(cart1.length === 0){
     alert("Your cart is empty!");
     return;
   }
@@ -538,6 +529,24 @@ document.querySelectorAll(".icon-item").forEach((icon) => {
       dropdown.style.display = "none";
     }, 200);
   });
+});
+</script>
+
+<script>
+// 🌟 Common Bounce Scroll Animation Script
+document.addEventListener("DOMContentLoaded", () => {
+  const elements = document.querySelectorAll("[data-animate]");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const anim = entry.target.dataset.animate;
+        entry.target.classList.add("animate", anim);
+      }
+    });
+  }, { threshold: 0.2 }); // triggers when 20% visible
+
+  elements.forEach((el) => observer.observe(el));
 });
 </script>
 

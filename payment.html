@@ -17,7 +17,7 @@
 
     <!-- Logo -->
     <div class="logo">
-      <img src="Images/logo.png" alt="logo">
+      <img src="Images/logo.webp" alt="logo">
     </div>
 
     <!-- Zoom In/Out Animation Text -->
@@ -127,7 +127,7 @@
       
       <!-- Column 1: About -->
       <div class="footer-col">
-        <img src="Images/logo.png" alt="Mocart Logo" class="footer-logo">
+        <img src="Images/logo.webp" alt="Mocart Logo" class="footer-logo">
         <p>
           We are many variations of the passages available but the majoro have suffered alteration injected.
         </p>
@@ -187,12 +187,12 @@
         <p>Stackly App is now available on App Store & Google Play.</p>
         <p>Download Our Mobile App</p>
         <div class="app-buttons">
-          <img src="Images/googleplay.png" alt="Google Play">
-          <img src="Images/applestore.png" alt="App Store">
+          <img src="Images/googleplay.webp" alt="Google Play">
+          <img src="Images/applestore.webp" alt="App Store">
         </div>
         <p>We Accept:</p>
         <div class="payment-icons">
-          <img src="Images/visa.png" alt="Visa">
+          <img src="Images/visa.webp" alt="Visa">
         </div>
       </div>
     </div>
@@ -391,38 +391,52 @@ document.addEventListener('DOMContentLoaded', () => {
   const toggleBtn = document.getElementById("menu-toggle");
   const navLinks = document.getElementById("nav-links");
 
-  // ✅ Mobile menu toggle
+  // ===== Mobile menu toggle =====
   if (toggleBtn) {
     toggleBtn.addEventListener("click", () => {
       navLinks.classList.toggle("show");
     });
   }
 
-  // ✅ Dropdown arrow toggle (does NOT block "Home" link)
+  // ===== Mobile dropdown toggle (arrow click only) =====
+  const mobileBreakpoint = 768; // px
   if (arrow && menu) {
     arrow.addEventListener("click", (e) => {
-      e.preventDefault();
-      e.stopPropagation(); // prevent Home link from triggering
-      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+      if (window.innerWidth < mobileBreakpoint) {
+        e.preventDefault();
+        e.stopPropagation(); // prevent "Home" link from triggering
+        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+      }
     });
   }
 
-  // ✅ Clicking "Home" will navigate normally
+  // ===== Clicking "Home" link closes dropdown on mobile =====
   const homeLink = homeDropdown.querySelector("a[href='index.html']");
   if (homeLink) {
     homeLink.addEventListener("click", () => {
-      menu.style.display = 'none'; // close menu when navigating
+      if (window.innerWidth < mobileBreakpoint) {
+        menu.style.display = 'none';
+      }
     });
   }
 
-  // ✅ Auto close dropdown when clicking outside (mobile or desktop)
+  // ===== Auto-close dropdown when clicking outside (mobile only) =====
   document.addEventListener("click", (e) => {
-    if (!homeDropdown.contains(e.target)) {
+    if (window.innerWidth < mobileBreakpoint && !homeDropdown.contains(e.target)) {
       menu.style.display = "none";
+    }
+  });
+
+  // ===== Reset menu display on resize =====
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= mobileBreakpoint) {
+      menu.style.display = ""; // let CSS handle hover for desktop
+      navLinks.classList.remove("show");
     }
   });
 });
 </script>
+
 
 <script>
   const themeToggle = document.getElementById('theme-icon');

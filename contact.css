@@ -11,7 +11,7 @@ body {
 }
 
 .header {
-  background: url('Images/background.jpg') center/cover no-repeat;
+  background: url('Images/background.webp') center/cover no-repeat;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   padding: 12px 40px;
   position: relative;
@@ -609,7 +609,7 @@ body.dark-mode .dark-mode-toggle i {
     }
 
     .about-header {
-  background: url('Images/about_back.jpg') no-repeat center right/cover;
+  background: url('Images/about_back.webp') no-repeat center right/cover;
   background-color: #dff6ff; /* fallback color */
   height: 220px;
   display: flex;
@@ -654,7 +654,7 @@ body.dark-mode .dark-mode-toggle i {
 
 
 body.dark-mode .about-header {
-  background: url('Images/about_back.jpg') no-repeat center right/cover;
+  background: url('Images/about_back.webp') no-repeat center right/cover;
   background-color: #0d1b2a; /* darker fallback */
   color: #e6f1ff;
 }
@@ -992,7 +992,7 @@ body.dark-mode .map iframe {
 
  .footer {
   position: relative;
-  background: url('Images/footer.png') no-repeat center/cover;
+  background: url('Images/footer.webp') no-repeat center/cover;
   color: #fff;
   font-family: 'Poppins', sans-serif;
   padding: 60px 80px 25px;

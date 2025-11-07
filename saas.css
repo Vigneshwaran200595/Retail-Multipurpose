@@ -2656,3 +2656,27 @@ body {
 .animate.bounceInDown { animation: bounceInDown 1.5s ease both; }
 .animate.bounceInLeft { animation: bounceInLeft 1.5s ease both; }
 .animate.bounceInRight{ animation: bounceInRight 1.5s ease both; }
+
+/* Desktop: hover dropdown */
+@media (min-width: 768px) {
+  .home-dropdown:hover .dropdown-menu {
+    display: block;
+  }
+}
+
+/* Mobile: toggle dropdown */
+.home-dropdown .dropdown-menu.open {
+  display: block !important;
+}
+
+/* Arrow rotation on mobile */
+.home-dropdown .dropdown-toggle i.open {
+  transform: rotate(180deg);
+  transition: transform 0.3s;
+}
+
+/* Wishlist & Cart dropdown */
+#wishlistDropdown.open,
+#cartDropdown.open {
+  display: block !important;
+}
