@@ -341,72 +341,101 @@ form.addEventListener("submit", function(e) {
 
 
  <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const homeDropdown = document.querySelector('.home-dropdown');
-  const arrow = homeDropdown?.querySelector('.dropdown-toggle i'); // arrow icon
-  const menu = homeDropdown?.querySelector('.dropdown-menu');
-  const hamburger = document.querySelector('.hamburger');
-  const navMenu = document.querySelector('.nav ul');
+document.addEventListener("DOMContentLoaded", () => {
+  const homeDropdown = document.querySelector(".home-dropdown");
+  const arrow = homeDropdown?.querySelector(".dropdown-toggle i");
+  const menu = homeDropdown?.querySelector(".dropdown-menu");
+  const hamburger = document.querySelector(".hamburger");
+  const navMenu = document.querySelector(".nav ul");
 
-  // ===== Mobile Hamburger Toggle =====
+  // ✅ Hamburger toggle
   if (hamburger && navMenu) {
-    hamburger.addEventListener('click', () => {
-      navMenu.classList.toggle('show');
+    hamburger.addEventListener("click", () => {
+      navMenu.classList.toggle("show");
     });
   }
 
-  // ===== Mobile Dropdown Toggle =====
-  const isMobile = window.innerWidth < 768; // adjust breakpoint for mobile
-  if (arrow && menu && isMobile) {
-    arrow.addEventListener('click', (e) => {
+  // ✅ Handle Desktop Hover
+  function enableHover() {
+    homeDropdown.addEventListener("mouseenter", () => {
+      menu.style.display = "block";
+      arrow.classList.add("open");
+    });
+    homeDropdown.addEventListener("mouseleave", () => {
+      menu.style.display = "none";
+      arrow.classList.remove("open");
+    });
+  }
+
+  // ✅ Handle Mobile Click (arrow toggle)
+  function enableMobileClick() {
+    arrow.addEventListener("click", (e) => {
       e.preventDefault();
       e.stopPropagation();
-      menu.classList.toggle('open');  // toggle mobile dropdown class
-      arrow.classList.toggle('open'); // rotate arrow
+      if (menu.style.display === "block") {
+        menu.style.display = "none";
+        arrow.classList.remove("open");
+      } else {
+        menu.style.display = "block";
+        arrow.classList.add("open");
+      }
     });
 
-    // Clicking "Home" link closes mobile dropdown
+    // Clicking "Home" link closes dropdown
     const homeLink = homeDropdown.querySelector("a[href='saas.html']");
     if (homeLink) {
       homeLink.addEventListener("click", () => {
-        menu.classList.remove('open');
-        arrow.classList.remove('open');
+        menu.style.display = "none";
+        arrow.classList.remove("open");
       });
     }
 
-    // Clicking outside closes dropdown
+    // Close dropdown when clicking outside
     document.addEventListener("click", (e) => {
       if (!homeDropdown.contains(e.target)) {
-        menu.classList.remove('open');
-        arrow.classList.remove('open');
+        menu.style.display = "none";
+        arrow.classList.remove("open");
       }
     });
   }
 
-  // ===== Wishlist & Cart Dropdown =====
+  // ✅ Initialize correct mode
+  if (window.innerWidth > 768) enableHover();
+  else enableMobileClick();
+
+  // ✅ Reapply on window resize
+  window.addEventListener("resize", () => {
+    menu.style.display = "none";
+    arrow.classList.remove("open");
+    if (window.innerWidth > 768) enableHover();
+    else enableMobileClick();
+  });
+});
+
+
+// ✅ Wishlist & Cart Dropdowns (Perfect Toggle)
+document.addEventListener("DOMContentLoaded", () => {
   const wishlistIcon = document.querySelector(".wishlist-icon");
   const cartIcon = document.querySelector(".cart-icon");
   const wishlistDropdown = document.getElementById("wishlistDropdown");
   const cartDropdown = document.getElementById("cartDropdown");
 
-  function toggleDropdown(icon, dropdown) {
-    if (!icon || !dropdown) return;
+  function toggleDropdown(icon, dropdown, otherDropdown) {
     icon.addEventListener("click", (e) => {
       e.stopPropagation();
-      dropdown.classList.toggle("open");
-      // Close the other dropdown
-      if (dropdown === wishlistDropdown) cartDropdown.classList.remove("open");
-      if (dropdown === cartDropdown) wishlistDropdown.classList.remove("open");
+      const isVisible = dropdown.style.display === "block";
+      wishlistDropdown.style.display = "none";
+      cartDropdown.style.display = "none";
+      dropdown.style.display = isVisible ? "none" : "block";
     });
   }
 
-  toggleDropdown(wishlistIcon, wishlistDropdown);
-  toggleDropdown(cartIcon, cartDropdown);
+  toggleDropdown(wishlistIcon, wishlistDropdown, cartDropdown);
+  toggleDropdown(cartIcon, cartDropdown, wishlistDropdown);
 
-  // Close wishlist/cart if click outside
   document.addEventListener("click", () => {
-    wishlistDropdown.classList.remove("open");
-    cartDropdown.classList.remove("open");
+    wishlistDropdown.style.display = "none";
+    cartDropdown.style.display = "none";
   });
 });
 </script>

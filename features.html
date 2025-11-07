@@ -191,6 +191,57 @@
     </div>
   </section> <!-- ✅ Properly closed retail-section -->
 
+  <section class="feature-strip" data-animate="bounceIn">
+  <div class="feature-container">
+
+    <div class="feature-item1">
+      <div class="feature-icon">
+        <i class="fas fa-box"></i>
+      </div>
+      <div class="feature-text">
+        <h4>Same day Product<br>Delivery</h4>
+      </div>
+    </div>
+
+    <div class="feature-item1">
+      <div class="feature-icon">
+        <i class="fas fa-user-check"></i>
+      </div>
+      <div class="feature-text">
+        <h4>100% Customer<br>Satisfaction</h4>
+      </div>
+    </div>
+
+    <div class="feature-item1">
+      <div class="feature-icon">
+        <i class="fas fa-headset"></i>
+      </div>
+      <div class="feature-text">
+        <h4>Help and access is<br>our mission</h4>
+      </div>
+    </div>
+
+    <div class="feature-item1">
+      <div class="feature-icon">
+        <i class="fas fa-truck"></i>
+      </div>
+      <div class="feature-text">
+        <h4>100% quality Car<br>Accessories</h4>
+      </div>
+    </div>
+
+    <div class="feature-item1">
+      <div class="feature-icon">
+        <i class="fas fa-phone-volume"></i>
+      </div>
+      <div class="feature-text">
+        <h4>24/7 Support for<br>Clients</h4>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
   <!-- ✅ Footer Section -->
 <footer class="footer-section" data-animate="bounceIn">
@@ -312,83 +363,103 @@
 
 
   <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const homeDropdown = document.querySelector('.home-dropdown');
-  const arrow = homeDropdown?.querySelector('.dropdown-toggle i'); // your arrow icon
-  const menu = homeDropdown?.querySelector('.dropdown-menu');
-  const hamburger = document.querySelector('.hamburger');
-  const navMenu = document.querySelector('.nav ul');
+document.addEventListener("DOMContentLoaded", () => {
+  const homeDropdown = document.querySelector(".home-dropdown");
+  const arrow = homeDropdown?.querySelector(".dropdown-toggle i");
+  const menu = homeDropdown?.querySelector(".dropdown-menu");
+  const hamburger = document.querySelector(".hamburger");
+  const navMenu = document.querySelector(".nav ul");
 
-  // ✅ Mobile hamburger toggle
+  // ✅ Hamburger toggle
   if (hamburger && navMenu) {
-    hamburger.addEventListener('click', () => {
-      navMenu.classList.toggle('show');
+    hamburger.addEventListener("click", () => {
+      navMenu.classList.toggle("show");
     });
   }
 
-  // ✅ Dropdown arrow toggle (does NOT block "Home" link)
-  if (arrow && menu) {
-    arrow.addEventListener('click', (e) => {
+  // ✅ Handle Desktop Hover
+  function enableHover() {
+    homeDropdown.addEventListener("mouseenter", () => {
+      menu.style.display = "block";
+      arrow.classList.add("open");
+    });
+    homeDropdown.addEventListener("mouseleave", () => {
+      menu.style.display = "none";
+      arrow.classList.remove("open");
+    });
+  }
+
+  // ✅ Handle Mobile Click (arrow toggle)
+  function enableMobileClick() {
+    arrow.addEventListener("click", (e) => {
       e.preventDefault();
-      e.stopPropagation(); // prevent click from bubbling
-      if (menu.style.display === 'block') {
-        menu.style.display = 'none';
-        arrow.classList.remove('open'); // rotate arrow back
+      e.stopPropagation();
+      if (menu.style.display === "block") {
+        menu.style.display = "none";
+        arrow.classList.remove("open");
       } else {
-        menu.style.display = 'block';
-        arrow.classList.add('open'); // rotate arrow
+        menu.style.display = "block";
+        arrow.classList.add("open");
+      }
+    });
+
+    // Clicking "Home" link closes dropdown
+    const homeLink = homeDropdown.querySelector("a[href='saas.html']");
+    if (homeLink) {
+      homeLink.addEventListener("click", () => {
+        menu.style.display = "none";
+        arrow.classList.remove("open");
+      });
+    }
+
+    // Close dropdown when clicking outside
+    document.addEventListener("click", (e) => {
+      if (!homeDropdown.contains(e.target)) {
+        menu.style.display = "none";
+        arrow.classList.remove("open");
       }
     });
   }
 
-  // ✅ Clicking "Home" link navigates normally
-  const homeLink = homeDropdown.querySelector("a[href='saas.html']");
-  if (homeLink) {
-    homeLink.addEventListener("click", () => {
-      menu.style.display = 'none'; // close dropdown when navigating
-      arrow.classList.remove('open');
-    });
-  }
+  // ✅ Initialize correct mode
+  if (window.innerWidth > 768) enableHover();
+  else enableMobileClick();
 
-  // ✅ Auto close dropdown when clicking outside
-  document.addEventListener("click", (e) => {
-    if (!homeDropdown.contains(e.target)) {
-      menu.style.display = "none";
-      arrow.classList.remove('open');
-    }
+  // ✅ Reapply on window resize
+  window.addEventListener("resize", () => {
+    menu.style.display = "none";
+    arrow.classList.remove("open");
+    if (window.innerWidth > 768) enableHover();
+    else enableMobileClick();
   });
 });
 
 
+// ✅ Wishlist & Cart Dropdowns (Perfect Toggle)
 document.addEventListener("DOMContentLoaded", () => {
   const wishlistIcon = document.querySelector(".wishlist-icon");
   const cartIcon = document.querySelector(".cart-icon");
-
   const wishlistDropdown = document.getElementById("wishlistDropdown");
   const cartDropdown = document.getElementById("cartDropdown");
 
-  // ✅ Toggle function
-  function toggleDropdown(icon, dropdown) {
+  function toggleDropdown(icon, dropdown, otherDropdown) {
     icon.addEventListener("click", (e) => {
-      e.stopPropagation(); // prevent closing immediately
-      // toggle own dropdown
-      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-      // hide the other dropdown
-      if (dropdown === wishlistDropdown) cartDropdown.style.display = "none";
-      if (dropdown === cartDropdown) wishlistDropdown.style.display = "none";
+      e.stopPropagation();
+      const isVisible = dropdown.style.display === "block";
+      wishlistDropdown.style.display = "none";
+      cartDropdown.style.display = "none";
+      dropdown.style.display = isVisible ? "none" : "block";
     });
   }
 
-  toggleDropdown(wishlistIcon, wishlistDropdown);
-  toggleDropdown(cartIcon, cartDropdown);
+  toggleDropdown(wishlistIcon, wishlistDropdown, cartDropdown);
+  toggleDropdown(cartIcon, cartDropdown, wishlistDropdown);
 
-  // ✅ Close dropdown if click outside
   document.addEventListener("click", () => {
     wishlistDropdown.style.display = "none";
     cartDropdown.style.display = "none";
   });
 });
-
 </script>
 
 <script>
