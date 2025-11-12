@@ -1067,7 +1067,7 @@
           We are many variations of the passages available but the majoro have suffered alteration injected.
         </p>
         <ul class="footer-contact">
-          <li><i class="fa fa-phone"></i> +2 123 654 7898</li>
+          <li><i class="fa fa-phone"></i> +91 1234567890</li>
           <li><i class="fa fa-map-marker"></i> Salem, Tamilnadu</li>
           <li><i class="fa fa-envelope"></i> info@example.com</li>
           <li><i class="fa fa-clock"></i> Mon-Fri (9.00AM - 8.00PM)</li>
@@ -1078,16 +1078,16 @@
       <div class="footer-col">
         <h3>Quick Links</h3>
         <ul>
-          <li><a href="404.html">
+          <li><a href="about.html">
 About Us</a></li>
-          <li><a href="404.html">
-Delivery Info</a></li>
-          <li><a href="404.html">
+          <li><a href="affiliate.html">
+Affiliate</a></li>
+          <li><a href="contact.html">
 Contact Us</a></li>
-          <li><a href="404.html">
+          <li><a href="blog.html">
 Update News</a></li>
-          <li><a href="404.html">
-Our Testimonials</a></li>
+          <li><a href="faq.html">
+FAQ</a></li>
           <li><a href="404.html">
 Terms Of Service</a></li>
           <li><a href="404.html">
@@ -1099,19 +1099,19 @@ Privacy Policy</a></li>
       <div class="footer-col">
         <h3>Browse Category</h3>
         <ul>
-          <li><a href="404.html">
+          <li><a href="shop.html">
 Accessories</a></li>
-          <li><a href="404.html">
+          <li><a href="shop.html">
 Home & Garden</a></li>
-          <li><a href="404.html">
+          <li><a href="shop.html">
 Electronics</a></li>
-          <li><a href="404.html">
+          <li><a href="shop.html">
 Health & Beauty</a></li>
-          <li><a href="404.html">
+          <li><a href="shop.html">
 Grocery & Market</a></li>
-          <li><a href="404.html">
+          <li><a href="shop.html">
 Toy & Games</a></li>
-          <li><a href="404.html">
+          <li><a href="shop.html">
 Babies & Moms</a></li>
         </ul>
       </div>
@@ -1121,16 +1121,14 @@ Babies & Moms</a></li>
         <h3>Support Center</h3>
         <ul>
           <li><a href="404.html">
-FAQ's</a></li>
-          <li><a href="404.html">
 How To Buy</a></li>
-          <li><a href="404.html">
+          <li><a href="contact.html">
 Support Center</a></li>
-          <li><a href="404.html">
+          <li><a href="track.html">
 Track Your Order</a></li>
           <li><a href="404.html">
 Returns Policy</a></li>
-          <li><a href="404.html">
+          <li><a href="affiliate.html">
 Our Affiliates</a></li>
           <li><a href="404.html">
 Sitemap</a></li>
@@ -1177,7 +1175,6 @@ Sitemap</a></li>
   </footer>
 
 
-  <!-- Chatbot Floating Icon -->
 <!-- Chatbot Floating Button -->
 <div class="chatbot-container">
   <div class="chatbot-icon" id="chatbot-toggle">
@@ -1424,22 +1421,39 @@ function subscribeNow() {
   const emailInput = document.getElementById('emailInput');
   const email = emailInput.value.trim();
 
+  // ✅ Step 1: Check if empty
   if (email === "") {
-    // show message inside input field
-    emailInput.value = "";
-    emailInput.placeholder = "⚠ Please fill the field";
-    emailInput.style.border = "2px solid red";
-    emailInput.style.color = "red";
-
-    setTimeout(() => {
-      // reset placeholder & color after 2 seconds
-      emailInput.placeholder = "Your Email Address";
-      emailInput.style.border = "2px solid #33b2ff";
-      emailInput.style.color = "#000";
-    }, 2000);
-  } else {
-    window.location.href = "404.html";
+    showError("⚠ Please fill the field");
+    return;
   }
+
+  // ✅ Step 2: Validate proper email format (must include @ and .)
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(email)) {
+    showError("⚠ Invalid email address");
+    return;
+  }
+
+  // ✅ Step 3: Success — redirect or do your success action
+  emailInput.style.border = "2px solid #33b2ff";
+  emailInput.style.color = "#000";
+  window.location.href = "404.html";
+}
+
+// ✅ Show error inside input field
+function showError(message) {
+  const emailInput = document.getElementById('emailInput');
+  emailInput.value = "";
+  emailInput.placeholder = message;
+  emailInput.style.border = "2px solid red";
+  emailInput.style.color = "red";
+
+  // Reset style after 2 seconds
+  setTimeout(() => {
+    emailInput.placeholder = "Your Email Address";
+    emailInput.style.border = "2px solid #33b2ff";
+    emailInput.style.color = "#000";
+  }, 2000);
 }
 </script>
 

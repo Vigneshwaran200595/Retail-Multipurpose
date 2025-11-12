@@ -53,7 +53,7 @@
                 <i class="fas fa-lock"></i>
                 <input type="password" placeholder="Enter your password" required>
               </div>
-              <div class="text"><a href="forgot.html">Forgot password?</a></div>
+              <div class="text"><a href="forgot1.html">Forgot password?</a></div>
               <div class="button input-box">
                 <input type="submit" value="Submit">
               </div>
@@ -97,43 +97,112 @@
   </div>
 
 
-  <script>
-function validateForm(form) {
-  const inputs = form.querySelectorAll("input[required]");
-  let allFilled = true;
-
-  inputs.forEach(input => {
-    if (input.value.trim() === "") {
-      const originalPlaceholder = input.placeholder;
-      input.value = "";
-      input.placeholder = "Please fill the field";
-      input.style.border = "1px solid red";
-      input.style.color = "red";
-      allFilled = false;
-
-      setTimeout(() => {
-        input.placeholder = originalPlaceholder;
-        input.style.border = "";
-        input.style.color = "";
-      }, 2000);
-    }
-  });
-
-  if (allFilled) {
-    window.location.href = "404_1.html";
+<script>
+function validateEmail(emailInput) {
+  const email = emailInput.value.trim();
+  if (email === "") {
+    showError(emailInput, "Please fill the field");
+    return false;
+  } else if (!email.endsWith("@gmail.com")) {
+    showError(emailInput, "Enter with @gmail.com");
+    return false;
   }
+  return true;
 }
 
+function validatePassword(passwordInput) {
+  const password = passwordInput.value.trim();
+  const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])/;
+  if (password === "") {
+    showError(passwordInput, "Please fill the field");
+    return false;
+  } else if (!regex.test(password)) {
+    showError(passwordInput, "Enter with special character, numbers, uppercase, lowercase (e.g., H,@,9,h)");
+    return false;
+  }
+  return true;
+}
+
+function validateName(nameInput) {
+  const name = nameInput.value.trim();
+  if (name === "") {
+    showError(nameInput, "Please fill the field");
+    return false;
+  }
+  return true;
+}
+
+function showError(input, message) {
+  const originalPlaceholder = input.placeholder;
+  input.value = "";
+  input.placeholder = message;
+  input.style.border = "1px solid red";
+  input.style.color = "red";
+
+  setTimeout(() => {
+    input.placeholder = originalPlaceholder;
+    input.style.border = "";
+    input.style.color = "";
+  }, 2000);
+}
+
+// ---------------- LOGIN FORM ----------------
 document.getElementById("loginForm").addEventListener("submit", function(e) {
   e.preventDefault();
-  validateForm(this);
+  const emailInput = this.querySelector('input[type="text"]');
+  const passwordInput = this.querySelector('input[type="password"]');
+
+  const emailValid = validateEmail(emailInput);
+  const passwordValid = validatePassword(passwordInput);
+
+  if (emailValid && passwordValid) {
+    window.location.href = "404_1.html";
+  }
 });
 
+// Email validation trigger on focus next (Login)
+document.querySelector('#loginForm input[type="password"]').addEventListener('focus', () => {
+  const emailInput = document.querySelector('#loginForm input[type="text"]');
+  validateEmail(emailInput);
+});
+
+// ✅ Password validation on blur (Login)
+document.querySelector('#loginForm input[type="password"]').addEventListener('blur', (e) => {
+  if (e.target.value.trim() !== "") {
+    validatePassword(e.target);
+  }
+});
+
+// ---------------- SIGNUP FORM ----------------
 document.getElementById("signupForm").addEventListener("submit", function(e) {
   e.preventDefault();
-  validateForm(this);
+  const nameInput = this.querySelector('input[placeholder="Enter your name"]');
+  const emailInput = this.querySelector('input[placeholder="Enter your email"]');
+  const passwordInput = this.querySelector('input[placeholder="Enter your password"]');
+
+  const nameValid = validateName(nameInput);
+  const emailValid = validateEmail(emailInput);
+  const passwordValid = validatePassword(passwordInput);
+
+  if (nameValid && emailValid && passwordValid) {
+    window.location.href = "404_1.html";
+  }
+});
+
+// Email validation trigger on focus next (Signup)
+document.querySelector('#signupForm input[type="password"]').addEventListener('focus', () => {
+  const emailInput = document.querySelector('#signupForm input[placeholder="Enter your email"]');
+  validateEmail(emailInput);
+});
+
+// ✅ Password validation on blur (Signup)
+document.querySelector('#signupForm input[type="password"]').addEventListener('blur', (e) => {
+  if (e.target.value.trim() !== "") {
+    validatePassword(e.target);
+  }
 });
 </script>
+
 
 
 </body>

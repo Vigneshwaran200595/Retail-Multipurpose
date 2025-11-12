@@ -271,24 +271,24 @@
       <div class="footer-col">
         <h3>Categories</h3>
         <ul>
-          <li><a href="404_1.html">Men</a></li>
-    <li><a href="404_1.html">Women</a></li>
-    <li><a href="404_1.html">Accessories</a></li>
-    <li><a href="404_1.html">Shoes</a></li>
-    <li><a href="404_1.html">Denim</a></li>
-    <li><a href="404_1.html">Dress</a></li>
+          <li><a href="shop1.html">Men</a></li>
+    <li><a href="shop1.html">Women</a></li>
+    <li><a href="shop1.html">Accessories</a></li>
+    <li><a href="shop1.html">Shoes</a></li>
+    <li><a href="shop1.html">Denim</a></li>
+    <li><a href="shop1.html">Dress</a></li>
         </ul>
       </div>
 
       <!-- Column 3: Information -->
       <div class="footer-col">
-        <h3>Information</h3>
+        <h3>Quick Links</h3>
         <ul>
-          <li><a href="404_1.html">About Us</a></li>
-    <li><a href="404_1.html">Contact Us</a></li>
-    <li><a href="404_1.html">Terms & Conditions</a></li>
+          <li><a href="features.html">Features</a></li>
+    <li><a href="contact1.html">Contact Us</a></li>
+    <li><a href="deal.html">Deals</a></li>
     <li><a href="404_1.html">Returns & Exchanges</a></li>
-    <li><a href="404_1.html">Shipping & Delivery</a></li> 
+    <li><a href="404_1.html">Terms & Conditions</a></li> 
         </ul>
       </div>
 
@@ -296,9 +296,9 @@
       <div class="footer-col">
         <h3>Useful Links</h3>
         <ul>
-              <li><a href="404_1.html">Store Location</a></li>
-    <li><a href="404_1.html">Latest News</a></li>
-    <li><a href="404_1.html">My Account</a></li>
+              <li><a href="contact1.html">Store Location</a></li>
+    <li><a href="shop1.html">Shop</a></li>
+    <li><a href="404_1.html">Account</a></li>
     <li><a href="404_1.html">Size Guide</a></li>
     <li><a href="404_1.html">FAQs</a></li>
     <li><a href="404_1.html">Privacy Policy</a></li>
@@ -318,24 +318,39 @@
   const subscribeBtn = document.getElementById("subscribe-btn");
   const emailInput = document.getElementById("newsletter-email");
 
-  subscribeBtn.addEventListener("click", function(e) {
+  subscribeBtn.addEventListener("click", function (e) {
     e.preventDefault(); // Prevent form submission
 
-    if(emailInput.value.trim() === "") {
-      // Show error inside input
-      emailInput.value = "";
-      emailInput.placeholder = "Please fill the field!";
-      emailInput.style.color = "#ff038a"; // Error color
-      emailInput.focus();
-    } else {
-      // Reset color and go to 404 page
-      emailInput.style.color = "#000";
-      window.location.href = "404_1.html";
+    const email = emailInput.value.trim();
+
+    // ✅ Step 1: Empty field check
+    if (email === "") {
+      showError("Please fill the field!");
+      return;
     }
+
+    // ✅ Step 2: Email format validation (must include @ and domain)
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      showError("Please enter a valid email!");
+      return;
+    }
+
+    // ✅ If valid, redirect
+    emailInput.style.color = "#000";
+    window.location.href = "404_1.html";
   });
 
-  // When user starts typing, restore normal placeholder and color
-  emailInput.addEventListener("input", function() {
+  // ✅ Show error inside input field
+  function showError(message) {
+    emailInput.value = "";
+    emailInput.placeholder = message;
+    emailInput.style.color = "#ff038a";
+    emailInput.focus();
+  }
+
+  // ✅ Reset placeholder and color when user types
+  emailInput.addEventListener("input", function () {
     emailInput.style.color = "#000";
     emailInput.placeholder = "Your email address";
   });
@@ -359,6 +374,7 @@
     </div>
   </div>
 </footer>
+
 
 
 
