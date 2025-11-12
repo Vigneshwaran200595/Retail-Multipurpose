@@ -33,16 +33,19 @@ body {
 
 /* ✅ HEADER */
 .header {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 12px 40px;
+  width: 100%;
+  padding: 20px;
   position: relative;
-  color: #fff;
+  z-index: 2;
 }
 
 .header-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .logo {
@@ -2927,5 +2930,6 @@ body {
 .animate.bounceInDown { animation: bounceInDown 1.5s ease both; }
 .animate.bounceInLeft { animation: bounceInLeft 1.5s ease both; }
 .animate.bounceInRight{ animation: bounceInRight 1.5s ease both; }
+
 
 
