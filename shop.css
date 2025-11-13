@@ -1653,3 +1653,12 @@ body.dark-mode select#sort option {
 .animate.bounceInLeft { animation: bounceInLeft 1.5s ease both; }
 .animate.bounceInRight{ animation: bounceInRight 1.5s ease both; }
 
+.added-msg {
+  color: green;
+  font-size: 14px;
+  margin-top: 6px;
+  transition: opacity 0.5s ease;
+  text-align: center;
+}
+
+
