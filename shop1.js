@@ -164,6 +164,26 @@ function addToCart1(id) {
   if (!cart1.some((item) => item.id === id)) cart1.push(product);
   saveData1();
   updateCartUI1();
+
+  // ✅ Show "Product added" message below the Add to Cart button
+  const btn = document.querySelector(`button[onclick="addToCart1('${id}')"]`);
+  if (btn) {
+    // Remove old message if exists
+    const oldMsg = btn.parentElement.querySelector(".added-msg");
+    if (oldMsg) oldMsg.remove();
+
+    // Create new message element
+    const msg = document.createElement("div");
+    msg.className = "added-msg";
+    msg.textContent = "✅ Product added to cart!";
+    btn.insertAdjacentElement("afterend", msg);
+
+    // Fade out and remove after 2 seconds
+    setTimeout(() => {
+      msg.style.opacity = "0";
+      setTimeout(() => msg.remove(), 500);
+    }, 3000);
+  }
 }
 
 function updateWishlistUI1() {
@@ -296,3 +316,4 @@ sortSelect.addEventListener("change", () => {
 // ---------- Initialize ----------
 applyFilters();
 loadData1();
+
