@@ -1413,3 +1413,13 @@ body {
 #cartDropdown.open {
   display: block !important;
 }
+
+.added-msg {
+  color: green;
+  font-size: 14px;
+  margin-top: 6px;
+  text-align: center;
+  transition: opacity 0.5s ease;
+}
+
+
