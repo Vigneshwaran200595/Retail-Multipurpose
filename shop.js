@@ -109,6 +109,26 @@ function addToCart(id) {
 
   localStorage.setItem("cart", JSON.stringify(cart));
   updateCartUI();
+
+  // ✅ Show success message below Add to Cart button
+  const btn = document.querySelector(`button[onclick="addToCart(${id})"]`);
+  if (btn) {
+    // Remove any old message
+    const oldMsg = btn.parentElement.querySelector(".added-msg");
+    if (oldMsg) oldMsg.remove();
+
+    // Create new message element
+    const msg = document.createElement("div");
+    msg.className = "added-msg";
+    msg.textContent = "✅ Product added to cart!";
+    btn.insertAdjacentElement("afterend", msg);
+
+    // Fade out after 2 seconds
+    setTimeout(() => {
+      msg.style.opacity = "0";
+      setTimeout(() => msg.remove(), 500);
+    }, 3000);
+  }
 }
 
 function removeFromCart(id) {
@@ -319,3 +339,4 @@ function updateCartUI() {
 updateWishlistUI();
 updateCartUI();
 applyFilters(); // ✅ ensures first load shows all
+
