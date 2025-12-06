@@ -608,7 +608,334 @@ body.dark-mode .dark-mode-toggle i {
         justify-content: center;
         border-top: 1px solid rgba(255, 255, 255, 0.1);
       }
+          /* Move Dark Mode to LEFT on mobile */
+.dark-mode-toggle {
+  left: 20px;
+  right: auto;
+  position: absolute;
+  z-index: 1002;
+}
+
+/* Move Hamburger to RIGHT on mobile */
+.menu-toggle {
+  right: 20px;
+  left: auto;
+  position: absolute;
+  font-size: 26px;
+  display: block;
+  z-index: 1003;
+}
+
     }
+
+@media (max-width: 768px) {
+
+  /* Center all nav links */
+  .nav-container li {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+  }
+
+  .nav-container li a {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+  }
+
+  /* Home dropdown stays centered */
+  .home-dropdown {
+    width: 100%;
+    text-align: center;
+    position: relative;
+  }
+
+  /* Correct dropdown container */
+  .home-dropdown .home-dropdown-menu {
+    display: none;                   /* hidden by default */
+    position: relative !important;   /* remove desktop absolute */
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0;
+    background: #33b2ff;
+    text-align: center;
+  }
+
+  /* Show dropdown on .active */
+  .home-dropdown.active .home-dropdown-menu {
+    display: block !important;
+  }
+
+  /* Dropdown items */
+  .home-dropdown .home-dropdown-menu li {
+    width: 100%;
+    padding: 10px 0;
+    justify-content: center;
+    display: flex;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+
+  .home-dropdown .home-dropdown-menu li:last-child {
+    border-bottom: none;
+  }
+
+  /* Dropdown link alignment */
+  .home-dropdown .home-dropdown-menu li a {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    color: #fff;
+  }
+
+  /* Fix arrow spacing */
+  .home-dropdown .arrow {
+    margin-left: 6px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* CENTER ALL NAV LINKS */
+  .nav-container li {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .nav-container li a {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* HOME DROPDOWN – CENTER FIX */
+  .home-dropdown {
+    width: 100%;
+    text-align: center;
+    position: relative;
+  }
+
+  /* DROPDOWN BOX MUST BE FULL WIDTH */
+  .home-dropdown .home-dropdown-menu {
+    display: none;
+    position: relative !important;
+    width: 100% !important;
+    left: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #33b2ff;
+    text-align: center;
+  }
+
+  /* SHOW DROPDOWN WHEN ACTIVE */
+  .home-dropdown.active .home-dropdown-menu {
+    display: block !important;
+  }
+
+  /* CENTER DROPDOWN ITEMS */
+  .home-dropdown .home-dropdown-menu li {
+    width: 100%;
+    padding: 12px 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .home-dropdown .home-dropdown-menu li a {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: white;
+  }
+
+  /* FIX ARROW */
+  .home-dropdown .arrow {
+    margin-left: 6px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* Center all nav links */
+  .nav-container li {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .nav-container li a {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Home dropdown wrapper */
+  .home-dropdown {
+    width: 100%;
+    text-align: center;
+    position: relative;
+  }
+
+  /* Dropdown menu centered and full width */
+  .home-dropdown .home-dropdown-menu {
+    display: none;
+    position: relative;  
+    width: 100% !important;
+    left: 0 !important;
+    top: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #33b2ff;
+    text-align: center;
+  }
+
+  /* Show dropdown ONLY when .active */
+  .home-dropdown.active .home-dropdown-menu {
+    display: block !important;
+  }
+
+  /* Dropdown items centered */
+  .home-dropdown .home-dropdown-menu li {
+    width: 100%;
+    padding: 12px 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .home-dropdown .home-dropdown-menu li a {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: white;
+  }
+
+  /* Fix arrow */
+  .home-dropdown .arrow {
+    margin-left: 6px;
+  }
+}
+
+/* ===============================
+   MOBILE NAV FIX – FULLY CENTERED
+=============================== */
+@media (max-width: 768px) {
+
+    /* Full width center for ALL nav items */
+    #navMenu li,
+    #navMenu li a {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        text-align: center !important;
+    }
+
+    /* HOME DROPDOWN WRAPPER (must be full width) */
+    .home-dropdown {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        position: relative !important;
+    }
+
+    /* CENTER HOME TEXT + ARROW */
+    .home-dropdown > a {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        padding: 14px 0 !important;
+        text-align: center !important;
+    }
+
+    /* FIX ARROW */
+    .home-dropdown .arrow {
+        margin-left: 6px !important;
+        font-size: 18px;
+    }
+
+    /* DROPDOWN MENU BOX — FULL WIDTH CENTER */
+    .home-dropdown .home-dropdown-menu {
+        display: none;
+        width: 100% !important;
+        position: relative !important;
+        left: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        background: #33b2ff;
+        text-align: center !important;
+        border-top: 1px solid rgba(255,255,255,0.2);
+    }
+
+    /* SHOW WHEN ACTIVE */
+    .home-dropdown.active .home-dropdown-menu {
+        display: block !important;
+    }
+
+    /* CENTER EACH DROPDOWN ITEM */
+    .home-dropdown .home-dropdown-menu li {
+        width: 100% !important;
+        padding: 20px 0 !important;
+        display: flex !important;
+        justify-content: center !important;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .home-dropdown .home-dropdown-menu li:last-child {
+        border-bottom: none;
+    }
+
+    .home-dropdown .home-dropdown-menu li a {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        text-align: center !important;
+        color: #fff !important;
+    }
+}
+
+
+@media (max-width: 768px) {
+    html, body {
+        overflow-x: hidden !important;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* FIX HOME BUTTON SHIFT */
+    .home-dropdown {
+        width: 100% !important;
+        padding: 0 0 0 15px !important;
+        margin: 0 !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    /* Ensure the anchor itself is centered */
+    .home-dropdown > a {
+        display: flex !important;
+        width: auto !important;        /* IMPORTANT FIX */
+        margin: 0 auto !important;     /* IMPORTANT FIX */
+        padding: 12px 0 !important;
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    .home-dropdown .arrow {
+        margin-left: 6px !important;
+    }
+}
 
 
 
