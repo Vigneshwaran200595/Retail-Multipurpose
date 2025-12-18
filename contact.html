@@ -6,6 +6,7 @@
   <title>Stackly Retail/Multipurpose</title>
   <link rel="stylesheet" href="contact.css" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -115,25 +116,25 @@
 
     <!-- LEFT SIDE (INFO BOXES) -->
     <div class="left-side">
-      <div class="info-card" data-animate="bounceInLeft">
+      <div class="info-card" data-aos="fade-in">
         <i class="fa-solid fa-map-location-dot"></i>
         <h4>Office Address</h4>
         <p>Salem, Tamil Nadu, India</p>
       </div>
 
-      <div class="info-card" data-animate="bounceInLeft">
+      <div class="info-card" data-aos="fade-in">
         <i class="fa-solid fa-phone-volume"></i>
         <h4>Call Us</h4>
         <p>+91 1234567890</p>
       </div>
 
-      <div class="info-card" data-animate="bounceInLeft">
+      <div class="info-card" data-aos="fade-in">
         <i class="fa-solid fa-envelope"></i>
         <h4>Email Us</h4>
         <p>support@example.com</p>
       </div>
 
-      <div class="info-card" data-animate="bounceInLeft">
+      <div class="info-card" data-aos="fade-in">
         <i class="fa-solid fa-clock"></i>
         <h4>Open Time</h4>
         <p>Mon - Sat (10AM - 05PM)<br>Sunday - <span class="closed">Closed</span></p>
@@ -141,7 +142,7 @@
     </div>
 
     <!-- RIGHT SIDE (FORM) -->
-    <div class="right-side" data-animate="bounceInRight">
+    <div class="right-side" data-aos="fade-in">
       <h2>Get In Touch</h2>
       <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
 
@@ -168,7 +169,7 @@
 </section>
 
   <!-- Map Section -->
-  <section class="map" data-animate="bounceIn">
+  <section class="map" data-aos="fade-in">
     <iframe 
       src="https://www.google.com/maps?q=Salem,+Tamil+Nadu,+India&output=embed" 
       width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
@@ -176,7 +177,7 @@
   </section>
 
 <footer class="footer">
-    <div class="footer-container" data-animate="bounceIn">
+    <div class="footer-container" data-aos="fade-in">
       
       <!-- Column 1: About -->
       <div class="footer-col">
@@ -575,6 +576,22 @@ document.addEventListener("DOMContentLoaded", () => {
   elements.forEach((el) => observer.observe(el));
 });
 </script>
+
+ <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true,
+    offset: 80
+  });
+
+  window.addEventListener('load', () => {
+    AOS.refresh();
+  });
+</script>
+
 
   </body>
 </html>

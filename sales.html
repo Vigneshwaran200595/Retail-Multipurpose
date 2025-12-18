@@ -326,7 +326,7 @@ body {
     </a>
   </li>
 
-  <li>
+  <li class="active">
     <a href="sales.html">
       <i class="fa-solid fa-receipt"></i> Sales
     </a>
@@ -350,7 +350,7 @@ body {
     </a>
   </li>
 
-  <li class="active">
+  <li>
     <a href="reports.html">
       <i class="fa-solid fa-file-invoice"></i> Reports
     </a>
@@ -375,7 +375,7 @@ body {
     </div>
 
     <div class="header-bottom">
-      <h2>Reports</h2>
+      <h2>Sales</h2>
       <div class="header-actions">
         <a href="index.html" class="home-btn">Home</a>
         <div class="profile-box">
@@ -388,57 +388,59 @@ body {
   </div>
 
 
-<!-- REPORTS METRICS -->
+<!-- SALES METRICS -->
 <div class="cards">
 
   <div class="card gradient-income">
-    <i class="fa-solid fa-chart-column card-icon"></i>
-    <h3>Total Reports</h3>
-    <div class="number">48</div>
+    <i class="fa-solid fa-cart-shopping card-icon"></i>
+    <h3>Total Sales</h3>
+    <div class="number">₹8,45,000</div>
   </div>
 
   <div class="card gradient-profit">
-    <i class="fa-solid fa-file-lines card-icon"></i>
-    <h3>Generated This Month</h3>
-    <div class="number">12</div>
-  </div>
-
-  <div class="card gradient-expense">
-    <i class="fa-solid fa-clock-rotate-left card-icon"></i>
-    <h3>Scheduled Reports</h3>
-    <div class="number">9</div>
+    <i class="fa-solid fa-bag-shopping card-icon"></i>
+    <h3>Total Orders</h3>
+    <div class="number">1,320</div>
   </div>
 
   <div class="card gradient-invoice">
-    <i class="fa-solid fa-file-arrow-down card-icon"></i>
-    <h3>Downloads</h3>
-    <div class="number">324</div>
+    <i class="fa-solid fa-user-check card-icon"></i>
+    <h3>Customers Purchased</h3>
+    <div class="number">890</div>
+  </div>
+
+  <div class="card gradient-expense">
+    <i class="fa-solid fa-rotate-left card-icon"></i>
+    <h3>Returned Orders</h3>
+    <div class="number">46</div>
   </div>
 
 </div>
 
 
-<!-- REPORTS CHARTS -->
+
+<!-- PRODUCT CHARTS -->
+<!-- SALES CHARTS -->
 <div class="chart-grid">
 
   <div class="chart-box">
-    <h3>Reports Generated Over Time</h3>
-    <canvas id="rep1"></canvas>
+    <h3>Monthly Sales Amount</h3>
+    <canvas id="c1"></canvas>
   </div>
 
   <div class="chart-box">
-    <h3>Report Types Distribution</h3>
-    <canvas id="rep2"></canvas>
+    <h3>Daily Orders Trend</h3>
+    <canvas id="c2"></canvas>
   </div>
 
   <div class="chart-box">
-    <h3>Monthly Report Downloads</h3>
-    <canvas id="rep3"></canvas>
+    <h3>Sales by Payment Method</h3>
+    <canvas id="c3"></canvas>
   </div>
 
   <div class="chart-box">
-    <h3>Most Viewed Reports</h3>
-    <canvas id="rep4"></canvas>
+    <h3>Top Selling Categories</h3>
+    <canvas id="c4"></canvas>
   </div>
 
 </div>
@@ -451,12 +453,15 @@ function toggleSidebar(){
 }
 overlay.onclick = toggleSidebar;
 
-new Chart(rep1, {
+/* ================= RETAIL CHARTS ================= */
+
+/* 1️⃣ Monthly Sales Amount */
+new Chart(c1, {
   type: "line",
   data: {
     labels: ["Jan","Feb","Mar","Apr","May","Jun"],
     datasets: [{
-      data: [6, 8, 7, 10, 9, 12],
+      data: [120000, 145000, 138000, 162000, 185000, 195000],
       borderColor: "#33b2ff",
       backgroundColor: "rgba(51,178,255,0.25)",
       fill: true,
@@ -466,49 +471,48 @@ new Chart(rep1, {
   options: { plugins: { legend: { display: false } } }
 });
 
-/* 2️⃣ Report Types Distribution */
-new Chart(rep2, {
-  type: "pie",
-  data: {
-    labels: ["Sales","Expenses","Inventory","Customers","Suppliers"],
-    datasets: [{
-      data: [35, 25, 20, 10, 10],
-      backgroundColor: [
-        "#33b2ff",
-        "#ff7675",
-        "#00b894",
-        "#6c5ce7",
-        "#ffe36e"
-      ]
-    }]
-  }
-});
-
-/* 3️⃣ Monthly Report Downloads */
-new Chart(rep3, {
+/* 2️⃣ Daily Orders Trend */
+new Chart(c2, {
   type: "bar",
   data: {
-    labels: ["Jan","Feb","Mar","Apr","May","Jun"],
+    labels: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],
     datasets: [{
-      data: [40, 55, 50, 70, 60, 80],
+      data: [180, 210, 195, 240, 280, 320, 260],
       backgroundColor: "#33b2ff"
     }]
   },
   options: { plugins: { legend: { display: false } } }
 });
 
-/* 4️⃣ Most Viewed Reports */
-new Chart(rep4, {
+/* 3️⃣ Sales by Payment Method */
+new Chart(c3, {
   type: "doughnut",
   data: {
-    labels: ["Sales Summary","Expense Report","Stock Report","Customer Insights"],
+    labels: ["UPI", "Credit Card", "Debit Card", "Cash on Delivery"],
     datasets: [{
-      data: [45, 25, 20, 10],
+      data: [42, 28, 18, 12],
       backgroundColor: [
-        "#004d61",
         "#33b2ff",
+        "#004d61",
         "#00b8a9",
         "#ffe36e"
+      ]
+    }]
+  }
+});
+
+/* 4️⃣ Top Selling Categories */
+new Chart(c4, {
+  type: "pie",
+  data: {
+    labels: ["Electronics", "Clothing", "Groceries", "Accessories"],
+    datasets: [{
+      data: [38, 32, 18, 12],
+      backgroundColor: [
+        "#33b2ff",
+        "#6c5ce7",
+        "#00b894",
+        "#ff7675"
       ]
     }]
   }

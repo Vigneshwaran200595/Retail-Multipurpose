@@ -1,277 +1,525 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Products</title>
-  <link rel="stylesheet" href="dashboard.css" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accounting & Finance Dashboard</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ================= GLOBAL ================= */
+/* ================= GLOBAL ================= */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(180deg,#f5fbff,#eef6ff);
+  overflow-x: hidden;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  position: fixed;
+  top: 0; left: 0;
+  background: linear-gradient(180deg,#081f2e,#33b2ff);
+  padding: 25px 0;
+  color: #fff;
+  z-index: 1000;
+  transition: 0.3s;
+}
+
+.sidebar .logo-box {
+  padding-left: 24px;
+  margin-bottom: 35px;
+}
+
+.sidebar .logo-box img {
+  width: 180px;
+}
+
+.sidebar ul { list-style: none; padding: 0; }
+
+.sidebar li {
+  padding: 14px 26px;
+}
+
+.sidebar li a {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.sidebar li.active,
+.sidebar li:hover {
+  background: rgba(255,255,255,0.22);
+}
+
+/* ================= OVERLAY ================= */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 900;
+}
+
+/* ================= MAIN ================= */
+.main-content {
+  margin-left: 280px;
+  padding: 28px;
+  transition: 0.3s;
+}
+
+/* ================= HEADER ================= */
+.header {
+  background: linear-gradient(135deg,#072539,#33b2ff);
+  padding: 22px 26px;
+  border-radius: 22px;
+  color: #fff;
+}
+
+/* Top row */
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Desktop logo hidden */
+.header-logo { display: none; }
+
+/* Toggle */
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* Title + actions */
+.header-bottom {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-bottom h2 {
+  margin: 0;
+  font-size: 28px;
+}
+
+/* Right actions */
+.header-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.home-btn {
+  background: linear-gradient(135deg, #081b28, #0d8adb);
+  padding: 8px 20px;
+  border-radius: 30px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  transition: 
+    background 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.25s ease;
+}
+
+/* HOVER EFFECT */
+.home-btn:hover {
+  background: linear-gradient(135deg, #0d8adb, #33b2ff);
+  box-shadow: 0 10px 25px rgba(13, 138, 219, 0.45);
+  transform: translateY(-2px);
+}
+
+/* ACTIVE (CLICK) FEEDBACK */
+.home-btn:active {
+  transform: scale(0.96);
+  box-shadow: 0 6px 15px rgba(13, 138, 219, 0.35);
+}
+
+/* Profile */
+.profile-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.profile-box img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+}
+
+/* ================= METRICS ================= */
+.cards {
+  margin-top: 35px;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 22px;
+}
+
+.card {
+  padding: 28px;
+  border-radius: 20px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.22);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ICON */
+.card-icon {
+  font-size: 36px;
+  color: #fff;
+}
+
+/* TITLE */
+.card h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* NUMBER */
+.card .number {
+  font-size: 34px;
+  font-weight: 700;
+}
+
+/* HOVER */
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 26px 55px rgba(0,0,0,0.3);
+}
+
+/* ================= CARD GRADIENTS ================= */
+.gradient-income {
+  background: linear-gradient(135deg,#33b2ff,#0d8adb);
+}
+
+.gradient-expense {
+  background: linear-gradient(135deg,#38bdf8,#0284c7);
+}
+
+.gradient-profit {
+  background: linear-gradient(135deg,#60a5fa,#2563eb);
+}
+
+.gradient-invoice {
+  background: linear-gradient(135deg,#7dd3fc,#38bdf8);
+}
+
+/* ================= CHARTS ================= */
+.chart-grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 30px;
+}
+
+.chart-box {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 22px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+  height: 420px;
+  transition: 0.35s;
+}
+
+.chart-box:hover {
+  border-color: #33b2ff;
+  box-shadow: 0 22px 45px rgba(51,178,255,0.25);
+}
+
+.chart-box canvas {
+  width: 100%!important;
+  height: 320px!important;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:1100px){
+  .cards { grid-template-columns: repeat(2,1fr); }
+  .chart-grid { grid-template-columns: 1fr; }
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+
+  .menu-toggle { display: block; }
+  .sidebar { left: -270px; }
+  .sidebar.open { left: 0; }
+  .sidebar-overlay.show { display: block; }
+
+  .main-content { margin-left: 0; }
+
+  .header { padding: 18px 20px; }
+
+  .header-logo { display: block; }
+  .header-logo img { width: 150px; }
+
+  .header-bottom h2 { font-size: 22px; }
+
+  .card {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .card-icon {
+    font-size: 42px;
+    min-width: 50px;
+  }
+
+  .card .number {
+    font-size: 22px;
+  }
+}
+
+@media(max-width:480px){
+  .cards { grid-template-columns: 1fr; }
+  .profile-box span { display: none; }
+  .chart-box { height: auto; }
+  .chart-box canvas { height: 260px!important; }
+}
+
+</style>
 </head>
+
 <body>
-  <!-- Sidebar -->
-  <div class="sidebar">
-    <div class="logo">
-      <img src="Images/logo.webp" alt="Dashboard Logo">
-    </div>
-     <ul class="menu">
+
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+  <div class="logo-box">
+   <a href="index.html" class="logo-link">
+  <img src="Images/logo.webp" alt="Logo">
+</a>
+
+  </div>
+ <ul>
   <li>
-    <a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+    <a href="dashboard.html">
+      <i class="fa-solid fa-chart-pie"></i> Dashboard
+    </a>
   </li>
   <li class="active">
-    <a href="product1.html"><i class="fas fa-box"></i> Products</a>
+    <a href="product1.html">
+      <i class="fa-solid fa-box"></i> Products
+    </a>
   </li>
+
   <li>
-    <a href="orders.html"><i class="fas fa-shopping-cart"></i> Orders</a>
+    <a href="sales.html">
+      <i class="fa-solid fa-receipt"></i> Sales
+    </a>
   </li>
+
   <li>
-    <a href="customers.html"><i class="fas fa-users"></i> Customers</a>
+    <a href="customers.html">
+      <i class="fa-solid fa-users"></i> Customers
+    </a>
   </li>
+
   <li>
-    <a href="reports.html"><i class="fas fa-chart-line"></i> Reports</a>
+    <a href="suppliers.html">
+      <i class="fa-solid fa-truck"></i> Suppliers
+    </a>
   </li>
+
   <li>
-    <a href="profile.html"><i class="fas fa-cog"></i> Profile</a>
+    <a href="expenses.html">
+      <i class="fa-solid fa-money-bill-wave"></i> Expenses
+    </a>
+  </li>
+
+  <li>
+    <a href="reports.html">
+      <i class="fa-solid fa-file-invoice"></i> Reports
+    </a>
   </li>
 </ul>
-  </div>
 
-  <!-- Main Content -->
-  <div class="main-content">
-<header>
-  <div class="header-icons">
+</div>
 
-    <!-- Home Button -->
-    <div class="home-btn">
-      <a href="index.html" title="Go to Home">
-        <i class="fas fa-home"></i>
-      </a>
+<div class="sidebar-overlay" id="overlay"></div>
+
+<!-- MAIN -->
+<div class="main-content">
+
+  <!-- HEADER -->
+  <div class="header">
+
+    <div class="header-top">
+      <div class="header-logo">
+        <img src="Images/logo.webp">
+      </div>
+      <i class="fa-solid fa-bars menu-toggle" onclick="toggleSidebar()"></i>
     </div>
 
-    <!-- Notification -->
-    <div class="notification-container">
-      <i class="fas fa-bell notification-icon"></i>
-      <span class="badge">3</span>
-
-      <div class="notification-dropdown" id="notificationDropdown">
-        <h4>Notifications</h4>
-        <ul id="notificationList">
-          <li>
-            <span>New order received #1245</span>
-            <button class="remove-btn">Remove</button>
-          </li>
-          <li>
-            <span>Product “Blue Headphones” is low on stock</span>
-            <button class="remove-btn">Remove</button>
-          </li>
-          <li>
-            <span>Payment of ₹1,500 received</span>
-            <button class="remove-btn">Remove</button>
-          </li>
-        </ul>
+    <div class="header-bottom">
+      <h2>Products</h2>
+      <div class="header-actions">
+        <a href="index.html" class="home-btn">Home</a>
+        <div class="profile-box">
+          <span>Admin</span>
+          <img src="Images/profile1.webp">
+        </div>
       </div>
     </div>
 
-    <!-- Profile -->
-    <div class="user-profile">
-      <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Profile" />
-      <span>Pauline Seitz</span>
-    </div>
-  </div>
-</header>
-
-    <!-- Product Overview Cards -->
-    <section class="cards">
-      <div class="card">
-        <i class="fas fa-boxes"></i>
-        <div class="card-info">
-          <h3>145</h3>
-          <p>Total Products</p>
-        </div>
-      </div>
-      <div class="card">
-        <i class="fas fa-plus-circle"></i>
-        <div class="card-info">
-          <h3>12</h3>
-          <p>New Arrivals</p>
-        </div>
-      </div>
-      <div class="card">
-        <i class="fas fa-exclamation-triangle"></i>
-        <div class="card-info">
-          <h3>8</h3>
-          <p>Low Stock Items</p>
-        </div>
-      </div>
-      <div class="card">
-        <i class="fas fa-star"></i>
-        <div class="card-info">
-          <h3>25</h3>
-          <p>Top Rated</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Product Table -->
-<section class="table-section">
-  <div class="table-header">
-    <h2>Product List</h2>
-    <button id="addProductBtn" class="add-btn">
-      <i class="fas fa-plus"></i> Add Product
-    </button>
   </div>
 
-  <table class="product-table">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Image</th>
-        <th>Product</th>
-        <th>Price</th>
-        <th>Stock</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody id="productTable">
-      <tr>
-        <td>1</td>
-        <td><img src="Images/headphone.webp" alt="Earbuds"></td>
-        <td>Wireless Earbuds</td>
-        <td>$99</td>
-        <td>250</td>
-        <td>
-          <button class="edit-btn"><i class="fas fa-edit"></i></button>
-          <button class="delete-btn"><i class="fas fa-trash"></i></button>
-        </td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td><img src="Images/smartwatch.webp" alt="Watch"></td>
-        <td>Smart Watch</td>
-        <td>$149</td>
-        <td>120</td>
-        <td>
-          <button class="edit-btn"><i class="fas fa-edit"></i></button>
-          <button class="delete-btn"><i class="fas fa-trash"></i></button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</section>
 
+<!-- PRODUCT METRICS -->
+<div class="cards">
 
+  <div class="card gradient-income">
+    <i class="fa-solid fa-boxes-stacked card-icon"></i>
+    <h3>Total Products</h3>
+    <div class="number">1,250</div>
   </div>
 
-  <script src="dashboard.js"></script>
+  <div class="card gradient-profit">
+    <i class="fa-solid fa-box-open card-icon"></i>
+    <h3>Products in Stock</h3>
+    <div class="number">980</div>
+  </div>
+
+  <div class="card gradient-expense">
+    <i class="fa-solid fa-triangle-exclamation card-icon"></i>
+    <h3>Low Stock Items</h3>
+    <div class="number">18</div>
+  </div>
+
+  <div class="card gradient-invoice">
+    <i class="fa-solid fa-ban card-icon"></i>
+    <h3>Out of Stock</h3>
+    <div class="number">42</div>
+  </div>
+
+</div>
+
+
+
+<!-- PRODUCT CHARTS -->
+<div class="chart-grid">
+
+  <div class="chart-box">
+    <h3>Monthly Product Sales (Units)</h3>
+    <canvas id="c1"></canvas>
+  </div>
+
+  <div class="chart-box">
+    <h3>Stock Status Distribution</h3>
+    <canvas id="c2"></canvas>
+  </div>
+
+  <div class="chart-box">
+    <h3>Top Selling Products</h3>
+    <canvas id="c3"></canvas>
+  </div>
+
+  <div class="chart-box">
+    <h3>Products by Category</h3>
+    <canvas id="c4"></canvas>
+  </div>
+
+</div>
+
+
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const table = document.getElementById("productTable");
-  const addBtn = document.getElementById("addProductBtn");
-  let productId = table.rows.length + 1;
+function toggleSidebar(){
+  sidebar.classList.toggle("open");
+  overlay.classList.toggle("show");
+}
+overlay.onclick = toggleSidebar;
 
-  // 🆕 ADD PRODUCT
-  addBtn.addEventListener("click", () => {
-    const newRow = document.createElement("tr");
-    newRow.innerHTML = `
-      <td>${productId++}</td>
-      <td><input type="text" placeholder="Image URL"></td>
-      <td><input type="text" placeholder="Product Name"></td>
-      <td><input type="text" placeholder="Price"></td>
-      <td><input type="text" placeholder="Stock"></td>
-      <td>
-        <button class="save-btn"><i class="fas fa-save"></i></button>
-        <button class="cancel-btn"><i class="fas fa-times"></i></button>
-      </td>
-    `;
-    table.appendChild(newRow);
-  });
+/* ================= RETAIL CHARTS ================= */
 
-  // 🧭 Handle Edit / Save / Delete / Cancel
-  table.addEventListener("click", (e) => {
-    const row = e.target.closest("tr");
-
-    // 🗑️ Delete
-    if (e.target.closest(".delete-btn")) {
-      row.remove();
-    }
-
-    // ✏️ Edit
-    if (e.target.closest(".edit-btn")) {
-      const cells = row.querySelectorAll("td");
-      const img = cells[1].querySelector("img").src;
-      const product = cells[2].textContent;
-      const price = cells[3].textContent;
-      const stock = cells[4].textContent;
-
-      cells[1].innerHTML = `<input type="text" value="${img}">`;
-      cells[2].innerHTML = `<input type="text" value="${product}">`;
-      cells[3].innerHTML = `<input type="text" value="${price}">`;
-      cells[4].innerHTML = `<input type="text" value="${stock}">`;
-
-      cells[5].innerHTML = `
-        <button class="save-btn"><i class="fas fa-save"></i></button>
-        <button class="cancel-btn"><i class="fas fa-times"></i></button>
-      `;
-    }
-
-    // 💾 Save
-    if (e.target.closest(".save-btn")) {
-      const inputs = row.querySelectorAll("input");
-      const [img, product, price, stock] = [...inputs].map(i => i.value);
-
-      row.innerHTML = `
-        <td>${row.cells[0]?.textContent || productId++}</td>
-        <td><img src="${img || 'https://via.placeholder.com/60'}" alt=""></td>
-        <td>${product}</td>
-        <td>${price}</td>
-        <td>${stock}</td>
-        <td>
-          <button class="edit-btn"><i class="fas fa-edit"></i></button>
-          <button class="delete-btn"><i class="fas fa-trash"></i></button>
-        </td>
-      `;
-    }
-
-    // ❌ Cancel
-    if (e.target.closest(".cancel-btn")) {
-      row.remove();
-    }
-  });
+new Chart(c1, {
+  type: "line",
+  data: {
+    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+    datasets: [{
+      data: [420, 560, 510, 640, 720, 860],
+      borderColor: "#33b2ff",
+      backgroundColor: "rgba(51,178,255,0.25)",
+      fill: true,
+      tension: 0.4
+    }]
+  },
+  options: {
+    plugins: { legend: { display: false } }
+  }
 });
+
+/* 2️⃣ Stock Status Distribution */
+new Chart(c2, {
+  type: "pie",
+  data: {
+    labels: ["In Stock", "Low Stock", "Out of Stock"],
+    datasets: [{
+      data: [72, 18, 10],
+      backgroundColor: [
+        "#33b2ff",
+        "#ffe36e",
+        "#ff7675"
+      ]
+    }]
+  }
+});
+
+/* 3️⃣ Top Selling Products */
+new Chart(c3, {
+  type: "bar",
+  data: {
+    labels: ["Smartphone", "Headphones", "Shoes", "Watches", "Bags"],
+    datasets: [{
+      data: [320, 280, 240, 190, 160],
+      backgroundColor: "#33b2ff"
+    }]
+  },
+  options: {
+    plugins: { legend: { display: false } }
+  }
+});
+
+/* 4️⃣ Products by Category */
+new Chart(c4, {
+  type: "doughnut",
+  data: {
+    labels: ["Electronics", "Clothing", "Groceries", "Accessories"],
+    datasets: [{
+      data: [35, 30, 20, 15],
+      backgroundColor: [
+        "#33b2ff",
+        "#004d61",
+        "#00b8a9",
+        "#ffe36e"
+      ]
+    }]
+  }
+});
+
 </script>
-
-<script>
-  // ✅ Notification Dropdown Toggle
-  document.addEventListener("DOMContentLoaded", () => {
-    const notificationContainer = document.querySelector(".notification-container");
-    const dropdown = document.querySelector(".notification-dropdown");
-    const removeBtns = document.querySelectorAll(".remove-btn");
-
-    // Toggle dropdown on bell click
-    notificationContainer.addEventListener("click", (e) => {
-      e.stopPropagation();
-      dropdown.classList.toggle("active");
-    });
-
-    // Close dropdown when clicking outside
-    document.addEventListener("click", () => {
-      dropdown.classList.remove("active");
-    });
-
-    // Remove individual notification
-    removeBtns.forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        btn.parentElement.remove();
-      });
-    });
-  });
-</script>
-
-
-
 
 </body>
 </html>

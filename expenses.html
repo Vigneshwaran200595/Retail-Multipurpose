@@ -344,13 +344,13 @@ body {
     </a>
   </li>
 
-  <li>
+  <li class="active">
     <a href="expenses.html">
       <i class="fa-solid fa-money-bill-wave"></i> Expenses
     </a>
   </li>
 
-  <li class="active">
+  <li>
     <a href="reports.html">
       <i class="fa-solid fa-file-invoice"></i> Reports
     </a>
@@ -375,7 +375,7 @@ body {
     </div>
 
     <div class="header-bottom">
-      <h2>Reports</h2>
+      <h2>Expenses</h2>
       <div class="header-actions">
         <a href="index.html" class="home-btn">Home</a>
         <div class="profile-box">
@@ -388,57 +388,58 @@ body {
   </div>
 
 
-<!-- REPORTS METRICS -->
+<!-- EXPENSE METRICS -->
 <div class="cards">
 
+  <div class="card gradient-expense">
+    <i class="fa-solid fa-wallet card-icon"></i>
+    <h3>Total Expenses</h3>
+    <div class="number">₹2,10,000</div>
+  </div>
+
   <div class="card gradient-income">
-    <i class="fa-solid fa-chart-column card-icon"></i>
-    <h3>Total Reports</h3>
-    <div class="number">48</div>
+    <i class="fa-solid fa-calendar-days card-icon"></i>
+    <h3>Monthly Expenses</h3>
+    <div class="number">₹38,000</div>
   </div>
 
   <div class="card gradient-profit">
-    <i class="fa-solid fa-file-lines card-icon"></i>
-    <h3>Generated This Month</h3>
-    <div class="number">12</div>
-  </div>
-
-  <div class="card gradient-expense">
-    <i class="fa-solid fa-clock-rotate-left card-icon"></i>
-    <h3>Scheduled Reports</h3>
-    <div class="number">9</div>
+    <i class="fa-solid fa-arrow-trend-down card-icon"></i>
+    <h3>Expense Reduction</h3>
+    <div class="number">12%</div>
   </div>
 
   <div class="card gradient-invoice">
-    <i class="fa-solid fa-file-arrow-down card-icon"></i>
-    <h3>Downloads</h3>
-    <div class="number">324</div>
+    <i class="fa-solid fa-file-invoice-dollar card-icon"></i>
+    <h3>Pending Bills</h3>
+    <div class="number">9</div>
   </div>
 
 </div>
 
 
-<!-- REPORTS CHARTS -->
+<!-- SUPPLIER CHARTS -->
+<!-- EXPENSE CHARTS -->
 <div class="chart-grid">
 
   <div class="chart-box">
-    <h3>Reports Generated Over Time</h3>
-    <canvas id="rep1"></canvas>
+    <h3>Monthly Expense Trend</h3>
+    <canvas id="exp1"></canvas>
   </div>
 
   <div class="chart-box">
-    <h3>Report Types Distribution</h3>
-    <canvas id="rep2"></canvas>
+    <h3>Expense Category Split</h3>
+    <canvas id="exp2"></canvas>
   </div>
 
   <div class="chart-box">
-    <h3>Monthly Report Downloads</h3>
-    <canvas id="rep3"></canvas>
+    <h3>Fixed vs Variable Expenses</h3>
+    <canvas id="exp3"></canvas>
   </div>
 
   <div class="chart-box">
-    <h3>Most Viewed Reports</h3>
-    <canvas id="rep4"></canvas>
+    <h3>Top Expense Sources</h3>
+    <canvas id="exp4"></canvas>
   </div>
 
 </div>
@@ -451,14 +452,14 @@ function toggleSidebar(){
 }
 overlay.onclick = toggleSidebar;
 
-new Chart(rep1, {
+new Chart(exp1, {
   type: "line",
   data: {
     labels: ["Jan","Feb","Mar","Apr","May","Jun"],
     datasets: [{
-      data: [6, 8, 7, 10, 9, 12],
-      borderColor: "#33b2ff",
-      backgroundColor: "rgba(51,178,255,0.25)",
+      data: [32000, 35000, 34000, 38000, 36000, 39000],
+      borderColor: "#ff7675",
+      backgroundColor: "rgba(255,118,117,0.25)",
       fill: true,
       tension: 0.4
     }]
@@ -466,51 +467,48 @@ new Chart(rep1, {
   options: { plugins: { legend: { display: false } } }
 });
 
-/* 2️⃣ Report Types Distribution */
-new Chart(rep2, {
+/* 2️⃣ Expense Category Split */
+new Chart(exp2, {
   type: "pie",
   data: {
-    labels: ["Sales","Expenses","Inventory","Customers","Suppliers"],
+    labels: ["Inventory","Rent","Salaries","Marketing","Utilities"],
     datasets: [{
-      data: [35, 25, 20, 10, 10],
+      data: [40, 20, 18, 12, 10],
       backgroundColor: [
-        "#33b2ff",
         "#ff7675",
-        "#00b894",
         "#6c5ce7",
-        "#ffe36e"
+        "#33b2ff",
+        "#ffe36e",
+        "#00b894"
       ]
     }]
   }
 });
 
-/* 3️⃣ Monthly Report Downloads */
-new Chart(rep3, {
-  type: "bar",
-  data: {
-    labels: ["Jan","Feb","Mar","Apr","May","Jun"],
-    datasets: [{
-      data: [40, 55, 50, 70, 60, 80],
-      backgroundColor: "#33b2ff"
-    }]
-  },
-  options: { plugins: { legend: { display: false } } }
-});
-
-/* 4️⃣ Most Viewed Reports */
-new Chart(rep4, {
+/* 3️⃣ Fixed vs Variable Expenses */
+new Chart(exp3, {
   type: "doughnut",
   data: {
-    labels: ["Sales Summary","Expense Report","Stock Report","Customer Insights"],
+    labels: ["Fixed Expenses","Variable Expenses"],
     datasets: [{
-      data: [45, 25, 20, 10],
-      backgroundColor: [
-        "#004d61",
-        "#33b2ff",
-        "#00b8a9",
-        "#ffe36e"
-      ]
+      data: [65, 35],
+      backgroundColor: ["#ff7675","#33b2ff"]
     }]
+  }
+});
+
+/* 4️⃣ Top Expense Sources */
+new Chart(exp4, {
+  type: "bar",
+  data: {
+    labels: ["Suppliers","Staff","Logistics","Ads","Maintenance"],
+    datasets: [{
+      data: [85000, 60000, 30000, 20000, 15000],
+      backgroundColor: "#ff7675"
+    }]
+  },
+  options: {
+    plugins: { legend: { display: false } }
   }
 });
 

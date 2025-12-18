@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stackly Retail/Multipurpose</title>
   <link rel="stylesheet" href="contact1.css" />
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
@@ -94,7 +95,7 @@
     </div>
   </section>
 
-  <section class="contact-section" data-animate="bounceIn">
+  <section class="contact-section" data-aos="fade-in">
   <h2 class="contact-title">Contact Information</h2>
 
   <div class="contact-info">
@@ -123,7 +124,7 @@
     </div>
   </div>
 
-  <div class="contact-details" data-animate="bounceIn">
+  <div class="contact-details" data-aos="fade-in">
    <form class="contact-form" id="contactForm">
   <div class="form-row">
     <input type="text" placeholder="Name" required>
@@ -162,7 +163,7 @@ form.addEventListener("submit", function(e) {
 </script>
 
 
-    <div class="map-container" data-animate="bounceIn">
+    <div class="map-container" data-aos="fade-in">
       <iframe 
         src="https://www.google.com/maps?q=Salem%2C%20Tamil%20Nadu&t=&z=13&ie=UTF8&iwloc=&output=embed"
         allowfullscreen=""
@@ -172,7 +173,7 @@ form.addEventListener("submit", function(e) {
   </div>
 </section>
 
-<section class="feature-strip" data-animate="bounceIn">
+<section class="feature-strip" data-aos="fade-in">
   <div class="feature-container">
 
     <div class="feature-item">
@@ -225,7 +226,7 @@ form.addEventListener("submit", function(e) {
 
 
 
-<footer class="footer-section" data-animate="bounceIn">
+<footer class="footer-section" data-aos="fade-in">
   <div class="footer-overlay">
     <div class="footer-container">
       <!-- Column 1: Logo & Contact -->
@@ -575,6 +576,22 @@ document.addEventListener("DOMContentLoaded", () => {
   elements.forEach((el) => observer.observe(el));
 });
 </script>
+
+ <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true,
+    offset: 80
+  });
+
+  window.addEventListener('load', () => {
+    AOS.refresh();
+  });
+</script>
+
 
 
   <script src="shop1.js"></script>

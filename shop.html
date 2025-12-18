@@ -6,6 +6,7 @@
   <title>Stackly Retail/Multipurpose</title>
   <link rel="stylesheet" href="shop.css" />
   <script src="https://cdn.tailwindcss.com"></script>
+   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -112,12 +113,12 @@
 <main class="shop-container">
   <!-- Sidebar Filters -->
   <aside class="sidebar">
-    <div class="filter" data-animate="bounceInLeft">
+    <div class="filter" data-aos="fade-in">
       <h3>Search</h3>
       <input type="text" id="search" placeholder="Search products...">
     </div>
 
-    <div class="filter" data-animate="bounceInLeft">
+    <div class="filter" data-aos="fade-in">
       <h3>Category</h3>
       <ul id="category-list">
         <li data-category="all" class="active">All</li>
@@ -127,20 +128,20 @@
       </ul>
     </div>
 
-    <div class="filter" data-animate="bounceInLeft">
+    <div class="filter" data-aos="fade-in">
       <h3>Brand</h3>
       <label><input type="checkbox" value="Apple"> Apple</label><br>
       <label><input type="checkbox" value="Samsung"> Samsung</label><br>
       <label><input type="checkbox" value="Nike"> Nike</label><br>
     </div>
 
-    <div class="filter" data-animate="bounceInLeft">
+    <div class="filter" data-aos="fade-in">
       <h3>Price Range</h3>
       <input type="range" id="price-range" min="0" max="2000" step="100">
       <p>Up to ₹<span id="price-value">2000</span></p>
     </div>
 
-    <div class="filter-section" data-animate="bounceInLeft">
+    <div class="filter-section" data-aos="fade-in">
       <h4>Ratings</h4>
       <ul class="rating-filter">
         <li><label><input type="radio" name="rating" value="5"> ⭐⭐⭐⭐⭐ & up</label></li>
@@ -155,7 +156,7 @@
 
   <!-- Product Section -->
   <section class="products-section">
-    <div class="products-header" data-animate="bounceInUp">
+    <div class="products-header" data-aos="fade-in">
       <h2>Products</h2>
       <select id="sort" data-animate="bounceInRight">
         <option value="default">Sort by</option>
@@ -173,7 +174,7 @@
 </main>
 
 <footer class="footer">
-    <div class="footer-container" data-animate="bounceIn">
+    <div class="footer-container" data-aos="fade-in">
       
       <!-- Column 1: About -->
       <div class="footer-col">
@@ -474,6 +475,23 @@ document.addEventListener("DOMContentLoaded", () => {
   elements.forEach((el) => observer.observe(el));
 });
 </script>
+
+ <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true,
+    offset: 80
+  });
+
+  window.addEventListener('load', () => {
+    AOS.refresh();
+  });
+</script>
+
+
 
 </body>
 </html>

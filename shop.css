@@ -292,7 +292,7 @@ body.dark-mode .dark-mode-toggle i {
 @media (min-width: 421px) and (max-width: 600px) {
   .dark-mode-toggle {
     position: absolute;
-    top: 12px;       /* slightly higher */
+    top: 60px;       /* slightly higher */
     right: 100px;     /* more centered for medium phones */
     z-index: 999;
   }

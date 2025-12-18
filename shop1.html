@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stackly Retail/Multipurpose</title>
   <link rel="stylesheet" href="shop1.css" />
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
@@ -97,17 +98,17 @@
  <div class="container1">
     <!-- Sidebar -->
     <aside class="sidebar">
-      <div class="search-box" data-animate="bounceInLeft">
+      <div class="search-box" data-aos="fade-in">
         <input type="text" id="searchInput" placeholder="Search products..." />
       </div>
 
-      <div class="filter-group" data-animate="bounceInLeft">
+      <div class="filter-group" data-aos="fade-in">
         <h4>Filter by Price</h4>
         <input type="range" id="priceRange" min="10" max="2000" value="2000">
         <p>Max Price: $<span id="priceValue">2000</span></p>
       </div>
 
-      <div class="filter-group" data-animate="bounceInLeft">
+      <div class="filter-group" data-aos="fade-in">
         <h4>Select Brand</h4>
         <label><input type="checkbox" class="brandFilter" value="Apple"> Apple</label>
         <label><input type="checkbox" class="brandFilter" value="Sony"> Sony</label>
@@ -116,7 +117,7 @@
         <label><input type="checkbox" class="brandFilter" value="Asus"> Asus</label>
       </div>
 
-      <div class="filter-group" data-animate="bounceInLeft">
+      <div class="filter-group" data-aos="fade-in">
         <h4>Categories</h4>
         <label><input type="checkbox" class="catFilter" value="Mobile"> Mobile</label>
         <label><input type="checkbox" class="catFilter" value="Laptop"> Laptop</label>
@@ -126,7 +127,7 @@
         <label><input type="checkbox" class="catFilter" value="Home"> Home</label>
       </div>
 
-      <div class="filter-group" data-animate="bounceInLeft">
+      <div class="filter-group" data-aos="fade-in">
   <h4>Filter by Rating</h4>
   <label><input type="radio" name="ratingFilter" class="ratingFilter" value="all" checked> All Ratings</label>
   <label><input type="radio" name="ratingFilter" class="ratingFilter" value="4"> 4★ & above</label>
@@ -137,7 +138,7 @@
 
     <!-- Main Content -->
     <main class="product-area">
-      <div class="top-bar" data-animate="bounceInUp">
+      <div class="top-bar" data-aos="fade-in">
         <div class="results-info">
           Showing <span id="showCount">1–12</span> of <span id="totalResults">36</span> results
         </div>
@@ -157,7 +158,7 @@
     </main>
   </div>
 
-  <section class="feature-strip" data-animate="bounceIn">
+  <section class="feature-strip" data-aos="fade-in">
   <div class="feature-container">
 
     <div class="feature-item">
@@ -208,7 +209,7 @@
   </div>
 </section>
 
-<footer class="footer-section" data-animate="bounceIn">
+<footer class="footer-section" data-aos="fade-in">
   <div class="footer-overlay">
     <div class="footer-container">
       <!-- Column 1: Logo & Contact -->
@@ -459,6 +460,22 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
   <script src="shop1.js"></script>
+
+   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true,
+    offset: 80
+  });
+
+  window.addEventListener('load', () => {
+    AOS.refresh();
+  });
+</script>
+
 
   </body>
 </html>

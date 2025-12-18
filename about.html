@@ -6,6 +6,7 @@
   <title>Stackly Retail/Multipurpose</title>
   <link rel="stylesheet" href="about.css" />
   <script src="https://cdn.tailwindcss.com"></script>
+   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -115,9 +116,9 @@
 
     <!-- Left Side Images -->
     <div class="about-images">
-      <div class="img-top" data-animate="bounceInLeft">
+      <div class="img-top" data-aos="fade-in">
         <img src="Images/about-2.webp" alt="Shopping Friends">
-        <div class="experience-badge" data-animate="bounceIn">
+        <div class="experience-badge" data-aos="fade-in">
           <i class="fas fa-cogs"></i>
           <div>
             <h3>30 Years Of</h3>
@@ -125,13 +126,13 @@
           </div>
         </div>
       </div>
-      <div class="img-bottom" data-animate="bounceInUp">
+      <div class="img-bottom" data-aos="fade-in">
         <img src="Images/about-3.webp" alt="Shopping Girl">
       </div>
     </div>
 
     <!-- Right Side Content -->
-    <div class="about-content" data-animate="bounceInRight">
+    <div class="about-content" data-aos="fade-in">
       <h5>ABOUT US</h5>
       <h2>World Largest Online <span>Shopping Marketplace</span> For You.</h2>
       <p>
@@ -154,7 +155,7 @@
   </div>
 </section>
 
-<section class="stats-section" data-animate="bounceIn">
+<section class="stats-section" data-aos="fade-in">
   <div class="stats-container">
 
     <div class="stat-box">
@@ -185,7 +186,7 @@
 </section>
 
 <section class="testimonial-section">
-  <div class="testimonial-header" data-animate="bounceInUp">
+  <div class="testimonial-header" data-aos="fade-in">
     <h5>TESTIMONIALS</h5>
     <h2>What Our Client Say's <span>About Us</span></h2>
   </div>
@@ -195,7 +196,7 @@
     <div class="swiper-wrapper">
 
       <!-- Testimonial 1 -->
-      <div class="swiper-slide testimonial-card" data-animate="bounceIn">
+      <div class="swiper-slide testimonial-card" data-aos="fade-in">
         <div class="testimonial-top">
           <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="User 1">
           <div>
@@ -216,7 +217,7 @@
       </div>
 
       <!-- Testimonial 2 -->
-      <div class="swiper-slide testimonial-card" data-animate="bounceIn">
+      <div class="swiper-slide testimonial-card" data-aos="fade-in">
         <div class="testimonial-top">
           <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="User 2">
           <div>
@@ -237,7 +238,7 @@
       </div>
 
       <!-- Testimonial 3 -->
-      <div class="swiper-slide testimonial-card" data-animate="bounceIn">
+      <div class="swiper-slide testimonial-card" data-aos="fade-in">
         <div class="testimonial-top">
           <img src="https://randomuser.me/api/portraits/women/23.jpg" alt="User 3">
           <div>
@@ -258,7 +259,7 @@
       </div>
 
       <!-- Testimonial 4 -->
-      <div class="swiper-slide testimonial-card" data-animate="bounceIn">
+      <div class="swiper-slide testimonial-card" data-aos="fade-in">
         <div class="testimonial-top">
           <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User 4">
           <div>
@@ -287,12 +288,12 @@
 
 <section class="team-section">
   <div class="container">
-    <h4 class="subtitle" data-animate="bounceInUp">OUR TEAM</h4>
-    <h2 class="title" data-animate="bounceInUp">Meet Our Expert <span>Team</span></h2>
+    <h4 class="subtitle" data-aos="fade-in">OUR TEAM</h4>
+    <h2 class="title" data-aos="fade-in">Meet Our Expert <span>Team</span></h2>
 
     <div class="team-container">
       <!-- Team Member 1 -->
-      <div class="team-card" data-animate="bounceIn">
+      <div class="team-card" data-aos="fade-in">
         <img src="Images/team1.webp" alt="Chad Smith">
         <h3>Chad Smith</h3>
         <p class="role">Senior Manager</p>
@@ -309,7 +310,7 @@
       </div>
 
       <!-- Team Member 2 -->
-      <div class="team-card" data-animate="bounceIn">
+      <div class="team-card" data-aos="fade-in">
         <img src="Images/team2.webp" alt="Malissa Fie">
         <h3>Malissa Fie</h3>
         <p class="role">SEO Expert</p>
@@ -326,7 +327,7 @@
       </div>
 
       <!-- Team Member 3 -->
-      <div class="team-card" data-animate="bounceIn">
+      <div class="team-card" data-aos="fade-in">
         <img src="Images/team3.webp" alt="Arron Rodri">
         <h3>Arron Rodri</h3>
         <p class="role">CEO & Founder</p>
@@ -343,7 +344,7 @@
       </div>
 
       <!-- Team Member 4 -->
-      <div class="team-card" data-animate="bounceIn">
+      <div class="team-card" data-aos="fade-in">
         <img src="Images/team4.webp" alt="Tony Pinako">
         <h3>Tony Pinako</h3>
         <p class="role">Digital Marketer</p>
@@ -363,7 +364,7 @@
 </section>
 
 <footer class="footer">
-    <div class="footer-container" data-animate="bounceIn">
+    <div class="footer-container" data-aos="fade-in">
       
       <!-- Column 1: About -->
       <div class="footer-col">
@@ -789,6 +790,24 @@ document.addEventListener("DOMContentLoaded", () => {
   elements.forEach((el) => observer.observe(el));
 });
 </script>
+
+
+ <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true,
+    offset: 80
+  });
+
+  window.addEventListener('load', () => {
+    AOS.refresh();
+  });
+</script>
+
+
 
   </body>
 </html>

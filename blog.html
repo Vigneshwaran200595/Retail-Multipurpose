@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stackly Retail/Multipurpose</title>
   <link rel="stylesheet" href="blog.css" />
+   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -117,7 +118,7 @@
 
     <div class="blog-container">
       <!-- Row 1 -->
-      <div class="blog-card" data-animate="bounceIn">
+      <div class="blog-card" data-aos="fade-in">
         <div class="blog-image">
           <img src="https://img.freepik.com/free-photo/young-woman-shopping-electronics-store_23-2149300092.jpg" alt="Ecommerce News">
           <div class="blog-date"><i class="fa-regular fa-calendar"></i> Aug 12, 2025</div>
@@ -134,7 +135,7 @@
         </div>
       </div>
 
-      <div class="blog-card" data-animate="bounceIn">
+      <div class="blog-card" data-aos="fade-in">
         <div class="blog-image">
           <img src="https://img.freepik.com/free-photo/customer-paying-with-credit-card-shop_23-2148748431.jpg" alt="Ecommerce Payment">
           <div class="blog-date"><i class="fa-regular fa-calendar"></i> Aug 15, 2025</div>
@@ -151,7 +152,7 @@
         </div>
       </div>
 
-      <div class="blog-card" data-animate="bounceIn">
+      <div class="blog-card" data-aos="fade-in">
         <div class="blog-image">
           <img src="https://img.freepik.com/free-photo/happy-woman-online-shopping-with-laptop_23-2149012027.jpg" alt="Ecommerce Trends">
           <div class="blog-date"><i class="fa-regular fa-calendar"></i> Aug 18, 2025</div>
@@ -169,7 +170,7 @@
       </div>
 
       <!-- Row 2 -->
-      <div class="blog-card" data-animate="bounceIn">
+      <div class="blog-card" data-aos="fade-in">
         <div class="blog-image">
           <img src="https://img.freepik.com/free-photo/young-man-checking-parcel-order_23-2148899397.jpg" alt="Delivery Updates">
           <div class="blog-date"><i class="fa-regular fa-calendar"></i> Aug 20, 2025</div>
@@ -186,7 +187,7 @@
         </div>
       </div>
 
-      <div class="blog-card" data-animate="bounceIn">
+      <div class="blog-card" data-aos="fade-in">
         <div class="blog-image">
           <img src="https://img.freepik.com/free-photo/customer-service-representative-office_23-2148738922.jpg" alt="Customer Support">
           <div class="blog-date"><i class="fa-regular fa-calendar"></i> Aug 24, 2025</div>
@@ -203,7 +204,7 @@
         </div>
       </div>
 
-      <div class="blog-card" data-animate="bounceIn">
+      <div class="blog-card" data-aos="fade-in">
         <div class="blog-image">
           <img src="https://img.freepik.com/free-photo/warehouse-manager-checking-inventory-with-tablet_23-2148829005.jpg" alt="Inventory Management">
           <div class="blog-date"><i class="fa-regular fa-calendar"></i> Aug 28, 2025</div>
@@ -224,7 +225,7 @@
 
 
 <!-- Discount Coupon Section -->
-<section class="discount-section" data-animate="bounceIn">
+<section class="discount-section" data-aos="fade-in">
   <div class="discount-content">
     <h2>GET <span>20% OFF</span> DISCOUNT COUPON</h2>
     <p>by subscribe our newsletter</p>
@@ -239,7 +240,7 @@
 </section>
 
 <footer class="footer">
-    <div class="footer-container" data-animate="bounceIn">
+    <div class="footer-container" data-aos="fade-in">
       
       <!-- Column 1: About -->
       <div class="footer-col">
@@ -642,6 +643,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   elements.forEach((el) => observer.observe(el));
 });
+</script>
+
+
+ <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true,
+    offset: 80
+  });
+
+  window.addEventListener('load', () => {
+    AOS.refresh();
+  });
 </script>
 
 

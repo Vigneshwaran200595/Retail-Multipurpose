@@ -6,6 +6,7 @@
   <title>Stackly Retail/Multipurpose</title>
   <link rel="stylesheet" href="faq.css" />
   <script src="https://cdn.tailwindcss.com"></script>
+   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -113,7 +114,7 @@
   <section class="faq-section">
     <div class="faq-container">
       <!-- Sidebar -->
-      <div class="faq-sidebar" data-animate="bounceInLeft">
+      <div class="faq-sidebar" data-aos="fade-in">
         <h3>Most Popular Questions</h3>
         <ul>
           <li>Managing Account</li>
@@ -131,7 +132,7 @@
       <!-- FAQ Content -->
       <div class="faq-content">
 
-        <div class="faq-item active" data-animate="bounceIn">
+        <div class="faq-item active" data-aos="fade-in">
           <div class="faq-question">
             <i class="fa-regular fa-circle-question"></i>
             <h4>Do I Need An Account To Place An Order ?</h4>
@@ -147,7 +148,7 @@
           </div>
         </div>
 
-        <div class="faq-item" data-animate="bounceIn">
+        <div class="faq-item" data-aos="fade-in">
           <div class="faq-question">
             <i class="fa-regular fa-circle-question"></i>
             <h4>What Payment Methods Do You Accept ?</h4>
@@ -162,7 +163,7 @@
           </div>
         </div>
 
-        <div class="faq-item" data-animate="bounceIn">
+        <div class="faq-item" data-aos="fade-in">
           <div class="faq-question">
             <i class="fa-regular fa-circle-question"></i>
             <h4>How Long Will Delivery Take ?</h4>
@@ -177,7 +178,7 @@
           </div>
         </div>
 
-        <div class="faq-item" data-animate="bounceIn">
+        <div class="faq-item" data-aos="fade-in">
           <div class="faq-question">
             <i class="fa-regular fa-circle-question"></i>
             <h4>Do You Have Discounts For Returning Customers ?</h4>
@@ -192,7 +193,7 @@
           </div>
         </div>
 
-        <div class="faq-item" data-animate="bounceIn">
+        <div class="faq-item" data-aos="fade-in">
           <div class="faq-question">
             <i class="fa-regular fa-circle-question"></i>
             <h4>How Can I Track My Order ?</h4>
@@ -207,14 +208,14 @@
           </div>
         </div>
 
-        <div class="faq-item" data-animate="bounceIn">
+        <div class="faq-item" data-aos="fade-in">
           <div class="faq-question">
             <i class="fa-regular fa-circle-question"></i>
             <h4>What Are The Product Refund Conditions ?</h4>
             <i class="fa-solid fa-chevron-up"></i>
             <i class="fa-solid fa-chevron-down"></i>
           </div>
-          <div class="faq-answer" data-animate="bounceIn">
+          <div class="faq-answer" data-aos="fade-in">
             <p>
               Refunds are applicable for unused products returned in original packaging within 7 days
               of delivery. Once inspected and approved, refunds are credited within 5–7 business days.
@@ -227,7 +228,7 @@
   </section>
 
 <footer class="footer">
-    <div class="footer-container" data-animate="bounceIn">
+    <div class="footer-container" data-aos="fade-in">
       
       <!-- Column 1: About -->
       <div class="footer-col">
@@ -605,6 +606,22 @@ document.addEventListener("DOMContentLoaded", () => {
   elements.forEach((el) => observer.observe(el));
 });
 </script>
+
+ <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true,
+    offset: 80
+  });
+
+  window.addEventListener('load', () => {
+    AOS.refresh();
+  });
+</script>
+
 
 </body>
 </html>

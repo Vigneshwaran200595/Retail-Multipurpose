@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stackly Retail/Multipurpose</title>
   <link rel="stylesheet" href="deal.css" />
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
@@ -95,13 +96,13 @@
 
  <section class="deals-wrapper">
     <!-- Deal of the Day -->
-    <div class="deal-container deal-day">
+    <div class="deal-container deal-day" data-aos="fade-in">
       <div class="deal-content">
         <h5 class="deal-subtitle">DEAL OF THE DAY</h5>
         <h2 class="deal-title">Grab the Hottest Offer Today</h2>
         <p class="deal-desc">Enjoy limited-time discounts on our best-selling products. Hurry before the clock runs out!</p>
 
-        <div class="deal-timer" id="day-timer" data-animate="bounceInUp">
+        <div class="deal-timer" id="day-timer" data-aos="fade-in">
           <div class="time-box"><h3 id="day-days">0</h3><span>DAYS</span></div>
           <div class="time-box"><h3 id="day-hours">0</h3><span>HOURS</span></div>
           <div class="time-box"><h3 id="day-minutes">0</h3><span>MINUTES</span></div>
@@ -111,7 +112,7 @@
         <a href="shop1.html" class="shop-btn">Shop Now →</a>
       </div>
 
-      <div class="deal-image" data-animate="bounceInRight">
+      <div class="deal-image" data-aos="fade-in">
         <span class="discount-badge">20% OFF</span>
         <img src="Images1/deal1.webp" alt="Deal">
         <h1 class="deal-watermark">DAY</h1>
@@ -119,13 +120,13 @@
     </div>
 
     <!-- Weekly Deal -->
-    <div class="deal-container deal-week" data-animate="bounceInLeft">
+    <div class="deal-container deal-week" data-aos="fade-in">
       <div class="deal-content">
         <h5 class="deal-subtitle">WEEKLY DEAL</h5>
         <h2 class="deal-title">Best Deal for This Week</h2>
         <p class="deal-desc">Each week, new offers await! Discover amazing prices on your favorite items.</p>
 
-        <div class="deal-timer" id="week-timer" data-animate="bounceInUp">
+        <div class="deal-timer" id="week-timer" data-aos="fade-in">
           <div class="time-box"><h3 id="week-days">0</h3><span>DAYS</span></div>
           <div class="time-box"><h3 id="week-hours">0</h3><span>HOURS</span></div>
           <div class="time-box"><h3 id="week-minutes">0</h3><span>MINUTES</span></div>
@@ -135,7 +136,7 @@
         <a href="shop1.html" class="shop-btn">Shop Now →</a>
       </div>
 
-      <div class="deal-image" data-animate="bounceInRight">
+      <div class="deal-image" data-aos="fade-in">
         <span class="discount-badge">35% OFF</span>
         <img src="Images1/deal2.webp" alt="Deal">
         <h1 class="deal-watermark">WEEK</h1>
@@ -144,12 +145,12 @@
 
     <!-- Monthly Deal -->
     <div class="deal-container deal-month">
-      <div class="deal-content" data-animate="bounceInLeft">
+      <div class="deal-content" data-aos="fade-in">
         <h5 class="deal-subtitle">MONTHLY DEAL</h5>
         <h2 class="deal-title">Special Offers Every Month</h2>
         <p class="deal-desc">Don’t miss out on our exclusive monthly discounts and seasonal favorites!</p>
 
-        <div class="deal-timer" id="month-timer" data-animate="bounceInUp">
+        <div class="deal-timer" id="month-timer" data-aos="fade-in">
           <div class="time-box"><h3 id="month-days">0</h3><span>DAYS</span></div>
           <div class="time-box"><h3 id="month-hours">0</h3><span>HOURS</span></div>
           <div class="time-box"><h3 id="month-minutes">0</h3><span>MINUTES</span></div>
@@ -159,7 +160,7 @@
         <a href="shop1.html" class="shop-btn">Shop Now →</a>
       </div>
 
-      <div class="deal-image" data-animate="bounceInRight">
+      <div class="deal-image" data-aos="fade-in">
         <span class="discount-badge">50% OFF</span>
         <img src="Images1/deal3.webp" alt="Deal">
         <h1 class="deal-watermark">MONTH</h1>
@@ -167,7 +168,7 @@
     </div>
   </section>
 
-  <section class="feature-strip" data-animate="bounceIn">
+  <section class="feature-strip" data-aos="fade-in">
   <div class="feature-container">
 
     <div class="feature-item">
@@ -219,7 +220,7 @@
 </section>
 
 
-<footer class="footer-section" data-animate="bounceIn">
+<footer class="footer-section" data-aos="fade-in">
   <div class="footer-overlay">
     <div class="footer-container">
       <!-- Column 1: Logo & Contact -->
@@ -647,6 +648,20 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
+ <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true,
+    offset: 80
+  });
+
+  window.addEventListener('load', () => {
+    AOS.refresh();
+  });
+</script>
 
   </body>
 </html>

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stackly Retail/Multipurpose</title>
   <link rel="stylesheet" href="features.css" />
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
@@ -98,7 +99,7 @@
 
   <!-- 🌟 Retail Shop Features Section -->
   <section class="features-section">
-    <div class="features-header" data-animate="bounceInUp">
+    <div class="features-header" data-aos="fade-in">
       <h2><span>Our</span> Retail Shop Features</h2>
       <p>Discover the powerful features that make shopping with us a seamless and stylish experience.</p>
     </div>
@@ -106,7 +107,7 @@
     <div class="features-grid">
 
       <!-- Feature 1 -->
-      <div class="feature-box" data-animate="bounceIn">
+      <div class="feature-box" data-aos="fade-in">
         <div class="feature-icon">
           <i class="fa-solid fa-truck-fast"></i>
         </div>
@@ -115,7 +116,7 @@
       </div>
 
       <!-- Feature 2 -->
-      <div class="feature-box" data-animate="bounceIn">
+      <div class="feature-box" data-aos="fade-in">
         <div class="feature-icon">
           <i class="fa-solid fa-credit-card"></i>
         </div>
@@ -124,7 +125,7 @@
       </div>
 
       <!-- Feature 3 -->
-      <div class="feature-box" data-animate="bounceIn">
+      <div class="feature-box" data-aos="fade-in">
         <div class="feature-icon">
           <i class="fa-solid fa-rotate-right"></i>
         </div>
@@ -133,7 +134,7 @@
       </div>
 
       <!-- Feature 4 -->
-      <div class="feature-box" data-animate="bounceIn">
+      <div class="feature-box" data-aos="fade-in">
         <div class="feature-icon">
           <i class="fa-solid fa-headset"></i>
         </div>
@@ -149,12 +150,12 @@
     <div class="retail-container">
 
       <!-- Left Image -->
-      <div class="retail-image" data-animate="bounceInLeft">
+      <div class="retail-image" data-aos="fade-in">
         <img src="Images1/feature.webp" alt="Retail Features">
       </div>
 
       <!-- Right Content -->
-      <div class="retail-content" data-animate="bounceInRight">
+      <div class="retail-content" data-aos="fade-in">
         <h2><span>Modern</span> Retail Features</h2>
         <p>
           Discover a seamless retail experience designed with smart technology, 
@@ -193,7 +194,7 @@
     </div>
   </section> <!-- ✅ Properly closed retail-section -->
 
-  <section class="feature-strip" data-animate="bounceIn">
+  <section class="feature-strip" data-aos="fade-in">
   <div class="feature-container">
 
     <div class="feature-item1">
@@ -246,7 +247,7 @@
 
 
   <!-- ✅ Footer Section -->
-<footer class="footer-section" data-animate="bounceIn">
+<footer class="footer-section" data-aos="fade-in">
   <div class="footer-overlay">
     <div class="footer-container">
       <!-- Column 1: Logo & Contact -->
@@ -635,6 +636,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   elements.forEach((el) => observer.observe(el));
 });
+</script>
+
+ <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true,
+    offset: 80
+  });
+
+  window.addEventListener('load', () => {
+    AOS.refresh();
+  });
 </script>
 
 </body>

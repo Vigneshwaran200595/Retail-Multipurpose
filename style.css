@@ -224,6 +224,7 @@ body {
 }
 
 
+
 /* ===== DARK MODE ===== */
 body.dark-mode {
   background-color: #121212;
@@ -290,10 +291,10 @@ body.dark-mode .dark-mode-toggle i {
 }
 
 /* ✅ 2. Medium Devices (421px–600px) */
-@media (min-width: 421px) and (max-width: 600px) {
+@media (min-width: 375px) and (max-width: 600px) {
   .dark-mode-toggle {
     position: absolute;
-    top: 12px;       /* slightly higher */
+    top: 60px;       /* slightly higher */
     right: 100px;     /* more centered for medium phones */
     z-index: 999;
   }
@@ -1241,180 +1242,116 @@ body.dark-mode .hero .hero-video {
   }
 }
 
-    /* Title with underline */
- .section-title {
+/* SECTION */
+.category-section {
+  padding: 60px 20px;
+}
+
+/* TITLE */
+.section-title {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #1a1a1a;
-  position: relative;
-  display: inline-block;
   margin-bottom: 40px;
-  margin-left: 10px; /* small offset from left edge */
+  position: relative;
 }
 
-    .section-title::after {
-      content: "";
-      display: block;
-      width: 70px;
-      height: 3px;
-      background: #33b2ff;
-      border-radius: 2px;
-    }
-
-    /* Grid layout */
-    .categories {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-      justify-content: center;
-    }
-
-    /* Category Card */
-    .category-card {
-      position: relative;
-      background: linear-gradient(135deg, #eaf6ff 0%, #baf0ff 100%);
-      border-radius: 45% 55% 55% 45% / 55% 55% 55% 55%;
-      padding: 22px 10px;
-      border: 2px solid transparent;
-      transition: all 0.4s ease;
-      overflow: hidden;
-      cursor: pointer;
-    }
-
-    /* White arc (inner half-circle) */
-    .category-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 55%;
-      height: 100%;
-      background: #fff;
-      border-radius: 100% 0 0 100% / 60% 0 0 60%;
-      transition: all 0.4s ease;
-    }
-
-    /* Icon */
-    .icon {
-      font-size: 1.6rem;
-      color: #33b2ff;
-      position: relative;
-      z-index: 2;
-      margin-bottom: 8px;
-    }
-
-    /* Text */
-    .category-card h3 {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: #333;
-      position: relative;
-      z-index: 2;
-      margin-bottom: 5px;
-    }
-
-    .category-card p {
-      font-size: 0.75rem;
-      color: #33b2ff;
-      position: relative;
-      z-index: 2;
-    }
-
-    /* Hover Effects */
-    .category-card:hover {
-      border-color: #33b2ff;
-      transform: translateY(-5px);
-      box-shadow: 0 6px 14px rgba(51, 178, 255, 0.25);
-    }
-
-    .category-card:hover::before {
-      transform: translateX(6px);
-    }
-
-
-    /* ===== DARK MODE FOR CATEGORY SECTION ===== */
-body.dark-mode .section-title {
-  color: #f1f1f1;
+.section-title::after {
+  content: "";
+  width: 60px;
+  height: 3px;
+  background: #33b2ff;
+  display: block;
+  margin-top: 8px;
+  border-radius: 2px;
 }
 
-body.dark-mode .section-title::after {
-  background: #66b3ff;
+/* GRID */
+.categories {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 22px;
+  max-width: 1200px;
+  margin: auto;
 }
 
-body.dark-mode .categories {
-  background: transparent;
+/* CARD */
+.category-card {
+  background: #ffffff;
+  border: 1.5px solid #e5e5e5;   /* light border */
+  border-radius: 14px;
+  padding: 28px 18px;
+  text-align: center;
+  transition: all 0.35s ease;
+  text-decoration: none;
 }
 
+/* ICON */
+.category-card .icon {
+  font-size: 1.9rem;
+  color: #33b2ff;
+  margin-bottom: 12px;
+}
+
+/* TEXT */
+.category-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 6px;
+}
+
+.category-card p {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+/* HOVER EFFECT */
+.category-card:hover {
+  border: 3px solid #33b2ff;   /* thick border */
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(51, 178, 255, 0.25);
+}
+
+/* DARK MODE */
 body.dark-mode .category-card {
-  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+  background: #1e1e1e;
   border-color: #333;
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.05);
-}
-
-body.dark-mode .category-card::before {
-  background: #2d2d2d;
-}
-
-body.dark-mode .icon {
-  color: #66b3ff;
 }
 
 body.dark-mode .category-card h3 {
-  color: #e5e5e5;
+  color: #f1f1f1;
 }
 
 body.dark-mode .category-card p {
-  color: #99d6ff;
+  color: #aaa;
 }
 
 body.dark-mode .category-card:hover {
   border-color: #66b3ff;
-  box-shadow: 0 6px 14px rgba(102, 179, 255, 0.25);
+  box-shadow: 0 12px 28px rgba(102, 179, 255, 0.25);
 }
 
-body.dark-mode .category-card:hover::before {
-  background: #333;
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+  .categories { grid-template-columns: repeat(4, 1fr); }
 }
 
+@media (max-width: 768px) {
+  .categories { grid-template-columns: repeat(3, 1fr); }
+}
 
-    /* Responsive adjustments */
-    @media (max-width: 1200px) {
-      .categories {
-        grid-template-columns: repeat(5, 1fr);
-      }
-    }
+@media (max-width: 480px) {
+  .categories { grid-template-columns: repeat(2, 1fr); }
 
-    @media (max-width: 992px) {
-      .categories {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    @media (max-width: 768px) {
-      .categories {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    @media (max-width: 480px) {
-      .categories {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      
   .section-title {
-    font-size: 1.3rem;
     text-align: center;
-    margin: 0 auto 25px;
-    display: block;
   }
 
   .section-title::after {
-    margin: 6px auto 0;
+    margin: 8px auto 0;
   }
-    }
+}
+
 
 
      .sale-section {
@@ -3268,239 +3205,223 @@ body.dark-mode .gallery-grid img:hover {
   }
 }
 
-
-.feedback-section {
-  background: url('Images/testmonial.webp') no-repeat center center / cover;
-  padding: 80px 40px;
+/* SECTION */
+.testimonials {
+  padding: 90px 20px;
+  background: linear-gradient(180deg, #050b1e, #071a3a);
+  color: #fff;
   text-align: center;
-  overflow: hidden;
-  position: relative;
 }
 
-.feedback-subtitle {
+/* HEADER */
+.testimonials-header .tag {
   color: #33b2ff;
   letter-spacing: 2px;
-  font-size: 0.9rem;
-  margin-bottom: 10px;
-  text-transform: uppercase;
+  font-size: 14px;
 }
 
-.feedback-title {
-  color: #fff;
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 50px;
+.testimonials-header h2 {
+  font-size: 42px;
+  margin: 12px 0;
 }
 
-.feedback-title span {
-  color: #33b2ff;
+.testimonials-header p {
+  color: #b8c6ff;
+  max-width: 520px;
+  margin: 0 auto 60px;
 }
 
-.feedback-slider {
-  width: 100%;
+/* GRID */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* CARD */
+.testimonial-card {
+  position: relative;
+  background: rgba(255,255,255,0.04);
+  border-radius: 24px;
+  padding: 50px 30px;
   overflow: hidden;
-  position: relative;
-}
-
-.feedback-track {
-  display: flex;
-  transition: transform 1s ease-in-out;
-}
-
-.feedback-card {
-  background: #00245c;
-  border-radius: 25px;
-  margin: 0 15px;
-  padding: 25px;
-  width: 280px;
-  flex-shrink: 0;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  text-align: left;
-  position: relative;
-  color: #fff;
-}
-
-.feedback-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-.feedback-header img {
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  border: 2px solid #33b2ff;
-  margin-right: 12px;
-}
-
-.feedback-header h4 {
-  color: #fff;
-  font-weight: 600;
-  margin: 0;
-}
-
-.feedback-header p {
-  color: #33b2ff;
-  font-size: 0.85rem;
-  margin: 3px 0 0 0;
-}
-
-.feedback-text {
-  font-size: 0.9rem;
-  color: #d4d9f1;
-  line-height: 1.5;
-  min-height: 90px;
-  margin-bottom: 40px;
-}
-
-.feedback-stars {
-  color: #33b2ff;
-  font-size: 1.2rem;
-  position: absolute;
-  bottom: 20px;
-  left: 25px;
-}
-
-.feedback-quote {
-  position: absolute;
-  bottom: 15px;
-  right: 25px;
-  font-size: 4rem;
-  color: rgba(26, 166, 241, 0.906);
-  font-weight: bold;
-  line-height: 0.5;
-}
-
-.feedback-dots {
-  margin-top: 25px;
-}
-
-.feedback-dots .dot {
-  height: 10px;
-  width: 10px;
-  background-color: #33b2ff;
-  border-radius: 50%;
-  display: inline-block;
-  margin: 0 5px;
-  opacity: 0.4;
-  transition: opacity 0.3s;
-}
-
-.feedback-dots .dot.active {
-  opacity: 1;
-}
-
-@media (max-width: 768px) {
-  .feedback-card {
-    width: 240px;
-  }
-}
-
-
-.instagram-section {
-  text-align: center;
-  padding: 60px 20px;
-  background: #fff;
-}
-
-.instagram-section h2 {
-  font-size: 28px;
-  font-weight: 700;
-  color: #0d1b4c;
-  margin-bottom: 30px;
-}
-
-.instagram-section h2 span {
-  color: #33b2ff;
-}
-
-.instagram-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-.insta-item {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  border-radius: 20px;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.insta-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 20px;
   transition: transform 0.4s ease;
 }
 
-.insta-item:hover img {
-  transform: scale(1.05);
+.testimonial-card:hover {
+  transform: translateY(-8px);
 }
 
-.overlay {
+/* AVATAR */
+.avatar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.avatar img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid #33b2ff;
+}
+
+/* TEXT */
+.testimonial-card h4 {
+  margin: 10px 0 5px;
+  font-size: 18px;
+}
+
+.role {
+  color: #33b2ff;
+  font-size: 14px;
+}
+
+.text {
+  margin: 20px auto;
+  font-size: 15px;
+  color: #d6ddff;
+  line-height: 1.6;
+  max-width: 260px;
+}
+
+/* STARS */
+.stars {
+  color: #33b2ff;
+  font-size: 18px;
+}
+
+/* ===== OUTER MOVING BORDER ===== */
+.testimonial-card::before {
+  content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  border-radius: 20px;
+  border-radius: 24px;
+  padding: 2px;
+  background: linear-gradient(90deg, transparent, #33b2ff, transparent);
+  -webkit-mask: 
+    linear-gradient(#000 0 0) content-box, 
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: borderMove 4s linear infinite;
 }
 
-.insta-item:hover .overlay {
-  opacity: 1;
+@keyframes borderMove {
+  0% { background-position: 0% }
+  100% { background-position: 200% }
 }
 
-.overlay i {
-  font-size: 40px;
-  color: #33b2ff;
+/* ===== 4-CORNER SLIDING HOVER ===== */
+.corner {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: #33b2ff;
+  transition: 0.4s;
 }
 
+.tl { top: -30px; left: -30px; }
+.tr { top: -30px; right: -30px; }
+.bl { bottom: -30px; left: -30px; }
+.br { bottom: -30px; right: -30px; }
 
-/* === Dark Mode for Instagram Section === */
-body.dark-mode .instagram-section {
-  background: #0d1b2a;
-  color: #e0e6f1;
+.testimonial-card:hover .tl { top: 0; left: 0; }
+.testimonial-card:hover .tr { top: 0; right: 0; }
+.testimonial-card:hover .bl { bottom: 0; left: 0; }
+.testimonial-card:hover .br { bottom: 0; right: 0; }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
-body.dark-mode .instagram-section h2 {
-  color: #ffffff;
+/* ===== SECTION ===== */
+.instagram-section{
+  padding:90px 20px;
+  background:#f7f9fc;
+  text-align:center;
+  overflow:hidden;
 }
 
-body.dark-mode .instagram-section h2 span {
-  color: #33b2ff;
+.instagram-section h2{
+  font-size:32px;
+  color:#1b1f3b;
+}
+.instagram-section span{ color:#33b2ff; }
+
+.instagram-desc{
+  max-width:600px;
+  margin:10px auto 50px;
+  color:#555;
 }
 
-body.dark-mode .insta-item {
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+/* ===== SLIDER WRAPPER ===== */
+.insta-wrapper{
+  width:100%;
+  overflow:hidden;
+  position:relative;
 }
 
-body.dark-mode .insta-item img {
-  filter: brightness(0.85);
-  border-radius: 20px;
+/* ===== ROW ===== */
+.insta-row{
+  display:flex;
+  gap:30px;
+  align-items:center;
+  transition:transform 0.8s ease;
 }
 
-body.dark-mode .insta-item:hover img {
-  filter: brightness(1);
+/* ===== IMAGE ITEM ===== */
+.insta-item{
+  width:220px;
+  height:220px;
+  border-radius:22px;
+  overflow:hidden;
+  flex-shrink:0;
+  border:3px solid #33b2ff;
+  background:#fff;
+  transition:all 0.6s ease;
 }
 
-body.dark-mode .overlay {
-  background: rgba(255, 255, 255, 0.08);
+.insta-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
-body.dark-mode .overlay i {
-  color: #33b2ff;
+/* ===== CENTER IMAGE ===== */
+.insta-item.is-center{
+  width:300px;
+  height:300px;
+  box-shadow:0 18px 45px rgba(51,178,255,0.35);
 }
 
+/* ===== BUTTON ===== */
+.instagram-btn{
+  display:inline-block;
+  margin-top:55px;
+  padding:14px 36px;
+  border-radius:40px;
+  background:linear-gradient(135deg,#33b2ff,#1e90ff);
+  color:#fff;
+  font-weight:600;
+  text-decoration:none;
+  transition:0.35s;
+}
+.instagram-btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 20px 45px rgba(51,178,255,0.45);
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+  .insta-item{ width:160px; height:160px; }
+  .insta-item.is-center{ width:220px; height:220px; }
+}
 
 
 /* Discount Section */
@@ -3640,86 +3561,277 @@ body.dark-mode .overlay i {
     padding: 10px 12px;
   }
 }
-
-
-/* Instagram Section */
-.instagram-section {
-  text-align: center;
-  padding: 60px 20px;
-  background: #fff;
+.insta-hover img {
+  width: 48px;          /* 🔒 fixed size */
+  height: 48px;
+  max-width: 48px;
+  max-height: 48px;
+  object-fit: contain;
+  transform: scale(1);
 }
 
-.instagram-section h2 {
-  font-size: 28px;
-  font-weight: 700;
-  color: #0d1b4c;
-  margin-bottom: 30px;
-}
-
-.instagram-section h2 span {
-  color: #33b2ff;
-}
-
-.instagram-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-.insta-item {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  border-radius: 20px;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.insta-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-  border-radius: 20px;
-}
-
-.insta-item:hover img {
+/* Optional small zoom on hover */
+.insta-card:hover .insta-hover img {
   transform: scale(1.05);
 }
 
-.overlay {
+
+body.dark-mode .instagram-section {
+  background: #0b1220;
+}
+
+/* Heading */
+body.dark-mode .instagram-section h2 {
+  color: #e8ecff;
+}
+
+body.dark-mode .instagram-section span {
+  color: #4db5ff;
+}
+
+/* Description */
+body.dark-mode .instagram-desc {
+  color: #aab0d6;
+}
+
+/* ================= CARD ================= */
+body.dark-mode .insta-card {
+  background: #10182f;
+  border: 3px solid #4db5ff;
+}
+
+/* Big Card Glow */
+body.dark-mode .insta-card.big {
+  box-shadow: 0 20px 60px rgba(77,181,255,0.4);
+}
+
+/* Image Hover Zoom */
+body.dark-mode .insta-card:hover img {
+  transform: scale(1.12);
+}
+
+/* ================= HOVER OVERLAY ================= */
+body.dark-mode .insta-hover {
+  background: rgba(5, 10, 30, 0.85);
+}
+
+body.dark-mode .insta-hover i {
+  color: #4db5ff;
+}
+
+/* ================= BORDER ANIMATION ================= */
+body.dark-mode .insta-card::after {
+  border-right: 3px solid #4db5ff;
+  border-bottom: 3px solid #4db5ff;
+}
+
+/* ================= INSTAGRAM SECTION ================= */
+.instagram-section {
+  padding: 90px 20px;
+  text-align: center;
+  background: #f7f9fc;
+  overflow: hidden;
+}
+
+.instagram-section h2 {
+  font-size: 32px;
+  color: #1b1f3b;
+  margin-bottom: 10px;
+}
+
+.instagram-section span {
+  color: #33b2ff;
+}
+
+.instagram-desc {
+  max-width: 600px;
+  margin: 0 auto 50px;
+  font-size: 16px;
+  color: #555;
+}
+
+/* ================= WRAPPER ================= */
+.insta-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ================= TRACK ================= */
+.insta-track {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  animation: instaScroll 22s linear infinite;
+}
+
+/* ================= CARD ================= */
+.insta-card {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #fff;
+  border: 3px solid #33b2ff;
+  flex-shrink: 0;
+  transition: transform 0.5s ease;
+}
+
+/* CENTER BIG IMAGES */
+.insta-card.big {
+  width: 300px;
+  height: 300px;
+  box-shadow: 0 20px 50px rgba(51,178,255,0.35);
+}
+
+/* IMAGE */
+.insta-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.insta-card:hover img {
+  transform: scale(1.1);
+}
+
+/* ================= HOVER OVERLAY ================= */
+.insta-hover {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  color: #fff;
+  background: rgba(13, 27, 76, 0.75);
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transition: opacity 0.4s ease;
-  border-radius: 20px;
+  transition: 0.4s ease;
 }
 
-.insta-item:hover .overlay {
-  opacity: 1;
-}
-
-.overlay i {
-  font-size: 40px;
+.insta-hover i {
+  font-size: 42px;
   color: #33b2ff;
 }
 
-/* Responsive */
+.insta-card:hover .insta-hover {
+  opacity: 1;
+}
+
+/* ================= RIGHT + BOTTOM BORDER ================= */
+.insta-card::after {
+  content: "";
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 0;
+  height: 0;
+  border-right: 3px solid #33b2ff;
+  border-bottom: 3px solid #33b2ff;
+  transition: all 0.4s ease;
+  opacity: 0;
+}
+
+.insta-card:hover::after {
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  opacity: 1;
+}
+
+/* ================= BUTTON ================= */
+.instagram-btn {
+  display: inline-block;
+  margin-top: 60px;
+  padding: 14px 36px;
+  background: linear-gradient(135deg,#33b2ff,#1e90ff);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 40px;
+  font-weight: 600;
+  box-shadow: 0 12px 30px rgba(51,178,255,0.35);
+  transition: 0.35s;
+}
+
+.instagram-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(51,178,255,0.55);
+}
+
+/* ================= ANIMATION ================= */
+@keyframes instaScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ================= MOBILE (≤768px) ================= */
 @media (max-width: 768px) {
-  .insta-item {
-    width: 150px;
-    height: 150px;
+
+  .instagram-section {
+    padding: 60px 15px;
   }
-  .discount-section {
-    padding: 50px 15px;
+
+  .instagram-section h2 {
+    font-size: 24px;
+  }
+
+  .instagram-desc {
+    font-size: 14px;
+    margin-bottom: 35px;
+    padding: 0 10px;
+  }
+
+  /* Track spacing */
+  .insta-track {
+    gap: 16px;
+    animation-duration: 26s; /* smoother on mobile */
+  }
+
+  /* Cards */
+  .insta-card {
+    width: 160px;
+    height: 160px;
+    border-radius: 16px;
+    border-width: 2px;
+  }
+
+  .insta-card.big {
+    width: 210px;
+    height: 210px;
+  }
+
+  /* Hover icon / image */
+  .insta-hover i {
+    font-size: 30px;
+  }
+
+  /* Button */
+  .instagram-btn {
+    margin-top: 40px;
+    padding: 12px 28px;
+    font-size: 14px;
   }
 }
+
+@media (max-width: 480px) {
+
+  .instagram-section h2 {
+    font-size: 22px;
+  }
+
+  .insta-card {
+    width: 120px;
+    height: 120px;
+  }
+
+  .insta-card.big {
+    width: 140px;
+    height: 140px;
+  }
+
+  .insta-hover i {
+    font-size: 26px;
+  }
+}
+
 
 .footer {
   position: relative;
@@ -4292,55 +4404,3 @@ body.dark-mode .overlay i {
   align-self: flex-end;
 }
 
-
-/* Default hidden before scroll */
-[data-animate] {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease-out;
-}
-
-/* When visible */
-[data-animate].animate {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* 🔹 Bounce Animations */
-@keyframes bounceIn {
-  0% { opacity: 0; transform: scale(0.3); }
-  50% { opacity: 1; transform: scale(1.05); }
-  70% { transform: scale(0.9); }
-  100% { transform: scale(1); }
-}
-@keyframes bounceInUp {
-  0% { opacity: 0; transform: translateY(100px); }
-  60% { opacity: 1; transform: translateY(-20px); }
-  80% { transform: translateY(10px); }
-  100% { transform: translateY(0); }
-}
-@keyframes bounceInDown {
-  0% { opacity: 0; transform: translateY(-100px); }
-  60% { opacity: 1; transform: translateY(20px); }
-  80% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
-}
-@keyframes bounceInLeft {
-  0% { opacity: 0; transform: translateX(-120px); }
-  60% { opacity: 1; transform: translateX(25px); }
-  80% { transform: translateX(-10px); }
-  100% { transform: translateX(0); }
-}
-@keyframes bounceInRight {
-  0% { opacity: 0; transform: translateX(120px); }
-  60% { opacity: 1; transform: translateX(-25px); }
-  80% { transform: translateX(10px); }
-  100% { transform: translateX(0); }
-}
-
-/* Animation class applied dynamically */
-.animate.bounceIn     { animation: bounceIn 1.5s ease both; }
-.animate.bounceInUp   { animation: bounceInUp 1.5s ease both; }
-.animate.bounceInDown { animation: bounceInDown 1.5s ease both; }
-.animate.bounceInLeft { animation: bounceInLeft 1.5s ease both; }
-.animate.bounceInRight{ animation: bounceInRight 1.5s ease both; }

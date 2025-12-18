@@ -338,7 +338,7 @@ body {
     </a>
   </li>
 
-  <li>
+  <li class="active">
     <a href="suppliers.html">
       <i class="fa-solid fa-truck"></i> Suppliers
     </a>
@@ -350,7 +350,7 @@ body {
     </a>
   </li>
 
-  <li class="active">
+  <li>
     <a href="reports.html">
       <i class="fa-solid fa-file-invoice"></i> Reports
     </a>
@@ -375,7 +375,7 @@ body {
     </div>
 
     <div class="header-bottom">
-      <h2>Reports</h2>
+      <h2>Suppliers</h2>
       <div class="header-actions">
         <a href="index.html" class="home-btn">Home</a>
         <div class="profile-box">
@@ -388,57 +388,58 @@ body {
   </div>
 
 
-<!-- REPORTS METRICS -->
+<!-- SUPPLIER METRICS -->
 <div class="cards">
 
   <div class="card gradient-income">
-    <i class="fa-solid fa-chart-column card-icon"></i>
-    <h3>Total Reports</h3>
-    <div class="number">48</div>
+    <i class="fa-solid fa-truck-field card-icon"></i>
+    <h3>Total Suppliers</h3>
+    <div class="number">145</div>
   </div>
 
   <div class="card gradient-profit">
-    <i class="fa-solid fa-file-lines card-icon"></i>
-    <h3>Generated This Month</h3>
-    <div class="number">12</div>
+    <i class="fa-solid fa-handshake card-icon"></i>
+    <h3>Active Suppliers</h3>
+    <div class="number">118</div>
   </div>
 
   <div class="card gradient-expense">
-    <i class="fa-solid fa-clock-rotate-left card-icon"></i>
-    <h3>Scheduled Reports</h3>
-    <div class="number">9</div>
+    <i class="fa-solid fa-triangle-exclamation card-icon"></i>
+    <h3>Delayed Suppliers</h3>
+    <div class="number">19</div>
   </div>
 
   <div class="card gradient-invoice">
-    <i class="fa-solid fa-file-arrow-down card-icon"></i>
-    <h3>Downloads</h3>
-    <div class="number">324</div>
+    <i class="fa-solid fa-file-invoice-dollar card-icon"></i>
+    <h3>Pending Supplier Payments</h3>
+    <div class="number">₹3,40,000</div>
   </div>
 
 </div>
 
 
-<!-- REPORTS CHARTS -->
+
+<!-- SUPPLIER CHARTS -->
 <div class="chart-grid">
 
   <div class="chart-box">
-    <h3>Reports Generated Over Time</h3>
-    <canvas id="rep1"></canvas>
+    <h3>Supplier Growth</h3>
+    <canvas id="s1"></canvas>
   </div>
 
   <div class="chart-box">
-    <h3>Report Types Distribution</h3>
-    <canvas id="rep2"></canvas>
+    <h3>Supplier Status Distribution</h3>
+    <canvas id="s2"></canvas>
   </div>
 
   <div class="chart-box">
-    <h3>Monthly Report Downloads</h3>
-    <canvas id="rep3"></canvas>
+    <h3>On-Time vs Delayed Deliveries</h3>
+    <canvas id="s3"></canvas>
   </div>
 
   <div class="chart-box">
-    <h3>Most Viewed Reports</h3>
-    <canvas id="rep4"></canvas>
+    <h3>Suppliers by Category</h3>
+    <canvas id="s4"></canvas>
   </div>
 
 </div>
@@ -451,12 +452,14 @@ function toggleSidebar(){
 }
 overlay.onclick = toggleSidebar;
 
-new Chart(rep1, {
+/* ================= RETAIL CHARTS ================= */
+
+new Chart(s1, {
   type: "line",
   data: {
     labels: ["Jan","Feb","Mar","Apr","May","Jun"],
     datasets: [{
-      data: [6, 8, 7, 10, 9, 12],
+      data: [90, 98, 105, 120, 132, 145],
       borderColor: "#33b2ff",
       backgroundColor: "rgba(51,178,255,0.25)",
       fill: true,
@@ -466,54 +469,47 @@ new Chart(rep1, {
   options: { plugins: { legend: { display: false } } }
 });
 
-/* 2️⃣ Report Types Distribution */
-new Chart(rep2, {
+/* 2️⃣ Supplier Status Distribution */
+new Chart(s2, {
+  type: "doughnut",
+  data: {
+    labels: ["Active", "Inactive", "Blacklisted"],
+    datasets: [{
+      data: [118, 20, 7],
+      backgroundColor: ["#33b2ff", "#ffe36e", "#ff7675"]
+    }]
+  }
+});
+
+/* 3️⃣ Delivery Performance */
+new Chart(s3, {
+  type: "bar",
+  data: {
+    labels: ["On-Time", "Delayed"],
+    datasets: [{
+      data: [82, 18],
+      backgroundColor: ["#33b2ff", "#ff7675"]
+    }]
+  },
+  options: { plugins: { legend: { display: false } } }
+});
+
+/* 4️⃣ Suppliers by Category */
+new Chart(s4, {
   type: "pie",
   data: {
-    labels: ["Sales","Expenses","Inventory","Customers","Suppliers"],
+    labels: ["Electronics", "Groceries", "Clothing", "Logistics"],
     datasets: [{
-      data: [35, 25, 20, 10, 10],
+      data: [40, 30, 20, 10],
       backgroundColor: [
         "#33b2ff",
-        "#ff7675",
-        "#00b894",
+        "#00b8a9",
         "#6c5ce7",
         "#ffe36e"
       ]
     }]
   }
 });
-
-/* 3️⃣ Monthly Report Downloads */
-new Chart(rep3, {
-  type: "bar",
-  data: {
-    labels: ["Jan","Feb","Mar","Apr","May","Jun"],
-    datasets: [{
-      data: [40, 55, 50, 70, 60, 80],
-      backgroundColor: "#33b2ff"
-    }]
-  },
-  options: { plugins: { legend: { display: false } } }
-});
-
-/* 4️⃣ Most Viewed Reports */
-new Chart(rep4, {
-  type: "doughnut",
-  data: {
-    labels: ["Sales Summary","Expense Report","Stock Report","Customer Insights"],
-    datasets: [{
-      data: [45, 25, 20, 10],
-      backgroundColor: [
-        "#004d61",
-        "#33b2ff",
-        "#00b8a9",
-        "#ffe36e"
-      ]
-    }]
-  }
-});
-
 </script>
 
 </body>
